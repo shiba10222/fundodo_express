@@ -1,14 +1,16 @@
 //此檔案宣告 express 的 app，與集合眾路由
 import express from 'express';
 import cors from 'cors';
+import { logger } from "morgan";
 import { readdir } from "fs/promises";
 import { resolve } from 'path';
-import {pathToFileURL} from "url";
+import { pathToFileURL } from "url";
 
-//================== 初始化
+//================== 初始化 =======================//
 const app = express();
 
-//================== 設定 CORS
+//================== 中介軟體設定 ==================//
+//=== CORS
 let whitelist = ["http://127.0.0.1", "http://localhost:5500", "http://localhost:3000", undefined];
 let corsOptions = {
   credentials: true,
@@ -22,40 +24,38 @@ let corsOptions = {
 }
 app.use(cors(corsOptions));
 
-//================== 設置路由架構
-app.get('/', (req, res) => {
-  res.send('Hello, Express!');
+//=== morgan | 伺服器的使用紀錄
+app.use(logger('dev'));
+
+//================== 設置路由架構 ==================//
+//=== 路由之根
+app.get('/', (_, res) => {
+  res.status(301).json({
+    status: 'nothing here', message: '歡迎使用翻肚肚伺服器，請使用 api 路由以使用服務。'
+  });
 });
 
-
-//=== 讀取路由資料夾中的全部路由檔
+//=== 讀取 routes 資料夾中的全部路由檔
 const dirPath = resolve(import.meta.dirname, 'routes');
-// const routerFileNames = await readdir(dirPath);
+const routerFileNames = await readdir(dirPath)
 
-// for (let filename of routerFileNames) {
-//   const path = pathToFileURL(resolve(dirPath, filename));
-//   console.log(filename);
-//   console.log(path);
-  // const routeFile = await import(path);
-  // let slug = filename.split('.')[0];
-  // slug = (slug === 'index') ? '' : slug;
-
-  // app.use(`/api/${slug}`, routeFile.default);
-  // 將每個路由檔的 default export 引入並使用 app.use()  匯入路由
-
-  // console.log(`引入路由 ${slug}`);
-// }
-const filenames = await readdir(dirPath)
-
-for (const filename of filenames) {
+for (const filename of routerFileNames) {
   const filePath = pathToFileURL(resolve(dirPath, filename));
-  const item = await import(filePath);
-  const slug = filename.split('.')[0]
-  app.use(`/api/${slug === 'index' ? '' : slug}`, item.default)
+  //由於 import 的格式搖求，必須使用 url.pathToFileURL 路徑才能被讀到
+  const routeFile = await import(filePath);
+
+  let slug = filename.split('.')[0];
+  slug = (slug === 'index') ? '' : slug;
+
+  app.use(`/api/${slug}`, routeFile.default);
+  // .default 為將每個路由檔的 default export
 }
 
-app.all("*", (req, res) => {
-  res.send('Send Tree Pay: 404');
+//================== 沒有設定到的路由皆捕捉為 404
+app.all("*", (_, res) => {
+  res.status(404).json({
+    status: 'error', message: '您欲造訪的路由不存在'
+  });
 })
 
 //================== 匯出

@@ -2,9 +2,9 @@ import { resolve } from 'path';
 import readJson from '../read-json.mjs';
 import writeJson from '../write-json.mjs';
 
-const userPath = resolve(import.meta.dirname, '../json-user/users.json');
+const userPath = resolve(import.meta.dirname, '../user/users.json');
 const userList = await readJson(userPath);
-const prodPath = resolve(import.meta.dirname, '../json-prod/all-tables.json');
+const prodPath = resolve(import.meta.dirname, '../prod/all-tables.json');
 const prodPkg = await readJson(prodPath);
 
 const prodItemList = prodPkg.tables.prod_price_stock;
@@ -83,7 +83,7 @@ const shortAfter = time => {
 const geneTimeSeries = (t_ref, N) => {
   const t_1 = longAfter(t_ref);
 
-  if (N === 1) return t_1;
+  if (N === 1) return [getTimeStr(t_1)];
 
   const timeSeries = [t_1];
   for (let i = 1; i < N; i++) {

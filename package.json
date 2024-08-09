@@ -1,11 +1,12 @@
 {
   "name": "fundodo_express",
   "version": "1.0.0",
-  "main": "index.mjs",
+  "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.mjs dist",
-    "dev": "nodemon index.mjs dev"
+    "start": "node index.js dist",
+    "dev": "nodemon index.js dev"
   },
   "keywords": [],
   "author": "",
@@ -14,13 +15,14 @@
   "dependencies": {
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.30.1",
+    "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
     "mysql2": "^3.11.0",
-    "uuid": "^10.0.0",
-    "dotenv" :"^16.4.5"
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.4"

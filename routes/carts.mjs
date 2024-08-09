@@ -2,8 +2,6 @@ import { Router } from 'express';
 import multer from 'multer';
 import moment from 'moment';
 import jwt from 'jsonwebtoken';
-import { Low } from 'lowdb';
-import { JSONFile } from 'lowdb/node';
 import { v4 as uuid } from 'uuid';
 import { resolve } from "path";
 
@@ -17,16 +15,16 @@ const router = Router();
 const upload = multer();
 
 // 資料表
-const defaultDB = { users: [], products: [] };
-const path = resolve(import.meta.dirname, '../data/database.json')
-const DB = new Low(new JSONFile(path), defaultDB);
-await DB.read();
-if (envMode === 'dev') {
-  console.log("(users.mjs) json 資料筆數");
-  console.log('users: ', DB.data.users.length);
-  console.log('products: ', DB.data.products.length);
-  console.log('cart: ', DB.data.carts.length);
-}
+// const defaultDB = { users: [], products: [] };
+// const path = resolve(import.meta.dirname, '../data/database.json')
+// const DB = new Low(new JSONFile(path), defaultDB);
+// await DB.read();
+// if (envMode === 'dev') {
+//   console.log("(users.mjs) json 資料筆數");
+//   console.log('users: ', DB.data.users.length);
+//   console.log('products: ', DB.data.products.length);
+//   console.log('cart: ', DB.data.carts.length);
+// }
 //================================= 設置中介函數
 /**
  * 解析 TOKEN | 中介函數
@@ -73,9 +71,9 @@ const checkToken = (req, res, next) => {
 
 //======== 讀取全部 ==========//
 router.get('/', (req, res) => {
-  let result = DB.data.carts.slice(-30);
+  // let result = DB.data.carts.slice(-30);
 
-  if (!result) res.status(404).json({ status: "failed", message: "查無任何購物車資料" });
+  // if (!result) res.status(404).json({ status: "failed", message: "查無任何購物車資料" });
 
   res.status(200).send({ status: "success", message: '筆數過多不及備載，僅回傳最新的 30 筆', result });
 });
@@ -86,12 +84,12 @@ router.get('/', (req, res) => {
 router.get('/prod', (req, res) => {
   const pnum = Number(req.query.pnum);
 
-  let result = DB.data.carts.filter(item => item.prod_item_id === pnum);
+  // let result = DB.data.carts.filter(item => item.prod_item_id === pnum);
 
-  if (!result) {
-    res.status(404).json({ status: "failed", message: `查無型號 ${pnum} 商品品項之購物車資料` });
-    return;
-  }
+  // if (!result) {
+  //   res.status(404).json({ status: "failed", message: `查無型號 ${pnum} 商品品項之購物車資料` });
+  //   return;
+  // }
 
   res.status(200).json({ status: "success", message: "查詢成功", result });
 });
@@ -100,37 +98,37 @@ router.get('/prod', (req, res) => {
 //* test uid = 58
 router.get('/:uid', (req, res) => {
   const uid = Number(req.params.uid);
-  let cartData = DB.data.carts.filter(item => item.user_id === uid);
-  if (cartData.length === 0) {
-    res.status(404).json({ status: "failed", message: `查無 ID ${uid} 用戶之購物車資料` });
-    return;
-  }
+  // let cartData = DB.data.carts.filter(item => item.user_id === uid);
+  // if (cartData.length === 0) {
+  //   res.status(404).json({ status: "failed", message: `查無 ID ${uid} 用戶之購物車資料` });
+  //   return;
+  // }
 
-  const cartResult = cartData.map(item => {
-    const priceStockObj = DB.data.prod_price_stock.find(d => d.id == item.prod_item_id);
-    //====
-    const sortObj = priceStockObj.sort_id ? DB.data.pr_sort.find(d => d.id == priceStockObj.sort_id) : null;
-    const sort_name = sortObj ? sortObj.name : null;
-    //====
-    const specObj = priceStockObj.spec_id ? DB.data.pr_spec.find(d => d.id == priceStockObj.spec_id) : null;
-    const spec_name = specObj ? specObj.name : null;
-    //====
-    const price = Number(priceStockObj.price);
+  // const cartResult = cartData.map(item => {
+  //   const priceStockObj = DB.data.prod_price_stock.find(d => d.id == item.prod_item_id);
+  //   //====
+  //   const sortObj = priceStockObj.sort_id ? DB.data.pr_sort.find(d => d.id == priceStockObj.sort_id) : null;
+  //   const sort_name = sortObj ? sortObj.name : null;
+  //   //====
+  //   const specObj = priceStockObj.spec_id ? DB.data.pr_spec.find(d => d.id == priceStockObj.spec_id) : null;
+  //   const spec_name = specObj ? specObj.name : null;
+  //   //====
+  //   const price = Number(priceStockObj.price);
 
-    const prodObj = DB.data.products.find(d => d.id == priceStockObj.prod_id);
+  //   const prodObj = DB.data.products.find(d => d.id == priceStockObj.prod_id);
 
-    return ({
-      key: item.prod_item_id,
-      name: prodObj.name,
-      pic_path: "PR" + priceStockObj.prod_id.padStart(9, '0') + "1.jpg",
-      sort_name,
-      spec_name,
-      price,
-      qty: item.qty,
-      created_at:item.created_at,
-      isOutOfStock: priceStockObj.stock == 0
-    });
-  });
+  //   return ({
+  //     key: item.prod_item_id,
+  //     name: prodObj.name,
+  //     pic_path: "PR" + priceStockObj.prod_id.padStart(9, '0') + "1.jpg",
+  //     sort_name,
+  //     spec_name,
+  //     price,
+  //     qty: item.qty,
+  //     created_at:item.created_at,
+  //     isOutOfStock: priceStockObj.stock == 0
+  //   });
+  // });
   res.status(200).json({ status: "success", message: "查詢成功", result: cartResult });
 });
 
@@ -146,58 +144,59 @@ router.post('', upload.none(), async (req, res) => {
     dob,
     address
   } = req.body;
-  DB.data.users.push({
-    id,
-    name,
-    account,
-    password,
-    email,
-    telephone,
-    dob,
-    address
-  })
-  await DB.write();
+  // DB.data.users.push({
+  //   id,
+  //   name,
+  //   account,
+  //   password,
+  //   email,
+  //   telephone,
+  //   dob,
+  //   address
+  // })
+  // await DB.write();
   res.status(201).json({ status: "success", message: "註冊成功", id });
 });
 
 //======== 更新 ==========//
 router.put('/:id', upload.none(), async (req, res) => {
-  const id = req.params.id;
-  const user = DB.data.users.find(u => u.id === id);
+  let user;//todo: remove this
+  // const id = req.params.id;
+  // const user = DB.data.users.find(u => u.id === id);
   if (!user) {
     res.status(404).json({ status: "failed", message: "查無此使用者，請檢查輸入的 ID 是否有誤" });
     return;
   }
   // 將修改後的資料更新到 user
-  console.log(req.body);
-  const {
-    account,
-    password,
-    name,
-    email,
-    telephone,
-    dob,
-    address,
-  } = req.body;
-  const newData = {
-    account,
-    password,
-    name,
-    email,
-    telephone,
-    dob,
-    address,
-  };
-  // console.log(newData);
-  DB.data.users = DB.data.users.map(
-    u => (u.id === id) ? { ...u, ...newData } : u
-  );
-  await DB.write();
-  res.status(200).json({
-    status: "success",
-    message: "更新成功",
-    result: req.body
-  });
+  // console.log(req.body);
+  // const {
+  //   account,
+  //   password,
+  //   name,
+  //   email,
+  //   telephone,
+  //   dob,
+  //   address,
+  // } = req.body;
+  // const newData = {
+  //   account,
+  //   password,
+  //   name,
+  //   email,
+  //   telephone,
+  //   dob,
+  //   address,
+  // };
+  // // console.log(newData);
+  // DB.data.users = DB.data.users.map(
+  //   u => (u.id === id) ? { ...u, ...newData } : u
+  // );
+  // await DB.write();
+  // res.status(200).json({
+  //   status: "success",
+  //   message: "更新成功",
+  //   result: req.body
+  // });
 });
 
 router.patch('/:id', upload.none(), (req, res) => {
@@ -208,22 +207,23 @@ router.patch('/:id', upload.none(), (req, res) => {
 
 //======== 刪除 ==========//
 router.delete('/:id', upload.none(), async (req, res) => {
+  let user;//todo: remove this
   const id = req.params.id;
-  const user = DB.data.users.find(u => u.id === id);
+  // const user = DB.data.users.find(u => u.id === id);
   if (!user) {
     res.status(404).json({ status: "failed", message: "查無此使用者，請檢查輸入的 ID 是否有誤" });
     return;
   }
   //使用軟刪除，設定 deleteTime
-  DB.data.users = DB.data.users.map(
-    u => (u.id === id) ? { ...u, deleteTime: Date.now() } : u
-  );
-  await DB.write();
-  res.status(200).json({
-    status: "success",
-    message: "刪除成功",
-    result: req.body
-  });
+  // DB.data.users = DB.data.users.map(
+  //   u => (u.id === id) ? { ...u, deleteTime: Date.now() } : u
+  // );
+  // await DB.write();
+  // res.status(200).json({
+  //   status: "success",
+  //   message: "刪除成功",
+  //   result: req.body
+  // });
 });
 
 //======== handle 404

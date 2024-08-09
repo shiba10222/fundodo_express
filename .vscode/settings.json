@@ -1,0 +1,37 @@
+{
+  "workbench.colorCustomizations": {
+    //============ 上方 =============//
+    // "titleBar.inactiveBackground": "#c2ae81",
+    "titleBar.inactiveForeground": "#2b1f1a",
+    "titleBar.activeBackground": "#f4d284",
+    "titleBar.activeForeground": "#49352c",
+    //============ 分頁 =============//
+    "tab.inactiveForeground": "#CEBFB8",
+    "tab.unfocusedInactiveForeground": "#C0ACA3",
+    "tab.activeBackground": "#49352c",
+    "tab.unfocusedActiveBackground": "#37312E",
+    "tab.hoverBackground": "#423832",
+    "tab.activeBorder": "#f4d284",
+    //============ 側邊 =============//
+    "activityBar.background": "#f4d284",
+    "activityBar.foreground": "#2b1f1a",
+    "activityBar.inactiveForeground": "#b2995e",
+    "activityBar.activeBackground": "#caad68",
+    "activityBarBadge.background": "#49352c",
+    "activityBarBadge.foreground": "#fff",
+    //============ 下方 =============//
+    "statusBar.background": "#37312E" /*下方狀態欄背景*/,
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.configPath": ".prettierrc.json",
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"],
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "editor.unicodeHighlight.allowedLocales": {
+    "zh-hans": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  }
+  
+}

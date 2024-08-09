@@ -1,7 +1,5 @@
--- 組合名稱： 台灣郵遞區號
--- 簡介： 台灣北中南東區域表、縣市表、郵遞區號表
--- 伺服器版本： 10.4.32-MariaDB
--- PHP 版本： 8.2.20
+-- 資料表標題：台灣郵遞區號
+-- 簡介：台灣北中南東區域表、縣市表、郵遞區號表
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -13,9 +11,6 @@ SET time_zone = "+08:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
---
--- 資料庫： `temporary`
---
 
 -- --------------------------------------------------------
 
@@ -23,7 +18,7 @@ SET time_zone = "+08:00";
 -- 資料表結構 `tw_areas`
 --
 
-CREATE TABLE `tw_areas` (
+CREATE TABLE IF NOT EXISTS `tw_areas` (
   `id` tinyint(1) UNSIGNED NOT NULL,
   `name` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

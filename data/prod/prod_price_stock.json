@@ -1,0 +1,9218 @@
+[
+  {
+      "id": "1",
+      "prod_id": "1",
+      "price": "250",
+      "stock": "43",
+      "sortname": "牛肉",
+      "specname": "390g/罐",
+      "price_sp": null
+  },
+  {
+      "id": "2",
+      "prod_id": "1",
+      "price": "250",
+      "stock": "2",
+      "sortname": "羊肉",
+      "specname": "390g/罐",
+      "price_sp": null
+  },
+  {
+      "id": "3",
+      "prod_id": "1",
+      "price": "250",
+      "stock": "306",
+      "sortname": "放牧雞肉",
+      "specname": "390g/罐",
+      "price_sp": 240
+  },
+  {
+      "id": "4",
+      "prod_id": "1",
+      "price": "250",
+      "stock": "123",
+      "sortname": "羊肚羊肉",
+      "specname": "390g/罐",
+      "price_sp": null
+  },
+  {
+      "id": "5",
+      "prod_id": "1",
+      "price": "250",
+      "stock": "0",
+      "sortname": "鯖魚羊肉",
+      "specname": "390g/罐",
+      "price_sp": 200
+  },
+  {
+      "id": "6",
+      "prod_id": "1",
+      "price": "315",
+      "stock": "36",
+      "sortname": "鹿肉",
+      "specname": "390g/罐",
+      "price_sp": null
+  },
+  {
+      "id": "7",
+      "prod_id": "2",
+      "price": "350",
+      "stock": "3",
+      "sortname": "項圈",
+      "specname": "小型犬 (37cm)",
+      "price_sp": null
+  },
+  {
+      "id": "8",
+      "prod_id": "2",
+      "price": "350",
+      "stock": "64",
+      "sortname": "項圈",
+      "specname": "中型犬 (50cm)",
+      "price_sp": null
+  },
+  {
+      "id": "9",
+      "prod_id": "2",
+      "price": "380",
+      "stock": "754",
+      "sortname": "項圈",
+      "specname": "大型犬 (63cm)",
+      "price_sp": null
+  },
+  {
+      "id": "10",
+      "prod_id": "3",
+      "price": "1290",
+      "stock": "55",
+      "sortname": "牛乳棕",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "11",
+      "prod_id": "4",
+      "price": "290",
+      "stock": "35",
+      "sortname": "夾心餅乾",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "12",
+      "prod_id": "5",
+      "price": "1190",
+      "stock": "4",
+      "sortname": null,
+      "specname": "2kg",
+      "price_sp": null
+  },
+  {
+      "id": "13",
+      "prod_id": "6",
+      "price": "110",
+      "stock": "302",
+      "sortname": "沙丁魚+鱈魚",
+      "specname": "100g",
+      "price_sp": 100
+  },
+  {
+      "id": "14",
+      "prod_id": "6",
+      "price": "1152",
+      "stock": "43",
+      "sortname": "沙丁魚+鱈魚",
+      "specname": "1.5kg",
+      "price_sp": null
+  },
+  {
+      "id": "15",
+      "prod_id": "7",
+      "price": "78",
+      "stock": "6",
+      "sortname": "健美火雞",
+      "specname": "1入",
+      "price_sp": null
+  },
+  {
+      "id": "16",
+      "prod_id": "7",
+      "price": "936",
+      "stock": "4",
+      "sortname": "健美火雞",
+      "specname": "12入",
+      "price_sp": null
+  },
+  {
+      "id": "17",
+      "prod_id": "7",
+      "price": "78",
+      "stock": "4",
+      "sortname": "元氣牛肉",
+      "specname": "1入",
+      "price_sp": 63
+  },
+  {
+      "id": "18",
+      "prod_id": "7",
+      "price": "936",
+      "stock": "59",
+      "sortname": "元氣牛肉",
+      "specname": "12入",
+      "price_sp": 749
+  },
+  {
+      "id": "19",
+      "prod_id": "8",
+      "price": "590",
+      "stock": "6",
+      "sortname": "多種魚+薰衣草",
+      "specname": "1kg",
+      "price_sp": 580
+  },
+  {
+      "id": "20",
+      "prod_id": "8",
+      "price": "1100",
+      "stock": "123",
+      "sortname": "多種魚+薰衣草",
+      "specname": "2kg",
+      "price_sp": 1090
+  },
+  {
+      "id": "21",
+      "prod_id": "9",
+      "price": "990",
+      "stock": "0",
+      "sortname": "米色",
+      "specname": "S號",
+      "price_sp": 792
+  },
+  {
+      "id": "22",
+      "prod_id": "9",
+      "price": "990",
+      "stock": "1",
+      "sortname": "米色",
+      "specname": "M號",
+      "price_sp": 980
+  },
+  {
+      "id": "23",
+      "prod_id": "9",
+      "price": "990",
+      "stock": "123",
+      "sortname": "綠色",
+      "specname": "S號",
+      "price_sp": 792
+  },
+  {
+      "id": "24",
+      "prod_id": "9",
+      "price": "990",
+      "stock": "4",
+      "sortname": "綠色",
+      "specname": "M號",
+      "price_sp": 980
+  },
+  {
+      "id": "25",
+      "prod_id": "9",
+      "price": "990",
+      "stock": "5",
+      "sortname": "藍紫色",
+      "specname": "S號",
+      "price_sp": 792
+  },
+  {
+      "id": "26",
+      "prod_id": "9",
+      "price": "990",
+      "stock": "574",
+      "sortname": "藍紫色",
+      "specname": "M號",
+      "price_sp": 792
+  },
+  {
+      "id": "27",
+      "prod_id": "10",
+      "price": "550",
+      "stock": "69",
+      "sortname": "GD-2 雞肉石榴 (小顆粒)",
+      "specname": "0.8kg",
+      "price_sp": null
+  },
+  {
+      "id": "28",
+      "prod_id": "10",
+      "price": "1400",
+      "stock": "123",
+      "sortname": "GD-2 雞肉石榴 (小顆粒)",
+      "specname": "5.5磅 (2.49kg)",
+      "price_sp": null
+  },
+  {
+      "id": "29",
+      "prod_id": "10",
+      "price": "550",
+      "stock": "26",
+      "sortname": "GD-3 羊肉藍莓 (小顆粒)",
+      "specname": "0.8kg",
+      "price_sp": 440
+  },
+  {
+      "id": "30",
+      "prod_id": "10",
+      "price": "1400",
+      "stock": "517",
+      "sortname": "GD-3 羊肉藍莓 (小顆粒)",
+      "specname": "5.5磅 (2.49kg)",
+      "price_sp": null
+  },
+  {
+      "id": "31",
+      "prod_id": "10",
+      "price": "550",
+      "stock": "66",
+      "sortname": "GD-5 野豬蘋果 (小顆粒)",
+      "specname": "0.8kg",
+      "price_sp": 540
+  },
+  {
+      "id": "32",
+      "prod_id": "10",
+      "price": "1400",
+      "stock": "2",
+      "sortname": "GD-5 野豬蘋果 (小顆粒)",
+      "specname": "5.5磅 (2.49kg)",
+      "price_sp": null
+  },
+  {
+      "id": "33",
+      "prod_id": "11",
+      "price": "680",
+      "stock": "45",
+      "sortname": "黑灰格",
+      "specname": "2入",
+      "price_sp": 544
+  },
+  {
+      "id": "34",
+      "prod_id": "11",
+      "price": "680",
+      "stock": "123",
+      "sortname": "粉灰格",
+      "specname": "2入",
+      "price_sp": 544
+  },
+  {
+      "id": "35",
+      "prod_id": "12",
+      "price": "80",
+      "stock": "572",
+      "sortname": "厚切鮪魚排",
+      "specname": "50g",
+      "price_sp": 64
+  },
+  {
+      "id": "36",
+      "prod_id": "13",
+      "price": "29",
+      "stock": "123",
+      "sortname": "翡翠燉雞 80g",
+      "specname": "1入",
+      "price_sp": null
+  },
+  {
+      "id": "37",
+      "prod_id": "13",
+      "price": "688",
+      "stock": "56",
+      "sortname": "翡翠燉雞 80g",
+      "specname": "24入/箱",
+      "price_sp": null
+  },
+  {
+      "id": "38",
+      "prod_id": "13",
+      "price": "29",
+      "stock": "16",
+      "sortname": "龍鳳呈祥 80g",
+      "specname": "1入",
+      "price_sp": 19
+  },
+  {
+      "id": "39",
+      "prod_id": "13",
+      "price": "688",
+      "stock": "6",
+      "sortname": "龍鳳呈祥 80g",
+      "specname": "24入/箱",
+      "price_sp": 551
+  },
+  {
+      "id": "40",
+      "prod_id": "13",
+      "price": "29",
+      "stock": "65",
+      "sortname": "海味三珍 80g",
+      "specname": "1入",
+      "price_sp": 19
+  },
+  {
+      "id": "41",
+      "prod_id": "13",
+      "price": "688",
+      "stock": "0",
+      "sortname": "海味三珍 80g",
+      "specname": "24入/箱",
+      "price_sp": 551
+  },
+  {
+      "id": "42",
+      "prod_id": "13",
+      "price": "29",
+      "stock": "0",
+      "sortname": "黃金鮮鮪 80g",
+      "specname": "1入",
+      "price_sp": null
+  },
+  {
+      "id": "43",
+      "prod_id": "13",
+      "price": "688",
+      "stock": "51",
+      "sortname": "黃金鮮鮪 80g",
+      "specname": "24入/箱",
+      "price_sp": 551
+  },
+  {
+      "id": "44",
+      "prod_id": "14",
+      "price": "950",
+      "stock": "2",
+      "sortname": "放養雞肉+新鮮蔬果",
+      "specname": "2kg",
+      "price_sp": 940
+  },
+  {
+      "id": "45",
+      "prod_id": "15",
+      "price": "1643",
+      "stock": "0",
+      "sortname": "鴨肉+鱒魚+羊肉",
+      "specname": "5磅 (2.27kg)",
+      "price_sp": 1633
+  },
+  {
+      "id": "46",
+      "prod_id": "15",
+      "price": "2971",
+      "stock": "3",
+      "sortname": "鴨肉+鱒魚+羊肉",
+      "specname": "5kg",
+      "price_sp": 2377
+  },
+  {
+      "id": "47",
+      "prod_id": "16",
+      "price": "1680",
+      "stock": "2",
+      "sortname": null,
+      "specname": "2kg",
+      "price_sp": 1670
+  },
+  {
+      "id": "48",
+      "prod_id": "17",
+      "price": "760",
+      "stock": "5",
+      "sortname": "人體防蚊液",
+      "specname": "100ml",
+      "price_sp": null
+  },
+  {
+      "id": "49",
+      "prod_id": "18",
+      "price": "1190",
+      "stock": "24",
+      "sortname": null,
+      "specname": "2kg",
+      "price_sp": null
+  },
+  {
+      "id": "50",
+      "prod_id": "19",
+      "price": "1990",
+      "stock": "0",
+      "sortname": "牛肉",
+      "specname": "1kg",
+      "price_sp": null
+  },
+  {
+      "id": "51",
+      "prod_id": "20",
+      "price": "170",
+      "stock": "5",
+      "sortname": "新鮮優質雞胸肉",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "52",
+      "prod_id": "20",
+      "price": "170",
+      "stock": "123",
+      "sortname": "新鮮優質雞里肌",
+      "specname": null,
+      "price_sp": 136
+  },
+  {
+      "id": "53",
+      "prod_id": "20",
+      "price": "170",
+      "stock": "17",
+      "sortname": "高蛋白質火雞肉",
+      "specname": null,
+      "price_sp": 136
+  },
+  {
+      "id": "54",
+      "prod_id": "20",
+      "price": "180",
+      "stock": "2",
+      "sortname": "酥脆爆蛋柳葉魚",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "55",
+      "prod_id": "20",
+      "price": "180",
+      "stock": "123",
+      "sortname": "高鈣海味丁香魚",
+      "specname": null,
+      "price_sp": 144
+  },
+  {
+      "id": "56",
+      "prod_id": "20",
+      "price": "180",
+      "stock": "123",
+      "sortname": "鮮嫩無刺虱目魚",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "57",
+      "prod_id": "20",
+      "price": "220",
+      "stock": "0",
+      "sortname": "紐西蘭綠唇貽貝",
+      "specname": null,
+      "price_sp": 210
+  },
+  {
+      "id": "58",
+      "prod_id": "20",
+      "price": "220",
+      "stock": "0",
+      "sortname": "日本熟食帆立貝",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "59",
+      "prod_id": "20",
+      "price": "250",
+      "stock": "449",
+      "sortname": "特級嚴選鮮大蝦",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "60",
+      "prod_id": "20",
+      "price": "300",
+      "stock": "1",
+      "sortname": "北海道極品干貝",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "61",
+      "prod_id": "20",
+      "price": "180",
+      "stock": "171",
+      "sortname": "酥脆熟凍鮮小卷",
+      "specname": null,
+      "price_sp": 144
+  },
+  {
+      "id": "62",
+      "prod_id": "21",
+      "price": "380",
+      "stock": "2",
+      "sortname": "羊肉",
+      "specname": "1磅 (454g)",
+      "price_sp": null
+  },
+  {
+      "id": "63",
+      "prod_id": "21",
+      "price": "990",
+      "stock": "42",
+      "sortname": "羊肉",
+      "specname": "4磅 (1.81kg)",
+      "price_sp": 980
+  },
+  {
+      "id": "64",
+      "prod_id": "22",
+      "price": "405",
+      "stock": "4",
+      "sortname": "羊肉",
+      "specname": "1.5kg",
+      "price_sp": null
+  },
+  {
+      "id": "65",
+      "prod_id": "22",
+      "price": "675",
+      "stock": "284",
+      "sortname": "羊肉",
+      "specname": "3kg",
+      "price_sp": 665
+  },
+  {
+      "id": "66",
+      "prod_id": "22",
+      "price": "1226",
+      "stock": "0",
+      "sortname": "羊肉",
+      "specname": "7kg",
+      "price_sp": null
+  },
+  {
+      "id": "67",
+      "prod_id": "23",
+      "price": "390",
+      "stock": "4",
+      "sortname": "雞胸肉",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "68",
+      "prod_id": "23",
+      "price": "360",
+      "stock": "721",
+      "sortname": "牛肝",
+      "specname": null,
+      "price_sp": 288
+  },
+  {
+      "id": "69",
+      "prod_id": "23",
+      "price": "490",
+      "stock": "123",
+      "sortname": "馬肉",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "70",
+      "prod_id": "23",
+      "price": "330",
+      "stock": "64",
+      "sortname": "鱈魚",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "71",
+      "prod_id": "23",
+      "price": "330",
+      "stock": "1",
+      "sortname": "鮭魚",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "72",
+      "prod_id": "23",
+      "price": "285",
+      "stock": "538",
+      "sortname": "爆蛋毛鱗魚",
+      "specname": null,
+      "price_sp": 228
+  },
+  {
+      "id": "73",
+      "prod_id": "23",
+      "price": "450",
+      "stock": "123",
+      "sortname": "鮪魚",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "74",
+      "prod_id": "23",
+      "price": "390",
+      "stock": "5",
+      "sortname": "比目魚",
+      "specname": null,
+      "price_sp": 312
+  },
+  {
+      "id": "75",
+      "prod_id": "23",
+      "price": "345",
+      "stock": "6",
+      "sortname": "蝶魚",
+      "specname": null,
+      "price_sp": 276
+  },
+  {
+      "id": "76",
+      "prod_id": "23",
+      "price": "390",
+      "stock": "39",
+      "sortname": "魷魚",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "77",
+      "prod_id": "24",
+      "price": "1152",
+      "stock": "2",
+      "sortname": "雞肉+鮭魚",
+      "specname": "2kg",
+      "price_sp": null
+  },
+  {
+      "id": "78",
+      "prod_id": "25",
+      "price": "420",
+      "stock": "123",
+      "sortname": "雞肉 (小顆粒)",
+      "specname": "2.5磅 (1.13kg)",
+      "price_sp": 410
+  },
+  {
+      "id": "79",
+      "prod_id": "25",
+      "price": "750",
+      "stock": "0",
+      "sortname": "雞肉 (小顆粒)",
+      "specname": "5.5磅 (2.49kg)",
+      "price_sp": 600
+  },
+  {
+      "id": "80",
+      "prod_id": "25",
+      "price": "1612",
+      "stock": "6",
+      "sortname": "雞肉 (小顆粒)",
+      "specname": "15磅 (6.8kg)",
+      "price_sp": 1602
+  },
+  {
+      "id": "81",
+      "prod_id": "26",
+      "price": "139",
+      "stock": "123",
+      "sortname": null,
+      "specname": "40g/包",
+      "price_sp": null
+  },
+  {
+      "id": "82",
+      "prod_id": "27",
+      "price": "950",
+      "stock": "5",
+      "sortname": "紅魚油",
+      "specname": "60粒/盒",
+      "price_sp": null
+  },
+  {
+      "id": "83",
+      "prod_id": "27",
+      "price": "1150",
+      "stock": "0",
+      "sortname": "紅魚油",
+      "specname": "120粒/罐",
+      "price_sp": null
+  },
+  {
+      "id": "84",
+      "prod_id": "28",
+      "price": "1050",
+      "stock": "65",
+      "sortname": null,
+      "specname": "4kg",
+      "price_sp": 840
+  },
+  {
+      "id": "85",
+      "prod_id": "29",
+      "price": "99",
+      "stock": "56",
+      "sortname": "火雞胸肉(助消化)",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "86",
+      "prod_id": "29",
+      "price": "99",
+      "stock": "123",
+      "sortname": "鱈魚(免疫力)",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "87",
+      "prod_id": "29",
+      "price": "99",
+      "stock": "2",
+      "sortname": "雞胸肉(抗氧化)",
+      "specname": null,
+      "price_sp": 89
+  },
+  {
+      "id": "88",
+      "prod_id": "29",
+      "price": "99",
+      "stock": "39",
+      "sortname": "雞胸肉(免疫力)",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "89",
+      "prod_id": "29",
+      "price": "109",
+      "stock": "18",
+      "sortname": "火雞胸肉(助消化)",
+      "specname": null,
+      "price_sp": 88
+  },
+  {
+      "id": "90",
+      "prod_id": "29",
+      "price": "99",
+      "stock": "550",
+      "sortname": "雞胸肉(骨關節)",
+      "specname": null,
+      "price_sp": 89
+  },
+  {
+      "id": "91",
+      "prod_id": "29",
+      "price": "99",
+      "stock": "0",
+      "sortname": "長尾鱈魚(骨關節)",
+      "specname": null,
+      "price_sp": 89
+  },
+  {
+      "id": "92",
+      "prod_id": "29",
+      "price": "109",
+      "stock": "123",
+      "sortname": "烏骨雞(元氣)",
+      "specname": null,
+      "price_sp": 99
+  },
+  {
+      "id": "93",
+      "prod_id": "29",
+      "price": "109",
+      "stock": "6",
+      "sortname": "鵪鶉(活力)",
+      "specname": null,
+      "price_sp": 99
+  },
+  {
+      "id": "94",
+      "prod_id": "30",
+      "price": "380",
+      "stock": "6",
+      "sortname": null,
+      "specname": "30顆/罐",
+      "price_sp": 304
+  },
+  {
+      "id": "95",
+      "prod_id": "30",
+      "price": "980",
+      "stock": "29",
+      "sortname": null,
+      "specname": "90顆/罐",
+      "price_sp": null
+  },
+  {
+      "id": "96",
+      "prod_id": "31",
+      "price": "1050",
+      "stock": "16",
+      "sortname": null,
+      "specname": "4kg",
+      "price_sp": 840
+  },
+  {
+      "id": "97",
+      "prod_id": "32",
+      "price": "99",
+      "stock": "6",
+      "sortname": "玉筋魚",
+      "specname": null,
+      "price_sp": 89
+  },
+  {
+      "id": "98",
+      "prod_id": "33",
+      "price": "350",
+      "stock": "1",
+      "sortname": null,
+      "specname": "30入",
+      "price_sp": 340
+  },
+  {
+      "id": "99",
+      "prod_id": "34",
+      "price": "893",
+      "stock": "36",
+      "sortname": null,
+      "specname": "3kg",
+      "price_sp": null
+  },
+  {
+      "id": "100",
+      "prod_id": "35",
+      "price": "120",
+      "stock": "0",
+      "sortname": "美式藍莓羊肉條",
+      "specname": "120g",
+      "price_sp": null
+  },
+  {
+      "id": "101",
+      "prod_id": "35",
+      "price": "120",
+      "stock": "58",
+      "sortname": "原味牛肉條",
+      "specname": "120g",
+      "price_sp": null
+  },
+  {
+      "id": "102",
+      "prod_id": "35",
+      "price": "120",
+      "stock": "0",
+      "sortname": "起司牛肉條",
+      "specname": "120g",
+      "price_sp": 110
+  },
+  {
+      "id": "103",
+      "prod_id": "36",
+      "price": "820",
+      "stock": "34",
+      "sortname": null,
+      "specname": "30入",
+      "price_sp": null
+  },
+  {
+      "id": "104",
+      "prod_id": "36",
+      "price": "450",
+      "stock": "35",
+      "sortname": null,
+      "specname": "15入",
+      "price_sp": 360
+  },
+  {
+      "id": "105",
+      "prod_id": "37",
+      "price": "1511",
+      "stock": "3",
+      "sortname": "火雞肉+雞肉+鮭魚",
+      "specname": "5磅 (2.27kg)",
+      "price_sp": 1501
+  },
+  {
+      "id": "106",
+      "prod_id": "37",
+      "price": "2556",
+      "stock": "6",
+      "sortname": "火雞肉+雞肉+鮭魚",
+      "specname": "5kg",
+      "price_sp": 2546
+  },
+  {
+      "id": "107",
+      "prod_id": "38",
+      "price": "60",
+      "stock": "69",
+      "sortname": "海味珍鮮",
+      "specname": "15g",
+      "price_sp": null
+  },
+  {
+      "id": "108",
+      "prod_id": "39",
+      "price": "750",
+      "stock": "0",
+      "sortname": null,
+      "specname": "60錠",
+      "price_sp": null
+  },
+  {
+      "id": "109",
+      "prod_id": "40",
+      "price": "963",
+      "stock": "123",
+      "sortname": "雞肉",
+      "specname": "5磅 (2.27kg)",
+      "price_sp": null
+  },
+  {
+      "id": "110",
+      "prod_id": "40",
+      "price": "1785",
+      "stock": "6",
+      "sortname": "雞肉",
+      "specname": "5kg",
+      "price_sp": null
+  },
+  {
+      "id": "111",
+      "prod_id": "41",
+      "price": "190",
+      "stock": "2",
+      "sortname": "按鈕",
+      "specname": "日出橙",
+      "price_sp": null
+  },
+  {
+      "id": "112",
+      "prod_id": "41",
+      "price": "190",
+      "stock": "17",
+      "sortname": "按鈕",
+      "specname": "薄荷灰",
+      "price_sp": null
+  },
+  {
+      "id": "113",
+      "prod_id": "41",
+      "price": "190",
+      "stock": "20",
+      "sortname": "按鈕",
+      "specname": "星空藍",
+      "price_sp": 152
+  },
+  {
+      "id": "114",
+      "prod_id": "41",
+      "price": "190",
+      "stock": "13",
+      "sortname": "按鈕",
+      "specname": "芥末黃",
+      "price_sp": 152
+  },
+  {
+      "id": "115",
+      "prod_id": "42",
+      "price": "699",
+      "stock": "2",
+      "sortname": null,
+      "specname": "60g",
+      "price_sp": 560
+  },
+  {
+      "id": "116",
+      "prod_id": "43",
+      "price": "996",
+      "stock": "123",
+      "sortname": null,
+      "specname": "3磅 (1.36kg)",
+      "price_sp": null
+  },
+  {
+      "id": "117",
+      "prod_id": "43",
+      "price": "4607",
+      "stock": "1",
+      "sortname": null,
+      "specname": "21磅 (9.52kg)",
+      "price_sp": null
+  },
+  {
+      "id": "118",
+      "prod_id": "44",
+      "price": "440",
+      "stock": "13",
+      "sortname": "墨墨捲餅",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "119",
+      "prod_id": "45",
+      "price": "520",
+      "stock": "2",
+      "sortname": null,
+      "specname": "1盒 (30包)",
+      "price_sp": null
+  },
+  {
+      "id": "120",
+      "prod_id": "45",
+      "price": "990",
+      "stock": "123",
+      "sortname": null,
+      "specname": "2盒 (60包)",
+      "price_sp": null
+  },
+  {
+      "id": "121",
+      "prod_id": "45",
+      "price": "2290",
+      "stock": "0",
+      "sortname": null,
+      "specname": "5盒 (150包)",
+      "price_sp": 2280
+  },
+  {
+      "id": "122",
+      "prod_id": "46",
+      "price": "550",
+      "stock": "0",
+      "sortname": null,
+      "specname": "1kg",
+      "price_sp": 440
+  },
+  {
+      "id": "123",
+      "prod_id": "46",
+      "price": "680",
+      "stock": "28",
+      "sortname": null,
+      "specname": "2kg",
+      "price_sp": 670
+  },
+  {
+      "id": "124",
+      "prod_id": "47",
+      "price": "280",
+      "stock": "0",
+      "sortname": "飛龍在天",
+      "specname": "XS號",
+      "price_sp": 270
+  },
+  {
+      "id": "125",
+      "prod_id": "48",
+      "price": "380",
+      "stock": "305",
+      "sortname": null,
+      "specname": "1盒 (30包)",
+      "price_sp": 370
+  },
+  {
+      "id": "126",
+      "prod_id": "48",
+      "price": "740",
+      "stock": "0",
+      "sortname": null,
+      "specname": "2盒 (60包)",
+      "price_sp": 730
+  },
+  {
+      "id": "127",
+      "prod_id": "48",
+      "price": "1750",
+      "stock": "57",
+      "sortname": null,
+      "specname": "5盒 (150包)",
+      "price_sp": 1740
+  },
+  {
+      "id": "128",
+      "prod_id": "48",
+      "price": "3630",
+      "stock": "2",
+      "sortname": null,
+      "specname": "11盒 (330包)",
+      "price_sp": 2904
+  },
+  {
+      "id": "129",
+      "prod_id": "49",
+      "price": "950",
+      "stock": "123",
+      "sortname": "低敏舒膚 海藻修復配方",
+      "specname": "3.5磅 (1.59kg)",
+      "price_sp": 760
+  },
+  {
+      "id": "130",
+      "prod_id": "49",
+      "price": "2300",
+      "stock": "335",
+      "sortname": "低敏舒膚 海藻修復配方",
+      "specname": "10磅 (4.53kg)",
+      "price_sp": null
+  },
+  {
+      "id": "131",
+      "prod_id": "50",
+      "price": "680",
+      "stock": "0",
+      "sortname": "杯子蛋糕",
+      "specname": "S號",
+      "price_sp": 670
+  },
+  {
+      "id": "132",
+      "prod_id": "50",
+      "price": "680",
+      "stock": "238",
+      "sortname": "杯子蛋糕",
+      "specname": "L號",
+      "price_sp": 544
+  },
+  {
+      "id": "133",
+      "prod_id": "51",
+      "price": "320",
+      "stock": "123",
+      "sortname": null,
+      "specname": "70g",
+      "price_sp": null
+  },
+  {
+      "id": "134",
+      "prod_id": "52",
+      "price": "199",
+      "stock": "123",
+      "sortname": "放牧草飼羊",
+      "specname": "300g",
+      "price_sp": null
+  },
+  {
+      "id": "135",
+      "prod_id": "52",
+      "price": "730",
+      "stock": "63",
+      "sortname": "放牧草飼羊",
+      "specname": "3磅 (1.36kg)",
+      "price_sp": 720
+  },
+  {
+      "id": "136",
+      "prod_id": "52",
+      "price": "2430",
+      "stock": "6",
+      "sortname": "放牧草飼羊",
+      "specname": "11磅 (4.99kg)",
+      "price_sp": 2420
+  },
+  {
+      "id": "137",
+      "prod_id": "53",
+      "price": "380",
+      "stock": "6",
+      "sortname": "哈哈蘇打",
+      "specname": null,
+      "price_sp": 370
+  },
+  {
+      "id": "138",
+      "prod_id": "54",
+      "price": "1000",
+      "stock": "67",
+      "sortname": null,
+      "specname": "1罐 (30g)",
+      "price_sp": null
+  },
+  {
+      "id": "139",
+      "prod_id": "55",
+      "price": "221",
+      "stock": "0",
+      "sortname": "鮭魚+糙米 (腸胃保健)",
+      "specname": "1磅 (454g)",
+      "price_sp": 211
+  },
+  {
+      "id": "140",
+      "prod_id": "55",
+      "price": "978",
+      "stock": "44",
+      "sortname": "鮭魚+糙米 (腸胃保健)",
+      "specname": "5磅 (2.27kg)",
+      "price_sp": null
+  },
+  {
+      "id": "141",
+      "prod_id": "56",
+      "price": "320",
+      "stock": "6",
+      "sortname": "農場粉小豬 (哞哞聲)",
+      "specname": null,
+      "price_sp": 256
+  },
+  {
+      "id": "142",
+      "prod_id": "57",
+      "price": "2990",
+      "stock": "268",
+      "sortname": "白色",
+      "specname": null,
+      "price_sp": 2980
+  },
+  {
+      "id": "143",
+      "prod_id": "58",
+      "price": "247",
+      "stock": "36",
+      "sortname": "火雞肉+扁豆",
+      "specname": "1磅 (454g)",
+      "price_sp": 237
+  },
+  {
+      "id": "144",
+      "prod_id": "58",
+      "price": "1122",
+      "stock": "16",
+      "sortname": "火雞肉+扁豆",
+      "specname": "5磅 (2.27kg)",
+      "price_sp": 898
+  },
+  {
+      "id": "145",
+      "prod_id": "59",
+      "price": "260",
+      "stock": "1",
+      "sortname": "復刻卡帶",
+      "specname": null,
+      "price_sp": 250
+  },
+  {
+      "id": "146",
+      "prod_id": "60",
+      "price": "90",
+      "stock": "36",
+      "sortname": "配件-冬季棉墊(不含涼墊)",
+      "specname": null,
+      "price_sp": 80
+  },
+  {
+      "id": "147",
+      "prod_id": "60",
+      "price": "1950",
+      "stock": "0",
+      "sortname": "全透綠",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "148",
+      "prod_id": "60",
+      "price": "1950",
+      "stock": "281",
+      "sortname": "全透粉",
+      "specname": null,
+      "price_sp": 1940
+  },
+  {
+      "id": "149",
+      "prod_id": "61",
+      "price": "270",
+      "stock": "38",
+      "sortname": "雞肉+火雞肉",
+      "specname": "半磅 (272g)",
+      "price_sp": null
+  },
+  {
+      "id": "150",
+      "prod_id": "61",
+      "price": "990",
+      "stock": "123",
+      "sortname": "雞肉+火雞肉",
+      "specname": "3磅 (1.36kg)",
+      "price_sp": 792
+  },
+  {
+      "id": "151",
+      "prod_id": "62",
+      "price": "380",
+      "stock": "4",
+      "sortname": "氣球狗",
+      "specname": null,
+      "price_sp": 370
+  },
+  {
+      "id": "152",
+      "prod_id": "62",
+      "price": "600",
+      "stock": "46",
+      "sortname": "帽子 (3入)",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "153",
+      "prod_id": "62",
+      "price": "400",
+      "stock": "23",
+      "sortname": "邀請卡",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "154",
+      "prod_id": "63",
+      "price": "3230",
+      "stock": "2",
+      "sortname": "深灰色",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "155",
+      "prod_id": "63",
+      "price": "3230",
+      "stock": "55",
+      "sortname": "淺灰色",
+      "specname": null,
+      "price_sp": 3220
+  },
+  {
+      "id": "156",
+      "prod_id": "63",
+      "price": "3230",
+      "stock": "56",
+      "sortname": "淺棕色",
+      "specname": null,
+      "price_sp": 3220
+  },
+  {
+      "id": "157",
+      "prod_id": "64",
+      "price": "699",
+      "stock": "0",
+      "sortname": "雞肉",
+      "specname": "1kg",
+      "price_sp": null
+  },
+  {
+      "id": "158",
+      "prod_id": "64",
+      "price": "1250",
+      "stock": "235",
+      "sortname": "雞肉",
+      "specname": "2kg",
+      "price_sp": null
+  },
+  {
+      "id": "159",
+      "prod_id": "65",
+      "price": "310",
+      "stock": "0",
+      "sortname": "拚球雪人款",
+      "specname": null,
+      "price_sp": 248
+  },
+  {
+      "id": "160",
+      "prod_id": "65",
+      "price": "160",
+      "stock": "6",
+      "sortname": "圓環雪人款 (S號)",
+      "specname": null,
+      "price_sp": 150
+  },
+  {
+      "id": "161",
+      "prod_id": "65",
+      "price": "180",
+      "stock": "13",
+      "sortname": "圓環雪人款 (M號)",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "162",
+      "prod_id": "65",
+      "price": "280",
+      "stock": "55",
+      "sortname": "聖誕老人拚球款",
+      "specname": null,
+      "price_sp": 270
+  },
+  {
+      "id": "163",
+      "prod_id": "66",
+      "price": "1290",
+      "stock": "49",
+      "sortname": "極簡奶白",
+      "specname": null,
+      "price_sp": 1032
+  },
+  {
+      "id": "164",
+      "prod_id": "66",
+      "price": "1290",
+      "stock": "123",
+      "sortname": "質感黑",
+      "specname": null,
+      "price_sp": 1280
+  },
+  {
+      "id": "165",
+      "prod_id": "66",
+      "price": "1290",
+      "stock": "1",
+      "sortname": "清新小綠",
+      "specname": null,
+      "price_sp": 1280
+  },
+  {
+      "id": "166",
+      "prod_id": "66",
+      "price": "1290",
+      "stock": "47",
+      "sortname": "棕古咖",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "167",
+      "prod_id": "67",
+      "price": "1099",
+      "stock": "5",
+      "sortname": "T23 火雞+雞肉",
+      "specname": "2kg",
+      "price_sp": null
+  },
+  {
+      "id": "168",
+      "prod_id": "67",
+      "price": "1099",
+      "stock": "35",
+      "sortname": "T25 鮭魚+鱒魚",
+      "specname": "2kg",
+      "price_sp": null
+  },
+  {
+      "id": "169",
+      "prod_id": "67",
+      "price": "1099",
+      "stock": "42",
+      "sortname": "T26 羊肉",
+      "specname": "2kg",
+      "price_sp": null
+  },
+  {
+      "id": "170",
+      "prod_id": "68",
+      "price": "36",
+      "stock": "0",
+      "sortname": "經典烤嫩雞+蛋",
+      "specname": "100g/1罐",
+      "price_sp": 29
+  },
+  {
+      "id": "171",
+      "prod_id": "68",
+      "price": "780",
+      "stock": "578",
+      "sortname": "經典烤嫩雞+蛋",
+      "specname": "100g/24罐",
+      "price_sp": null
+  },
+  {
+      "id": "172",
+      "prod_id": "68",
+      "price": "36",
+      "stock": "37",
+      "sortname": "鄉村羊肉派",
+      "specname": "100g/1罐",
+      "price_sp": null
+  },
+  {
+      "id": "173",
+      "prod_id": "68",
+      "price": "780",
+      "stock": "6",
+      "sortname": "鄉村羊肉派",
+      "specname": "100g/24罐",
+      "price_sp": null
+  },
+  {
+      "id": "174",
+      "prod_id": "68",
+      "price": "36",
+      "stock": "0",
+      "sortname": "海陸羊肉鮭魚鮮蔬",
+      "specname": "100g/1罐",
+      "price_sp": null
+  },
+  {
+      "id": "175",
+      "prod_id": "68",
+      "price": "780",
+      "stock": "55",
+      "sortname": "海陸羊肉鮭魚鮮蔬",
+      "specname": "100g/24罐",
+      "price_sp": null
+  },
+  {
+      "id": "176",
+      "prod_id": "68",
+      "price": "36",
+      "stock": "0",
+      "sortname": "嫩汁牛排佐野菜",
+      "specname": "100g/1罐",
+      "price_sp": null
+  },
+  {
+      "id": "177",
+      "prod_id": "68",
+      "price": "780",
+      "stock": "123",
+      "sortname": "嫩汁牛排佐野菜",
+      "specname": "100g/24罐",
+      "price_sp": null
+  },
+  {
+      "id": "178",
+      "prod_id": "69",
+      "price": "290",
+      "stock": "58",
+      "sortname": "小型犬",
+      "specname": "1條/盒",
+      "price_sp": null
+  },
+  {
+      "id": "179",
+      "prod_id": "69",
+      "price": "320",
+      "stock": "3",
+      "sortname": "中型犬",
+      "specname": "1條/盒",
+      "price_sp": null
+  },
+  {
+      "id": "180",
+      "prod_id": "69",
+      "price": "350",
+      "stock": "0",
+      "sortname": "大型犬",
+      "specname": "1條/盒",
+      "price_sp": null
+  },
+  {
+      "id": "181",
+      "prod_id": "70",
+      "price": "1130",
+      "stock": "32",
+      "sortname": "LD-6 低卡宅犬 雞肉石榴",
+      "specname": "5.5磅 (2.49kg)",
+      "price_sp": null
+  },
+  {
+      "id": "182",
+      "prod_id": "70",
+      "price": "1130",
+      "stock": "0",
+      "sortname": "LD-8 雞肉石榴",
+      "specname": "5.5磅 (2.49kg)",
+      "price_sp": 1120
+  },
+  {
+      "id": "183",
+      "prod_id": "70",
+      "price": "1130",
+      "stock": "281",
+      "sortname": "LD-9 羊肉藍莓",
+      "specname": "5.5磅 (2.49kg)",
+      "price_sp": null
+  },
+  {
+      "id": "184",
+      "prod_id": "71",
+      "price": "24",
+      "stock": "25",
+      "sortname": "鮮雞絲 80g",
+      "specname": "1入",
+      "price_sp": 14
+  },
+  {
+      "id": "185",
+      "prod_id": "71",
+      "price": "558",
+      "stock": "0",
+      "sortname": "鮮雞絲 80g",
+      "specname": "24入/箱",
+      "price_sp": null
+  },
+  {
+      "id": "186",
+      "prod_id": "71",
+      "price": "24",
+      "stock": "314",
+      "sortname": "嫩雞丁 80g",
+      "specname": "1入",
+      "price_sp": 14
+  },
+  {
+      "id": "187",
+      "prod_id": "71",
+      "price": "558",
+      "stock": "30",
+      "sortname": "嫩雞丁 80g",
+      "specname": "24入/箱",
+      "price_sp": 447
+  },
+  {
+      "id": "188",
+      "prod_id": "71",
+      "price": "24",
+      "stock": "2",
+      "sortname": "鰹魚塊 80g",
+      "specname": "1入",
+      "price_sp": null
+  },
+  {
+      "id": "189",
+      "prod_id": "71",
+      "price": "558",
+      "stock": "123",
+      "sortname": "鰹魚塊 80g",
+      "specname": "24入/箱",
+      "price_sp": null
+  },
+  {
+      "id": "190",
+      "prod_id": "71",
+      "price": "24",
+      "stock": "45",
+      "sortname": "鮪魚片 80g",
+      "specname": "1入",
+      "price_sp": null
+  },
+  {
+      "id": "191",
+      "prod_id": "71",
+      "price": "558",
+      "stock": "0",
+      "sortname": "鮪魚片 80g",
+      "specname": "24入/箱",
+      "price_sp": 447
+  },
+  {
+      "id": "192",
+      "prod_id": "72",
+      "price": "1280",
+      "stock": "5",
+      "sortname": "黑色",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "193",
+      "prod_id": "73",
+      "price": "950",
+      "stock": "1",
+      "sortname": "放養雞肉+新鮮蔬果",
+      "specname": "2kg",
+      "price_sp": null
+  },
+  {
+      "id": "194",
+      "prod_id": "74",
+      "price": "72",
+      "stock": "6",
+      "sortname": "田園火雞",
+      "specname": "165g x 1入",
+      "price_sp": 58
+  },
+  {
+      "id": "195",
+      "prod_id": "74",
+      "price": "864",
+      "stock": "6",
+      "sortname": "田園火雞",
+      "specname": "165g x 12入",
+      "price_sp": 692
+  },
+  {
+      "id": "196",
+      "prod_id": "74",
+      "price": "72",
+      "stock": "4",
+      "sortname": "鱉蛋雞肉",
+      "specname": "165g x 1入",
+      "price_sp": 58
+  },
+  {
+      "id": "197",
+      "prod_id": "74",
+      "price": "864",
+      "stock": "480",
+      "sortname": "鱉蛋雞肉",
+      "specname": "165g x 12入",
+      "price_sp": 854
+  },
+  {
+      "id": "198",
+      "prod_id": "74",
+      "price": "75",
+      "stock": "2",
+      "sortname": "草飼牛肉",
+      "specname": "165g x 1入",
+      "price_sp": null
+  },
+  {
+      "id": "199",
+      "prod_id": "74",
+      "price": "900",
+      "stock": "123",
+      "sortname": "草飼牛肉",
+      "specname": "165g x 12入",
+      "price_sp": 720
+  },
+  {
+      "id": "200",
+      "prod_id": "74",
+      "price": "75",
+      "stock": "584",
+      "sortname": "放牧鹿肉",
+      "specname": "165g x 1入",
+      "price_sp": 60
+  },
+  {
+      "id": "201",
+      "prod_id": "74",
+      "price": "900",
+      "stock": "3",
+      "sortname": "放牧鹿肉",
+      "specname": "165g x 12入",
+      "price_sp": 890
+  },
+  {
+      "id": "202",
+      "prod_id": "75",
+      "price": "450",
+      "stock": "2",
+      "sortname": "葡萄紫",
+      "specname": "140cm",
+      "price_sp": null
+  },
+  {
+      "id": "203",
+      "prod_id": "75",
+      "price": "450",
+      "stock": "0",
+      "sortname": "海鹽藍",
+      "specname": "140cm",
+      "price_sp": null
+  },
+  {
+      "id": "204",
+      "prod_id": "75",
+      "price": "450",
+      "stock": "38",
+      "sortname": "桃子汽水",
+      "specname": "140cm",
+      "price_sp": null
+  },
+  {
+      "id": "205",
+      "prod_id": "75",
+      "price": "450",
+      "stock": "0",
+      "sortname": "黑加侖",
+      "specname": "140cm",
+      "price_sp": 360
+  },
+  {
+      "id": "206",
+      "prod_id": "75",
+      "price": "450",
+      "stock": "48",
+      "sortname": "海霧藍",
+      "specname": "140cm",
+      "price_sp": 360
+  },
+  {
+      "id": "207",
+      "prod_id": "76",
+      "price": "90",
+      "stock": "3",
+      "sortname": "雞肉+鮮魚",
+      "specname": "100g",
+      "price_sp": 80
+  },
+  {
+      "id": "208",
+      "prod_id": "76",
+      "price": "1152",
+      "stock": "123",
+      "sortname": "雞肉+鮮魚",
+      "specname": "2kg",
+      "price_sp": 1142
+  },
+  {
+      "id": "209",
+      "prod_id": "77",
+      "price": "139",
+      "stock": "123",
+      "sortname": "義式白醬嫩雞佐時蔬",
+      "specname": "150g",
+      "price_sp": 129
+  },
+  {
+      "id": "210",
+      "prod_id": "77",
+      "price": "139",
+      "stock": "213",
+      "sortname": "法式燉番茄馬鈴薯牛肉",
+      "specname": "150g",
+      "price_sp": 129
+  },
+  {
+      "id": "211",
+      "prod_id": "77",
+      "price": "139",
+      "stock": "0",
+      "sortname": "澳洲香嫩羊佐南瓜",
+      "specname": "150g",
+      "price_sp": 112
+  },
+  {
+      "id": "212",
+      "prod_id": "77",
+      "price": "139",
+      "stock": "0",
+      "sortname": "鮭魚山藥燕麥粥",
+      "specname": "150g",
+      "price_sp": 129
+  },
+  {
+      "id": "213",
+      "prod_id": "77",
+      "price": "139",
+      "stock": "473",
+      "sortname": "漢方莓果火雞燉飯",
+      "specname": "150g",
+      "price_sp": 112
+  },
+  {
+      "id": "214",
+      "prod_id": "77",
+      "price": "139",
+      "stock": "381",
+      "sortname": "海陸雙拼炒時蔬",
+      "specname": "150g",
+      "price_sp": null
+  },
+  {
+      "id": "215",
+      "prod_id": "78",
+      "price": "390",
+      "stock": "123",
+      "sortname": "米白",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "216",
+      "prod_id": "78",
+      "price": "390",
+      "stock": "6",
+      "sortname": "檸檬黃",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "217",
+      "prod_id": "78",
+      "price": "390",
+      "stock": "3",
+      "sortname": "淺藍",
+      "specname": null,
+      "price_sp": 312
+  },
+  {
+      "id": "218",
+      "prod_id": "78",
+      "price": "390",
+      "stock": "0",
+      "sortname": "粉紅",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "219",
+      "prod_id": "79",
+      "price": "110",
+      "stock": "0",
+      "sortname": "火雞肉",
+      "specname": "100g",
+      "price_sp": 88
+  },
+  {
+      "id": "220",
+      "prod_id": "79",
+      "price": "1152",
+      "stock": "40",
+      "sortname": "火雞肉",
+      "specname": "1.5kg",
+      "price_sp": null
+  },
+  {
+      "id": "221",
+      "prod_id": "80",
+      "price": "1190",
+      "stock": "123",
+      "sortname": null,
+      "specname": "2kg",
+      "price_sp": 952
+  },
+  {
+      "id": "222",
+      "prod_id": "81",
+      "price": "1860",
+      "stock": "48",
+      "sortname": "瑪瑙灰",
+      "specname": null,
+      "price_sp": 1488
+  },
+  {
+      "id": "223",
+      "prod_id": "82",
+      "price": "656",
+      "stock": "123",
+      "sortname": null,
+      "specname": "1.5kg",
+      "price_sp": 525
+  },
+  {
+      "id": "224",
+      "prod_id": "83",
+      "price": "1290",
+      "stock": "50",
+      "sortname": "魚肉+地瓜",
+      "specname": "2kg",
+      "price_sp": 1280
+  },
+  {
+      "id": "225",
+      "prod_id": "84",
+      "price": "1950",
+      "stock": "22",
+      "sortname": "粉色",
+      "specname": null,
+      "price_sp": 1560
+  },
+  {
+      "id": "226",
+      "prod_id": "85",
+      "price": "990",
+      "stock": "0",
+      "sortname": "澳洲羊肉 (小顆粒)",
+      "specname": "5磅 (2.27kg)",
+      "price_sp": 980
+  },
+  {
+      "id": "227",
+      "prod_id": "86",
+      "price": "1990",
+      "stock": "3",
+      "sortname": "羊肚羊肉",
+      "specname": "1kg",
+      "price_sp": null
+  },
+  {
+      "id": "228",
+      "prod_id": "87",
+      "price": "99",
+      "stock": "0",
+      "sortname": "原味",
+      "specname": null,
+      "price_sp": 80
+  },
+  {
+      "id": "229",
+      "prod_id": "87",
+      "price": "99",
+      "stock": "123",
+      "sortname": "起司",
+      "specname": null,
+      "price_sp": 89
+  },
+  {
+      "id": "230",
+      "prod_id": "87",
+      "price": "99",
+      "stock": "4",
+      "sortname": "藍莓",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "231",
+      "prod_id": "87",
+      "price": "99",
+      "stock": "0",
+      "sortname": "雙莓",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "232",
+      "prod_id": "87",
+      "price": "99",
+      "stock": "0",
+      "sortname": "羊乳",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "233",
+      "prod_id": "88",
+      "price": "380",
+      "stock": "4",
+      "sortname": "羊肉",
+      "specname": "1磅 (454g)",
+      "price_sp": null
+  },
+  {
+      "id": "234",
+      "prod_id": "88",
+      "price": "990",
+      "stock": "123",
+      "sortname": "羊肉",
+      "specname": "4磅 (1.81kg)",
+      "price_sp": 792
+  },
+  {
+      "id": "235",
+      "prod_id": "89",
+      "price": "405",
+      "stock": "54",
+      "sortname": "雞肉",
+      "specname": "1.5kg",
+      "price_sp": 324
+  },
+  {
+      "id": "236",
+      "prod_id": "89",
+      "price": "675",
+      "stock": "0",
+      "sortname": "雞肉",
+      "specname": "3kg",
+      "price_sp": 665
+  },
+  {
+      "id": "237",
+      "prod_id": "89",
+      "price": "1226",
+      "stock": "15",
+      "sortname": "雞肉",
+      "specname": "7kg",
+      "price_sp": 1216
+  },
+  {
+      "id": "238",
+      "prod_id": "90",
+      "price": "169",
+      "stock": "123",
+      "sortname": "巴西里雞胸肉片",
+      "specname": null,
+      "price_sp": 159
+  },
+  {
+      "id": "239",
+      "prod_id": "90",
+      "price": "169",
+      "stock": "13",
+      "sortname": "奧勒岡牛肉條",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "240",
+      "prod_id": "90",
+      "price": "169",
+      "stock": "4",
+      "sortname": "迷迭香雞肉啵棒",
+      "specname": null,
+      "price_sp": 159
+  },
+  {
+      "id": "241",
+      "prod_id": "90",
+      "price": "169",
+      "stock": "0",
+      "sortname": "迷迭香鮭魚雞肉啵棒",
+      "specname": null,
+      "price_sp": 159
+  },
+  {
+      "id": "242",
+      "prod_id": "90",
+      "price": "169",
+      "stock": "0",
+      "sortname": "薰衣草雞肉香香餅",
+      "specname": null,
+      "price_sp": 136
+  },
+  {
+      "id": "243",
+      "prod_id": "90",
+      "price": "169",
+      "stock": "58",
+      "sortname": "洋甘菊牛肉香香餅",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "244",
+      "prod_id": "91",
+      "price": "580",
+      "stock": "68",
+      "sortname": null,
+      "specname": "30入/盒",
+      "price_sp": 464
+  },
+  {
+      "id": "245",
+      "prod_id": "92",
+      "price": "800",
+      "stock": "22",
+      "sortname": "腸胃敏感低脂配方",
+      "specname": "5磅 (2.27kg)",
+      "price_sp": 790
+  },
+  {
+      "id": "246",
+      "prod_id": "92",
+      "price": "1720",
+      "stock": "0",
+      "sortname": "腸胃敏感低脂配方",
+      "specname": "14磅 (6.35kg)",
+      "price_sp": null
+  },
+  {
+      "id": "247",
+      "prod_id": "93",
+      "price": "185",
+      "stock": "4",
+      "sortname": "蜂蜜椰子",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "248",
+      "prod_id": "93",
+      "price": "185",
+      "stock": "3",
+      "sortname": "南瓜山藥",
+      "specname": null,
+      "price_sp": 175
+  },
+  {
+      "id": "249",
+      "prod_id": "94",
+      "price": "650",
+      "stock": "2",
+      "sortname": "鮮魚精 (鱸魚)",
+      "specname": "45ml/10入",
+      "price_sp": null
+  },
+  {
+      "id": "250",
+      "prod_id": "94",
+      "price": "750",
+      "stock": "123",
+      "sortname": "鮮牛精 (牛肉)",
+      "specname": "45ml/10入",
+      "price_sp": null
+  },
+  {
+      "id": "251",
+      "prod_id": "94",
+      "price": "550",
+      "stock": "69",
+      "sortname": "鮮雞精 (紅羽土雞)",
+      "specname": "45ml/10入",
+      "price_sp": 540
+  },
+  {
+      "id": "252",
+      "prod_id": "95",
+      "price": "660",
+      "stock": "36",
+      "sortname": null,
+      "specname": "2kg",
+      "price_sp": null
+  },
+  {
+      "id": "253",
+      "prod_id": "96",
+      "price": "250",
+      "stock": "46",
+      "sortname": "低脂雞胸肉",
+      "specname": "80g",
+      "price_sp": 240
+  },
+  {
+      "id": "254",
+      "prod_id": "96",
+      "price": "1080",
+      "stock": "64",
+      "sortname": "低脂雞胸肉",
+      "specname": "400g",
+      "price_sp": null
+  },
+  {
+      "id": "255",
+      "prod_id": "96",
+      "price": "250",
+      "stock": "123",
+      "sortname": "脆嚼雞胗",
+      "specname": "80g",
+      "price_sp": null
+  },
+  {
+      "id": "256",
+      "prod_id": "97",
+      "price": "650",
+      "stock": "22",
+      "sortname": null,
+      "specname": "30入/盒",
+      "price_sp": 520
+  },
+  {
+      "id": "257",
+      "prod_id": "98",
+      "price": "1112",
+      "stock": "1",
+      "sortname": null,
+      "specname": "3kg",
+      "price_sp": null
+  },
+  {
+      "id": "258",
+      "prod_id": "99",
+      "price": "169",
+      "stock": "5",
+      "sortname": "鱈魚",
+      "specname": "17g",
+      "price_sp": 159
+  },
+  {
+      "id": "259",
+      "prod_id": "99",
+      "price": "325",
+      "stock": "2",
+      "sortname": "鱈魚",
+      "specname": "50g",
+      "price_sp": null
+  },
+  {
+      "id": "260",
+      "prod_id": "99",
+      "price": "850",
+      "stock": "3",
+      "sortname": "鱈魚",
+      "specname": "150g",
+      "price_sp": null
+  },
+  {
+      "id": "261",
+      "prod_id": "99",
+      "price": "169",
+      "stock": "0",
+      "sortname": "比目魚",
+      "specname": "17g",
+      "price_sp": null
+  },
+  {
+      "id": "262",
+      "prod_id": "99",
+      "price": "325",
+      "stock": "28",
+      "sortname": "比目魚",
+      "specname": "50g",
+      "price_sp": 260
+  },
+  {
+      "id": "263",
+      "prod_id": "99",
+      "price": "850",
+      "stock": "0",
+      "sortname": "比目魚",
+      "specname": "150g",
+      "price_sp": 840
+  },
+  {
+      "id": "264",
+      "prod_id": "100",
+      "price": "920",
+      "stock": "57",
+      "sortname": null,
+      "specname": "60顆",
+      "price_sp": null
+  },
+  {
+      "id": "265",
+      "prod_id": "100",
+      "price": "520",
+      "stock": "0",
+      "sortname": null,
+      "specname": "30顆",
+      "price_sp": 510
+  },
+  {
+      "id": "266",
+      "prod_id": "101",
+      "price": "1050",
+      "stock": "2",
+      "sortname": null,
+      "specname": "4kg",
+      "price_sp": null
+  },
+  {
+      "id": "267",
+      "prod_id": "102",
+      "price": "199",
+      "stock": "38",
+      "sortname": "吮指蜜汁雞(犬用)",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "268",
+      "prod_id": "102",
+      "price": "199",
+      "stock": "123",
+      "sortname": "吮指麻花牛(犬用)",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "269",
+      "prod_id": "102",
+      "price": "199",
+      "stock": "404",
+      "sortname": "花椰菜雞塊(犬用)",
+      "specname": null,
+      "price_sp": 189
+  },
+  {
+      "id": "270",
+      "prod_id": "102",
+      "price": "199",
+      "stock": "123",
+      "sortname": "蔓越莓牛酥(犬用)",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "271",
+      "prod_id": "102",
+      "price": "199",
+      "stock": "24",
+      "sortname": "牛肉吉士餅(犬用)",
+      "specname": null,
+      "price_sp": 189
+  },
+  {
+      "id": "272",
+      "prod_id": "102",
+      "price": "109",
+      "stock": "28",
+      "sortname": "健骨鮪魚丁(貓用)",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "273",
+      "prod_id": "102",
+      "price": "109",
+      "stock": "446",
+      "sortname": "貓草鮭魚丁(貓用)",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "274",
+      "prod_id": "102",
+      "price": "109",
+      "stock": "586",
+      "sortname": "勁刨香鱈片(貓用)",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "275",
+      "prod_id": "103",
+      "price": "420",
+      "stock": "3",
+      "sortname": null,
+      "specname": "45g",
+      "price_sp": null
+  },
+  {
+      "id": "276",
+      "prod_id": "104",
+      "price": "1419",
+      "stock": "54",
+      "sortname": "火雞肉+雞肉+鮭魚",
+      "specname": "5磅 (2.27kg)",
+      "price_sp": null
+  },
+  {
+      "id": "277",
+      "prod_id": "104",
+      "price": "2465",
+      "stock": "0",
+      "sortname": "火雞肉+雞肉+鮭魚",
+      "specname": "5kg",
+      "price_sp": 2455
+  },
+  {
+      "id": "278",
+      "prod_id": "104",
+      "price": "4474",
+      "stock": "123",
+      "sortname": "火雞肉+雞肉+鮭魚",
+      "specname": "10kg",
+      "price_sp": 4464
+  },
+  {
+      "id": "279",
+      "prod_id": "105",
+      "price": "250",
+      "stock": "303",
+      "sortname": "蟲蟲潔牙棒",
+      "specname": null,
+      "price_sp": 240
+  },
+  {
+      "id": "280",
+      "prod_id": "106",
+      "price": "1480",
+      "stock": "2",
+      "sortname": "護眼漿果膠囊",
+      "specname": "60粒/罐",
+      "price_sp": null
+  },
+  {
+      "id": "281",
+      "prod_id": "107",
+      "price": "963",
+      "stock": "58",
+      "sortname": "雞肉",
+      "specname": "5磅 (2.27kg)",
+      "price_sp": null
+  },
+  {
+      "id": "282",
+      "prod_id": "107",
+      "price": "3154",
+      "stock": "347",
+      "sortname": "雞肉",
+      "specname": "10kg",
+      "price_sp": null
+  },
+  {
+      "id": "283",
+      "prod_id": "108",
+      "price": "880",
+      "stock": "0",
+      "sortname": "微笑花盆栽",
+      "specname": null,
+      "price_sp": 704
+  },
+  {
+      "id": "284",
+      "prod_id": "109",
+      "price": "699",
+      "stock": "56",
+      "sortname": null,
+      "specname": "60g",
+      "price_sp": 689
+  },
+  {
+      "id": "285",
+      "prod_id": "110",
+      "price": "1619",
+      "stock": "67",
+      "sortname": null,
+      "specname": "5磅 (2.27kg)",
+      "price_sp": 1296
+  },
+  {
+      "id": "286",
+      "prod_id": "110",
+      "price": "5976",
+      "stock": "370",
+      "sortname": null,
+      "specname": "10kg",
+      "price_sp": null
+  },
+  {
+      "id": "287",
+      "prod_id": "111",
+      "price": "980",
+      "stock": "123",
+      "sortname": "DJ盤",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "288",
+      "prod_id": "112",
+      "price": "720",
+      "stock": "25",
+      "sortname": null,
+      "specname": "1盒 (30包)",
+      "price_sp": 710
+  },
+  {
+      "id": "289",
+      "prod_id": "112",
+      "price": "1390",
+      "stock": "57",
+      "sortname": null,
+      "specname": "2盒 (60包)",
+      "price_sp": null
+  },
+  {
+      "id": "290",
+      "prod_id": "112",
+      "price": "3300",
+      "stock": "4",
+      "sortname": null,
+      "specname": "5盒 (150包)",
+      "price_sp": null
+  },
+  {
+      "id": "291",
+      "prod_id": "112",
+      "price": "6490",
+      "stock": "4",
+      "sortname": null,
+      "specname": "11盒 (330包)",
+      "price_sp": 5192
+  },
+  {
+      "id": "292",
+      "prod_id": "113",
+      "price": "550",
+      "stock": "0",
+      "sortname": null,
+      "specname": "1kg",
+      "price_sp": 540
+  },
+  {
+      "id": "293",
+      "prod_id": "113",
+      "price": "680",
+      "stock": "4",
+      "sortname": null,
+      "specname": "2kg",
+      "price_sp": 670
+  },
+  {
+      "id": "294",
+      "prod_id": "114",
+      "price": "180",
+      "stock": "48",
+      "sortname": "紫色網球",
+      "specname": "3球/盒",
+      "price_sp": null
+  },
+  {
+      "id": "295",
+      "prod_id": "114",
+      "price": "180",
+      "stock": "4",
+      "sortname": "紅色網球",
+      "specname": "3球/盒",
+      "price_sp": 170
+  },
+  {
+      "id": "296",
+      "prod_id": "114",
+      "price": "180",
+      "stock": "4",
+      "sortname": "黑色網球",
+      "specname": "3球/盒",
+      "price_sp": null
+  },
+  {
+      "id": "297",
+      "prod_id": "115",
+      "price": "600",
+      "stock": "59",
+      "sortname": null,
+      "specname": "1磅 (454g)",
+      "price_sp": null
+  },
+  {
+      "id": "298",
+      "prod_id": "116",
+      "price": "950",
+      "stock": "56",
+      "sortname": "低敏舒膚 新鮮碗豆+鷹嘴豆",
+      "specname": "3.5磅 (1.59kg)",
+      "price_sp": null
+  },
+  {
+      "id": "299",
+      "prod_id": "116",
+      "price": "2300",
+      "stock": "0",
+      "sortname": "低敏舒膚 新鮮碗豆+鷹嘴豆",
+      "specname": "10磅 (4.53kg)",
+      "price_sp": null
+  },
+  {
+      "id": "300",
+      "prod_id": "117",
+      "price": "880",
+      "stock": "0",
+      "sortname": "旋轉消防栓",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "301",
+      "prod_id": "118",
+      "price": "380",
+      "stock": "65",
+      "sortname": null,
+      "specname": "60g",
+      "price_sp": 304
+  },
+  {
+      "id": "302",
+      "prod_id": "119",
+      "price": "204",
+      "stock": "381",
+      "sortname": "雞肉+糙米",
+      "specname": "1磅 (454g)",
+      "price_sp": 164
+  },
+  {
+      "id": "303",
+      "prod_id": "119",
+      "price": "842",
+      "stock": "67",
+      "sortname": "雞肉+糙米",
+      "specname": "5磅 (2.27kg)",
+      "price_sp": null
+  },
+  {
+      "id": "304",
+      "prod_id": "120",
+      "price": "520",
+      "stock": "715",
+      "sortname": "達克鴨",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "305",
+      "prod_id": "121",
+      "price": "1190",
+      "stock": "3",
+      "sortname": "米白色",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "306",
+      "prod_id": "122",
+      "price": "221",
+      "stock": "409",
+      "sortname": "鯰魚+珍珠麥 (滋補養生)",
+      "specname": "1磅 (454g)",
+      "price_sp": 211
+  },
+  {
+      "id": "307",
+      "prod_id": "122",
+      "price": "978",
+      "stock": "13",
+      "sortname": "鯰魚+珍珠麥 (滋補養生)",
+      "specname": "5磅 (2.27kg)",
+      "price_sp": 783
+  },
+  {
+      "id": "308",
+      "prod_id": "123",
+      "price": "250",
+      "stock": "3",
+      "sortname": "櫻花",
+      "specname": "M號",
+      "price_sp": 240
+  },
+  {
+      "id": "309",
+      "prod_id": "124",
+      "price": "2490",
+      "stock": "0",
+      "sortname": "米綠",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "310",
+      "prod_id": "125",
+      "price": "1280",
+      "stock": "123",
+      "sortname": "安心雞",
+      "specname": "500g",
+      "price_sp": null
+  },
+  {
+      "id": "311",
+      "prod_id": "125",
+      "price": "1480",
+      "stock": "2",
+      "sortname": "草飼牛",
+      "specname": "500g",
+      "price_sp": 1184
+  },
+  {
+      "id": "312",
+      "prod_id": "126",
+      "price": "300",
+      "stock": "5",
+      "sortname": "復刻大哥大",
+      "specname": null,
+      "price_sp": 240
+  },
+  {
+      "id": "313",
+      "prod_id": "127",
+      "price": "1950",
+      "stock": "0",
+      "sortname": "熊抱哥",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "314",
+      "prod_id": "128",
+      "price": "580",
+      "stock": "0",
+      "sortname": "羊肉",
+      "specname": "142g",
+      "price_sp": null
+  },
+  {
+      "id": "315",
+      "prod_id": "128",
+      "price": "1440",
+      "stock": "336",
+      "sortname": "羊肉",
+      "specname": "500g",
+      "price_sp": 1152
+  },
+  {
+      "id": "316",
+      "prod_id": "128",
+      "price": "4390",
+      "stock": "34",
+      "sortname": "羊肉",
+      "specname": "4磅 (1.81kg)",
+      "price_sp": null
+  },
+  {
+      "id": "317",
+      "prod_id": "128",
+      "price": "7890",
+      "stock": "5",
+      "sortname": "羊肉",
+      "specname": "8磅 (3.62kg)",
+      "price_sp": null
+  },
+  {
+      "id": "318",
+      "prod_id": "128",
+      "price": "580",
+      "stock": "283",
+      "sortname": "牛肉",
+      "specname": "142g",
+      "price_sp": null
+  },
+  {
+      "id": "319",
+      "prod_id": "128",
+      "price": "1440",
+      "stock": "0",
+      "sortname": "牛肉",
+      "specname": "500g",
+      "price_sp": null
+  },
+  {
+      "id": "320",
+      "prod_id": "128",
+      "price": "4390",
+      "stock": "614",
+      "sortname": "牛肉",
+      "specname": "4磅 (1.81kg)",
+      "price_sp": null
+  },
+  {
+      "id": "321",
+      "prod_id": "128",
+      "price": "7890",
+      "stock": "33",
+      "sortname": "牛肉",
+      "specname": "8磅 (3.62kg)",
+      "price_sp": null
+  },
+  {
+      "id": "322",
+      "prod_id": "128",
+      "price": "580",
+      "stock": "123",
+      "sortname": "牛肉+鱈魚",
+      "specname": "142g",
+      "price_sp": null
+  },
+  {
+      "id": "323",
+      "prod_id": "128",
+      "price": "1440",
+      "stock": "123",
+      "sortname": "牛肉+鱈魚",
+      "specname": "500g",
+      "price_sp": 1152
+  },
+  {
+      "id": "324",
+      "prod_id": "128",
+      "price": "4390",
+      "stock": "45",
+      "sortname": "牛肉+鱈魚",
+      "specname": "4磅 (1.81kg)",
+      "price_sp": null
+  },
+  {
+      "id": "325",
+      "prod_id": "129",
+      "price": "220",
+      "stock": "137",
+      "sortname": "小象",
+      "specname": null,
+      "price_sp": 210
+  },
+  {
+      "id": "326",
+      "prod_id": "129",
+      "price": "220",
+      "stock": "4",
+      "sortname": "小兔",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "327",
+      "prod_id": "129",
+      "price": "220",
+      "stock": "3",
+      "sortname": "蝙蝠",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "328",
+      "prod_id": "129",
+      "price": "220",
+      "stock": "0",
+      "sortname": "小熊貓",
+      "specname": null,
+      "price_sp": 210
+  },
+  {
+      "id": "329",
+      "prod_id": "129",
+      "price": "220",
+      "stock": "22",
+      "sortname": "小熊",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "330",
+      "prod_id": "129",
+      "price": "220",
+      "stock": "69",
+      "sortname": "小豬",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "331",
+      "prod_id": "129",
+      "price": "320",
+      "stock": "5",
+      "sortname": "繩結犀牛",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "332",
+      "prod_id": "130",
+      "price": "2680",
+      "stock": "0",
+      "sortname": "沉穩灰",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "333",
+      "prod_id": "130",
+      "price": "2680",
+      "stock": "3",
+      "sortname": "極簡白",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "334",
+      "prod_id": "131",
+      "price": "1500",
+      "stock": "23",
+      "sortname": "火雞肉",
+      "specname": "6磅 (2.72kg)",
+      "price_sp": 1200
+  },
+  {
+      "id": "335",
+      "prod_id": "131",
+      "price": "1500",
+      "stock": "336",
+      "sortname": "羊肉",
+      "specname": "6磅 (2.72kg)",
+      "price_sp": 1200
+  },
+  {
+      "id": "336",
+      "prod_id": "131",
+      "price": "1500",
+      "stock": "50",
+      "sortname": "鮭魚",
+      "specname": "6磅 (2.72kg)",
+      "price_sp": 1200
+  },
+  {
+      "id": "337",
+      "prod_id": "131",
+      "price": "1500",
+      "stock": "66",
+      "sortname": "鴨肉",
+      "specname": "6磅 (2.72kg)",
+      "price_sp": null
+  },
+  {
+      "id": "338",
+      "prod_id": "132",
+      "price": "470",
+      "stock": "648",
+      "sortname": "電子字典",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "339",
+      "prod_id": "133",
+      "price": "390",
+      "stock": "210",
+      "sortname": "黑色",
+      "specname": null,
+      "price_sp": 312
+  },
+  {
+      "id": "340",
+      "prod_id": "133",
+      "price": "390",
+      "stock": "25",
+      "sortname": "白色",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "341",
+      "prod_id": "134",
+      "price": "649",
+      "stock": "0",
+      "sortname": "T27 火雞+雞肉",
+      "specname": "2.5磅 (1.13kg)",
+      "price_sp": 639
+  },
+  {
+      "id": "342",
+      "prod_id": "134",
+      "price": "1099",
+      "stock": "0",
+      "sortname": "T27 火雞+雞肉",
+      "specname": "4.5磅 (2.04kg)",
+      "price_sp": 880
+  },
+  {
+      "id": "343",
+      "prod_id": "134",
+      "price": "2099",
+      "stock": "0",
+      "sortname": "T27 火雞+雞肉",
+      "specname": "12磅 (5.44kg)",
+      "price_sp": null
+  },
+  {
+      "id": "344",
+      "prod_id": "134",
+      "price": "649",
+      "stock": "23",
+      "sortname": "T28 鮭魚+鱒魚",
+      "specname": "2.5磅 (1.13kg)",
+      "price_sp": 520
+  },
+  {
+      "id": "345",
+      "prod_id": "134",
+      "price": "1099",
+      "stock": "0",
+      "sortname": "T28 鮭魚+鱒魚",
+      "specname": "4.5磅 (2.04kg)",
+      "price_sp": 880
+  },
+  {
+      "id": "346",
+      "prod_id": "134",
+      "price": "2099",
+      "stock": "25",
+      "sortname": "T28 鮭魚+鱒魚",
+      "specname": "12磅 (5.44kg)",
+      "price_sp": 1680
+  },
+  {
+      "id": "347",
+      "prod_id": "134",
+      "price": "649",
+      "stock": "0",
+      "sortname": "T29 羊肉",
+      "specname": "2.5磅 (1.13kg)",
+      "price_sp": 639
+  },
+  {
+      "id": "348",
+      "prod_id": "134",
+      "price": "1099",
+      "stock": "0",
+      "sortname": "T29 羊肉",
+      "specname": "4.5磅 (2.04kg)",
+      "price_sp": null
+  },
+  {
+      "id": "349",
+      "prod_id": "134",
+      "price": "2099",
+      "stock": "123",
+      "sortname": "T29 羊肉",
+      "specname": "12磅 (5.44kg)",
+      "price_sp": 1680
+  },
+  {
+      "id": "350",
+      "prod_id": "135",
+      "price": "47",
+      "stock": "25",
+      "sortname": "DMW 皮膚",
+      "specname": "85g",
+      "price_sp": 37
+  },
+  {
+      "id": "351",
+      "prod_id": "135",
+      "price": "47",
+      "stock": "0",
+      "sortname": "UW 泌尿道",
+      "specname": "85g",
+      "price_sp": 37
+  },
+  {
+      "id": "352",
+      "prod_id": "135",
+      "price": "47",
+      "stock": "370",
+      "sortname": "DGW 腸胃",
+      "specname": "85g",
+      "price_sp": null
+  },
+  {
+      "id": "353",
+      "prod_id": "135",
+      "price": "47",
+      "stock": "0",
+      "sortname": "LWW 體重控制",
+      "specname": "85g",
+      "price_sp": null
+  },
+  {
+      "id": "354",
+      "prod_id": "136",
+      "price": "450",
+      "stock": "44",
+      "sortname": "清新粉",
+      "specname": null,
+      "price_sp": 360
+  },
+  {
+      "id": "355",
+      "prod_id": "136",
+      "price": "450",
+      "stock": "0",
+      "sortname": "雅致灰",
+      "specname": null,
+      "price_sp": 440
+  },
+  {
+      "id": "356",
+      "prod_id": "136",
+      "price": "450",
+      "stock": "123",
+      "sortname": "治癒綠",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "357",
+      "prod_id": "136",
+      "price": "450",
+      "stock": "65",
+      "sortname": "摩卡棕",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "358",
+      "prod_id": "137",
+      "price": "440",
+      "stock": "46",
+      "sortname": "LD-2 雞肉石榴",
+      "specname": "0.8kg",
+      "price_sp": null
+  },
+  {
+      "id": "359",
+      "prod_id": "137",
+      "price": "1130",
+      "stock": "6",
+      "sortname": "LD-2 雞肉石榴",
+      "specname": "5.5磅 (2.49kg)",
+      "price_sp": 904
+  },
+  {
+      "id": "360",
+      "prod_id": "137",
+      "price": "440",
+      "stock": "57",
+      "sortname": "LD-3 羊肉藍莓",
+      "specname": "0.8kg",
+      "price_sp": 430
+  },
+  {
+      "id": "361",
+      "prod_id": "137",
+      "price": "1130",
+      "stock": "14",
+      "sortname": "LD-3 羊肉藍莓",
+      "specname": "5.5磅 (2.49kg)",
+      "price_sp": 904
+  },
+  {
+      "id": "362",
+      "prod_id": "138",
+      "price": "109",
+      "stock": "66",
+      "sortname": "韓式春川炒雞",
+      "specname": "150g",
+      "price_sp": null
+  },
+  {
+      "id": "363",
+      "prod_id": "138",
+      "price": "109",
+      "stock": "315",
+      "sortname": "美式烤火雞",
+      "specname": "150g",
+      "price_sp": null
+  },
+  {
+      "id": "364",
+      "prod_id": "138",
+      "price": "129",
+      "stock": "0",
+      "sortname": "阿根廷燉牛肉",
+      "specname": "150g",
+      "price_sp": 119
+  },
+  {
+      "id": "365",
+      "prod_id": "138",
+      "price": "129",
+      "stock": "574",
+      "sortname": "日式和風鮭魚",
+      "specname": "150g",
+      "price_sp": null
+  },
+  {
+      "id": "366",
+      "prod_id": "138",
+      "price": "129",
+      "stock": "0",
+      "sortname": "西班牙燉海鮮",
+      "specname": "150g",
+      "price_sp": null
+  },
+  {
+      "id": "367",
+      "prod_id": "138",
+      "price": "129",
+      "stock": "6",
+      "sortname": "土耳其烤羊肉",
+      "specname": "150g",
+      "price_sp": 119
+  },
+  {
+      "id": "368",
+      "prod_id": "139",
+      "price": "799",
+      "stock": "123",
+      "sortname": "北歐風",
+      "specname": null,
+      "price_sp": 789
+  },
+  {
+      "id": "369",
+      "prod_id": "140",
+      "price": "1050",
+      "stock": "1",
+      "sortname": "美膚羊肉+蘋果 (毛髮亮麗)",
+      "specname": "2kg",
+      "price_sp": 1040
+  },
+  {
+      "id": "370",
+      "prod_id": "140",
+      "price": "1100",
+      "stock": "547",
+      "sortname": "美膚鴨肉+梨子 (心血管保健)",
+      "specname": "2kg",
+      "price_sp": 880
+  },
+  {
+      "id": "371",
+      "prod_id": "141",
+      "price": "26",
+      "stock": "3",
+      "sortname": "嫩雞絲",
+      "specname": "80g x 1入",
+      "price_sp": null
+  },
+  {
+      "id": "372",
+      "prod_id": "141",
+      "price": "624",
+      "stock": "305",
+      "sortname": "嫩雞絲",
+      "specname": "80g x 24入",
+      "price_sp": null
+  },
+  {
+      "id": "373",
+      "prod_id": "141",
+      "price": "1040",
+      "stock": "3",
+      "sortname": "嫩雞絲",
+      "specname": "160g x 24入",
+      "price_sp": 832
+  },
+  {
+      "id": "374",
+      "prod_id": "141",
+      "price": "26",
+      "stock": "34",
+      "sortname": "鮪魚綠貽貝",
+      "specname": "80g x 1入",
+      "price_sp": 21
+  },
+  {
+      "id": "375",
+      "prod_id": "141",
+      "price": "624",
+      "stock": "3",
+      "sortname": "鮪魚綠貽貝",
+      "specname": "80g x 24入",
+      "price_sp": null
+  },
+  {
+      "id": "376",
+      "prod_id": "141",
+      "price": "1040",
+      "stock": "38",
+      "sortname": "鮪魚綠貽貝",
+      "specname": "160g x 24入",
+      "price_sp": null
+  },
+  {
+      "id": "377",
+      "prod_id": "141",
+      "price": "26",
+      "stock": "6",
+      "sortname": "鮭魚燴嫩雞",
+      "specname": "80g x 1入",
+      "price_sp": 21
+  },
+  {
+      "id": "378",
+      "prod_id": "141",
+      "price": "624",
+      "stock": "54",
+      "sortname": "鮭魚燴嫩雞",
+      "specname": "80g x 24入",
+      "price_sp": null
+  },
+  {
+      "id": "379",
+      "prod_id": "141",
+      "price": "1040",
+      "stock": "6",
+      "sortname": "鮭魚燴嫩雞",
+      "specname": "160g x 24入",
+      "price_sp": 832
+  },
+  {
+      "id": "380",
+      "prod_id": "141",
+      "price": "26",
+      "stock": "34",
+      "sortname": "雞丁燉南瓜",
+      "specname": "80g x 1入",
+      "price_sp": null
+  },
+  {
+      "id": "381",
+      "prod_id": "141",
+      "price": "624",
+      "stock": "39",
+      "sortname": "雞丁燉南瓜",
+      "specname": "80g x 24入",
+      "price_sp": null
+  },
+  {
+      "id": "382",
+      "prod_id": "141",
+      "price": "1040",
+      "stock": "0",
+      "sortname": "雞丁燉南瓜",
+      "specname": "160g x 24入",
+      "price_sp": 1030
+  },
+  {
+      "id": "383",
+      "prod_id": "141",
+      "price": "26",
+      "stock": "3",
+      "sortname": "雞絲小蚌貝",
+      "specname": "80g x 1入",
+      "price_sp": null
+  },
+  {
+      "id": "384",
+      "prod_id": "141",
+      "price": "624",
+      "stock": "0",
+      "sortname": "雞絲小蚌貝",
+      "specname": "80g x 24入",
+      "price_sp": null
+  },
+  {
+      "id": "385",
+      "prod_id": "141",
+      "price": "1040",
+      "stock": "123",
+      "sortname": "雞絲小蚌貝",
+      "specname": "160g x 24入",
+      "price_sp": null
+  },
+  {
+      "id": "386",
+      "prod_id": "141",
+      "price": "26",
+      "stock": "36",
+      "sortname": "鰹魚蛤蜊",
+      "specname": "80g x 1入",
+      "price_sp": null
+  },
+  {
+      "id": "387",
+      "prod_id": "141",
+      "price": "624",
+      "stock": "123",
+      "sortname": "鰹魚蛤蜊",
+      "specname": "80g x 24入",
+      "price_sp": 614
+  },
+  {
+      "id": "388",
+      "prod_id": "141",
+      "price": "1040",
+      "stock": "3",
+      "sortname": "鰹魚蛤蜊",
+      "specname": "160g x 24入",
+      "price_sp": null
+  },
+  {
+      "id": "389",
+      "prod_id": "142",
+      "price": "560",
+      "stock": "3",
+      "sortname": "香檳金",
+      "specname": "150cm",
+      "price_sp": null
+  },
+  {
+      "id": "390",
+      "prod_id": "142",
+      "price": "560",
+      "stock": "0",
+      "sortname": "靜謐黑",
+      "specname": "150cm",
+      "price_sp": null
+  },
+  {
+      "id": "391",
+      "prod_id": "142",
+      "price": "560",
+      "stock": "63",
+      "sortname": "醇酒紅",
+      "specname": "150cm",
+      "price_sp": null
+  },
+  {
+      "id": "392",
+      "prod_id": "143",
+      "price": "90",
+      "stock": "0",
+      "sortname": "雞肉+鮭魚",
+      "specname": "100g",
+      "price_sp": 80
+  },
+  {
+      "id": "393",
+      "prod_id": "143",
+      "price": "1152",
+      "stock": "4",
+      "sortname": "雞肉+鮭魚",
+      "specname": "2kg",
+      "price_sp": null
+  },
+  {
+      "id": "394",
+      "prod_id": "144",
+      "price": "55",
+      "stock": "123",
+      "sortname": "黑水虻+鱸魚",
+      "specname": "80g x 1罐",
+      "price_sp": 44
+  },
+  {
+      "id": "395",
+      "prod_id": "144",
+      "price": "1320",
+      "stock": "0",
+      "sortname": "黑水虻+鱸魚",
+      "specname": "80g x 24罐",
+      "price_sp": 1056
+  },
+  {
+      "id": "396",
+      "prod_id": "144",
+      "price": "55",
+      "stock": "45",
+      "sortname": "黑水虻+雞肉",
+      "specname": "80g x 1罐",
+      "price_sp": 44
+  },
+  {
+      "id": "397",
+      "prod_id": "144",
+      "price": "1320",
+      "stock": "35",
+      "sortname": "黑水虻+雞肉",
+      "specname": "80g x 24罐",
+      "price_sp": null
+  },
+  {
+      "id": "398",
+      "prod_id": "144",
+      "price": "55",
+      "stock": "36",
+      "sortname": "黑水虻+雞+牛",
+      "specname": "80g x 1罐",
+      "price_sp": 45
+  },
+  {
+      "id": "399",
+      "prod_id": "144",
+      "price": "1320",
+      "stock": "123",
+      "sortname": "黑水虻+雞+牛",
+      "specname": "80g x 24罐",
+      "price_sp": null
+  },
+  {
+      "id": "400",
+      "prod_id": "145",
+      "price": "950",
+      "stock": "123",
+      "sortname": "牛乳棕",
+      "specname": null,
+      "price_sp": 760
+  },
+  {
+      "id": "401",
+      "prod_id": "145",
+      "price": "950",
+      "stock": "123",
+      "sortname": "蕎麥灰",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "402",
+      "prod_id": "146",
+      "price": "745",
+      "stock": "0",
+      "sortname": "雞肉",
+      "specname": "1磅 (454g)",
+      "price_sp": null
+  },
+  {
+      "id": "403",
+      "prod_id": "146",
+      "price": "1825",
+      "stock": "451",
+      "sortname": "雞肉",
+      "specname": "3磅 (1.36kg)",
+      "price_sp": null
+  },
+  {
+      "id": "404",
+      "prod_id": "147",
+      "price": "1190",
+      "stock": "0",
+      "sortname": null,
+      "specname": "2kg",
+      "price_sp": null
+  },
+  {
+      "id": "405",
+      "prod_id": "148",
+      "price": "190",
+      "stock": "6",
+      "sortname": "夾心餅乾",
+      "specname": null,
+      "price_sp": 180
+  },
+  {
+      "id": "406",
+      "prod_id": "149",
+      "price": "624",
+      "stock": "171",
+      "sortname": "MNINA+8 小型室內熟齡犬8+歲",
+      "specname": "1.5kg",
+      "price_sp": 614
+  },
+  {
+      "id": "407",
+      "prod_id": "150",
+      "price": "1290",
+      "stock": "123",
+      "sortname": "雞蛋+白米",
+      "specname": "2kg",
+      "price_sp": 1032
+  },
+  {
+      "id": "408",
+      "prod_id": "151",
+      "price": "120",
+      "stock": "123",
+      "sortname": "咬咬雞胗 50g",
+      "specname": null,
+      "price_sp": 96
+  },
+  {
+      "id": "409",
+      "prod_id": "151",
+      "price": "180",
+      "stock": "4",
+      "sortname": "爆蛋柳葉魚 40g",
+      "specname": null,
+      "price_sp": 170
+  },
+  {
+      "id": "410",
+      "prod_id": "152",
+      "price": "200",
+      "stock": "5",
+      "sortname": "雞肉+石榴",
+      "specname": "100g",
+      "price_sp": 160
+  },
+  {
+      "id": "411",
+      "prod_id": "152",
+      "price": "200",
+      "stock": "0",
+      "sortname": "羊肉+藍莓",
+      "specname": "100g",
+      "price_sp": null
+  },
+  {
+      "id": "412",
+      "prod_id": "152",
+      "price": "200",
+      "stock": "57",
+      "sortname": "鱈魚+南瓜",
+      "specname": "100g",
+      "price_sp": null
+  },
+  {
+      "id": "413",
+      "prod_id": "153",
+      "price": "2200",
+      "stock": "712",
+      "sortname": "鯖魚+羊肉",
+      "specname": "1kg",
+      "price_sp": 2190
+  },
+  {
+      "id": "414",
+      "prod_id": "154",
+      "price": "390",
+      "stock": "47",
+      "sortname": "喝羊奶",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "415",
+      "prod_id": "155",
+      "price": "950",
+      "stock": "60",
+      "sortname": "放養雞肉+新鮮蔬果",
+      "specname": "2kg",
+      "price_sp": null
+  },
+  {
+      "id": "416",
+      "prod_id": "156",
+      "price": "405",
+      "stock": "0",
+      "sortname": "羊肉",
+      "specname": "1.5kg",
+      "price_sp": null
+  },
+  {
+      "id": "417",
+      "prod_id": "156",
+      "price": "675",
+      "stock": "5",
+      "sortname": "羊肉",
+      "specname": "3kg",
+      "price_sp": 540
+  },
+  {
+      "id": "418",
+      "prod_id": "156",
+      "price": "1226",
+      "stock": "312",
+      "sortname": "羊肉",
+      "specname": "7kg",
+      "price_sp": null
+  },
+  {
+      "id": "419",
+      "prod_id": "157",
+      "price": "79",
+      "stock": "53",
+      "sortname": "雞胸肉",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "420",
+      "prod_id": "158",
+      "price": "520",
+      "stock": "5",
+      "sortname": null,
+      "specname": "30入/盒",
+      "price_sp": null
+  },
+  {
+      "id": "421",
+      "prod_id": "159",
+      "price": "405",
+      "stock": "4",
+      "sortname": "羊肉",
+      "specname": "1.5kg",
+      "price_sp": 324
+  },
+  {
+      "id": "422",
+      "prod_id": "159",
+      "price": "675",
+      "stock": "62",
+      "sortname": "羊肉",
+      "specname": "3kg",
+      "price_sp": null
+  },
+  {
+      "id": "423",
+      "prod_id": "159",
+      "price": "1226",
+      "stock": "382",
+      "sortname": "羊肉",
+      "specname": "7kg",
+      "price_sp": null
+  },
+  {
+      "id": "424",
+      "prod_id": "160",
+      "price": "59",
+      "stock": "0",
+      "sortname": null,
+      "specname": "250ml/瓶",
+      "price_sp": null
+  },
+  {
+      "id": "425",
+      "prod_id": "161",
+      "price": "450",
+      "stock": "13",
+      "sortname": null,
+      "specname": "1.5g x 30入",
+      "price_sp": 360
+  },
+  {
+      "id": "426",
+      "prod_id": "162",
+      "price": "624",
+      "stock": "4",
+      "sortname": null,
+      "specname": "1.5kg",
+      "price_sp": 500
+  },
+  {
+      "id": "427",
+      "prod_id": "162",
+      "price": "1050",
+      "stock": "12",
+      "sortname": null,
+      "specname": "3kg",
+      "price_sp": null
+  },
+  {
+      "id": "428",
+      "prod_id": "163",
+      "price": "200",
+      "stock": "123",
+      "sortname": "溫體雞胸",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "429",
+      "prod_id": "163",
+      "price": "230",
+      "stock": "2",
+      "sortname": "紐澳牛肉條",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "430",
+      "prod_id": "163",
+      "price": "320",
+      "stock": "123",
+      "sortname": "紐西蘭綠貽貝",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "431",
+      "prod_id": "163",
+      "price": "280",
+      "stock": "5",
+      "sortname": "無毒白蝦仁",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "432",
+      "prod_id": "163",
+      "price": "300",
+      "stock": "4",
+      "sortname": "大魚小魚(爆蛋魚+丁香魚)",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "433",
+      "prod_id": "163",
+      "price": "390",
+      "stock": "6",
+      "sortname": "帆立貝",
+      "specname": null,
+      "price_sp": 380
+  },
+  {
+      "id": "434",
+      "prod_id": "163",
+      "price": "280",
+      "stock": "5",
+      "sortname": "祕魯魷魚丁",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "435",
+      "prod_id": "163",
+      "price": "180",
+      "stock": "63",
+      "sortname": "船凍白帶魚片",
+      "specname": null,
+      "price_sp": 170
+  },
+  {
+      "id": "436",
+      "prod_id": "163",
+      "price": "180",
+      "stock": "39",
+      "sortname": "溫體雞肝",
+      "specname": null,
+      "price_sp": 144
+  },
+  {
+      "id": "437",
+      "prod_id": "163",
+      "price": "390",
+      "stock": "36",
+      "sortname": "鮮凍甜干貝",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "438",
+      "prod_id": "163",
+      "price": "280",
+      "stock": "53",
+      "sortname": "無刺虱目魚柳",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "439",
+      "prod_id": "164",
+      "price": "2100",
+      "stock": "5",
+      "sortname": null,
+      "specname": "120錠",
+      "price_sp": 2090
+  },
+  {
+      "id": "440",
+      "prod_id": "165",
+      "price": "1112",
+      "stock": "303",
+      "sortname": null,
+      "specname": "3kg",
+      "price_sp": 1102
+  },
+  {
+      "id": "441",
+      "prod_id": "166",
+      "price": "198",
+      "stock": "61",
+      "sortname": "雞肉啵吉",
+      "specname": null,
+      "price_sp": 188
+  },
+  {
+      "id": "442",
+      "prod_id": "166",
+      "price": "198",
+      "stock": "67",
+      "sortname": "雞肉南瓜啵吉",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "443",
+      "prod_id": "166",
+      "price": "198",
+      "stock": "31",
+      "sortname": "牛肉亞麻籽啵卡",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "444",
+      "prod_id": "166",
+      "price": "198",
+      "stock": "3",
+      "sortname": "虱目魚啵吉",
+      "specname": null,
+      "price_sp": 188
+  },
+  {
+      "id": "445",
+      "prod_id": "166",
+      "price": "220",
+      "stock": "0",
+      "sortname": "鱸魚啵卡",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "446",
+      "prod_id": "167",
+      "price": "920",
+      "stock": "3",
+      "sortname": null,
+      "specname": "60顆",
+      "price_sp": 736
+  },
+  {
+      "id": "447",
+      "prod_id": "167",
+      "price": "520",
+      "stock": "24",
+      "sortname": null,
+      "specname": "30顆",
+      "price_sp": 416
+  },
+  {
+      "id": "448",
+      "prod_id": "168",
+      "price": "1280",
+      "stock": "0",
+      "sortname": "白肉",
+      "specname": "2kg",
+      "price_sp": null
+  },
+  {
+      "id": "449",
+      "prod_id": "168",
+      "price": "1280",
+      "stock": "123",
+      "sortname": "紅肉",
+      "specname": "2kg",
+      "price_sp": null
+  },
+  {
+      "id": "450",
+      "prod_id": "168",
+      "price": "1280",
+      "stock": "0",
+      "sortname": "海陸",
+      "specname": "2kg",
+      "price_sp": null
+  },
+  {
+      "id": "451",
+      "prod_id": "169",
+      "price": "79",
+      "stock": "67",
+      "sortname": "主廚干貝蝦",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "452",
+      "prod_id": "169",
+      "price": "79",
+      "stock": "123",
+      "sortname": "黑莓嫩鴨胸",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "453",
+      "prod_id": "169",
+      "price": "79",
+      "stock": "553",
+      "sortname": "海陸玉子蒸",
+      "specname": null,
+      "price_sp": 64
+  },
+  {
+      "id": "454",
+      "prod_id": "169",
+      "price": "79",
+      "stock": "575",
+      "sortname": "厚乳佐嫩雞",
+      "specname": null,
+      "price_sp": 64
+  },
+  {
+      "id": "455",
+      "prod_id": "169",
+      "price": "79",
+      "stock": "53",
+      "sortname": "松露舒肥牛",
+      "specname": null,
+      "price_sp": 64
+  },
+  {
+      "id": "456",
+      "prod_id": "169",
+      "price": "79",
+      "stock": "6",
+      "sortname": "明太子鮭魚",
+      "specname": null,
+      "price_sp": 64
+  },
+  {
+      "id": "457",
+      "prod_id": "169",
+      "price": "79",
+      "stock": "3",
+      "sortname": "田園烤火雞",
+      "specname": null,
+      "price_sp": 69
+  },
+  {
+      "id": "458",
+      "prod_id": "170",
+      "price": "690",
+      "stock": "0",
+      "sortname": null,
+      "specname": "1盒 (30包)",
+      "price_sp": null
+  },
+  {
+      "id": "459",
+      "prod_id": "170",
+      "price": "1290",
+      "stock": "1",
+      "sortname": null,
+      "specname": "2盒 (60包)",
+      "price_sp": 1032
+  },
+  {
+      "id": "460",
+      "prod_id": "170",
+      "price": "2990",
+      "stock": "0",
+      "sortname": null,
+      "specname": "5盒 (150包)",
+      "price_sp": 2980
+  },
+  {
+      "id": "461",
+      "prod_id": "171",
+      "price": "1693",
+      "stock": "123",
+      "sortname": "七種海洋魚",
+      "specname": "5磅 (2.27kg)",
+      "price_sp": null
+  },
+  {
+      "id": "462",
+      "prod_id": "171",
+      "price": "2971",
+      "stock": "0",
+      "sortname": "七種海洋魚",
+      "specname": "5kg",
+      "price_sp": null
+  },
+  {
+      "id": "463",
+      "prod_id": "172",
+      "price": "90",
+      "stock": "476",
+      "sortname": "低卡無糖寵物優格",
+      "specname": null,
+      "price_sp": 80
+  },
+  {
+      "id": "464",
+      "prod_id": "173",
+      "price": "1250",
+      "stock": "24",
+      "sortname": null,
+      "specname": "250ml",
+      "price_sp": null
+  },
+  {
+      "id": "465",
+      "prod_id": "174",
+      "price": "963",
+      "stock": "5",
+      "sortname": "牛肉+豬肉",
+      "specname": "5磅 (2.27kg)",
+      "price_sp": 771
+  },
+  {
+      "id": "466",
+      "prod_id": "174",
+      "price": "1785",
+      "stock": "5",
+      "sortname": "牛肉+豬肉",
+      "specname": "5kg",
+      "price_sp": 1775
+  },
+  {
+      "id": "467",
+      "prod_id": "175",
+      "price": "880",
+      "stock": "0",
+      "sortname": "果凍繽紛袋",
+      "specname": null,
+      "price_sp": 870
+  },
+  {
+      "id": "468",
+      "prod_id": "176",
+      "price": "699",
+      "stock": "1",
+      "sortname": null,
+      "specname": "60g",
+      "price_sp": 689
+  },
+  {
+      "id": "469",
+      "prod_id": "177",
+      "price": "1370",
+      "stock": "14",
+      "sortname": null,
+      "specname": "5磅 (2.27kg)",
+      "price_sp": null
+  },
+  {
+      "id": "470",
+      "prod_id": "177",
+      "price": "4607",
+      "stock": "1",
+      "sortname": null,
+      "specname": "10kg",
+      "price_sp": null
+  },
+  {
+      "id": "471",
+      "prod_id": "178",
+      "price": "880",
+      "stock": "134",
+      "sortname": "橄欖球",
+      "specname": null,
+      "price_sp": 704
+  },
+  {
+      "id": "472",
+      "prod_id": "179",
+      "price": "750",
+      "stock": "0",
+      "sortname": null,
+      "specname": "1盒 (30包)",
+      "price_sp": 600
+  },
+  {
+      "id": "473",
+      "prod_id": "179",
+      "price": "1460",
+      "stock": "15",
+      "sortname": null,
+      "specname": "2盒 (60包)",
+      "price_sp": 1168
+  },
+  {
+      "id": "474",
+      "prod_id": "179",
+      "price": "3500",
+      "stock": "2",
+      "sortname": null,
+      "specname": "5盒 (150包)",
+      "price_sp": 2800
+  },
+  {
+      "id": "475",
+      "prod_id": "179",
+      "price": "7260",
+      "stock": "638",
+      "sortname": null,
+      "specname": "11盒 (330包)",
+      "price_sp": null
+  },
+  {
+      "id": "476",
+      "prod_id": "180",
+      "price": "550",
+      "stock": "60",
+      "sortname": null,
+      "specname": "1kg",
+      "price_sp": null
+  },
+  {
+      "id": "477",
+      "prod_id": "180",
+      "price": "680",
+      "stock": "54",
+      "sortname": null,
+      "specname": "2kg",
+      "price_sp": null
+  },
+  {
+      "id": "478",
+      "prod_id": "181",
+      "price": "250",
+      "stock": "6",
+      "sortname": "紅色",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "479",
+      "prod_id": "181",
+      "price": "250",
+      "stock": "5",
+      "sortname": "黑色",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "480",
+      "prod_id": "181",
+      "price": "250",
+      "stock": "25",
+      "sortname": "紫色",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "481",
+      "prod_id": "182",
+      "price": "780",
+      "stock": "15",
+      "sortname": null,
+      "specname": "60錠/罐",
+      "price_sp": 770
+  },
+  {
+      "id": "482",
+      "prod_id": "183",
+      "price": "950",
+      "stock": "0",
+      "sortname": "雞肉",
+      "specname": "3.5磅 (1.59kg)",
+      "price_sp": null
+  },
+  {
+      "id": "483",
+      "prod_id": "183",
+      "price": "2300",
+      "stock": "4",
+      "sortname": "雞肉",
+      "specname": "10磅 (4.53kg)",
+      "price_sp": 1840
+  },
+  {
+      "id": "484",
+      "prod_id": "184",
+      "price": "390",
+      "stock": "0",
+      "sortname": "閃電",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "485",
+      "prod_id": "184",
+      "price": "390",
+      "stock": "0",
+      "sortname": "星星",
+      "specname": null,
+      "price_sp": 380
+  },
+  {
+      "id": "486",
+      "prod_id": "185",
+      "price": "650",
+      "stock": "14",
+      "sortname": null,
+      "specname": "90顆/罐",
+      "price_sp": 640
+  },
+  {
+      "id": "487",
+      "prod_id": "186",
+      "price": "204",
+      "stock": "6",
+      "sortname": "雞肉+糙米",
+      "specname": "1磅 (454g)",
+      "price_sp": 194
+  },
+  {
+      "id": "488",
+      "prod_id": "186",
+      "price": "842",
+      "stock": "5",
+      "sortname": "雞肉+糙米",
+      "specname": "5磅 (2.27kg)",
+      "price_sp": null
+  },
+  {
+      "id": "489",
+      "prod_id": "187",
+      "price": "460",
+      "stock": "67",
+      "sortname": "Sport力量球",
+      "specname": "3顆/組",
+      "price_sp": null
+  },
+  {
+      "id": "490",
+      "prod_id": "188",
+      "price": "1270",
+      "stock": "123",
+      "sortname": "淺灰色",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "491",
+      "prod_id": "188",
+      "price": "1270",
+      "stock": "312",
+      "sortname": "蘆葦綠",
+      "specname": null,
+      "price_sp": 1016
+  },
+  {
+      "id": "492",
+      "prod_id": "189",
+      "price": "238",
+      "stock": "65",
+      "sortname": "雞肉+豌豆 (低敏純淨)",
+      "specname": "1磅 (454g)",
+      "price_sp": null
+  },
+  {
+      "id": "493",
+      "prod_id": "189",
+      "price": "1054",
+      "stock": "0",
+      "sortname": "雞肉+豌豆 (低敏純淨)",
+      "specname": "5磅 (2.27kg)",
+      "price_sp": 1044
+  },
+  {
+      "id": "494",
+      "prod_id": "190",
+      "price": "880",
+      "stock": "3",
+      "sortname": "白色",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "495",
+      "prod_id": "191",
+      "price": "190",
+      "stock": "347",
+      "sortname": "拾便器",
+      "specname": "套裝 (拾便器+拾便袋7捲)",
+      "price_sp": null
+  },
+  {
+      "id": "496",
+      "prod_id": "191",
+      "price": "150",
+      "stock": "63",
+      "sortname": "拾便器",
+      "specname": "單入 (拾便器+拾便袋1捲)",
+      "price_sp": null
+  },
+  {
+      "id": "497",
+      "prod_id": "191",
+      "price": "290",
+      "stock": "446",
+      "sortname": "拾便器",
+      "specname": "20捲/盒",
+      "price_sp": 232
+  },
+  {
+      "id": "498",
+      "prod_id": "191",
+      "price": "15",
+      "stock": "123",
+      "sortname": "拾便器",
+      "specname": "1捲/裸裝",
+      "price_sp": null
+  },
+  {
+      "id": "499",
+      "prod_id": "191",
+      "price": "145",
+      "stock": "123",
+      "sortname": "拾便器",
+      "specname": "10捲/裸裝",
+      "price_sp": null
+  },
+  {
+      "id": "500",
+      "prod_id": "191",
+      "price": "190",
+      "stock": "123",
+      "sortname": "補充替換袋",
+      "specname": "套裝 (拾便器+拾便袋7捲)",
+      "price_sp": null
+  },
+  {
+      "id": "501",
+      "prod_id": "191",
+      "price": "150",
+      "stock": "385",
+      "sortname": "補充替換袋",
+      "specname": "單入 (拾便器+拾便袋1捲)",
+      "price_sp": null
+  },
+  {
+      "id": "502",
+      "prod_id": "191",
+      "price": "290",
+      "stock": "2",
+      "sortname": "補充替換袋",
+      "specname": "20捲/盒",
+      "price_sp": 232
+  },
+  {
+      "id": "503",
+      "prod_id": "191",
+      "price": "15",
+      "stock": "587",
+      "sortname": "補充替換袋",
+      "specname": "1捲/裸裝",
+      "price_sp": null
+  },
+  {
+      "id": "504",
+      "prod_id": "191",
+      "price": "145",
+      "stock": "3",
+      "sortname": "補充替換袋",
+      "specname": "10捲/裸裝",
+      "price_sp": 135
+  },
+  {
+      "id": "505",
+      "prod_id": "192",
+      "price": "1520",
+      "stock": "3",
+      "sortname": "泌尿加強錠",
+      "specname": "30錠 (通用)",
+      "price_sp": 1510
+  },
+  {
+      "id": "506",
+      "prod_id": "192",
+      "price": "1520",
+      "stock": "5",
+      "sortname": null,
+      "specname": "30錠 (通用)",
+      "price_sp": null
+  },
+  {
+      "id": "507",
+      "prod_id": "193",
+      "price": "840",
+      "stock": "67",
+      "sortname": "My 洗衣書",
+      "specname": null,
+      "price_sp": 672
+  },
+  {
+      "id": "508",
+      "prod_id": "194",
+      "price": "2190",
+      "stock": "123",
+      "sortname": "瑪瑙灰",
+      "specname": null,
+      "price_sp": 1752
+  },
+  {
+      "id": "509",
+      "prod_id": "195",
+      "price": "580",
+      "stock": "32",
+      "sortname": "雞肉石榴",
+      "specname": "0.8kg",
+      "price_sp": null
+  },
+  {
+      "id": "510",
+      "prod_id": "195",
+      "price": "1400",
+      "stock": "348",
+      "sortname": "雞肉石榴",
+      "specname": "5.5磅 (2.49kg)",
+      "price_sp": 1390
+  },
+  {
+      "id": "511",
+      "prod_id": "196",
+      "price": "320",
+      "stock": "0",
+      "sortname": "小猴子",
+      "specname": "XS號",
+      "price_sp": null
+  },
+  {
+      "id": "512",
+      "prod_id": "196",
+      "price": "320",
+      "stock": "32",
+      "sortname": "小花豹",
+      "specname": "XS號",
+      "price_sp": null
+  },
+  {
+      "id": "513",
+      "prod_id": "196",
+      "price": "320",
+      "stock": "45",
+      "sortname": "小獅子",
+      "specname": "XS號",
+      "price_sp": 310
+  },
+  {
+      "id": "514",
+      "prod_id": "196",
+      "price": "320",
+      "stock": "2",
+      "sortname": "長頸鹿",
+      "specname": "XS號",
+      "price_sp": null
+  },
+  {
+      "id": "515",
+      "prod_id": "197",
+      "price": "9860",
+      "stock": "123",
+      "sortname": "北歐花境",
+      "specname": "大款",
+      "price_sp": null
+  },
+  {
+      "id": "516",
+      "prod_id": "197",
+      "price": "9860",
+      "stock": "2",
+      "sortname": "哈士奇灰",
+      "specname": "大款",
+      "price_sp": 9850
+  },
+  {
+      "id": "517",
+      "prod_id": "197",
+      "price": "9860",
+      "stock": "123",
+      "sortname": "奧斯陸森林",
+      "specname": "大款",
+      "price_sp": 7888
+  },
+  {
+      "id": "518",
+      "prod_id": "198",
+      "price": "699",
+      "stock": "544",
+      "sortname": "雞肉(成犬)",
+      "specname": "2磅 (907g)",
+      "price_sp": 689
+  },
+  {
+      "id": "519",
+      "prod_id": "199",
+      "price": "390",
+      "stock": "3",
+      "sortname": "芝芝牛牛堡",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "520",
+      "prod_id": "200",
+      "price": "620",
+      "stock": "58",
+      "sortname": "薄荷莫吉托",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "521",
+      "prod_id": "200",
+      "price": "620",
+      "stock": "123",
+      "sortname": "加州落日橘子",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "522",
+      "prod_id": "200",
+      "price": "620",
+      "stock": "66",
+      "sortname": "紫羅蘭菲士",
+      "specname": null,
+      "price_sp": 496
+  },
+  {
+      "id": "523",
+      "prod_id": "201",
+      "price": "1080",
+      "stock": "5",
+      "sortname": "鮮肉",
+      "specname": "3.5磅 (1.59kg)",
+      "price_sp": null
+  },
+  {
+      "id": "524",
+      "prod_id": "201",
+      "price": "1590",
+      "stock": "34",
+      "sortname": "鮮肉",
+      "specname": "2.72kg",
+      "price_sp": null
+  },
+  {
+      "id": "525",
+      "prod_id": "202",
+      "price": "63",
+      "stock": "0",
+      "sortname": "離乳犬 & 母犬",
+      "specname": "195g",
+      "price_sp": 53
+  },
+  {
+      "id": "526",
+      "prod_id": "202",
+      "price": "55",
+      "stock": "123",
+      "sortname": "小型幼犬",
+      "specname": "195g",
+      "price_sp": null
+  },
+  {
+      "id": "527",
+      "prod_id": "202",
+      "price": "47",
+      "stock": "4",
+      "sortname": "小型老犬12+歲",
+      "specname": "195g",
+      "price_sp": null
+  },
+  {
+      "id": "528",
+      "prod_id": "203",
+      "price": "2780",
+      "stock": "38",
+      "sortname": "花語粉",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "529",
+      "prod_id": "203",
+      "price": "2780",
+      "stock": "0",
+      "sortname": "奶油白",
+      "specname": null,
+      "price_sp": 2224
+  },
+  {
+      "id": "530",
+      "prod_id": "203",
+      "price": "2780",
+      "stock": "65",
+      "sortname": "萌寵灰",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "531",
+      "prod_id": "204",
+      "price": "440",
+      "stock": "56",
+      "sortname": "雞肉+石榴",
+      "specname": "0.8kg",
+      "price_sp": 430
+  },
+  {
+      "id": "532",
+      "prod_id": "204",
+      "price": "1130",
+      "stock": "3",
+      "sortname": "雞肉+石榴",
+      "specname": "5.5磅 (2.49kg)",
+      "price_sp": null
+  },
+  {
+      "id": "533",
+      "prod_id": "205",
+      "price": "129",
+      "stock": "6",
+      "sortname": "鯖香火雞燴薏仁 (美膚亮毛)",
+      "specname": "150g",
+      "price_sp": null
+  },
+  {
+      "id": "534",
+      "prod_id": "205",
+      "price": "129",
+      "stock": "0",
+      "sortname": "山藥蓮子雞腿煲 (保健腸胃)",
+      "specname": "150g",
+      "price_sp": null
+  },
+  {
+      "id": "535",
+      "prod_id": "205",
+      "price": "129",
+      "stock": "335",
+      "sortname": "鮮牛佐鮭魚燉飯 (暖心相伴)",
+      "specname": "150g",
+      "price_sp": null
+  },
+  {
+      "id": "536",
+      "prod_id": "205",
+      "price": "129",
+      "stock": "4",
+      "sortname": "牛肉滑蛋燕麥粥 (元氣樂活)",
+      "specname": "150g",
+      "price_sp": 119
+  },
+  {
+      "id": "537",
+      "prod_id": "205",
+      "price": "129",
+      "stock": "1",
+      "sortname": "田園燉豚腿嫩雞 (胰臟養護)",
+      "specname": "150g",
+      "price_sp": 104
+  },
+  {
+      "id": "538",
+      "prod_id": "206",
+      "price": "590",
+      "stock": "1",
+      "sortname": "XS號",
+      "specname": null,
+      "price_sp": 580
+  },
+  {
+      "id": "539",
+      "prod_id": "206",
+      "price": "590",
+      "stock": "48",
+      "sortname": "S號",
+      "specname": null,
+      "price_sp": 580
+  },
+  {
+      "id": "540",
+      "prod_id": "206",
+      "price": "590",
+      "stock": "216",
+      "sortname": "M號",
+      "specname": null,
+      "price_sp": 580
+  },
+  {
+      "id": "541",
+      "prod_id": "207",
+      "price": "336",
+      "stock": "24",
+      "sortname": null,
+      "specname": "0.8kg",
+      "price_sp": 269
+  },
+  {
+      "id": "542",
+      "prod_id": "207",
+      "price": "704",
+      "stock": "123",
+      "sortname": null,
+      "specname": "2kg",
+      "price_sp": null
+  },
+  {
+      "id": "543",
+      "prod_id": "207",
+      "price": "1264",
+      "stock": "639",
+      "sortname": null,
+      "specname": "4kg",
+      "price_sp": 1012
+  },
+  {
+      "id": "544",
+      "prod_id": "208",
+      "price": "150",
+      "stock": "0",
+      "sortname": "卜派大力",
+      "specname": "150g",
+      "price_sp": 140
+  },
+  {
+      "id": "545",
+      "prod_id": "208",
+      "price": "117",
+      "stock": "0",
+      "sortname": "小蠻腰",
+      "specname": "150g",
+      "price_sp": null
+  },
+  {
+      "id": "546",
+      "prod_id": "208",
+      "price": "140",
+      "stock": "32",
+      "sortname": "羊肉",
+      "specname": "150g",
+      "price_sp": 130
+  },
+  {
+      "id": "547",
+      "prod_id": "208",
+      "price": "117",
+      "stock": "68",
+      "sortname": "討摸摸",
+      "specname": "150g",
+      "price_sp": 94
+  },
+  {
+      "id": "548",
+      "prod_id": "208",
+      "price": "117",
+      "stock": "54",
+      "sortname": "骨骼壯壯",
+      "specname": "150g",
+      "price_sp": null
+  },
+  {
+      "id": "549",
+      "prod_id": "208",
+      "price": "140",
+      "stock": "0",
+      "sortname": "鹿肉",
+      "specname": "150g",
+      "price_sp": 112
+  },
+  {
+      "id": "550",
+      "prod_id": "208",
+      "price": "130",
+      "stock": "34",
+      "sortname": "鴨肉",
+      "specname": "150g",
+      "price_sp": 104
+  },
+  {
+      "id": "551",
+      "prod_id": "208",
+      "price": "170",
+      "stock": "64",
+      "sortname": "薑薑好",
+      "specname": "150g",
+      "price_sp": null
+  },
+  {
+      "id": "552",
+      "prod_id": "208",
+      "price": "135",
+      "stock": "43",
+      "sortname": "好給力",
+      "specname": "150g",
+      "price_sp": null
+  },
+  {
+      "id": "553",
+      "prod_id": "209",
+      "price": "390",
+      "stock": "0",
+      "sortname": "單肩款",
+      "specname": null,
+      "price_sp": 312
+  },
+  {
+      "id": "554",
+      "prod_id": "210",
+      "price": "90",
+      "stock": "56",
+      "sortname": "火雞肉+鴨肉",
+      "specname": "100g",
+      "price_sp": 72
+  },
+  {
+      "id": "555",
+      "prod_id": "210",
+      "price": "1152",
+      "stock": "31",
+      "sortname": "火雞肉+鴨肉",
+      "specname": "2kg",
+      "price_sp": null
+  },
+  {
+      "id": "556",
+      "prod_id": "211",
+      "price": "70",
+      "stock": "123",
+      "sortname": "營養火雞",
+      "specname": "80g",
+      "price_sp": 60
+  },
+  {
+      "id": "557",
+      "prod_id": "211",
+      "price": "70",
+      "stock": "372",
+      "sortname": "嫩雞牛肉",
+      "specname": "80g",
+      "price_sp": null
+  },
+  {
+      "id": "558",
+      "prod_id": "212",
+      "price": "420",
+      "stock": "0",
+      "sortname": "牛乳棕",
+      "specname": null,
+      "price_sp": 410
+  },
+  {
+      "id": "559",
+      "prod_id": "212",
+      "price": "420",
+      "stock": "55",
+      "sortname": "橄欖綠",
+      "specname": null,
+      "price_sp": 410
+  },
+  {
+      "id": "560",
+      "prod_id": "213",
+      "price": "480",
+      "stock": "0",
+      "sortname": "MNS 小型離乳犬&母犬",
+      "specname": "1kg",
+      "price_sp": null
+  },
+  {
+      "id": "561",
+      "prod_id": "213",
+      "price": "1080",
+      "stock": "3",
+      "sortname": "MNS 小型離乳犬&母犬",
+      "specname": "3kg",
+      "price_sp": null
+  },
+  {
+      "id": "562",
+      "prod_id": "214",
+      "price": "1190",
+      "stock": "2",
+      "sortname": null,
+      "specname": "2kg",
+      "price_sp": 952
+  },
+  {
+      "id": "563",
+      "prod_id": "215",
+      "price": "650",
+      "stock": "549",
+      "sortname": "雅梨黃 (7KG)",
+      "specname": null,
+      "price_sp": 640
+  },
+  {
+      "id": "564",
+      "prod_id": "215",
+      "price": "650",
+      "stock": "6",
+      "sortname": "松煙灰 (7KG)",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "565",
+      "prod_id": "215",
+      "price": "650",
+      "stock": "58",
+      "sortname": "蛋殼米 (7KG)",
+      "specname": null,
+      "price_sp": 520
+  },
+  {
+      "id": "566",
+      "prod_id": "215",
+      "price": "750",
+      "stock": "2",
+      "sortname": "雅梨黃 (9KG)",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "567",
+      "prod_id": "216",
+      "price": "624",
+      "stock": "123",
+      "sortname": null,
+      "specname": "1.5kg",
+      "price_sp": 614
+  },
+  {
+      "id": "568",
+      "prod_id": "217",
+      "price": "980",
+      "stock": "0",
+      "sortname": null,
+      "specname": "1.5kg",
+      "price_sp": null
+  },
+  {
+      "id": "569",
+      "prod_id": "218",
+      "price": "380",
+      "stock": "0",
+      "sortname": "山羊奶",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "570",
+      "prod_id": "219",
+      "price": "963",
+      "stock": "235",
+      "sortname": "雞肉",
+      "specname": "5磅 (2.27kg)",
+      "price_sp": null
+  },
+  {
+      "id": "571",
+      "prod_id": "220",
+      "price": "3190",
+      "stock": "5",
+      "sortname": "鹿肉",
+      "specname": "1kg",
+      "price_sp": null
+  },
+  {
+      "id": "572",
+      "prod_id": "221",
+      "price": "59",
+      "stock": "3",
+      "sortname": "雞肉泥",
+      "specname": null,
+      "price_sp": 49
+  },
+  {
+      "id": "573",
+      "prod_id": "221",
+      "price": "59",
+      "stock": "3",
+      "sortname": "牛肉泥",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "574",
+      "prod_id": "221",
+      "price": "59",
+      "stock": "55",
+      "sortname": "鹿肉泥",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "575",
+      "prod_id": "221",
+      "price": "59",
+      "stock": "0",
+      "sortname": "鴨肉泥",
+      "specname": null,
+      "price_sp": 49
+  },
+  {
+      "id": "576",
+      "prod_id": "221",
+      "price": "59",
+      "stock": "4",
+      "sortname": "鮭魚泥",
+      "specname": null,
+      "price_sp": 49
+  },
+  {
+      "id": "577",
+      "prod_id": "221",
+      "price": "59",
+      "stock": "61",
+      "sortname": "莓果泥",
+      "specname": null,
+      "price_sp": 49
+  },
+  {
+      "id": "578",
+      "prod_id": "221",
+      "price": "59",
+      "stock": "721",
+      "sortname": "蔬菜泥",
+      "specname": null,
+      "price_sp": 49
+  },
+  {
+      "id": "579",
+      "prod_id": "221",
+      "price": "59",
+      "stock": "60",
+      "sortname": "羊肉泥",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "580",
+      "prod_id": "222",
+      "price": "1250",
+      "stock": "123",
+      "sortname": "雞肉",
+      "specname": "2kg",
+      "price_sp": 1240
+  },
+  {
+      "id": "581",
+      "prod_id": "223",
+      "price": "675",
+      "stock": "1",
+      "sortname": "羊肉",
+      "specname": "3kg",
+      "price_sp": null
+  },
+  {
+      "id": "582",
+      "prod_id": "223",
+      "price": "1226",
+      "stock": "0",
+      "sortname": "羊肉",
+      "specname": "7kg",
+      "price_sp": null
+  },
+  {
+      "id": "583",
+      "prod_id": "224",
+      "price": "166",
+      "stock": "5",
+      "sortname": "我愛紅鯛魚",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "584",
+      "prod_id": "224",
+      "price": "180",
+      "stock": "0",
+      "sortname": "雙魚匯(長尾鱈+比目魚)",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "585",
+      "prod_id": "224",
+      "price": "270",
+      "stock": "0",
+      "sortname": "鹿肉",
+      "specname": null,
+      "price_sp": 260
+  },
+  {
+      "id": "586",
+      "prod_id": "225",
+      "price": "450",
+      "stock": "41",
+      "sortname": null,
+      "specname": "30顆/罐",
+      "price_sp": 440
+  },
+  {
+      "id": "587",
+      "prod_id": "226",
+      "price": "495",
+      "stock": "0",
+      "sortname": "鮭魚",
+      "specname": "1.5kg",
+      "price_sp": 396
+  },
+  {
+      "id": "588",
+      "prod_id": "226",
+      "price": "795",
+      "stock": "149",
+      "sortname": "鮭魚",
+      "specname": "3kg",
+      "price_sp": null
+  },
+  {
+      "id": "589",
+      "prod_id": "226",
+      "price": "1511",
+      "stock": "24",
+      "sortname": "鮭魚",
+      "specname": "7kg",
+      "price_sp": null
+  },
+  {
+      "id": "590",
+      "prod_id": "227",
+      "price": "165",
+      "stock": "37",
+      "sortname": "草莓",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "591",
+      "prod_id": "227",
+      "price": "165",
+      "stock": "617",
+      "sortname": "薄荷",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "592",
+      "prod_id": "227",
+      "price": "165",
+      "stock": "6",
+      "sortname": "蘋果",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "593",
+      "prod_id": "227",
+      "price": "165",
+      "stock": "12",
+      "sortname": "牛奶",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "594",
+      "prod_id": "227",
+      "price": "165",
+      "stock": "34",
+      "sortname": "柑橘",
+      "specname": null,
+      "price_sp": 132
+  },
+  {
+      "id": "595",
+      "prod_id": "228",
+      "price": "720",
+      "stock": "0",
+      "sortname": "心臟專科保健粉",
+      "specname": "1盒 (30包)",
+      "price_sp": 576
+  },
+  {
+      "id": "596",
+      "prod_id": "228",
+      "price": "1390",
+      "stock": "58",
+      "sortname": "心臟專科保健粉",
+      "specname": "2盒 (60包)",
+      "price_sp": null
+  },
+  {
+      "id": "597",
+      "prod_id": "228",
+      "price": "3390",
+      "stock": "123",
+      "sortname": "心臟專科保健粉",
+      "specname": "5盒 (150包)",
+      "price_sp": null
+  },
+  {
+      "id": "598",
+      "prod_id": "229",
+      "price": "660",
+      "stock": "6",
+      "sortname": null,
+      "specname": "2kg",
+      "price_sp": 650
+  },
+  {
+      "id": "599",
+      "prod_id": "230",
+      "price": "220",
+      "stock": "552",
+      "sortname": "紐西蘭綠貽貝",
+      "specname": "40g",
+      "price_sp": 210
+  },
+  {
+      "id": "600",
+      "prod_id": "231",
+      "price": "790",
+      "stock": "34",
+      "sortname": null,
+      "specname": "1盒 (30顆)",
+      "price_sp": 632
+  },
+  {
+      "id": "601",
+      "prod_id": "231",
+      "price": "1490",
+      "stock": "46",
+      "sortname": null,
+      "specname": "2盒 (60顆)",
+      "price_sp": null
+  },
+  {
+      "id": "602",
+      "prod_id": "231",
+      "price": "3490",
+      "stock": "5",
+      "sortname": null,
+      "specname": "5盒 (150顆)",
+      "price_sp": 2792
+  },
+  {
+      "id": "603",
+      "prod_id": "231",
+      "price": "7290",
+      "stock": "2",
+      "sortname": null,
+      "specname": "11盒 (330顆)",
+      "price_sp": 7280
+  },
+  {
+      "id": "604",
+      "prod_id": "232",
+      "price": "1112",
+      "stock": "3",
+      "sortname": null,
+      "specname": "3kg",
+      "price_sp": null
+  },
+  {
+      "id": "605",
+      "prod_id": "233",
+      "price": "250",
+      "stock": "852",
+      "sortname": "原味雞肉條",
+      "specname": null,
+      "price_sp": 240
+  },
+  {
+      "id": "606",
+      "prod_id": "233",
+      "price": "240",
+      "stock": "6",
+      "sortname": "起司雞肉條",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "607",
+      "prod_id": "233",
+      "price": "240",
+      "stock": "37",
+      "sortname": "台農地瓜雞肉條",
+      "specname": null,
+      "price_sp": 230
+  },
+  {
+      "id": "608",
+      "prod_id": "233",
+      "price": "250",
+      "stock": "718",
+      "sortname": "爆毛鱉蛋雞肉條",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "609",
+      "prod_id": "233",
+      "price": "250",
+      "stock": "785",
+      "sortname": "原味羊肉條",
+      "specname": null,
+      "price_sp": 240
+  },
+  {
+      "id": "610",
+      "prod_id": "233",
+      "price": "250",
+      "stock": "5",
+      "sortname": "美式藍莓羊肉條",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "611",
+      "prod_id": "233",
+      "price": "250",
+      "stock": "25",
+      "sortname": "原味牛肉條",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "612",
+      "prod_id": "233",
+      "price": "250",
+      "stock": "123",
+      "sortname": "紫芋地瓜牛肉條",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "613",
+      "prod_id": "233",
+      "price": "250",
+      "stock": "0",
+      "sortname": "起司牛肉條",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "614",
+      "prod_id": "234",
+      "price": "1280",
+      "stock": "123",
+      "sortname": null,
+      "specname": "60顆",
+      "price_sp": 1270
+  },
+  {
+      "id": "615",
+      "prod_id": "234",
+      "price": "720",
+      "stock": "37",
+      "sortname": null,
+      "specname": "30顆",
+      "price_sp": null
+  },
+  {
+      "id": "616",
+      "prod_id": "235",
+      "price": "1250",
+      "stock": "63",
+      "sortname": "海洋魚",
+      "specname": "4磅 (1.81kg)",
+      "price_sp": null
+  },
+  {
+      "id": "617",
+      "prod_id": "235",
+      "price": "2499",
+      "stock": "123",
+      "sortname": "海洋魚",
+      "specname": "10磅 (4.53kg)",
+      "price_sp": null
+  },
+  {
+      "id": "618",
+      "prod_id": "236",
+      "price": "99",
+      "stock": "26",
+      "sortname": "泥好！大力水手",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "619",
+      "prod_id": "236",
+      "price": "99",
+      "stock": "3",
+      "sortname": "泥好！鳳菲菲",
+      "specname": null,
+      "price_sp": 89
+  },
+  {
+      "id": "620",
+      "prod_id": "236",
+      "price": "99",
+      "stock": "0",
+      "sortname": "泥好！布藍泥",
+      "specname": null,
+      "price_sp": 89
+  },
+  {
+      "id": "621",
+      "prod_id": "236",
+      "price": "99",
+      "stock": "53",
+      "sortname": "泥好！陸小蔓",
+      "specname": null,
+      "price_sp": 80
+  },
+  {
+      "id": "622",
+      "prod_id": "236",
+      "price": "99",
+      "stock": "620",
+      "sortname": "泥好！南助褐",
+      "specname": null,
+      "price_sp": 80
+  },
+  {
+      "id": "623",
+      "prod_id": "236",
+      "price": "99",
+      "stock": "1",
+      "sortname": "泥好！鮭山島",
+      "specname": null,
+      "price_sp": 89
+  },
+  {
+      "id": "624",
+      "prod_id": "237",
+      "price": "380",
+      "stock": "52",
+      "sortname": null,
+      "specname": "1.5g/20包",
+      "price_sp": null
+  },
+  {
+      "id": "625",
+      "prod_id": "238",
+      "price": "1328",
+      "stock": "1",
+      "sortname": "火雞肉+雞肉+鯡魚",
+      "specname": "5.5磅 (2.49kg)",
+      "price_sp": null
+  },
+  {
+      "id": "626",
+      "prod_id": "238",
+      "price": "1967",
+      "stock": "247",
+      "sortname": "火雞肉+雞肉+鯡魚",
+      "specname": "5kg",
+      "price_sp": 1574
+  },
+  {
+      "id": "627",
+      "prod_id": "239",
+      "price": "100",
+      "stock": "0",
+      "sortname": "腸保健康",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "628",
+      "prod_id": "239",
+      "price": "100",
+      "stock": "0",
+      "sortname": "皮毛養護",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "629",
+      "prod_id": "239",
+      "price": "100",
+      "stock": "6",
+      "sortname": "關節保健",
+      "specname": null,
+      "price_sp": 90
+  },
+  {
+      "id": "630",
+      "prod_id": "240",
+      "price": "650",
+      "stock": "69",
+      "sortname": "原味",
+      "specname": "2g/30包",
+      "price_sp": null
+  },
+  {
+      "id": "631",
+      "prod_id": "240",
+      "price": "650",
+      "stock": "53",
+      "sortname": "雞肉風味",
+      "specname": "2g/30包",
+      "price_sp": null
+  },
+  {
+      "id": "632",
+      "prod_id": "240",
+      "price": "650",
+      "stock": "123",
+      "sortname": "魷魚風味",
+      "specname": "2g/30包",
+      "price_sp": 640
+  },
+  {
+      "id": "633",
+      "prod_id": "241",
+      "price": "722",
+      "stock": "0",
+      "sortname": "雞肉",
+      "specname": "5.5磅 (2.49kg)",
+      "price_sp": null
+  },
+  {
+      "id": "634",
+      "prod_id": "241",
+      "price": "2615",
+      "stock": "3",
+      "sortname": "雞肉",
+      "specname": "25磅 (11.33kg)",
+      "price_sp": 2092
+  },
+  {
+      "id": "635",
+      "prod_id": "242",
+      "price": "560",
+      "stock": "5",
+      "sortname": "錄影帶",
+      "specname": null,
+      "price_sp": 550
+  },
+  {
+      "id": "636",
+      "prod_id": "243",
+      "price": "490",
+      "stock": "0",
+      "sortname": null,
+      "specname": "100g",
+      "price_sp": null
+  },
+  {
+      "id": "637",
+      "prod_id": "244",
+      "price": "1370",
+      "stock": "4",
+      "sortname": null,
+      "specname": "5磅 (2.27kg)",
+      "price_sp": 1360
+  },
+  {
+      "id": "638",
+      "prod_id": "244",
+      "price": "4607",
+      "stock": "2",
+      "sortname": null,
+      "specname": "10kg",
+      "price_sp": null
+  },
+  {
+      "id": "639",
+      "prod_id": "245",
+      "price": "880",
+      "stock": "4",
+      "sortname": "腦力禮物",
+      "specname": null,
+      "price_sp": 870
+  },
+  {
+      "id": "640",
+      "prod_id": "246",
+      "price": "650",
+      "stock": "123",
+      "sortname": null,
+      "specname": "1盒 (30包)",
+      "price_sp": 520
+  },
+  {
+      "id": "641",
+      "prod_id": "246",
+      "price": "1250",
+      "stock": "0",
+      "sortname": null,
+      "specname": "2盒 (60包)",
+      "price_sp": 1000
+  },
+  {
+      "id": "642",
+      "prod_id": "246",
+      "price": "2890",
+      "stock": "202",
+      "sortname": null,
+      "specname": "5盒 (150包)",
+      "price_sp": 2880
+  },
+  {
+      "id": "643",
+      "prod_id": "246",
+      "price": "6150",
+      "stock": "0",
+      "sortname": null,
+      "specname": "11盒 (330包)",
+      "price_sp": null
+  },
+  {
+      "id": "644",
+      "prod_id": "247",
+      "price": "950",
+      "stock": "0",
+      "sortname": "雞肉",
+      "specname": "3.5磅 (1.59kg)",
+      "price_sp": null
+  },
+  {
+      "id": "645",
+      "prod_id": "247",
+      "price": "2300",
+      "stock": "0",
+      "sortname": "雞肉",
+      "specname": "10磅 (4.53kg)",
+      "price_sp": 1840
+  },
+  {
+      "id": "646",
+      "prod_id": "248",
+      "price": "290",
+      "stock": "3",
+      "sortname": "仙人掌",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "647",
+      "prod_id": "248",
+      "price": "250",
+      "stock": "56",
+      "sortname": "櫻桃",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "648",
+      "prod_id": "249",
+      "price": "780",
+      "stock": "277",
+      "sortname": null,
+      "specname": "60錠/罐",
+      "price_sp": 770
+  },
+  {
+      "id": "649",
+      "prod_id": "250",
+      "price": "950",
+      "stock": "0",
+      "sortname": "雞肉",
+      "specname": "3.5磅 (1.59kg)",
+      "price_sp": null
+  },
+  {
+      "id": "650",
+      "prod_id": "250",
+      "price": "2300",
+      "stock": "1",
+      "sortname": "雞肉",
+      "specname": "10磅 (4.53kg)",
+      "price_sp": null
+  },
+  {
+      "id": "651",
+      "prod_id": "251",
+      "price": "550",
+      "stock": "123",
+      "sortname": "仙人掌",
+      "specname": null,
+      "price_sp": 440
+  },
+  {
+      "id": "652",
+      "prod_id": "252",
+      "price": "450",
+      "stock": "201",
+      "sortname": null,
+      "specname": "20包/盒",
+      "price_sp": null
+  },
+  {
+      "id": "653",
+      "prod_id": "253",
+      "price": "204",
+      "stock": "4",
+      "sortname": "雞肉+糙米",
+      "specname": "1磅 (454g)",
+      "price_sp": 164
+  },
+  {
+      "id": "654",
+      "prod_id": "253",
+      "price": "842",
+      "stock": "6",
+      "sortname": "雞肉+糙米",
+      "specname": "5磅 (2.27kg)",
+      "price_sp": 832
+  },
+  {
+      "id": "655",
+      "prod_id": "254",
+      "price": "230",
+      "stock": "123",
+      "sortname": "發大財",
+      "specname": null,
+      "price_sp": 220
+  },
+  {
+      "id": "656",
+      "prod_id": "254",
+      "price": "230",
+      "stock": "23",
+      "sortname": "旺桃花",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "657",
+      "prod_id": "254",
+      "price": "230",
+      "stock": "24",
+      "sortname": "鎮渣男",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "658",
+      "prod_id": "255",
+      "price": "1190",
+      "stock": "0",
+      "sortname": "瑪瑙灰",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "659",
+      "prod_id": "256",
+      "price": "247",
+      "stock": "123",
+      "sortname": "鮭魚+豌豆 (低敏挑嘴)",
+      "specname": "1磅 (454g)",
+      "price_sp": null
+  },
+  {
+      "id": "660",
+      "prod_id": "256",
+      "price": "1054",
+      "stock": "0",
+      "sortname": "鮭魚+豌豆 (低敏挑嘴)",
+      "specname": "5磅 (2.27kg)",
+      "price_sp": 1044
+  },
+  {
+      "id": "661",
+      "prod_id": "257",
+      "price": "420",
+      "stock": "6",
+      "sortname": "椒椒與你",
+      "specname": null,
+      "price_sp": 410
+  },
+  {
+      "id": "662",
+      "prod_id": "258",
+      "price": "190",
+      "stock": "20",
+      "sortname": "拾便器",
+      "specname": "套裝 (拾便器+拾便袋7捲)",
+      "price_sp": 152
+  },
+  {
+      "id": "663",
+      "prod_id": "258",
+      "price": "150",
+      "stock": "3",
+      "sortname": "拾便器",
+      "specname": "單入 (拾便器+拾便袋1捲)",
+      "price_sp": 140
+  },
+  {
+      "id": "664",
+      "prod_id": "258",
+      "price": "290",
+      "stock": "0",
+      "sortname": "拾便器",
+      "specname": "20捲/盒",
+      "price_sp": null
+  },
+  {
+      "id": "665",
+      "prod_id": "258",
+      "price": "15",
+      "stock": "3",
+      "sortname": "拾便器",
+      "specname": "1捲/裸裝",
+      "price_sp": null
+  },
+  {
+      "id": "666",
+      "prod_id": "258",
+      "price": "145",
+      "stock": "308",
+      "sortname": "拾便器",
+      "specname": "10捲/裸裝",
+      "price_sp": null
+  },
+  {
+      "id": "667",
+      "prod_id": "258",
+      "price": "190",
+      "stock": "22",
+      "sortname": "補充替換袋",
+      "specname": "套裝 (拾便器+拾便袋7捲)",
+      "price_sp": 152
+  },
+  {
+      "id": "668",
+      "prod_id": "258",
+      "price": "150",
+      "stock": "27",
+      "sortname": "補充替換袋",
+      "specname": "單入 (拾便器+拾便袋1捲)",
+      "price_sp": 120
+  },
+  {
+      "id": "669",
+      "prod_id": "258",
+      "price": "290",
+      "stock": "4",
+      "sortname": "補充替換袋",
+      "specname": "20捲/盒",
+      "price_sp": 232
+  },
+  {
+      "id": "670",
+      "prod_id": "258",
+      "price": "15",
+      "stock": "4",
+      "sortname": "補充替換袋",
+      "specname": "1捲/裸裝",
+      "price_sp": 5
+  },
+  {
+      "id": "671",
+      "prod_id": "258",
+      "price": "145",
+      "stock": "2",
+      "sortname": "補充替換袋",
+      "specname": "10捲/裸裝",
+      "price_sp": 116
+  },
+  {
+      "id": "672",
+      "prod_id": "259",
+      "price": "55",
+      "stock": "44",
+      "sortname": "紫薯番茄牛肉",
+      "specname": "15g x 1入",
+      "price_sp": null
+  },
+  {
+      "id": "673",
+      "prod_id": "259",
+      "price": "330",
+      "stock": "58",
+      "sortname": "紫薯番茄牛肉",
+      "specname": "90g x 6入",
+      "price_sp": null
+  },
+  {
+      "id": "674",
+      "prod_id": "259",
+      "price": "580",
+      "stock": "3",
+      "sortname": "紫薯番茄牛肉",
+      "specname": "200g x 1入",
+      "price_sp": 570
+  },
+  {
+      "id": "675",
+      "prod_id": "259",
+      "price": "55",
+      "stock": "45",
+      "sortname": "覆盆子蔬燉羊肉",
+      "specname": "15g x 1入",
+      "price_sp": 44
+  },
+  {
+      "id": "676",
+      "prod_id": "259",
+      "price": "330",
+      "stock": "35",
+      "sortname": "覆盆子蔬燉羊肉",
+      "specname": "90g x 6入",
+      "price_sp": null
+  },
+  {
+      "id": "677",
+      "prod_id": "259",
+      "price": "580",
+      "stock": "51",
+      "sortname": "覆盆子蔬燉羊肉",
+      "specname": "200g x 1入",
+      "price_sp": null
+  },
+  {
+      "id": "678",
+      "prod_id": "259",
+      "price": "55",
+      "stock": "0",
+      "sortname": "南瓜鮮蔬雞肉",
+      "specname": "15g x 1入",
+      "price_sp": 44
+  },
+  {
+      "id": "679",
+      "prod_id": "259",
+      "price": "330",
+      "stock": "638",
+      "sortname": "南瓜鮮蔬雞肉",
+      "specname": "90g x 6入",
+      "price_sp": null
+  },
+  {
+      "id": "680",
+      "prod_id": "259",
+      "price": "580",
+      "stock": "1",
+      "sortname": "南瓜鮮蔬雞肉",
+      "specname": "200g x 1入",
+      "price_sp": 570
+  },
+  {
+      "id": "681",
+      "prod_id": "260",
+      "price": "460",
+      "stock": "64",
+      "sortname": "啾啾聲毛巾 - 藍色",
+      "specname": null,
+      "price_sp": 368
+  },
+  {
+      "id": "682",
+      "prod_id": "261",
+      "price": "890",
+      "stock": "3",
+      "sortname": "米白色",
+      "specname": null,
+      "price_sp": 712
+  },
+  {
+      "id": "683",
+      "prod_id": "262",
+      "price": "550",
+      "stock": "0",
+      "sortname": "放養雞肉+火雞肉",
+      "specname": "1kg",
+      "price_sp": null
+  },
+  {
+      "id": "684",
+      "prod_id": "262",
+      "price": "1050",
+      "stock": "0",
+      "sortname": "放養雞肉+火雞肉",
+      "specname": "2kg",
+      "price_sp": 1040
+  },
+  {
+      "id": "685",
+      "prod_id": "263",
+      "price": "390",
+      "stock": "2",
+      "sortname": "咖啡豆袋",
+      "specname": "S號",
+      "price_sp": null
+  },
+  {
+      "id": "686",
+      "prod_id": "264",
+      "price": "9980",
+      "stock": "6",
+      "sortname": "哈士奇灰",
+      "specname": null,
+      "price_sp": 7984
+  },
+  {
+      "id": "687",
+      "prod_id": "264",
+      "price": "9980",
+      "stock": "476",
+      "sortname": "奧斯陸森林",
+      "specname": null,
+      "price_sp": 7984
+  },
+  {
+      "id": "688",
+      "prod_id": "264",
+      "price": "9980",
+      "stock": "123",
+      "sortname": "恬雅柔沙",
+      "specname": null,
+      "price_sp": 7984
+  },
+  {
+      "id": "689",
+      "prod_id": "265",
+      "price": "899",
+      "stock": "375",
+      "sortname": "雞肉+燕麥",
+      "specname": "2kg",
+      "price_sp": 889
+  },
+  {
+      "id": "690",
+      "prod_id": "266",
+      "price": "140",
+      "stock": "123",
+      "sortname": "紅紫色",
+      "specname": null,
+      "price_sp": 130
+  },
+  {
+      "id": "691",
+      "prod_id": "266",
+      "price": "140",
+      "stock": "123",
+      "sortname": "橙紫色",
+      "specname": null,
+      "price_sp": 130
+  },
+  {
+      "id": "692",
+      "prod_id": "266",
+      "price": "140",
+      "stock": "1",
+      "sortname": "聖誕迷彩色",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "693",
+      "prod_id": "266",
+      "price": "140",
+      "stock": "15",
+      "sortname": "黑色迷彩色",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "694",
+      "prod_id": "266",
+      "price": "140",
+      "stock": "123",
+      "sortname": "叢林迷彩色",
+      "specname": null,
+      "price_sp": 112
+  },
+  {
+      "id": "695",
+      "prod_id": "267",
+      "price": "490",
+      "stock": "5",
+      "sortname": null,
+      "specname": "120ml",
+      "price_sp": 480
+  },
+  {
+      "id": "696",
+      "prod_id": "268",
+      "price": "1080",
+      "stock": "65",
+      "sortname": "鮮肉",
+      "specname": "3.5磅 (1.59kg)",
+      "price_sp": 864
+  },
+  {
+      "id": "697",
+      "prod_id": "268",
+      "price": "1210",
+      "stock": "5",
+      "sortname": "紅肉",
+      "specname": "3.5磅 (1.59kg)",
+      "price_sp": 968
+  },
+  {
+      "id": "698",
+      "prod_id": "269",
+      "price": "110",
+      "stock": "4",
+      "sortname": "春 番茄",
+      "specname": "155g",
+      "price_sp": 100
+  },
+  {
+      "id": "699",
+      "prod_id": "269",
+      "price": "110",
+      "stock": "69",
+      "sortname": "夏 冬瓜",
+      "specname": "155g",
+      "price_sp": null
+  },
+  {
+      "id": "700",
+      "prod_id": "269",
+      "price": "110",
+      "stock": "17",
+      "sortname": "秋 山藥",
+      "specname": "155g",
+      "price_sp": null
+  },
+  {
+      "id": "701",
+      "prod_id": "269",
+      "price": "110",
+      "stock": "1",
+      "sortname": "冬 香菇",
+      "specname": "155g",
+      "price_sp": null
+  },
+  {
+      "id": "702",
+      "prod_id": "270",
+      "price": "950",
+      "stock": "5",
+      "sortname": "防蚊驅蟲噴霧",
+      "specname": "150ml",
+      "price_sp": null
+  },
+  {
+      "id": "703",
+      "prod_id": "271",
+      "price": "590",
+      "stock": "123",
+      "sortname": "羊肉鮮蔬",
+      "specname": "1kg",
+      "price_sp": 472
+  },
+  {
+      "id": "704",
+      "prod_id": "271",
+      "price": "950",
+      "stock": "2",
+      "sortname": "羊肉鮮蔬",
+      "specname": "2kg",
+      "price_sp": 760
+  },
+  {
+      "id": "705",
+      "prod_id": "271",
+      "price": "2390",
+      "stock": "39",
+      "sortname": "羊肉鮮蔬",
+      "specname": "6kg",
+      "price_sp": 1912
+  },
+  {
+      "id": "706",
+      "prod_id": "271",
+      "price": "550",
+      "stock": "5",
+      "sortname": "雞⾁鮮蔬",
+      "specname": "1kg",
+      "price_sp": null
+  },
+  {
+      "id": "707",
+      "prod_id": "271",
+      "price": "920",
+      "stock": "63",
+      "sortname": "雞⾁鮮蔬",
+      "specname": "2kg",
+      "price_sp": 736
+  },
+  {
+      "id": "708",
+      "prod_id": "271",
+      "price": "2320",
+      "stock": "123",
+      "sortname": "雞⾁鮮蔬",
+      "specname": "6kg",
+      "price_sp": null
+  },
+  {
+      "id": "709",
+      "prod_id": "271",
+      "price": "590",
+      "stock": "58",
+      "sortname": "魚肉鮮蔬",
+      "specname": "1kg",
+      "price_sp": 472
+  },
+  {
+      "id": "710",
+      "prod_id": "271",
+      "price": "950",
+      "stock": "0",
+      "sortname": "魚肉鮮蔬",
+      "specname": "2kg",
+      "price_sp": 940
+  },
+  {
+      "id": "711",
+      "prod_id": "271",
+      "price": "2390",
+      "stock": "5",
+      "sortname": "魚肉鮮蔬",
+      "specname": "6kg",
+      "price_sp": 2380
+  },
+  {
+      "id": "712",
+      "prod_id": "272",
+      "price": "78",
+      "stock": "1",
+      "sortname": "鮮嫩雞肉",
+      "specname": "165g x 1入",
+      "price_sp": 63
+  },
+  {
+      "id": "713",
+      "prod_id": "272",
+      "price": "936",
+      "stock": "4",
+      "sortname": "鮮嫩雞肉",
+      "specname": "165g x 12入",
+      "price_sp": null
+  },
+  {
+      "id": "714",
+      "prod_id": "272",
+      "price": "84",
+      "stock": "3",
+      "sortname": "滋補羊肉",
+      "specname": "165g x 1入",
+      "price_sp": 74
+  },
+  {
+      "id": "715",
+      "prod_id": "272",
+      "price": "1008",
+      "stock": "37",
+      "sortname": "滋補羊肉",
+      "specname": "165g x 12入",
+      "price_sp": null
+  },
+  {
+      "id": "716",
+      "prod_id": "273",
+      "price": "790",
+      "stock": "22",
+      "sortname": "XS號",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "717",
+      "prod_id": "273",
+      "price": "790",
+      "stock": "1",
+      "sortname": "S號",
+      "specname": null,
+      "price_sp": 632
+  },
+  {
+      "id": "718",
+      "prod_id": "273",
+      "price": "790",
+      "stock": "123",
+      "sortname": "M號",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "719",
+      "prod_id": "274",
+      "price": "270",
+      "stock": "15",
+      "sortname": "牛肉+鱈魚",
+      "specname": "80g",
+      "price_sp": null
+  },
+  {
+      "id": "720",
+      "prod_id": "274",
+      "price": "1480",
+      "stock": "49",
+      "sortname": "牛肉+鱈魚",
+      "specname": "500g",
+      "price_sp": 1470
+  },
+  {
+      "id": "721",
+      "prod_id": "274",
+      "price": "270",
+      "stock": "843",
+      "sortname": "羊肉+鯖魚",
+      "specname": "80g",
+      "price_sp": null
+  },
+  {
+      "id": "722",
+      "prod_id": "274",
+      "price": "1480",
+      "stock": "15",
+      "sortname": "羊肉+鯖魚",
+      "specname": "500g",
+      "price_sp": 1184
+  },
+  {
+      "id": "723",
+      "prod_id": "275",
+      "price": "58",
+      "stock": "4",
+      "sortname": "雞肉+鮮蝦",
+      "specname": "65g",
+      "price_sp": 48
+  },
+  {
+      "id": "724",
+      "prod_id": "275",
+      "price": "58",
+      "stock": "0",
+      "sortname": "牛肉+蘋果",
+      "specname": "65g",
+      "price_sp": 47
+  },
+  {
+      "id": "725",
+      "prod_id": "275",
+      "price": "58",
+      "stock": "0",
+      "sortname": "扁鱈+扇貝",
+      "specname": "65g",
+      "price_sp": 47
+  },
+  {
+      "id": "726",
+      "prod_id": "275",
+      "price": "58",
+      "stock": "33",
+      "sortname": "鮪魚+綠貽貝",
+      "specname": "65g",
+      "price_sp": null
+  },
+  {
+      "id": "727",
+      "prod_id": "276",
+      "price": "190",
+      "stock": "6",
+      "sortname": "菜狗",
+      "specname": null,
+      "price_sp": 152
+  },
+  {
+      "id": "728",
+      "prod_id": "277",
+      "price": "90",
+      "stock": "0",
+      "sortname": "火雞肉+兔肉",
+      "specname": "100g",
+      "price_sp": 80
+  },
+  {
+      "id": "729",
+      "prod_id": "277",
+      "price": "1152",
+      "stock": "0",
+      "sortname": "火雞肉+兔肉",
+      "specname": "2kg",
+      "price_sp": 1142
+  },
+  {
+      "id": "730",
+      "prod_id": "278",
+      "price": "45",
+      "stock": "27",
+      "sortname": "扁鱈+扇貝",
+      "specname": "65g",
+      "price_sp": null
+  },
+  {
+      "id": "731",
+      "prod_id": "279",
+      "price": "7680",
+      "stock": "123",
+      "sortname": "五九大道",
+      "specname": null,
+      "price_sp": 7670
+  },
+  {
+      "id": "732",
+      "prod_id": "279",
+      "price": "7680",
+      "stock": "69",
+      "sortname": "極地花語",
+      "specname": null,
+      "price_sp": 6144
+  },
+  {
+      "id": "733",
+      "prod_id": "279",
+      "price": "7680",
+      "stock": "2",
+      "sortname": "恬雅柔沙",
+      "specname": null,
+      "price_sp": 6144
+  },
+  {
+      "id": "734",
+      "prod_id": "279",
+      "price": "7680",
+      "stock": "49",
+      "sortname": "靜謐藍調",
+      "specname": null,
+      "price_sp": 7670
+  },
+  {
+      "id": "735",
+      "prod_id": "280",
+      "price": "656",
+      "stock": "5",
+      "sortname": null,
+      "specname": "1.5kg",
+      "price_sp": 646
+  },
+  {
+      "id": "736",
+      "prod_id": "280",
+      "price": "1080",
+      "stock": "0",
+      "sortname": null,
+      "specname": "3kg",
+      "price_sp": 864
+  },
+  {
+      "id": "737",
+      "prod_id": "281",
+      "price": "1190",
+      "stock": "0",
+      "sortname": null,
+      "specname": "2kg",
+      "price_sp": null
+  },
+  {
+      "id": "738",
+      "prod_id": "282",
+      "price": "150",
+      "stock": "6",
+      "sortname": "墨綠",
+      "specname": "600ml",
+      "price_sp": null
+  },
+  {
+      "id": "739",
+      "prod_id": "282",
+      "price": "150",
+      "stock": "27",
+      "sortname": "藏青",
+      "specname": "600ml",
+      "price_sp": 120
+  },
+  {
+      "id": "740",
+      "prod_id": "282",
+      "price": "150",
+      "stock": "123",
+      "sortname": "卡其",
+      "specname": "600ml",
+      "price_sp": 120
+  },
+  {
+      "id": "741",
+      "prod_id": "282",
+      "price": "150",
+      "stock": "33",
+      "sortname": "蜜橙",
+      "specname": "600ml",
+      "price_sp": null
+  },
+  {
+      "id": "742",
+      "prod_id": "282",
+      "price": "150",
+      "stock": "3",
+      "sortname": "灰綠",
+      "specname": "600ml",
+      "price_sp": 120
+  },
+  {
+      "id": "743",
+      "prod_id": "282",
+      "price": "150",
+      "stock": "681",
+      "sortname": "純黑",
+      "specname": "600ml",
+      "price_sp": null
+  },
+  {
+      "id": "744",
+      "prod_id": "282",
+      "price": "150",
+      "stock": "46",
+      "sortname": "栗粉",
+      "specname": "600ml",
+      "price_sp": null
+  },
+  {
+      "id": "745",
+      "prod_id": "283",
+      "price": "624",
+      "stock": "3",
+      "sortname": null,
+      "specname": "1.5kg",
+      "price_sp": 500
+  },
+  {
+      "id": "746",
+      "prod_id": "284",
+      "price": "690",
+      "stock": "0",
+      "sortname": "鮮肉",
+      "specname": "3.5磅 (1.59kg)",
+      "price_sp": 552
+  },
+  {
+      "id": "747",
+      "prod_id": "285",
+      "price": "35",
+      "stock": "0",
+      "sortname": "高溶氧水",
+      "specname": "300ml",
+      "price_sp": null
+  },
+  {
+      "id": "748",
+      "prod_id": "286",
+      "price": "450",
+      "stock": "19",
+      "sortname": "雞肉",
+      "specname": "500g",
+      "price_sp": null
+  },
+  {
+      "id": "749",
+      "prod_id": "287",
+      "price": "1990",
+      "stock": "541",
+      "sortname": "羊肉",
+      "specname": "1kg",
+      "price_sp": 1592
+  },
+  {
+      "id": "750",
+      "prod_id": "288",
+      "price": "200",
+      "stock": "341",
+      "sortname": "鮭魚",
+      "specname": null,
+      "price_sp": 190
+  },
+  {
+      "id": "751",
+      "prod_id": "288",
+      "price": "200",
+      "stock": "1",
+      "sortname": "牛肉",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "752",
+      "prod_id": "288",
+      "price": "200",
+      "stock": "24",
+      "sortname": "香濃起司",
+      "specname": null,
+      "price_sp": 160
+  },
+  {
+      "id": "753",
+      "prod_id": "288",
+      "price": "200",
+      "stock": "123",
+      "sortname": "地瓜起司",
+      "specname": null,
+      "price_sp": 160
+  },
+  {
+      "id": "754",
+      "prod_id": "288",
+      "price": "200",
+      "stock": "5",
+      "sortname": "昆布海藻",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "755",
+      "prod_id": "288",
+      "price": "200",
+      "stock": "67",
+      "sortname": "胡蘿蔔地瓜",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "756",
+      "prod_id": "288",
+      "price": "800",
+      "stock": "65",
+      "sortname": "混搭隨身包",
+      "specname": null,
+      "price_sp": 640
+  },
+  {
+      "id": "757",
+      "prod_id": "288",
+      "price": "200",
+      "stock": "65",
+      "sortname": "雞肉",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "758",
+      "prod_id": "289",
+      "price": "1250",
+      "stock": "123",
+      "sortname": "雞肉",
+      "specname": "2kg",
+      "price_sp": null
+  },
+  {
+      "id": "759",
+      "prod_id": "290",
+      "price": "495",
+      "stock": "16",
+      "sortname": "鮭魚",
+      "specname": "1.5kg",
+      "price_sp": 485
+  },
+  {
+      "id": "760",
+      "prod_id": "290",
+      "price": "795",
+      "stock": "33",
+      "sortname": "鮭魚",
+      "specname": "3kg",
+      "price_sp": 636
+  },
+  {
+      "id": "761",
+      "prod_id": "290",
+      "price": "1511",
+      "stock": "6",
+      "sortname": "鮭魚",
+      "specname": "7kg",
+      "price_sp": 1501
+  },
+  {
+      "id": "762",
+      "prod_id": "291",
+      "price": "50",
+      "stock": "6",
+      "sortname": "活力蘋果",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "763",
+      "prod_id": "291",
+      "price": "35",
+      "stock": "3",
+      "sortname": "纖蔬百匯",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "764",
+      "prod_id": "291",
+      "price": "90",
+      "stock": "0",
+      "sortname": "牛肩里肌",
+      "specname": null,
+      "price_sp": 80
+  },
+  {
+      "id": "765",
+      "prod_id": "291",
+      "price": "90",
+      "stock": "123",
+      "sortname": "嫩腰羊肉",
+      "specname": null,
+      "price_sp": 72
+  },
+  {
+      "id": "766",
+      "prod_id": "291",
+      "price": "60",
+      "stock": "123",
+      "sortname": "雞鴨美胸",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "767",
+      "prod_id": "291",
+      "price": "60",
+      "stock": "0",
+      "sortname": "元氣豚肉",
+      "specname": null,
+      "price_sp": 48
+  },
+  {
+      "id": "768",
+      "prod_id": "291",
+      "price": "120",
+      "stock": "653",
+      "sortname": "皇家鹿肉",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "769",
+      "prod_id": "291",
+      "price": "90",
+      "stock": "123",
+      "sortname": "海味珍鮮",
+      "specname": null,
+      "price_sp": 80
+  },
+  {
+      "id": "770",
+      "prod_id": "292",
+      "price": "350",
+      "stock": "0",
+      "sortname": null,
+      "specname": "70g",
+      "price_sp": 340
+  },
+  {
+      "id": "771",
+      "prod_id": "293",
+      "price": "420",
+      "stock": "4",
+      "sortname": "羊肉+鮭魚",
+      "specname": "2.5磅 (1.13kg)",
+      "price_sp": 336
+  },
+  {
+      "id": "772",
+      "prod_id": "293",
+      "price": "750",
+      "stock": "123",
+      "sortname": "羊肉+鮭魚",
+      "specname": "5.5磅 (2.49kg)",
+      "price_sp": 740
+  },
+  {
+      "id": "773",
+      "prod_id": "293",
+      "price": "1612",
+      "stock": "123",
+      "sortname": "羊肉+鮭魚",
+      "specname": "15磅 (6.8kg)",
+      "price_sp": null
+  },
+  {
+      "id": "774",
+      "prod_id": "294",
+      "price": "270",
+      "stock": "11",
+      "sortname": "人篸鹿茸鴨",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "775",
+      "prod_id": "294",
+      "price": "199",
+      "stock": "1",
+      "sortname": "山藥雞胸肉",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "776",
+      "prod_id": "295",
+      "price": "650",
+      "stock": "0",
+      "sortname": null,
+      "specname": "2g/30包",
+      "price_sp": null
+  },
+  {
+      "id": "777",
+      "prod_id": "296",
+      "price": "624",
+      "stock": "0",
+      "sortname": null,
+      "specname": "1.5kg",
+      "price_sp": 500
+  },
+  {
+      "id": "778",
+      "prod_id": "297",
+      "price": "300",
+      "stock": "3",
+      "sortname": "北歐交響鮭",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "779",
+      "prod_id": "297",
+      "price": "300",
+      "stock": "123",
+      "sortname": "虎克鬼頭刀",
+      "specname": null,
+      "price_sp": 290
+  },
+  {
+      "id": "780",
+      "prod_id": "297",
+      "price": "250",
+      "stock": "59",
+      "sortname": "急凍骰子牛",
+      "specname": null,
+      "price_sp": 240
+  },
+  {
+      "id": "781",
+      "prod_id": "297",
+      "price": "250",
+      "stock": "28",
+      "sortname": "香檳鳥下水",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "782",
+      "prod_id": "297",
+      "price": "250",
+      "stock": "855",
+      "sortname": "筋肉胸雞丁",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "783",
+      "prod_id": "297",
+      "price": "300",
+      "stock": "42",
+      "sortname": "酥酥丁香魚",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "784",
+      "prod_id": "297",
+      "price": "250",
+      "stock": "0",
+      "sortname": "櫻桃鴉片管",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "785",
+      "prod_id": "297",
+      "price": "250",
+      "stock": "29",
+      "sortname": "急凍骰子鹿",
+      "specname": null,
+      "price_sp": 200
+  },
+  {
+      "id": "786",
+      "prod_id": "297",
+      "price": "250",
+      "stock": "58",
+      "sortname": "酥卵地瓜球",
+      "specname": null,
+      "price_sp": 240
+  },
+  {
+      "id": "787",
+      "prod_id": "297",
+      "price": "300",
+      "stock": "6",
+      "sortname": "極鮮蝦大廚",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "788",
+      "prod_id": "297",
+      "price": "250",
+      "stock": "6",
+      "sortname": "海灣鮮干貝",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "789",
+      "prod_id": "298",
+      "price": "350",
+      "stock": "5",
+      "sortname": null,
+      "specname": "30入",
+      "price_sp": null
+  },
+  {
+      "id": "790",
+      "prod_id": "298",
+      "price": "550",
+      "stock": "6",
+      "sortname": null,
+      "specname": "15入",
+      "price_sp": 440
+  },
+  {
+      "id": "791",
+      "prod_id": "299",
+      "price": "1112",
+      "stock": "4",
+      "sortname": null,
+      "specname": "3kg",
+      "price_sp": 1102
+  },
+  {
+      "id": "792",
+      "prod_id": "300",
+      "price": "180",
+      "stock": "56",
+      "sortname": "雞胸肉",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "793",
+      "prod_id": "300",
+      "price": "180",
+      "stock": "56",
+      "sortname": "雞肉鬆",
+      "specname": null,
+      "price_sp": 170
+  },
+  {
+      "id": "794",
+      "prod_id": "300",
+      "price": "180",
+      "stock": "314",
+      "sortname": "咬咬雞胗",
+      "specname": null,
+      "price_sp": 170
+  },
+  {
+      "id": "795",
+      "prod_id": "300",
+      "price": "210",
+      "stock": "123",
+      "sortname": "骰子牛",
+      "specname": null,
+      "price_sp": 200
+  },
+  {
+      "id": "796",
+      "prod_id": "300",
+      "price": "210",
+      "stock": "3",
+      "sortname": "牛肉鬆",
+      "specname": null,
+      "price_sp": 200
+  },
+  {
+      "id": "797",
+      "prod_id": "300",
+      "price": "240",
+      "stock": "123",
+      "sortname": "骰子羊",
+      "specname": null,
+      "price_sp": 192
+  },
+  {
+      "id": "798",
+      "prod_id": "300",
+      "price": "240",
+      "stock": "32",
+      "sortname": "菇菇鰹魚鬆",
+      "specname": null,
+      "price_sp": 192
+  },
+  {
+      "id": "799",
+      "prod_id": "300",
+      "price": "260",
+      "stock": "35",
+      "sortname": "爆蛋柳葉魚",
+      "specname": null,
+      "price_sp": 250
+  },
+  {
+      "id": "800",
+      "prod_id": "300",
+      "price": "260",
+      "stock": "33",
+      "sortname": "澎湖丁香魚",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "801",
+      "prod_id": "300",
+      "price": "320",
+      "stock": "6",
+      "sortname": "長盈虱目魚",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "802",
+      "prod_id": "300",
+      "price": "320",
+      "stock": "5",
+      "sortname": "府城火燒蝦",
+      "specname": null,
+      "price_sp": 256
+  },
+  {
+      "id": "803",
+      "prod_id": "300",
+      "price": "180",
+      "stock": "0",
+      "sortname": "北歐鯡魚",
+      "specname": null,
+      "price_sp": 144
+  },
+  {
+      "id": "804",
+      "prod_id": "300",
+      "price": "180",
+      "stock": "2",
+      "sortname": "鮮脆小卷",
+      "specname": null,
+      "price_sp": 170
+  },
+  {
+      "id": "805",
+      "prod_id": "300",
+      "price": "350",
+      "stock": "123",
+      "sortname": "北海道大干貝",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "806",
+      "prod_id": "300",
+      "price": "180",
+      "stock": "0",
+      "sortname": "咬咬火雞筋",
+      "specname": null,
+      "price_sp": 144
+  },
+  {
+      "id": "807",
+      "prod_id": "300",
+      "price": "180",
+      "stock": "34",
+      "sortname": "滋補牛心丁",
+      "specname": null,
+      "price_sp": 170
+  },
+  {
+      "id": "808",
+      "prod_id": "301",
+      "price": "920",
+      "stock": "18",
+      "sortname": null,
+      "specname": "60顆",
+      "price_sp": 910
+  },
+  {
+      "id": "809",
+      "prod_id": "301",
+      "price": "520",
+      "stock": "1",
+      "sortname": null,
+      "specname": "30顆",
+      "price_sp": 416
+  },
+  {
+      "id": "810",
+      "prod_id": "302",
+      "price": "1250",
+      "stock": "335",
+      "sortname": "雞肉",
+      "specname": "4磅 (1.81kg)",
+      "price_sp": null
+  },
+  {
+      "id": "811",
+      "prod_id": "302",
+      "price": "2499",
+      "stock": "123",
+      "sortname": "雞肉",
+      "specname": "10磅 (4.53kg)",
+      "price_sp": 2489
+  },
+  {
+      "id": "812",
+      "prod_id": "303",
+      "price": "150",
+      "stock": "13",
+      "sortname": "鹿兒島丁香魚",
+      "specname": null,
+      "price_sp": 120
+  },
+  {
+      "id": "813",
+      "prod_id": "303",
+      "price": "150",
+      "stock": "38",
+      "sortname": "干貝溫體雞胸",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "814",
+      "prod_id": "303",
+      "price": "120",
+      "stock": "6",
+      "sortname": "貝比玉米筍",
+      "specname": null,
+      "price_sp": 96
+  },
+  {
+      "id": "815",
+      "prod_id": "303",
+      "price": "120",
+      "stock": "65",
+      "sortname": "球芽甘藍",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "816",
+      "prod_id": "303",
+      "price": "150",
+      "stock": "54",
+      "sortname": "低鹽高鈣小起司",
+      "specname": null,
+      "price_sp": 120
+  },
+  {
+      "id": "817",
+      "prod_id": "304",
+      "price": "450",
+      "stock": "342",
+      "sortname": null,
+      "specname": "50ml",
+      "price_sp": null
+  },
+  {
+      "id": "818",
+      "prod_id": "305",
+      "price": "1328",
+      "stock": "57",
+      "sortname": "火雞肉+雞肉+鯡魚",
+      "specname": "5.5磅 (2.49kg)",
+      "price_sp": null
+  },
+  {
+      "id": "819",
+      "prod_id": "305",
+      "price": "1967",
+      "stock": "5",
+      "sortname": "火雞肉+雞肉+鯡魚",
+      "specname": "5kg",
+      "price_sp": null
+  },
+  {
+      "id": "820",
+      "prod_id": "305",
+      "price": "3926",
+      "stock": "3",
+      "sortname": "火雞肉+雞肉+鯡魚",
+      "specname": "10kg",
+      "price_sp": null
+  },
+  {
+      "id": "821",
+      "prod_id": "306",
+      "price": "450",
+      "stock": "5",
+      "sortname": "袋鼠",
+      "specname": null,
+      "price_sp": 440
+  },
+  {
+      "id": "822",
+      "prod_id": "307",
+      "price": "599",
+      "stock": "642",
+      "sortname": null,
+      "specname": "1.5g/30入",
+      "price_sp": 480
+  },
+  {
+      "id": "823",
+      "prod_id": "308",
+      "price": "722",
+      "stock": "672",
+      "sortname": "雞肉",
+      "specname": "5.5磅 (2.49kg)",
+      "price_sp": 712
+  },
+  {
+      "id": "824",
+      "prod_id": "308",
+      "price": "1287",
+      "stock": "2",
+      "sortname": "雞肉",
+      "specname": "5kg",
+      "price_sp": 1030
+  },
+  {
+      "id": "825",
+      "prod_id": "309",
+      "price": "320",
+      "stock": "54",
+      "sortname": "動動兔",
+      "specname": null,
+      "price_sp": 256
+  },
+  {
+      "id": "826",
+      "prod_id": "309",
+      "price": "320",
+      "stock": "3",
+      "sortname": "動動熊",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "827",
+      "prod_id": "310",
+      "price": "290",
+      "stock": "3",
+      "sortname": null,
+      "specname": "60g",
+      "price_sp": null
+  },
+  {
+      "id": "828",
+      "prod_id": "311",
+      "price": "890",
+      "stock": "1",
+      "sortname": "雞肉+雞肉",
+      "specname": "2kg",
+      "price_sp": 880
+  },
+  {
+      "id": "829",
+      "prod_id": "311",
+      "price": "890",
+      "stock": "5",
+      "sortname": "雞肉+牛肉",
+      "specname": "2kg",
+      "price_sp": null
+  },
+  {
+      "id": "830",
+      "prod_id": "311",
+      "price": "890",
+      "stock": "284",
+      "sortname": "雞肉+羊肉",
+      "specname": "2kg",
+      "price_sp": null
+  },
+  {
+      "id": "831",
+      "prod_id": "311",
+      "price": "890",
+      "stock": "269",
+      "sortname": "雞肉+鹿肉",
+      "specname": "2kg",
+      "price_sp": null
+  },
+  {
+      "id": "832",
+      "prod_id": "312",
+      "price": "880",
+      "stock": "2",
+      "sortname": "起司堡",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "833",
+      "prod_id": "313",
+      "price": "590",
+      "stock": "1",
+      "sortname": null,
+      "specname": "1盒 (30包)",
+      "price_sp": 580
+  },
+  {
+      "id": "834",
+      "prod_id": "313",
+      "price": "1150",
+      "stock": "123",
+      "sortname": null,
+      "specname": "2盒 (60包)",
+      "price_sp": 1140
+  },
+  {
+      "id": "835",
+      "prod_id": "313",
+      "price": "2600",
+      "stock": "123",
+      "sortname": null,
+      "specname": "5盒 (150包)",
+      "price_sp": null
+  },
+  {
+      "id": "836",
+      "prod_id": "313",
+      "price": "5400",
+      "stock": "1",
+      "sortname": null,
+      "specname": "11盒 (330包)",
+      "price_sp": 5390
+  },
+  {
+      "id": "837",
+      "prod_id": "314",
+      "price": "950",
+      "stock": "4",
+      "sortname": "雞肉",
+      "specname": "3.5磅 (1.59kg)",
+      "price_sp": 940
+  },
+  {
+      "id": "838",
+      "prod_id": "314",
+      "price": "2300",
+      "stock": "53",
+      "sortname": "雞肉",
+      "specname": "10磅 (4.53kg)",
+      "price_sp": null
+  },
+  {
+      "id": "839",
+      "prod_id": "315",
+      "price": "329",
+      "stock": "0",
+      "sortname": "肉肉",
+      "specname": null,
+      "price_sp": 264
+  },
+  {
+      "id": "840",
+      "prod_id": "315",
+      "price": "329",
+      "stock": "15",
+      "sortname": "咖波魚",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "841",
+      "prod_id": "316",
+      "price": "650",
+      "stock": "0",
+      "sortname": null,
+      "specname": "100ml/瓶",
+      "price_sp": 640
+  },
+  {
+      "id": "842",
+      "prod_id": "317",
+      "price": "199",
+      "stock": "146",
+      "sortname": "太平洋鯖魚",
+      "specname": "300g",
+      "price_sp": 189
+  },
+  {
+      "id": "843",
+      "prod_id": "317",
+      "price": "730",
+      "stock": "1",
+      "sortname": "太平洋鯖魚",
+      "specname": "3磅 (1.36kg)",
+      "price_sp": 584
+  },
+  {
+      "id": "844",
+      "prod_id": "317",
+      "price": "2430",
+      "stock": "123",
+      "sortname": "太平洋鯖魚",
+      "specname": "11磅 (4.99kg)",
+      "price_sp": null
+  },
+  {
+      "id": "845",
+      "prod_id": "318",
+      "price": "290",
+      "stock": "1",
+      "sortname": "杯子蛋糕",
+      "specname": "S號",
+      "price_sp": 280
+  },
+  {
+      "id": "846",
+      "prod_id": "318",
+      "price": "390",
+      "stock": "6",
+      "sortname": "杯子蛋糕",
+      "specname": "L號",
+      "price_sp": 312
+  },
+  {
+      "id": "847",
+      "prod_id": "319",
+      "price": "900",
+      "stock": "110",
+      "sortname": null,
+      "specname": "105g",
+      "price_sp": 890
+  },
+  {
+      "id": "848",
+      "prod_id": "320",
+      "price": "204",
+      "stock": "6",
+      "sortname": "羊肉+雞肉+糙米",
+      "specname": "1磅 (454g)",
+      "price_sp": null
+  },
+  {
+      "id": "849",
+      "prod_id": "320",
+      "price": "842",
+      "stock": "5",
+      "sortname": "羊肉+雞肉+糙米",
+      "specname": "5磅 (2.27kg)",
+      "price_sp": null
+  },
+  {
+      "id": "850",
+      "prod_id": "321",
+      "price": "230",
+      "stock": "0",
+      "sortname": "農場乳牛 (鈴鐺聲)",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "851",
+      "prod_id": "322",
+      "price": "1950",
+      "stock": "43",
+      "sortname": "紫羅蘭之旅",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "852",
+      "prod_id": "323",
+      "price": "247",
+      "stock": "210",
+      "sortname": "鯡魚+火雞肉+扁豆",
+      "specname": "1磅 (454g)",
+      "price_sp": null
+  },
+  {
+      "id": "853",
+      "prod_id": "323",
+      "price": "1122",
+      "stock": "2",
+      "sortname": "鯡魚+火雞肉+扁豆",
+      "specname": "5磅 (2.27kg)",
+      "price_sp": null
+  },
+  {
+      "id": "854",
+      "prod_id": "324",
+      "price": "220",
+      "stock": "2",
+      "sortname": "愛鏟你",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "855",
+      "prod_id": "325",
+      "price": "1690",
+      "stock": "12",
+      "sortname": "寵物背包",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "856",
+      "prod_id": "326",
+      "price": "270",
+      "stock": "1",
+      "sortname": "鮭魚+鯡魚+曼哈頓魚",
+      "specname": "半磅 (272g)",
+      "price_sp": 216
+  },
+  {
+      "id": "857",
+      "prod_id": "326",
+      "price": "990",
+      "stock": "403",
+      "sortname": "鮭魚+鯡魚+曼哈頓魚",
+      "specname": "3磅 (1.36kg)",
+      "price_sp": 792
+  },
+  {
+      "id": "858",
+      "prod_id": "327",
+      "price": "300",
+      "stock": "54",
+      "sortname": "聖誕馴鹿",
+      "specname": "XS號",
+      "price_sp": 240
+  },
+  {
+      "id": "859",
+      "prod_id": "328",
+      "price": "890",
+      "stock": "4",
+      "sortname": "灰色",
+      "specname": null,
+      "price_sp": 880
+  },
+  {
+      "id": "860",
+      "prod_id": "328",
+      "price": "890",
+      "stock": "2",
+      "sortname": "米白色",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "861",
+      "prod_id": "329",
+      "price": "950",
+      "stock": "123",
+      "sortname": "放養雞肉+新鮮蔬果",
+      "specname": "2kg",
+      "price_sp": null
+  },
+  {
+      "id": "862",
+      "prod_id": "330",
+      "price": "250",
+      "stock": "283",
+      "sortname": "豆乳杯",
+      "specname": null,
+      "price_sp": 200
+  },
+  {
+      "id": "863",
+      "prod_id": "331",
+      "price": "8860",
+      "stock": "5",
+      "sortname": "北歐花境",
+      "specname": "小款",
+      "price_sp": null
+  },
+  {
+      "id": "864",
+      "prod_id": "331",
+      "price": "8860",
+      "stock": "16",
+      "sortname": "哈士奇灰",
+      "specname": "小款",
+      "price_sp": 7088
+  },
+  {
+      "id": "865",
+      "prod_id": "331",
+      "price": "8860",
+      "stock": "572",
+      "sortname": "奧斯陸森林",
+      "specname": "小款",
+      "price_sp": null
+  },
+  {
+      "id": "866",
+      "prod_id": "332",
+      "price": "899",
+      "stock": "6",
+      "sortname": "雞肉+南瓜",
+      "specname": "2kg",
+      "price_sp": 889
+  },
+  {
+      "id": "867",
+      "prod_id": "333",
+      "price": "390",
+      "stock": "1",
+      "sortname": "鳥寶寶",
+      "specname": null,
+      "price_sp": 380
+  },
+  {
+      "id": "868",
+      "prod_id": "334",
+      "price": "920",
+      "stock": "0",
+      "sortname": "牛乳棕",
+      "specname": null,
+      "price_sp": 736
+  },
+  {
+      "id": "869",
+      "prod_id": "334",
+      "price": "920",
+      "stock": "0",
+      "sortname": "蕎麥灰",
+      "specname": null,
+      "price_sp": 910
+  },
+  {
+      "id": "870",
+      "prod_id": "334",
+      "price": "920",
+      "stock": "385",
+      "sortname": "橄欖綠",
+      "specname": null,
+      "price_sp": 736
+  },
+  {
+      "id": "871",
+      "prod_id": "335",
+      "price": "1210",
+      "stock": "55",
+      "sortname": "雞肉+石榴",
+      "specname": "5.5磅 (2.49kg)",
+      "price_sp": 1200
+  },
+  {
+      "id": "872",
+      "prod_id": "336",
+      "price": "100",
+      "stock": "2",
+      "sortname": "滴雞精",
+      "specname": "60g",
+      "price_sp": 90
+  },
+  {
+      "id": "873",
+      "prod_id": "336",
+      "price": "100",
+      "stock": "0",
+      "sortname": "滴鱸魚精",
+      "specname": "60g",
+      "price_sp": null
+  },
+  {
+      "id": "874",
+      "prod_id": "336",
+      "price": "100",
+      "stock": "42",
+      "sortname": "滴大骨精",
+      "specname": "60g",
+      "price_sp": null
+  },
+  {
+      "id": "875",
+      "prod_id": "336",
+      "price": "100",
+      "stock": "123",
+      "sortname": "滴蜆精",
+      "specname": "60g",
+      "price_sp": null
+  },
+  {
+      "id": "876",
+      "prod_id": "337",
+      "price": "880",
+      "stock": "50",
+      "sortname": "黑色",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "877",
+      "prod_id": "339",
+      "price": "75",
+      "stock": "64",
+      "sortname": "滋補羊肉",
+      "specname": "165g x 1入",
+      "price_sp": 60
+  },
+  {
+      "id": "878",
+      "prod_id": "339",
+      "price": "900",
+      "stock": "0",
+      "sortname": "滋補羊肉",
+      "specname": "165g x 12入",
+      "price_sp": null
+  },
+  {
+      "id": "879",
+      "prod_id": "339",
+      "price": "75",
+      "stock": "308",
+      "sortname": "鮮蒸鮭魚",
+      "specname": "165g x 1入",
+      "price_sp": 60
+  },
+  {
+      "id": "880",
+      "prod_id": "339",
+      "price": "900",
+      "stock": "5",
+      "sortname": "鮮蒸鮭魚",
+      "specname": "165g x 12入",
+      "price_sp": 890
+  },
+  {
+      "id": "881",
+      "prod_id": "340",
+      "price": "590",
+      "stock": "0",
+      "sortname": "紅色",
+      "specname": "XS號",
+      "price_sp": null
+  },
+  {
+      "id": "882",
+      "prod_id": "340",
+      "price": "590",
+      "stock": "0",
+      "sortname": "紅色",
+      "specname": "S號",
+      "price_sp": null
+  },
+  {
+      "id": "883",
+      "prod_id": "340",
+      "price": "590",
+      "stock": "2",
+      "sortname": "紅色",
+      "specname": "M號",
+      "price_sp": 472
+  },
+  {
+      "id": "884",
+      "prod_id": "340",
+      "price": "590",
+      "stock": "31",
+      "sortname": "黃色",
+      "specname": "XS號",
+      "price_sp": 472
+  },
+  {
+      "id": "885",
+      "prod_id": "340",
+      "price": "590",
+      "stock": "0",
+      "sortname": "黃色",
+      "specname": "S號",
+      "price_sp": 580
+  },
+  {
+      "id": "886",
+      "prod_id": "340",
+      "price": "590",
+      "stock": "6",
+      "sortname": "黃色",
+      "specname": "M號",
+      "price_sp": null
+  },
+  {
+      "id": "887",
+      "prod_id": "341",
+      "price": "169",
+      "stock": "6",
+      "sortname": "黑水虻蟲蛋白",
+      "specname": "200g",
+      "price_sp": null
+  },
+  {
+      "id": "888",
+      "prod_id": "341",
+      "price": "560",
+      "stock": "4",
+      "sortname": "黑水虻蟲蛋白",
+      "specname": "1kg",
+      "price_sp": null
+  },
+  {
+      "id": "889",
+      "prod_id": "341",
+      "price": "950",
+      "stock": "63",
+      "sortname": "黑水虻蟲蛋白",
+      "specname": "2kg",
+      "price_sp": 760
+  },
+  {
+      "id": "890",
+      "prod_id": "342",
+      "price": "140",
+      "stock": "36",
+      "sortname": "鮮嫩雞柳",
+      "specname": "100g",
+      "price_sp": 130
+  },
+  {
+      "id": "891",
+      "prod_id": "342",
+      "price": "130",
+      "stock": "3",
+      "sortname": "南瓜燒雞",
+      "specname": "100g",
+      "price_sp": null
+  },
+  {
+      "id": "892",
+      "prod_id": "342",
+      "price": "130",
+      "stock": "123",
+      "sortname": "奇亞籽雞肉丸",
+      "specname": "100g",
+      "price_sp": null
+  },
+  {
+      "id": "893",
+      "prod_id": "342",
+      "price": "100",
+      "stock": "2",
+      "sortname": "厚切鮪魚排",
+      "specname": "100g",
+      "price_sp": null
+  },
+  {
+      "id": "894",
+      "prod_id": "342",
+      "price": "150",
+      "stock": "63",
+      "sortname": "鮭魚佐雞肉堡",
+      "specname": "100g",
+      "price_sp": null
+  },
+  {
+      "id": "895",
+      "prod_id": "342",
+      "price": "140",
+      "stock": "66",
+      "sortname": "黑鮪魚丁丁",
+      "specname": "100g",
+      "price_sp": null
+  },
+  {
+      "id": "896",
+      "prod_id": "343",
+      "price": "290",
+      "stock": "0",
+      "sortname": "遊戲機",
+      "specname": null,
+      "price_sp": 232
+  },
+  {
+      "id": "897",
+      "prod_id": "344",
+      "price": "110",
+      "stock": "123",
+      "sortname": "鴨肉",
+      "specname": "100g",
+      "price_sp": null
+  },
+  {
+      "id": "898",
+      "prod_id": "344",
+      "price": "1152",
+      "stock": "123",
+      "sortname": "鴨肉",
+      "specname": "1.5kg",
+      "price_sp": 922
+  },
+  {
+      "id": "899",
+      "prod_id": "345",
+      "price": "1190",
+      "stock": "0",
+      "sortname": null,
+      "specname": "2kg",
+      "price_sp": null
+  },
+  {
+      "id": "900",
+      "prod_id": "346",
+      "price": "440",
+      "stock": "4",
+      "sortname": "粉色",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "901",
+      "prod_id": "346",
+      "price": "440",
+      "stock": "14",
+      "sortname": "黃色",
+      "specname": null,
+      "price_sp": 430
+  },
+  {
+      "id": "902",
+      "prod_id": "346",
+      "price": "440",
+      "stock": "0",
+      "sortname": "草綠色",
+      "specname": null,
+      "price_sp": 430
+  },
+  {
+      "id": "903",
+      "prod_id": "347",
+      "price": "1511",
+      "stock": "3",
+      "sortname": "牛肉+羊肉",
+      "specname": "5磅 (2.27kg)",
+      "price_sp": 1209
+  },
+  {
+      "id": "904",
+      "prod_id": "347",
+      "price": "2556",
+      "stock": "3",
+      "sortname": "牛肉+羊肉",
+      "specname": "5kg",
+      "price_sp": 2045
+  },
+  {
+      "id": "905",
+      "prod_id": "348",
+      "price": "1190",
+      "stock": "43",
+      "sortname": null,
+      "specname": "2kg",
+      "price_sp": null
+  },
+  {
+      "id": "906",
+      "prod_id": "349",
+      "price": "150",
+      "stock": "10",
+      "sortname": "收納盒 (不含替換袋)",
+      "specname": "烏蘭粉",
+      "price_sp": 120
+  },
+  {
+      "id": "907",
+      "prod_id": "349",
+      "price": "150",
+      "stock": "42",
+      "sortname": "收納盒 (不含替換袋)",
+      "specname": "西沙藍",
+      "price_sp": null
+  },
+  {
+      "id": "908",
+      "prod_id": "349",
+      "price": "150",
+      "stock": "17",
+      "sortname": "收納盒 (不含替換袋)",
+      "specname": "墨脫綠",
+      "price_sp": 140
+  },
+  {
+      "id": "909",
+      "prod_id": "350",
+      "price": "1190",
+      "stock": "13",
+      "sortname": null,
+      "specname": "2kg",
+      "price_sp": 1180
+  },
+  {
+      "id": "910",
+      "prod_id": "351",
+      "price": "745",
+      "stock": "55",
+      "sortname": "牛肉",
+      "specname": "1磅 (454g)",
+      "price_sp": null
+  },
+  {
+      "id": "911",
+      "prod_id": "351",
+      "price": "1825",
+      "stock": "45",
+      "sortname": "牛肉",
+      "specname": "3磅 (1.36kg)",
+      "price_sp": 1460
+  },
+  {
+      "id": "912",
+      "prod_id": "352",
+      "price": "299",
+      "stock": "123",
+      "sortname": "紅薯X甜南瓜",
+      "specname": "15g (8入)",
+      "price_sp": 289
+  },
+  {
+      "id": "913",
+      "prod_id": "352",
+      "price": "299",
+      "stock": "15",
+      "sortname": "紅薯X蘋果",
+      "specname": "15g (8入)",
+      "price_sp": null
+  },
+  {
+      "id": "914",
+      "prod_id": "352",
+      "price": "330",
+      "stock": "123",
+      "sortname": "蜂蜜X草莓",
+      "specname": "15g (8入)",
+      "price_sp": null
+  },
+  {
+      "id": "915",
+      "prod_id": "352",
+      "price": "330",
+      "stock": "23",
+      "sortname": "山羊奶X草莓",
+      "specname": "15g (8入)",
+      "price_sp": null
+  },
+  {
+      "id": "916",
+      "prod_id": "352",
+      "price": "299",
+      "stock": "123",
+      "sortname": "紅薯X鴨胸肉",
+      "specname": "15g (8入)",
+      "price_sp": 289
+  },
+  {
+      "id": "917",
+      "prod_id": "352",
+      "price": "299",
+      "stock": "34",
+      "sortname": "紅薯X雞胸肉",
+      "specname": "15g (8入)",
+      "price_sp": 240
+  },
+  {
+      "id": "918",
+      "prod_id": "353",
+      "price": "380",
+      "stock": "0",
+      "sortname": "鮭魚",
+      "specname": "1磅 (454g)",
+      "price_sp": null
+  },
+  {
+      "id": "919",
+      "prod_id": "353",
+      "price": "990",
+      "stock": "0",
+      "sortname": "鮭魚",
+      "specname": "4磅 (1.81kg)",
+      "price_sp": null
+  },
+  {
+      "id": "920",
+      "prod_id": "354",
+      "price": "1990",
+      "stock": "4",
+      "sortname": "放牧雞肉",
+      "specname": "1kg",
+      "price_sp": null
+  },
+  {
+      "id": "921",
+      "prod_id": "355",
+      "price": "50",
+      "stock": "407",
+      "sortname": "牛肉山藥",
+      "specname": null,
+      "price_sp": 40
+  },
+  {
+      "id": "922",
+      "prod_id": "355",
+      "price": "50",
+      "stock": "123",
+      "sortname": "雞肉茯苓",
+      "specname": null,
+      "price_sp": 40
+  },
+  {
+      "id": "923",
+      "prod_id": "355",
+      "price": "50",
+      "stock": "471",
+      "sortname": "羊肉枸杞",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "924",
+      "prod_id": "356",
+      "price": "745",
+      "stock": "0",
+      "sortname": "羊肉",
+      "specname": "1磅 (454g)",
+      "price_sp": null
+  },
+  {
+      "id": "925",
+      "prod_id": "356",
+      "price": "1825",
+      "stock": "30",
+      "sortname": "羊肉",
+      "specname": "3磅 (1.36kg)",
+      "price_sp": 1815
+  },
+  {
+      "id": "926",
+      "prod_id": "357",
+      "price": "420",
+      "stock": "38",
+      "sortname": "5種魚",
+      "specname": "2.5磅 (1.13kg)",
+      "price_sp": 336
+  },
+  {
+      "id": "927",
+      "prod_id": "357",
+      "price": "750",
+      "stock": "480",
+      "sortname": "5種魚",
+      "specname": "5.5磅 (2.49kg)",
+      "price_sp": 740
+  },
+  {
+      "id": "928",
+      "prod_id": "357",
+      "price": "1612",
+      "stock": "0",
+      "sortname": "5種魚",
+      "specname": "15磅 (6.8kg)",
+      "price_sp": 1602
+  },
+  {
+      "id": "929",
+      "prod_id": "358",
+      "price": "40",
+      "stock": "0",
+      "sortname": "雞肉",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "930",
+      "prod_id": "358",
+      "price": "40",
+      "stock": "235",
+      "sortname": "羊肉",
+      "specname": null,
+      "price_sp": 30
+  },
+  {
+      "id": "931",
+      "prod_id": "358",
+      "price": "40",
+      "stock": "59",
+      "sortname": "牛肉",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "932",
+      "prod_id": "358",
+      "price": "40",
+      "stock": "0",
+      "sortname": "鱈魚",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "933",
+      "prod_id": "358",
+      "price": "40",
+      "stock": "687",
+      "sortname": "鴨肉",
+      "specname": null,
+      "price_sp": 30
+  },
+  {
+      "id": "934",
+      "prod_id": "359",
+      "price": "790",
+      "stock": "4",
+      "sortname": null,
+      "specname": "30顆/盒",
+      "price_sp": 780
+  },
+  {
+      "id": "935",
+      "prod_id": "360",
+      "price": "1050",
+      "stock": "2",
+      "sortname": null,
+      "specname": "1kg",
+      "price_sp": null
+  },
+  {
+      "id": "936",
+      "prod_id": "361",
+      "price": "166",
+      "stock": "66",
+      "sortname": "我愛山羊奶",
+      "specname": null,
+      "price_sp": 133
+  },
+  {
+      "id": "937",
+      "prod_id": "361",
+      "price": "180",
+      "stock": "29",
+      "sortname": "我愛紅螃蟹",
+      "specname": null,
+      "price_sp": 170
+  },
+  {
+      "id": "938",
+      "prod_id": "361",
+      "price": "180",
+      "stock": "672",
+      "sortname": "快樂雞胸肉",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "939",
+      "prod_id": "361",
+      "price": "199",
+      "stock": "4",
+      "sortname": "馬肉",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "940",
+      "prod_id": "362",
+      "price": "730",
+      "stock": "116",
+      "sortname": null,
+      "specname": "1.5g/30入",
+      "price_sp": null
+  },
+  {
+      "id": "941",
+      "prod_id": "363",
+      "price": "1050",
+      "stock": "123",
+      "sortname": null,
+      "specname": "4kg",
+      "price_sp": null
+  },
+  {
+      "id": "942",
+      "prod_id": "364",
+      "price": "95",
+      "stock": "4",
+      "sortname": "紐西蘭犬貓專用鮮乳",
+      "specname": "380ml",
+      "price_sp": null
+  },
+  {
+      "id": "943",
+      "prod_id": "364",
+      "price": "155",
+      "stock": "6",
+      "sortname": "紐西蘭犬貓專用鮮乳",
+      "specname": "1000ml",
+      "price_sp": 145
+  },
+  {
+      "id": "944",
+      "prod_id": "364",
+      "price": "95",
+      "stock": "123",
+      "sortname": "貓用保健鮮乳",
+      "specname": "380ml",
+      "price_sp": 76
+  },
+  {
+      "id": "945",
+      "prod_id": "365",
+      "price": "720",
+      "stock": "0",
+      "sortname": null,
+      "specname": "30顆",
+      "price_sp": 710
+  },
+  {
+      "id": "946",
+      "prod_id": "365",
+      "price": "1280",
+      "stock": "60",
+      "sortname": null,
+      "specname": "60顆",
+      "price_sp": 1024
+  },
+  {
+      "id": "947",
+      "prod_id": "366",
+      "price": "893",
+      "stock": "4",
+      "sortname": null,
+      "specname": "3kg",
+      "price_sp": null
+  },
+  {
+      "id": "948",
+      "prod_id": "367",
+      "price": "270",
+      "stock": "18",
+      "sortname": "鹿肉餅",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "949",
+      "prod_id": "367",
+      "price": "270",
+      "stock": "2",
+      "sortname": "羊肉餅",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "950",
+      "prod_id": "367",
+      "price": "270",
+      "stock": "0",
+      "sortname": "袋鼠肉餅",
+      "specname": null,
+      "price_sp": 216
+  },
+  {
+      "id": "951",
+      "prod_id": "367",
+      "price": "270",
+      "stock": "33",
+      "sortname": "沙丁牛肉球",
+      "specname": null,
+      "price_sp": 216
+  },
+  {
+      "id": "952",
+      "prod_id": "367",
+      "price": "270",
+      "stock": "123",
+      "sortname": "深海鮭魚塊",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "953",
+      "prod_id": "368",
+      "price": "330",
+      "stock": "19",
+      "sortname": null,
+      "specname": "30ml",
+      "price_sp": null
+  },
+  {
+      "id": "954",
+      "prod_id": "369",
+      "price": "1250",
+      "stock": "3",
+      "sortname": "雞肉",
+      "specname": "500g",
+      "price_sp": 1000
+  },
+  {
+      "id": "955",
+      "prod_id": "369",
+      "price": "1250",
+      "stock": "6",
+      "sortname": "牛肉",
+      "specname": "500g",
+      "price_sp": 1000
+  },
+  {
+      "id": "956",
+      "prod_id": "369",
+      "price": "1250",
+      "stock": "1",
+      "sortname": "羊肉",
+      "specname": "500g",
+      "price_sp": null
+  },
+  {
+      "id": "957",
+      "prod_id": "369",
+      "price": "1430",
+      "stock": "2",
+      "sortname": "鹿肉",
+      "specname": "500g",
+      "price_sp": 1144
+  },
+  {
+      "id": "958",
+      "prod_id": "370",
+      "price": "160",
+      "stock": "5",
+      "sortname": "紐西蘭綠唇貽貝",
+      "specname": "30g",
+      "price_sp": 150
+  },
+  {
+      "id": "959",
+      "prod_id": "372",
+      "price": "1411",
+      "stock": "123",
+      "sortname": "六種魚",
+      "specname": "5.5磅 (2.49kg)",
+      "price_sp": null
+  },
+  {
+      "id": "960",
+      "prod_id": "372",
+      "price": "2407",
+      "stock": "0",
+      "sortname": "六種魚",
+      "specname": "5kg",
+      "price_sp": 1926
+  },
+  {
+      "id": "961",
+      "prod_id": "372",
+      "price": "4316",
+      "stock": "3",
+      "sortname": "六種魚",
+      "specname": "10kg",
+      "price_sp": 3453
+  },
+  {
+      "id": "962",
+      "prod_id": "373",
+      "price": "130",
+      "stock": "0",
+      "sortname": "帆立貝",
+      "specname": "30g",
+      "price_sp": 120
+  },
+  {
+      "id": "963",
+      "prod_id": "374",
+      "price": "580",
+      "stock": "4",
+      "sortname": null,
+      "specname": "30ml",
+      "price_sp": null
+  },
+  {
+      "id": "964",
+      "prod_id": "375",
+      "price": "2615",
+      "stock": "2",
+      "sortname": "雞肉",
+      "specname": "25磅 (11.33kg)",
+      "price_sp": null
+  },
+  {
+      "id": "965",
+      "prod_id": "376",
+      "price": "420",
+      "stock": "216",
+      "sortname": "拉芙熊",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "966",
+      "prod_id": "377",
+      "price": "250",
+      "stock": "0",
+      "sortname": "薑黃粉",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "967",
+      "prod_id": "378",
+      "price": "550",
+      "stock": "5",
+      "sortname": null,
+      "specname": "1kg",
+      "price_sp": 540
+  },
+  {
+      "id": "968",
+      "prod_id": "378",
+      "price": "680",
+      "stock": "721",
+      "sortname": null,
+      "specname": "2kg",
+      "price_sp": null
+  },
+  {
+      "id": "969",
+      "prod_id": "379",
+      "price": "280",
+      "stock": "123",
+      "sortname": "祥龍獻瑞",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "970",
+      "prod_id": "380",
+      "price": "620",
+      "stock": "35",
+      "sortname": null,
+      "specname": "1盒 (30包)",
+      "price_sp": null
+  },
+  {
+      "id": "971",
+      "prod_id": "380",
+      "price": "1180",
+      "stock": "15",
+      "sortname": null,
+      "specname": "2盒 (60包)",
+      "price_sp": null
+  },
+  {
+      "id": "972",
+      "prod_id": "380",
+      "price": "2680",
+      "stock": "23",
+      "sortname": null,
+      "specname": "5盒 (150包)",
+      "price_sp": null
+  },
+  {
+      "id": "973",
+      "prod_id": "380",
+      "price": "5490",
+      "stock": "3",
+      "sortname": null,
+      "specname": "11盒 (330包)",
+      "price_sp": 5480
+  },
+  {
+      "id": "974",
+      "prod_id": "381",
+      "price": "950",
+      "stock": "25",
+      "sortname": "低脂火雞肉",
+      "specname": "3.5磅 (1.59kg)",
+      "price_sp": 760
+  },
+  {
+      "id": "975",
+      "prod_id": "381",
+      "price": "2300",
+      "stock": "5",
+      "sortname": "低脂火雞肉",
+      "specname": "10磅 (4.53kg)",
+      "price_sp": null
+  },
+  {
+      "id": "976",
+      "prod_id": "382",
+      "price": "780",
+      "stock": "6",
+      "sortname": "驚喜禮物",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "977",
+      "prod_id": "383",
+      "price": "880",
+      "stock": "3",
+      "sortname": null,
+      "specname": "50顆/瓶",
+      "price_sp": null
+  },
+  {
+      "id": "978",
+      "prod_id": "384",
+      "price": "199",
+      "stock": "1",
+      "sortname": "放牧草飼牛",
+      "specname": "300g",
+      "price_sp": 160
+  },
+  {
+      "id": "979",
+      "prod_id": "384",
+      "price": "730",
+      "stock": "4",
+      "sortname": "放牧草飼牛",
+      "specname": "3磅 (1.36kg)",
+      "price_sp": 720
+  },
+  {
+      "id": "980",
+      "prod_id": "384",
+      "price": "2430",
+      "stock": "4",
+      "sortname": "放牧草飼牛",
+      "specname": "11磅 (4.99kg)",
+      "price_sp": 1944
+  },
+  {
+      "id": "981",
+      "prod_id": "385",
+      "price": "380",
+      "stock": "65",
+      "sortname": "果漾夾心",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "982",
+      "prod_id": "386",
+      "price": "1000",
+      "stock": "1",
+      "sortname": null,
+      "specname": "30入/盒 (45g)",
+      "price_sp": null
+  },
+  {
+      "id": "983",
+      "prod_id": "387",
+      "price": "221",
+      "stock": "123",
+      "sortname": "羊肉+糙米 (護膚亮毛)",
+      "specname": "1磅 (454g)",
+      "price_sp": 211
+  },
+  {
+      "id": "984",
+      "prod_id": "387",
+      "price": "978",
+      "stock": "49",
+      "sortname": "羊肉+糙米 (護膚亮毛)",
+      "specname": "5磅 (2.27kg)",
+      "price_sp": null
+  },
+  {
+      "id": "985",
+      "prod_id": "388",
+      "price": "420",
+      "stock": "46",
+      "sortname": "ㄋㄟ一罐",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "986",
+      "prod_id": "389",
+      "price": "190",
+      "stock": "0",
+      "sortname": "拾便器",
+      "specname": "套裝 (拾便器+拾便袋7捲)",
+      "price_sp": 152
+  },
+  {
+      "id": "987",
+      "prod_id": "389",
+      "price": "150",
+      "stock": "510",
+      "sortname": "拾便器",
+      "specname": "單入 (拾便器+拾便袋1捲)",
+      "price_sp": null
+  },
+  {
+      "id": "988",
+      "prod_id": "389",
+      "price": "290",
+      "stock": "5",
+      "sortname": "拾便器",
+      "specname": "20捲/盒",
+      "price_sp": 232
+  },
+  {
+      "id": "989",
+      "prod_id": "389",
+      "price": "15",
+      "stock": "0",
+      "sortname": "拾便器",
+      "specname": "1捲/裸裝",
+      "price_sp": 12
+  },
+  {
+      "id": "990",
+      "prod_id": "389",
+      "price": "145",
+      "stock": "6",
+      "sortname": "拾便器",
+      "specname": "10捲/裸裝",
+      "price_sp": null
+  },
+  {
+      "id": "991",
+      "prod_id": "389",
+      "price": "190",
+      "stock": "123",
+      "sortname": "補充替換袋",
+      "specname": "套裝 (拾便器+拾便袋7捲)",
+      "price_sp": null
+  },
+  {
+      "id": "992",
+      "prod_id": "389",
+      "price": "150",
+      "stock": "382",
+      "sortname": "補充替換袋",
+      "specname": "單入 (拾便器+拾便袋1捲)",
+      "price_sp": null
+  },
+  {
+      "id": "993",
+      "prod_id": "389",
+      "price": "290",
+      "stock": "18",
+      "sortname": "補充替換袋",
+      "specname": "20捲/盒",
+      "price_sp": 280
+  },
+  {
+      "id": "994",
+      "prod_id": "389",
+      "price": "15",
+      "stock": "52",
+      "sortname": "補充替換袋",
+      "specname": "1捲/裸裝",
+      "price_sp": 5
+  },
+  {
+      "id": "995",
+      "prod_id": "389",
+      "price": "145",
+      "stock": "123",
+      "sortname": "補充替換袋",
+      "specname": "10捲/裸裝",
+      "price_sp": null
+  },
+  {
+      "id": "996",
+      "prod_id": "390",
+      "price": "247",
+      "stock": "123",
+      "sortname": "白鮭魚+豌豆",
+      "specname": "1磅 (454g)",
+      "price_sp": 237
+  },
+  {
+      "id": "997",
+      "prod_id": "390",
+      "price": "1122",
+      "stock": "29",
+      "sortname": "白鮭魚+豌豆",
+      "specname": "5磅 (2.27kg)",
+      "price_sp": 1112
+  },
+  {
+      "id": "998",
+      "prod_id": "391",
+      "price": "360",
+      "stock": "44",
+      "sortname": "咬我鴨",
+      "specname": null,
+      "price_sp": 350
+  },
+  {
+      "id": "999",
+      "prod_id": "391",
+      "price": "360",
+      "stock": "5",
+      "sortname": "蛙愛你",
+      "specname": null,
+      "price_sp": 288
+  },
+  {
+      "id": "1000",
+      "prod_id": "392",
+      "price": "490",
+      "stock": "4",
+      "sortname": "防蟲散步LED燈",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "1001",
+      "prod_id": "392",
+      "price": "190",
+      "stock": "18",
+      "sortname": "替換防蟲片 (2入)",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "1002",
+      "prod_id": "393",
+      "price": "270",
+      "stock": "49",
+      "sortname": "羊肉+鯡魚",
+      "specname": "半磅 (272g)",
+      "price_sp": 216
+  },
+  {
+      "id": "1003",
+      "prod_id": "393",
+      "price": "990",
+      "stock": "11",
+      "sortname": "羊肉+鯡魚",
+      "specname": "3磅 (1.36kg)",
+      "price_sp": 792
+  },
+  {
+      "id": "1004",
+      "prod_id": "394",
+      "price": "300",
+      "stock": "49",
+      "sortname": "聖誕老公公",
+      "specname": "XS號",
+      "price_sp": null
+  },
+  {
+      "id": "1005",
+      "prod_id": "395",
+      "price": "1650",
+      "stock": "1",
+      "sortname": "套裝組",
+      "specname": null,
+      "price_sp": null
+  },
+  {
+      "id": "1006",
+      "prod_id": "396",
+      "price": "950",
+      "stock": "5",
+      "sortname": "放養雞肉+新鮮蔬果",
+      "specname": "2kg",
+      "price_sp": 940
+  },
+  {
+      "id": "1007",
+      "prod_id": "397",
+      "price": "250",
+      "stock": "650",
+      "sortname": "魔法小兔帽",
+      "specname": null,
+      "price_sp": 240
+  },
+  {
+      "id": "1008",
+      "prod_id": "398",
+      "price": "490",
+      "stock": "507",
+      "sortname": "米麥杏",
+      "specname": "S號",
+      "price_sp": null
+  },
+  {
+      "id": "1009",
+      "prod_id": "398",
+      "price": "490",
+      "stock": "474",
+      "sortname": "米麥杏",
+      "specname": "M號",
+      "price_sp": null
+  },
+  {
+      "id": "1010",
+      "prod_id": "398",
+      "price": "490",
+      "stock": "651",
+      "sortname": "赤黃茶",
+      "specname": "S號",
+      "price_sp": null
+  },
+  {
+      "id": "1011",
+      "prod_id": "398",
+      "price": "490",
+      "stock": "54",
+      "sortname": "赤黃茶",
+      "specname": "M號",
+      "price_sp": 392
+  },
+  {
+      "id": "1012",
+      "prod_id": "398",
+      "price": "490",
+      "stock": "6",
+      "sortname": "香水百合",
+      "specname": "S號",
+      "price_sp": null
+  },
+  {
+      "id": "1013",
+      "prod_id": "398",
+      "price": "490",
+      "stock": "65",
+      "sortname": "香水百合",
+      "specname": "M號",
+      "price_sp": null
+  },
+  {
+      "id": "1014",
+      "prod_id": "398",
+      "price": "490",
+      "stock": "0",
+      "sortname": "普魯士藍",
+      "specname": "S號",
+      "price_sp": null
+  },
+  {
+      "id": "1015",
+      "prod_id": "398",
+      "price": "490",
+      "stock": "2",
+      "sortname": "普魯士藍",
+      "specname": "M號",
+      "price_sp": null
+  },
+  {
+      "id": "1016",
+      "prod_id": "398",
+      "price": "490",
+      "stock": "1",
+      "sortname": "溫莎紅",
+      "specname": "S號",
+      "price_sp": 480
+  },
+  {
+      "id": "1017",
+      "prod_id": "398",
+      "price": "490",
+      "stock": "50",
+      "sortname": "溫莎紅",
+      "specname": "M號",
+      "price_sp": null
+  },
+  {
+      "id": "1018",
+      "prod_id": "398",
+      "price": "490",
+      "stock": "44",
+      "sortname": "藍連",
+      "specname": "S號",
+      "price_sp": 480
+  },
+  {
+      "id": "1019",
+      "prod_id": "398",
+      "price": "490",
+      "stock": "50",
+      "sortname": "藍連",
+      "specname": "M號",
+      "price_sp": null
+  },
+  {
+      "id": "1020",
+      "prod_id": "399",
+      "price": "899",
+      "stock": "123",
+      "sortname": "I18 體重控制 雞肉+豌豆",
+      "specname": "2kg",
+      "price_sp": 889
+  },
+  {
+      "id": "1021",
+      "prod_id": "399",
+      "price": "899",
+      "stock": "36",
+      "sortname": "I20 三效強化 羊肉+糙米",
+      "specname": "2kg",
+      "price_sp": null
+  },
+  {
+      "id": "1022",
+      "prod_id": "400",
+      "price": "1450",
+      "stock": "36",
+      "sortname": null,
+      "specname": "淡奶咖",
+      "price_sp": 1160
+  },
+  {
+      "id": "1023",
+      "prod_id": "400",
+      "price": "1450",
+      "stock": "123",
+      "sortname": null,
+      "specname": "大象灰",
+      "price_sp": null
+  },
+  {
+      "id": "1024",
+      "prod_id": "401",
+      "price": "220",
+      "stock": "0",
+      "sortname": "牛奶叭噗",
+      "specname": null,
+      "price_sp": 210
+  }
+]

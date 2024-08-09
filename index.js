@@ -1,4 +1,4 @@
-import app from "./express.mjs";
+import app from "./express.js";
 
 const PORT = 3005;
 const ROOT = "http://localhost";

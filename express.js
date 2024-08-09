@@ -1,11 +1,10 @@
 //此檔案宣告 express 的 app，與集合眾路由
 import express from 'express';
 import cors from 'cors';
-import { logger } from "morgan";
+// import morgan from "morgan";
 import { readdir } from "fs/promises";
 import { resolve } from 'path';
 import { pathToFileURL } from "url";
-
 //================== 初始化 =======================//
 const app = express();
 
@@ -25,7 +24,8 @@ let corsOptions = {
 app.use(cors(corsOptions));
 
 //=== morgan | 伺服器的使用紀錄
-app.use(logger('dev'));
+// const {logger} = morgan;
+// app.use(logger('dev'));
 
 //================== 設置路由架構 ==================//
 //=== 路由之根

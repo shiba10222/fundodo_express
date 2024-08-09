@@ -1,9 +1,11 @@
 {
   "name": "fundodo_express",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.mjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.mjs dist",
+    "dev": "nodemon index.mjs dev"
   },
   "keywords": [],
   "author": "",
@@ -19,5 +21,8 @@
     "mysql2": "^3.11.0",
     "uuid": "^10.0.0",
     "dotenv" :"^16.4.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
   }
 }

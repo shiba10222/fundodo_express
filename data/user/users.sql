@@ -1,3 +1,7 @@
+--
+-- 資料表結構 `users`
+--
+
 CREATE TABLE IF NOT EXISTS `users` (
     `id` int(7) UNSIGNED NOT NULL,
     `name` VARCHAR(3),

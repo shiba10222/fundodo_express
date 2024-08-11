@@ -1,6 +1,6 @@
 import { Router } from "express";
 import multer from "multer";
-import conn from '../db'
+import conn from '../db.js'
 const router = Router();
 const defaultData = [];
 // const db = new Low(new JSONFile("./data.json"), defaultData);

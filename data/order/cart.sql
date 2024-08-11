@@ -12,7 +12,7 @@ SET time_zone = "+08:00";
 --
 
 CREATE TABLE IF NOT EXISTS `cart` (
-    `user_id` INT UNSIGNED NOT NULL,
+    `user_id` int(7) UNSIGNED NOT NULL,
     `prod_id` INT UNSIGNED NOT NULL,
     `qty` INT UNSIGNED NOT NULL,
     `created_at` DATETIME
@@ -22,7 +22,8 @@ CREATE TABLE IF NOT EXISTS `cart` (
 -- 傾印資料表的資料 `cart`
 --
 
-INSERT INTO `cart` VALUES (2,462,1,'2023-09-29 22:33:11'),
+INSERT INTO `cart` VALUES
+  (2,462,1,'2023-09-29 22:33:11'),
 	(2,641,1,'2024-02-25 23:40:06'),
 	(2,820,1,'2024-03-08 11:23:31'),
 	(4,709,1,'2022-08-17 21:43:55'),

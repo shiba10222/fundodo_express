@@ -9,6 +9,8 @@ import { pathToFileURL } from "url";
 const app = express();
 
 //================== 中介軟體設定 ==================//
+express.json();
+app.use(express.urlencoded({ extended: true }));
 //=== CORS
 let whitelist = ["http://127.0.0.1", "http://localhost:5500", "http://localhost:3000", undefined];
 let corsOptions = {

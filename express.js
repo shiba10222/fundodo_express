@@ -10,15 +10,19 @@ const app = express();
 
 //================== 中介軟體設定 ==================//
 //=== CORS
-let whitelist = ["http://127.0.0.1", "http://localhost:5500", "http://localhost:3000", undefined];
+let whitelist = ["http://127.0.0.1", "http://localhost:5500", "http://localhost:3000", "https://emap.pcsc.com.tw", "https://emap.pcsc.com.tw/ecmap/default.aspx", undefined];
 let corsOptions = {
   credentials: true,
   origin(origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error('根據同源政策，拒絕不被允許的傳輸'))
+    if (!origin || origin === 'null') return callback(null, true);
+    if (whitelist.indexOf(origin) === -1) {
+      logger.warn('origin ' + origin + ' 不在白名單內');
+      return callback(
+        new Error('根據同源政策，YOU SHALL NOT PASS'),
+        false
+      );
     }
+    return callback(null, true)
   }
 }
 app.use(cors(corsOptions));

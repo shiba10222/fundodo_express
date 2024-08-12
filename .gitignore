@@ -40,3 +40,5 @@ data/test_sql
 
 
 *.ini
+
+package-lock.json

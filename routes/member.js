@@ -2,7 +2,8 @@ import { Router } from 'express';
 import multer from 'multer';
 import moment from 'moment';
 import jwt from 'jsonwebtoken';
-import { v4 as uuid } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
+import bcrypt from 'bcrypt';
 import { resolve } from "path";
 import conn from '../db.js';
 
@@ -100,60 +101,44 @@ router.get('/prod', (req, res) => {
 
 //======== 讀取指定 ==========//
 //* test uid = 58
-router.get('/:uid', (req, res) => {
-  const uid = Number(req.params.uid);
-  // let cartData = DB.data.carts.filter(item => item.user_id === uid);
-  // if (cartData.length === 0) {
-  //   res.status(404).json({ status: "failed", message: `查無 ID ${uid} 用戶之購物車資料` });
-  //   return;
-  // }
-
-  // const cartResult = cartData.map(item => {
-  //   const priceStockObj = DB.data.prod_price_stock.find(d => d.id == item.prod_item_id);
-  //   //====
-  //   const sortObj = priceStockObj.sort_id ? DB.data.pr_sort.find(d => d.id == priceStockObj.sort_id) : null;
-  //   const sort_name = sortObj ? sortObj.name : null;
-  //   //====
-  //   const specObj = priceStockObj.spec_id ? DB.data.pr_spec.find(d => d.id == priceStockObj.spec_id) : null;
-  //   const spec_name = specObj ? specObj.name : null;
-  //   //====
-  //   const price = Number(priceStockObj.price);
-
-  //   const prodObj = DB.data.products.find(d => d.id == priceStockObj.prod_id);
-
-  //   return ({
-  //     key: item.prod_item_id,
-  //     name: prodObj.name,
-  //     pic_path: "PR" + priceStockObj.prod_id.padStart(9, '0') + "1.jpg",
-  //     sort_name,
-  //     spec_name,
-  //     price,
-  //     qty: item.qty,
-  //     created_at:item.created_at,
-  //     isOutOfStock: priceStockObj.stock == 0
-  //   });
-  // });
+router.get('/member/:id', (req, res) => {
+  
   res.status(200).json({ status: "success", message: "查詢成功", result: cartResult });
 });
 
-//======== 新增 ==========//
+//======== 新增 (會員完工)==========//
 router.post('/register', upload.none(),async (req, res, next) => {
   console.log('Received request body:', req.body); // 記錄接收到的請求體
 
-  const { nickname, email, password_hash } = req.body;
+  const { nickname, email, password } = req.body;
 
-  if (!nickname || !email || !password_hash) {
+  if (!nickname || !email || !password) {
     return res.status(400).json({ status: "error", message: "必填欄位缺失", receivedData: req.body });
   }
 
   try {
-    const sql = 'INSERT INTO users (nickname, email, password_hash) VALUES (?, ?, ?)';
-    const values = [nickname, email, password_hash];
+    // 檢查郵件是否已經註冊過
+    const [existingUser] = await conn.execute('SELECT * FROM users WHERE email = ?', [email]);
+    if (existingUser.length > 0) {
+      return res.status(400).json({ status: "error", message: "該郵件地址已經註冊過" });
+    }
+    
+    // 密碼加密
+    const saltRounds = 10;
+    const password_hash = await bcrypt.hash(password, saltRounds);
+
+    // 生成 UUID
+    const uuidValue = uuidv4();
+
+    const sql = 'INSERT INTO users (nickname, email, password_hash, uuid) VALUES (?, ?, ?, ?)';
+    const values = [nickname, email, password_hash, uuidValue ];
 
     console.log('Executing SQL:', sql);
     console.log('With values:', values);
 
     const [result] = await conn.execute(sql, values);
+
+     
 
     console.log('Insert result:', result);
 

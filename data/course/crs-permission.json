@@ -1,0 +1,835 @@
+[
+  {
+      "user_id": 3,
+      "crs_id": 15,
+      "timeStamp": 1658092195157,
+      "start_date": "2022-07-17 21:09:55",
+      "end_date": null
+  },
+  {
+      "user_id": 8,
+      "crs_id": 19,
+      "timeStamp": 1699145014100,
+      "start_date": "2023-11-05 00:43:34",
+      "end_date": null
+  },
+  {
+      "user_id": 8,
+      "crs_id": 19,
+      "timeStamp": 1703036552373,
+      "start_date": "2023-12-20 01:42:32",
+      "end_date": null
+  },
+  {
+      "user_id": 8,
+      "crs_id": 19,
+      "timeStamp": 1707060691685,
+      "start_date": "2024-02-04 15:31:31",
+      "end_date": null
+  },
+  {
+      "user_id": 9,
+      "crs_id": 22,
+      "timeStamp": 1696681030267,
+      "start_date": "2023-10-07 12:17:10",
+      "end_date": null
+  },
+  {
+      "user_id": 9,
+      "crs_id": 1,
+      "timeStamp": 1696681559267,
+      "start_date": "2023-10-07 12:25:59",
+      "end_date": null
+  },
+  {
+      "user_id": 9,
+      "crs_id": 3,
+      "timeStamp": 1696681954267,
+      "start_date": "2023-10-07 12:32:34",
+      "end_date": null
+  },
+  {
+      "user_id": 9,
+      "crs_id": 5,
+      "timeStamp": 1696682281267,
+      "start_date": "2023-10-07 12:38:01",
+      "end_date": null
+  },
+  {
+      "user_id": 9,
+      "crs_id": 7,
+      "timeStamp": 1696682870267,
+      "start_date": "2023-10-07 12:47:50",
+      "end_date": null
+  },
+  {
+      "user_id": 11,
+      "crs_id": 8,
+      "timeStamp": 1669029071037,
+      "start_date": "2022-11-21 11:11:11",
+      "end_date": null
+  },
+  {
+      "user_id": 11,
+      "crs_id": 10,
+      "timeStamp": 1669029459037,
+      "start_date": "2022-11-21 11:17:39",
+      "end_date": null
+  },
+  {
+      "user_id": 11,
+      "crs_id": 12,
+      "timeStamp": 1669029789037,
+      "start_date": "2022-11-21 11:23:09",
+      "end_date": null
+  },
+  {
+      "user_id": 12,
+      "crs_id": 12,
+      "timeStamp": 1658929621837,
+      "start_date": "2022-07-27 13:47:01",
+      "end_date": null
+  },
+  {
+      "user_id": 19,
+      "crs_id": 11,
+      "timeStamp": 1705417440870,
+      "start_date": "2024-01-16 15:04:00",
+      "end_date": null
+  },
+  {
+      "user_id": 27,
+      "crs_id": 18,
+      "timeStamp": 1703132469381,
+      "start_date": "2023-12-21 04:21:09",
+      "end_date": null
+  },
+  {
+      "user_id": 27,
+      "crs_id": 21,
+      "timeStamp": 1703132641381,
+      "start_date": "2023-12-21 04:24:01",
+      "end_date": null
+  },
+  {
+      "user_id": 36,
+      "crs_id": 20,
+      "timeStamp": 1717458599662,
+      "start_date": "2024-06-03 23:49:59",
+      "end_date": null
+  },
+  {
+      "user_id": 36,
+      "crs_id": 10,
+      "timeStamp": 1717459051662,
+      "start_date": "2024-06-03 23:57:31",
+      "end_date": null
+  },
+  {
+      "user_id": 39,
+      "crs_id": 17,
+      "timeStamp": 1706456795653,
+      "start_date": "2024-01-28 15:46:35",
+      "end_date": null
+  },
+  {
+      "user_id": 42,
+      "crs_id": 15,
+      "timeStamp": 1670839653473,
+      "start_date": "2022-12-12 10:07:33",
+      "end_date": null
+  },
+  {
+      "user_id": 42,
+      "crs_id": 16,
+      "timeStamp": 1670840105473,
+      "start_date": "2022-12-12 10:15:05",
+      "end_date": null
+  },
+  {
+      "user_id": 42,
+      "crs_id": 17,
+      "timeStamp": 1670840555473,
+      "start_date": "2022-12-12 10:22:35",
+      "end_date": null
+  },
+  {
+      "user_id": 44,
+      "crs_id": 5,
+      "timeStamp": 1672169163394,
+      "start_date": "2022-12-27 19:26:03",
+      "end_date": null
+  },
+  {
+      "user_id": 46,
+      "crs_id": 8,
+      "timeStamp": 1715113509943,
+      "start_date": "2024-05-07 20:25:09",
+      "end_date": null
+  },
+  {
+      "user_id": 46,
+      "crs_id": 11,
+      "timeStamp": 1715894024529,
+      "start_date": "2024-05-16 21:13:44",
+      "end_date": null
+  },
+  {
+      "user_id": 46,
+      "crs_id": 14,
+      "timeStamp": 1721518516654,
+      "start_date": "2024-07-20 23:35:16",
+      "end_date": null
+  },
+  {
+      "user_id": 47,
+      "crs_id": 4,
+      "timeStamp": 1690255997054,
+      "start_date": "2023-07-25 03:33:17",
+      "end_date": null
+  },
+  {
+      "user_id": 48,
+      "crs_id": 12,
+      "timeStamp": 1713014394964,
+      "start_date": "2024-04-13 13:19:54",
+      "end_date": null
+  },
+  {
+      "user_id": 49,
+      "crs_id": 21,
+      "timeStamp": 1693305027290,
+      "start_date": "2023-08-29 10:30:27",
+      "end_date": null
+  },
+  {
+      "user_id": 49,
+      "crs_id": 23,
+      "timeStamp": 1693305314290,
+      "start_date": "2023-08-29 10:35:14",
+      "end_date": null
+  },
+  {
+      "user_id": 62,
+      "crs_id": 6,
+      "timeStamp": 1685036045699,
+      "start_date": "2023-05-25 17:34:05",
+      "end_date": null
+  },
+  {
+      "user_id": 65,
+      "crs_id": 9,
+      "timeStamp": 1679490602386,
+      "start_date": "2023-03-22 13:10:02",
+      "end_date": null
+  },
+  {
+      "user_id": 67,
+      "crs_id": 14,
+      "timeStamp": 1699699243931,
+      "start_date": "2023-11-11 10:40:43",
+      "end_date": null
+  },
+  {
+      "user_id": 67,
+      "crs_id": 6,
+      "timeStamp": 1707660411875,
+      "start_date": "2024-02-11 14:06:51",
+      "end_date": null
+  },
+  {
+      "user_id": 68,
+      "crs_id": 9,
+      "timeStamp": 1723429623641,
+      "start_date": "2024-08-12 02:27:03",
+      "end_date": null
+  },
+  {
+      "user_id": 72,
+      "crs_id": 3,
+      "timeStamp": 1683768958105,
+      "start_date": "2023-05-11 01:35:58",
+      "end_date": null
+  },
+  {
+      "user_id": 72,
+      "crs_id": 13,
+      "timeStamp": 1683769303105,
+      "start_date": "2023-05-11 01:41:43",
+      "end_date": null
+  },
+  {
+      "user_id": 81,
+      "crs_id": 8,
+      "timeStamp": 1692939370669,
+      "start_date": "2023-08-25 04:56:10",
+      "end_date": null
+  },
+  {
+      "user_id": 93,
+      "crs_id": 3,
+      "timeStamp": 1691104644450,
+      "start_date": "2023-08-03 23:17:24",
+      "end_date": null
+  },
+  {
+      "user_id": 93,
+      "crs_id": 4,
+      "timeStamp": 1691104875450,
+      "start_date": "2023-08-03 23:21:15",
+      "end_date": null
+  },
+  {
+      "user_id": 93,
+      "crs_id": 5,
+      "timeStamp": 1691105466450,
+      "start_date": "2023-08-03 23:31:06",
+      "end_date": null
+  },
+  {
+      "user_id": 93,
+      "crs_id": 6,
+      "timeStamp": 1691106050450,
+      "start_date": "2023-08-03 23:40:50",
+      "end_date": null
+  },
+  {
+      "user_id": 93,
+      "crs_id": 7,
+      "timeStamp": 1691106450450,
+      "start_date": "2023-08-03 23:47:30",
+      "end_date": null
+  },
+  {
+      "user_id": 97,
+      "crs_id": 12,
+      "timeStamp": 1703575979115,
+      "start_date": "2023-12-26 07:32:59",
+      "end_date": null
+  },
+  {
+      "user_id": 97,
+      "crs_id": 21,
+      "timeStamp": 1723545686561,
+      "start_date": "2024-08-13 10:41:26",
+      "end_date": null
+  },
+  {
+      "user_id": 97,
+      "crs_id": 7,
+      "timeStamp": 1724865475455,
+      "start_date": "2024-08-28 17:17:55",
+      "end_date": null
+  },
+  {
+      "user_id": 102,
+      "crs_id": 15,
+      "timeStamp": 1714426424374,
+      "start_date": "2024-04-29 21:33:44",
+      "end_date": null
+  },
+  {
+      "user_id": 123,
+      "crs_id": 8,
+      "timeStamp": 1691656254417,
+      "start_date": "2023-08-10 08:30:54",
+      "end_date": null
+  },
+  {
+      "user_id": 123,
+      "crs_id": 9,
+      "timeStamp": 1691656844417,
+      "start_date": "2023-08-10 08:40:44",
+      "end_date": null
+  },
+  {
+      "user_id": 123,
+      "crs_id": 10,
+      "timeStamp": 1693836200393,
+      "start_date": "2023-09-04 14:03:20",
+      "end_date": null
+  },
+  {
+      "user_id": 123,
+      "crs_id": 11,
+      "timeStamp": 1693836479393,
+      "start_date": "2023-09-04 14:07:59",
+      "end_date": null
+  },
+  {
+      "user_id": 123,
+      "crs_id": 12,
+      "timeStamp": 1693836818393,
+      "start_date": "2023-09-04 14:13:38",
+      "end_date": null
+  },
+  {
+      "user_id": 124,
+      "crs_id": 3,
+      "timeStamp": 1696935237602,
+      "start_date": "2023-10-10 10:53:57",
+      "end_date": null
+  },
+  {
+      "user_id": 128,
+      "crs_id": 23,
+      "timeStamp": 1699083151335,
+      "start_date": "2023-11-04 07:32:31",
+      "end_date": null
+  },
+  {
+      "user_id": 128,
+      "crs_id": 2,
+      "timeStamp": 1699083311335,
+      "start_date": "2023-11-04 07:35:11",
+      "end_date": null
+  },
+  {
+      "user_id": 129,
+      "crs_id": 8,
+      "timeStamp": 1711914502015,
+      "start_date": "2024-03-31 19:48:22",
+      "end_date": null
+  },
+  {
+      "user_id": 129,
+      "crs_id": 12,
+      "timeStamp": 1711915021015,
+      "start_date": "2024-03-31 19:57:01",
+      "end_date": null
+  },
+  {
+      "user_id": 130,
+      "crs_id": 16,
+      "timeStamp": 1694362323700,
+      "start_date": "2023-09-10 16:12:03",
+      "end_date": null
+  },
+  {
+      "user_id": 143,
+      "crs_id": 12,
+      "timeStamp": 1703100731306,
+      "start_date": "2023-12-20 19:32:11",
+      "end_date": null
+  },
+  {
+      "user_id": 150,
+      "crs_id": 9,
+      "timeStamp": 1718655498831,
+      "start_date": "2024-06-17 20:18:18",
+      "end_date": null
+  },
+  {
+      "user_id": 150,
+      "crs_id": 23,
+      "timeStamp": 1718655889831,
+      "start_date": "2024-06-17 20:24:49",
+      "end_date": null
+  },
+  {
+      "user_id": 161,
+      "crs_id": 12,
+      "timeStamp": 1703034830949,
+      "start_date": "2023-12-20 01:13:50",
+      "end_date": null
+  },
+  {
+      "user_id": 168,
+      "crs_id": 22,
+      "timeStamp": 1711119026628,
+      "start_date": "2024-03-22 14:50:26",
+      "end_date": null
+  },
+  {
+      "user_id": 178,
+      "crs_id": 23,
+      "timeStamp": 1721375446431,
+      "start_date": "2024-07-19 07:50:46",
+      "end_date": null
+  },
+  {
+      "user_id": 178,
+      "crs_id": 17,
+      "timeStamp": 1721375615431,
+      "start_date": "2024-07-19 07:53:35",
+      "end_date": null
+  },
+  {
+      "user_id": 178,
+      "crs_id": 11,
+      "timeStamp": 1721376010431,
+      "start_date": "2024-07-19 08:00:10",
+      "end_date": null
+  },
+  {
+      "user_id": 186,
+      "crs_id": 23,
+      "timeStamp": 1703920986714,
+      "start_date": "2023-12-30 07:23:06",
+      "end_date": null
+  },
+  {
+      "user_id": 186,
+      "crs_id": 8,
+      "timeStamp": 1703921319714,
+      "start_date": "2023-12-30 07:28:39",
+      "end_date": null
+  },
+  {
+      "user_id": 186,
+      "crs_id": 16,
+      "timeStamp": 1703921587714,
+      "start_date": "2023-12-30 07:33:07",
+      "end_date": null
+  },
+  {
+      "user_id": 186,
+      "crs_id": 1,
+      "timeStamp": 1703921933714,
+      "start_date": "2023-12-30 07:38:53",
+      "end_date": null
+  },
+  {
+      "user_id": 186,
+      "crs_id": 9,
+      "timeStamp": 1722768495723,
+      "start_date": "2024-08-04 10:48:15",
+      "end_date": null
+  },
+  {
+      "user_id": 187,
+      "crs_id": 6,
+      "timeStamp": 1705556088988,
+      "start_date": "2024-01-18 05:34:48",
+      "end_date": null
+  },
+  {
+      "user_id": 187,
+      "crs_id": 9,
+      "timeStamp": 1705556606988,
+      "start_date": "2024-01-18 05:43:26",
+      "end_date": null
+  },
+  {
+      "user_id": 187,
+      "crs_id": 12,
+      "timeStamp": 1705556950988,
+      "start_date": "2024-01-18 05:49:10",
+      "end_date": null
+  },
+  {
+      "user_id": 187,
+      "crs_id": 15,
+      "timeStamp": 1705557292988,
+      "start_date": "2024-01-18 05:54:52",
+      "end_date": null
+  },
+  {
+      "user_id": 187,
+      "crs_id": 18,
+      "timeStamp": 1705557808988,
+      "start_date": "2024-01-18 06:03:28",
+      "end_date": null
+  },
+  {
+      "user_id": 202,
+      "crs_id": 15,
+      "timeStamp": 1724681939821,
+      "start_date": "2024-08-26 14:18:59",
+      "end_date": null
+  },
+  {
+      "user_id": 203,
+      "crs_id": 15,
+      "timeStamp": 1708458507839,
+      "start_date": "2024-02-20 19:48:27",
+      "end_date": null
+  },
+  {
+      "user_id": 205,
+      "crs_id": 7,
+      "timeStamp": 1705624091545,
+      "start_date": "2024-01-19 00:28:11",
+      "end_date": null
+  },
+  {
+      "user_id": 209,
+      "crs_id": 12,
+      "timeStamp": 1719467656391,
+      "start_date": "2024-06-27 05:54:16",
+      "end_date": null
+  },
+  {
+      "user_id": 209,
+      "crs_id": 16,
+      "timeStamp": 1719468233391,
+      "start_date": "2024-06-27 06:03:53",
+      "end_date": null
+  },
+  {
+      "user_id": 213,
+      "crs_id": 11,
+      "timeStamp": 1711915621991,
+      "start_date": "2024-03-31 20:07:01",
+      "end_date": null
+  },
+  {
+      "user_id": 213,
+      "crs_id": 13,
+      "timeStamp": 1711915971991,
+      "start_date": "2024-03-31 20:12:51",
+      "end_date": null
+  },
+  {
+      "user_id": 224,
+      "crs_id": 4,
+      "timeStamp": 1718193930377,
+      "start_date": "2024-06-12 12:05:30",
+      "end_date": null
+  },
+  {
+      "user_id": 224,
+      "crs_id": 18,
+      "timeStamp": 1721153991005,
+      "start_date": "2024-07-16 18:19:51",
+      "end_date": null
+  },
+  {
+      "user_id": 225,
+      "crs_id": 21,
+      "timeStamp": 1715913708275,
+      "start_date": "2024-05-17 02:41:48",
+      "end_date": null
+  },
+  {
+      "user_id": 225,
+      "crs_id": 2,
+      "timeStamp": 1715914174275,
+      "start_date": "2024-05-17 02:49:34",
+      "end_date": null
+  },
+  {
+      "user_id": 225,
+      "crs_id": 6,
+      "timeStamp": 1715914631275,
+      "start_date": "2024-05-17 02:57:11",
+      "end_date": null
+  },
+  {
+      "user_id": 226,
+      "crs_id": 15,
+      "timeStamp": 1712793848344,
+      "start_date": "2024-04-11 00:04:08",
+      "end_date": null
+  },
+  {
+      "user_id": 226,
+      "crs_id": 2,
+      "timeStamp": 1721406090592,
+      "start_date": "2024-07-19 16:21:30",
+      "end_date": null
+  },
+  {
+      "user_id": 226,
+      "crs_id": 12,
+      "timeStamp": 1721406655592,
+      "start_date": "2024-07-19 16:30:55",
+      "end_date": null
+  },
+  {
+      "user_id": 230,
+      "crs_id": 13,
+      "timeStamp": 1706642541487,
+      "start_date": "2024-01-30 19:22:21",
+      "end_date": null
+  },
+  {
+      "user_id": 230,
+      "crs_id": 16,
+      "timeStamp": 1706643126487,
+      "start_date": "2024-01-30 19:32:06",
+      "end_date": null
+  },
+  {
+      "user_id": 230,
+      "crs_id": 19,
+      "timeStamp": 1706643402487,
+      "start_date": "2024-01-30 19:36:42",
+      "end_date": null
+  },
+  {
+      "user_id": 233,
+      "crs_id": 13,
+      "timeStamp": 1719240439162,
+      "start_date": "2024-06-24 14:47:19",
+      "end_date": null
+  },
+  {
+      "user_id": 233,
+      "crs_id": 17,
+      "timeStamp": 1720815141238,
+      "start_date": "2024-07-12 20:12:21",
+      "end_date": null
+  },
+  {
+      "user_id": 233,
+      "crs_id": 21,
+      "timeStamp": 1720815536238,
+      "start_date": "2024-07-12 20:18:56",
+      "end_date": null
+  },
+  {
+      "user_id": 233,
+      "crs_id": 2,
+      "timeStamp": 1720815889238,
+      "start_date": "2024-07-12 20:24:49",
+      "end_date": null
+  },
+  {
+      "user_id": 233,
+      "crs_id": 6,
+      "timeStamp": 1725462148974,
+      "start_date": "2024-09-04 15:02:28",
+      "end_date": null
+  },
+  {
+      "user_id": 241,
+      "crs_id": 14,
+      "timeStamp": 1725562519542,
+      "start_date": "2024-09-05 18:55:19",
+      "end_date": null
+  },
+  {
+      "user_id": 243,
+      "crs_id": 13,
+      "timeStamp": 1723091426835,
+      "start_date": "2024-08-08 04:30:26",
+      "end_date": null
+  },
+  {
+      "user_id": 243,
+      "crs_id": 13,
+      "timeStamp": 1723091838835,
+      "start_date": "2024-08-08 04:37:18",
+      "end_date": null
+  },
+  {
+      "user_id": 259,
+      "crs_id": 20,
+      "timeStamp": 1723144491457,
+      "start_date": "2024-08-08 19:14:51",
+      "end_date": null
+  },
+  {
+      "user_id": 274,
+      "crs_id": 12,
+      "timeStamp": 1723850105041,
+      "start_date": "2024-08-16 23:15:05",
+      "end_date": null
+  },
+  {
+      "user_id": 276,
+      "crs_id": 20,
+      "timeStamp": 1722586931428,
+      "start_date": "2024-08-02 08:22:11",
+      "end_date": null
+  },
+  {
+      "user_id": 276,
+      "crs_id": 3,
+      "timeStamp": 1723267906697,
+      "start_date": "2024-08-10 05:31:46",
+      "end_date": null
+  },
+  {
+      "user_id": 276,
+      "crs_id": 9,
+      "timeStamp": 1725078814472,
+      "start_date": "2024-08-31 04:33:34",
+      "end_date": null
+  },
+  {
+      "user_id": 277,
+      "crs_id": 1,
+      "timeStamp": 1722163688365,
+      "start_date": "2024-07-28 10:48:08",
+      "end_date": null
+  },
+  {
+      "user_id": 277,
+      "crs_id": 4,
+      "timeStamp": 1722164278365,
+      "start_date": "2024-07-28 10:57:58",
+      "end_date": null
+  },
+  {
+      "user_id": 277,
+      "crs_id": 7,
+      "timeStamp": 1722164686365,
+      "start_date": "2024-07-28 11:04:46",
+      "end_date": null
+  },
+  {
+      "user_id": 282,
+      "crs_id": 21,
+      "timeStamp": 1724678654939,
+      "start_date": "2024-08-26 13:24:14",
+      "end_date": null
+  },
+  {
+      "user_id": 286,
+      "crs_id": 16,
+      "timeStamp": 1724461067969,
+      "start_date": "2024-08-24 00:57:47",
+      "end_date": null
+  },
+  {
+      "user_id": 286,
+      "crs_id": 4,
+      "timeStamp": 1724461522969,
+      "start_date": "2024-08-24 01:05:22",
+      "end_date": null
+  },
+  {
+      "user_id": 286,
+      "crs_id": 15,
+      "timeStamp": 1724462101969,
+      "start_date": "2024-08-24 01:15:01",
+      "end_date": null
+  },
+  {
+      "user_id": 289,
+      "crs_id": 20,
+      "timeStamp": 1723335629360,
+      "start_date": "2024-08-11 00:20:29",
+      "end_date": null
+  },
+  {
+      "user_id": 289,
+      "crs_id": 2,
+      "timeStamp": 1723336026360,
+      "start_date": "2024-08-11 00:27:06",
+      "end_date": null
+  },
+  {
+      "user_id": 296,
+      "crs_id": 17,
+      "timeStamp": 1725178374600,
+      "start_date": "2024-09-01 08:12:54",
+      "end_date": null
+  },
+  {
+      "user_id": 297,
+      "crs_id": 22,
+      "timeStamp": 1725855754373,
+      "start_date": "2024-09-09 04:22:34",
+      "end_date": null
+  },
+  {
+      "user_id": 297,
+      "crs_id": 2,
+      "timeStamp": 1725855915373,
+      "start_date": "2024-09-09 04:25:15",
+      "end_date": null
+  }
+]

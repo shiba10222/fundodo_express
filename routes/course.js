@@ -1,10 +1,8 @@
 import express from "express";
 import conn from "../db.js";
-import cors from "cors";
 import multer from 'multer';
 import moment from 'moment';
 import { v4 as uuid } from 'uuid';
-import { resolve } from "path";
 
 const router = express.Router();
 
@@ -33,17 +31,43 @@ router.get("/detail/:id", async (req, res) => {
     const id = req.params.id
     console.log(id)
     try {
-        const [result] = await conn.query("SELECT * FROM courses WHERE id = ?", [id]);
-        // const [result1] = await conn.query("SELECT * FROM courses WHERE id = ?", [id]);
-        // const [result2] = await conn.query("SELECT * FROM courses WHERE id = ?", [id]);
 
+        const [courseResult] = await conn.query("SELECT * FROM courses WHERE id = ?", [id]);
+        if (courseResult.length === 0) {
+            return res.status(404).json({
+                status: "error",
+                message: "找不到指定課程"
+            })
+        }
 
+        const course = courseResult[0];
+        const [chaptersResult] = await conn.query("SELECT * FROM course_chapters WHERE course_id = ?", [id])
 
+        const [lessonsResult] = await conn.query(`
+            SELECT cl.id, cl.chapter_id, cl.name, cl.duration, cl.video_path, cl.preview_videos, cc.course_id
+            FROM course_lessons cl
+            JOIN course_chapters cc ON cl.chapter_id = cc.id
+            WHERE cc.course_id = ?
+            ORDER BY cl.chapter_id, cl.id
+        `, [id]);
+
+        course.chapters = chaptersResult.map(chapter => ({
+            ...chapter,
+            lessons: lessonsResult.filter(lesson => lesson.chapter_id === chapter.id)
+        }));
+
+        const [tagsResult] = await conn.query(`
+            SELECT ct.name
+            FROM course_tags cta
+            JOIN course_tag ct ON cta.tag_id = ct.id
+            WHERE cta.course_id = ?
+        `, [id]);
+        course.tags = tagsResult.map(tag => tag.name);
 
         res.status(200).json({
             status: "success",
             message: "取得指定課程",
-            data: result[0]
+            data: course
         })
     } catch (error) {
         res.status(404).json({
@@ -63,7 +87,7 @@ router.post("/", async (req, res) => {
         })
     }
     try {
-        const [result] = await conn.query("INSERT INTO `courses`(`id`, `title`, `summary`, `description`, `img_path`, `price`, , `created_at`) VALUES (?,?,?,?,?,?,?)",[]);
+        const [result] = await conn.query("INSERT INTO `courses`(`id`, `title`, `summary`, `description`, `img_path`, `price`, , `created_at`) VALUES (?,?,?,?,?,?,?)", []);
         res.status(200).json({
             status: "success",
             message: "新增課程成功",

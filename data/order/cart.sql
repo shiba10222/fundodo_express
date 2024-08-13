@@ -13,8 +13,8 @@ SET time_zone = "+08:00";
 
 CREATE TABLE IF NOT EXISTS `cart` (
     `user_id` int(7) UNSIGNED NOT NULL,
-    `prod_id` INT UNSIGNED NOT NULL,
-    `qty` INT UNSIGNED NOT NULL,
+    `prod_id` int(10) UNSIGNED NOT NULL,
+    `qty` mediumint(5) UNSIGNED NOT NULL,
     `created_at` DATETIME
 ); ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 

@@ -1,11 +1,13 @@
-import express from "express";
-import cors from "cors";
+import { Router } from 'express';
 import multer from 'multer';
 import moment from 'moment';
+import jwt from 'jsonwebtoken';
 import { v4 as uuid } from 'uuid';
-import conn from "../db.js";
 import { resolve } from "path";
+import express from "express";
 
+
+const router = express.Router();
 
 
 router.get("/",async (req, res) => {

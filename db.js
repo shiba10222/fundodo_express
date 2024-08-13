@@ -6,11 +6,11 @@ import 'dotenv/config.js'
 //使用者帳號: fundodo
 //使用者密碼: fdd12345
 const conn = await mysql.createConnection({
-    host: process.env.HOST,
-    user: process.env.USER,
-    port: process.env.PORT,
-    password: process.env.PASSWORD,
-    database: process.env.DATABASE
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    port: process.env.DB_PORT,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE
 });
 
 export default conn;

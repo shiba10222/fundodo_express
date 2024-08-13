@@ -4,8 +4,8 @@
 
 CREATE TABLE IF NOT EXISTS `users` (
     `id` int(7) UNSIGNED NOT NULL,
-    `name` VARCHAR(3),
-    `nickname` VARCHAR(14),
+    `name` VARCHAR(15),
+    `nickname` VARCHAR(15),
     `account` VARCHAR(17) NOT NULL,
     `password_hash` VARCHAR(60),
     `gender` tinyint(1) UNSIGNED,

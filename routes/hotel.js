@@ -14,7 +14,6 @@ const router = express.Router();
 router.get("/detail/:id", async (req, res) => {
   try {
     const id = req.params.id;
-    // 假設您使用某種數據庫連接 (如 conn)
     const [result] = await conn.query("SELECT * FROM hotel WHERE id = ?", [id]);
     
     if (result.length === 0) {

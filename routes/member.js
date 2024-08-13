@@ -131,18 +131,22 @@ router.get('/:uuid', async (req, res) => {
 
 //======== 登入指定 ==========//
 //* test id=302 uuid = 1eaf3f71-0568-4541-86fe-c6e9f0108636 網址 = http://localhost:3005/api/member/1eaf3f71-0568-4541-86fe-c6e9f0108636
-router.post('/login', async (req, res) => {
+router.post('/login', upload.none(), async (req, res) => {
   const { email, password } = req.body;
   const loginUser = req.body
+
+  console.log('Email:', email);
+  console.log('Password:', password);
   // 檢查從前端來的資料哪些為必要
-  if (!loginUser.email || !loginUser.password) {
-    return res.json({ status: 'fail', data: null })
-  }
+  // if (!loginUser.email || !loginUser.password) {
+  //   return res.json({ status: 'fail', data: null })
+  // }
 
   try {
 
     // 查詢資料庫中的用戶
     const [users] = await conn.execute('SELECT * FROM users WHERE email = ?', [email]);
+    console.log('Users:', users);
 
     if (users.length === 0) {
       // 用戶不存在

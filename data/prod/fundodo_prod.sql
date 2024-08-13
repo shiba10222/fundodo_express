@@ -210,7 +210,7 @@ INSERT INTO `category` (`id`, `cate_1_name`, `cate_2_name`) VALUES
 
 CREATE TABLE `product` (
   `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(200) NOT NULL,
+  `name` varchar(50) NOT NULL,
   `brand` varchar(20) NOT NULL,
   `cate_1` varchar(20) NOT NULL,
   `cate_2` varchar(20) NOT NULL,

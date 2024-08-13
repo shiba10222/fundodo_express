@@ -1,0 +1,716 @@
+[
+  {
+      "user_id": 3,
+      "crs_id": 15,
+      "start_date": "2022-07-17",
+      "end_date": null
+  },
+  {
+      "user_id": 12,
+      "crs_id": 12,
+      "start_date": "2022-07-27",
+      "end_date": null
+  },
+  {
+      "user_id": 11,
+      "crs_id": 8,
+      "start_date": "2022-11-21",
+      "end_date": null
+  },
+  {
+      "user_id": 11,
+      "crs_id": 10,
+      "start_date": "2022-11-21",
+      "end_date": null
+  },
+  {
+      "user_id": 11,
+      "crs_id": 12,
+      "start_date": "2022-11-21",
+      "end_date": null
+  },
+  {
+      "user_id": 42,
+      "crs_id": 15,
+      "start_date": "2022-12-12",
+      "end_date": null
+  },
+  {
+      "user_id": 42,
+      "crs_id": 16,
+      "start_date": "2022-12-12",
+      "end_date": null
+  },
+  {
+      "user_id": 42,
+      "crs_id": 17,
+      "start_date": "2022-12-12",
+      "end_date": null
+  },
+  {
+      "user_id": 44,
+      "crs_id": 5,
+      "start_date": "2022-12-27",
+      "end_date": null
+  },
+  {
+      "user_id": 65,
+      "crs_id": 9,
+      "start_date": "2023-03-22",
+      "end_date": null
+  },
+  {
+      "user_id": 72,
+      "crs_id": 3,
+      "start_date": "2023-05-11",
+      "end_date": null
+  },
+  {
+      "user_id": 72,
+      "crs_id": 13,
+      "start_date": "2023-05-11",
+      "end_date": null
+  },
+  {
+      "user_id": 62,
+      "crs_id": 6,
+      "start_date": "2023-05-25",
+      "end_date": null
+  },
+  {
+      "user_id": 47,
+      "crs_id": 4,
+      "start_date": "2023-07-25",
+      "end_date": null
+  },
+  {
+      "user_id": 93,
+      "crs_id": 3,
+      "start_date": "2023-08-03",
+      "end_date": null
+  },
+  {
+      "user_id": 93,
+      "crs_id": 4,
+      "start_date": "2023-08-03",
+      "end_date": null
+  },
+  {
+      "user_id": 93,
+      "crs_id": 5,
+      "start_date": "2023-08-03",
+      "end_date": null
+  },
+  {
+      "user_id": 93,
+      "crs_id": 6,
+      "start_date": "2023-08-03",
+      "end_date": null
+  },
+  {
+      "user_id": 93,
+      "crs_id": 7,
+      "start_date": "2023-08-03",
+      "end_date": null
+  },
+  {
+      "user_id": 123,
+      "crs_id": 8,
+      "start_date": "2023-08-10",
+      "end_date": null
+  },
+  {
+      "user_id": 123,
+      "crs_id": 9,
+      "start_date": "2023-08-10",
+      "end_date": null
+  },
+  {
+      "user_id": 81,
+      "crs_id": 8,
+      "start_date": "2023-08-25",
+      "end_date": null
+  },
+  {
+      "user_id": 49,
+      "crs_id": 21,
+      "start_date": "2023-08-29",
+      "end_date": null
+  },
+  {
+      "user_id": 49,
+      "crs_id": 23,
+      "start_date": "2023-08-29",
+      "end_date": null
+  },
+  {
+      "user_id": 123,
+      "crs_id": 10,
+      "start_date": "2023-09-04",
+      "end_date": null
+  },
+  {
+      "user_id": 123,
+      "crs_id": 11,
+      "start_date": "2023-09-04",
+      "end_date": null
+  },
+  {
+      "user_id": 123,
+      "crs_id": 12,
+      "start_date": "2023-09-04",
+      "end_date": null
+  },
+  {
+      "user_id": 130,
+      "crs_id": 16,
+      "start_date": "2023-09-10",
+      "end_date": null
+  },
+  {
+      "user_id": 9,
+      "crs_id": 22,
+      "start_date": "2023-10-07",
+      "end_date": null
+  },
+  {
+      "user_id": 9,
+      "crs_id": 1,
+      "start_date": "2023-10-07",
+      "end_date": null
+  },
+  {
+      "user_id": 9,
+      "crs_id": 3,
+      "start_date": "2023-10-07",
+      "end_date": null
+  },
+  {
+      "user_id": 9,
+      "crs_id": 5,
+      "start_date": "2023-10-07",
+      "end_date": null
+  },
+  {
+      "user_id": 9,
+      "crs_id": 7,
+      "start_date": "2023-10-07",
+      "end_date": null
+  },
+  {
+      "user_id": 124,
+      "crs_id": 3,
+      "start_date": "2023-10-10",
+      "end_date": null
+  },
+  {
+      "user_id": 128,
+      "crs_id": 23,
+      "start_date": "2023-11-04",
+      "end_date": null
+  },
+  {
+      "user_id": 128,
+      "crs_id": 2,
+      "start_date": "2023-11-04",
+      "end_date": null
+  },
+  {
+      "user_id": 8,
+      "crs_id": 19,
+      "start_date": "2023-11-05",
+      "end_date": null
+  },
+  {
+      "user_id": 67,
+      "crs_id": 14,
+      "start_date": "2023-11-11",
+      "end_date": null
+  },
+  {
+      "user_id": 161,
+      "crs_id": 12,
+      "start_date": "2023-12-20",
+      "end_date": null
+  },
+  {
+      "user_id": 8,
+      "crs_id": 19,
+      "start_date": "2023-12-20",
+      "end_date": null
+  },
+  {
+      "user_id": 143,
+      "crs_id": 12,
+      "start_date": "2023-12-20",
+      "end_date": null
+  },
+  {
+      "user_id": 27,
+      "crs_id": 18,
+      "start_date": "2023-12-21",
+      "end_date": null
+  },
+  {
+      "user_id": 27,
+      "crs_id": 21,
+      "start_date": "2023-12-21",
+      "end_date": null
+  },
+  {
+      "user_id": 97,
+      "crs_id": 12,
+      "start_date": "2023-12-26",
+      "end_date": null
+  },
+  {
+      "user_id": 186,
+      "crs_id": 23,
+      "start_date": "2023-12-30",
+      "end_date": null
+  },
+  {
+      "user_id": 186,
+      "crs_id": 8,
+      "start_date": "2023-12-30",
+      "end_date": null
+  },
+  {
+      "user_id": 186,
+      "crs_id": 16,
+      "start_date": "2023-12-30",
+      "end_date": null
+  },
+  {
+      "user_id": 186,
+      "crs_id": 1,
+      "start_date": "2023-12-30",
+      "end_date": null
+  },
+  {
+      "user_id": 19,
+      "crs_id": 11,
+      "start_date": "2024-01-16",
+      "end_date": null
+  },
+  {
+      "user_id": 187,
+      "crs_id": 6,
+      "start_date": "2024-01-18",
+      "end_date": null
+  },
+  {
+      "user_id": 187,
+      "crs_id": 9,
+      "start_date": "2024-01-18",
+      "end_date": null
+  },
+  {
+      "user_id": 187,
+      "crs_id": 12,
+      "start_date": "2024-01-18",
+      "end_date": null
+  },
+  {
+      "user_id": 187,
+      "crs_id": 15,
+      "start_date": "2024-01-18",
+      "end_date": null
+  },
+  {
+      "user_id": 187,
+      "crs_id": 18,
+      "start_date": "2024-01-18",
+      "end_date": null
+  },
+  {
+      "user_id": 205,
+      "crs_id": 7,
+      "start_date": "2024-01-19",
+      "end_date": null
+  },
+  {
+      "user_id": 39,
+      "crs_id": 17,
+      "start_date": "2024-01-28",
+      "end_date": null
+  },
+  {
+      "user_id": 230,
+      "crs_id": 13,
+      "start_date": "2024-01-30",
+      "end_date": null
+  },
+  {
+      "user_id": 230,
+      "crs_id": 16,
+      "start_date": "2024-01-30",
+      "end_date": null
+  },
+  {
+      "user_id": 230,
+      "crs_id": 19,
+      "start_date": "2024-01-30",
+      "end_date": null
+  },
+  {
+      "user_id": 8,
+      "crs_id": 19,
+      "start_date": "2024-02-04",
+      "end_date": null
+  },
+  {
+      "user_id": 67,
+      "crs_id": 6,
+      "start_date": "2024-02-11",
+      "end_date": null
+  },
+  {
+      "user_id": 203,
+      "crs_id": 15,
+      "start_date": "2024-02-20",
+      "end_date": null
+  },
+  {
+      "user_id": 168,
+      "crs_id": 22,
+      "start_date": "2024-03-22",
+      "end_date": null
+  },
+  {
+      "user_id": 129,
+      "crs_id": 8,
+      "start_date": "2024-03-31",
+      "end_date": null
+  },
+  {
+      "user_id": 129,
+      "crs_id": 12,
+      "start_date": "2024-03-31",
+      "end_date": null
+  },
+  {
+      "user_id": 213,
+      "crs_id": 11,
+      "start_date": "2024-03-31",
+      "end_date": null
+  },
+  {
+      "user_id": 213,
+      "crs_id": 13,
+      "start_date": "2024-03-31",
+      "end_date": null
+  },
+  {
+      "user_id": 226,
+      "crs_id": 15,
+      "start_date": "2024-04-11",
+      "end_date": null
+  },
+  {
+      "user_id": 48,
+      "crs_id": 12,
+      "start_date": "2024-04-13",
+      "end_date": null
+  },
+  {
+      "user_id": 102,
+      "crs_id": 15,
+      "start_date": "2024-04-29",
+      "end_date": null
+  },
+  {
+      "user_id": 46,
+      "crs_id": 8,
+      "start_date": "2024-05-07",
+      "end_date": null
+  },
+  {
+      "user_id": 46,
+      "crs_id": 11,
+      "start_date": "2024-05-16",
+      "end_date": null
+  },
+  {
+      "user_id": 225,
+      "crs_id": 21,
+      "start_date": "2024-05-17",
+      "end_date": null
+  },
+  {
+      "user_id": 225,
+      "crs_id": 2,
+      "start_date": "2024-05-17",
+      "end_date": null
+  },
+  {
+      "user_id": 225,
+      "crs_id": 6,
+      "start_date": "2024-05-17",
+      "end_date": null
+  },
+  {
+      "user_id": 36,
+      "crs_id": 20,
+      "start_date": "2024-06-03",
+      "end_date": null
+  },
+  {
+      "user_id": 36,
+      "crs_id": 10,
+      "start_date": "2024-06-03",
+      "end_date": null
+  },
+  {
+      "user_id": 224,
+      "crs_id": 4,
+      "start_date": "2024-06-12",
+      "end_date": null
+  },
+  {
+      "user_id": 150,
+      "crs_id": 9,
+      "start_date": "2024-06-17",
+      "end_date": null
+  },
+  {
+      "user_id": 150,
+      "crs_id": 23,
+      "start_date": "2024-06-17",
+      "end_date": null
+  },
+  {
+      "user_id": 233,
+      "crs_id": 13,
+      "start_date": "2024-06-24",
+      "end_date": null
+  },
+  {
+      "user_id": 209,
+      "crs_id": 12,
+      "start_date": "2024-06-27",
+      "end_date": null
+  },
+  {
+      "user_id": 209,
+      "crs_id": 16,
+      "start_date": "2024-06-27",
+      "end_date": null
+  },
+  {
+      "user_id": 233,
+      "crs_id": 17,
+      "start_date": "2024-07-12",
+      "end_date": null
+  },
+  {
+      "user_id": 233,
+      "crs_id": 21,
+      "start_date": "2024-07-12",
+      "end_date": null
+  },
+  {
+      "user_id": 233,
+      "crs_id": 2,
+      "start_date": "2024-07-12",
+      "end_date": null
+  },
+  {
+      "user_id": 224,
+      "crs_id": 18,
+      "start_date": "2024-07-16",
+      "end_date": null
+  },
+  {
+      "user_id": 178,
+      "crs_id": 23,
+      "start_date": "2024-07-19",
+      "end_date": null
+  },
+  {
+      "user_id": 178,
+      "crs_id": 17,
+      "start_date": "2024-07-19",
+      "end_date": null
+  },
+  {
+      "user_id": 178,
+      "crs_id": 11,
+      "start_date": "2024-07-19",
+      "end_date": null
+  },
+  {
+      "user_id": 226,
+      "crs_id": 2,
+      "start_date": "2024-07-19",
+      "end_date": null
+  },
+  {
+      "user_id": 226,
+      "crs_id": 12,
+      "start_date": "2024-07-19",
+      "end_date": null
+  },
+  {
+      "user_id": 46,
+      "crs_id": 14,
+      "start_date": "2024-07-20",
+      "end_date": null
+  },
+  {
+      "user_id": 277,
+      "crs_id": 1,
+      "start_date": "2024-07-28",
+      "end_date": null
+  },
+  {
+      "user_id": 277,
+      "crs_id": 4,
+      "start_date": "2024-07-28",
+      "end_date": null
+  },
+  {
+      "user_id": 277,
+      "crs_id": 7,
+      "start_date": "2024-07-28",
+      "end_date": null
+  },
+  {
+      "user_id": 276,
+      "crs_id": 20,
+      "start_date": "2024-08-02",
+      "end_date": null
+  },
+  {
+      "user_id": 186,
+      "crs_id": 9,
+      "start_date": "2024-08-04",
+      "end_date": null
+  },
+  {
+      "user_id": 243,
+      "crs_id": 13,
+      "start_date": "2024-08-08",
+      "end_date": null
+  },
+  {
+      "user_id": 243,
+      "crs_id": 13,
+      "start_date": "2024-08-08",
+      "end_date": null
+  },
+  {
+      "user_id": 259,
+      "crs_id": 20,
+      "start_date": "2024-08-08",
+      "end_date": null
+  },
+  {
+      "user_id": 276,
+      "crs_id": 3,
+      "start_date": "2024-08-10",
+      "end_date": null
+  },
+  {
+      "user_id": 289,
+      "crs_id": 20,
+      "start_date": "2024-08-11",
+      "end_date": null
+  },
+  {
+      "user_id": 289,
+      "crs_id": 2,
+      "start_date": "2024-08-11",
+      "end_date": null
+  },
+  {
+      "user_id": 68,
+      "crs_id": 9,
+      "start_date": "2024-08-12",
+      "end_date": null
+  },
+  {
+      "user_id": 97,
+      "crs_id": 21,
+      "start_date": "2024-08-13",
+      "end_date": null
+  },
+  {
+      "user_id": 274,
+      "crs_id": 12,
+      "start_date": "2024-08-16",
+      "end_date": null
+  },
+  {
+      "user_id": 286,
+      "crs_id": 16,
+      "start_date": "2024-08-24",
+      "end_date": null
+  },
+  {
+      "user_id": 286,
+      "crs_id": 4,
+      "start_date": "2024-08-24",
+      "end_date": null
+  },
+  {
+      "user_id": 286,
+      "crs_id": 15,
+      "start_date": "2024-08-24",
+      "end_date": null
+  },
+  {
+      "user_id": 282,
+      "crs_id": 21,
+      "start_date": "2024-08-26",
+      "end_date": null
+  },
+  {
+      "user_id": 202,
+      "crs_id": 15,
+      "start_date": "2024-08-26",
+      "end_date": null
+  },
+  {
+      "user_id": 97,
+      "crs_id": 7,
+      "start_date": "2024-08-28",
+      "end_date": null
+  },
+  {
+      "user_id": 276,
+      "crs_id": 9,
+      "start_date": "2024-08-31",
+      "end_date": null
+  },
+  {
+      "user_id": 296,
+      "crs_id": 17,
+      "start_date": "2024-09-01",
+      "end_date": null
+  },
+  {
+      "user_id": 233,
+      "crs_id": 6,
+      "start_date": "2024-09-04",
+      "end_date": null
+  },
+  {
+      "user_id": 241,
+      "crs_id": 14,
+      "start_date": "2024-09-05",
+      "end_date": null
+  },
+  {
+      "user_id": 297,
+      "crs_id": 22,
+      "start_date": "2024-09-09",
+      "end_date": null
+  },
+  {
+      "user_id": 297,
+      "crs_id": 2,
+      "start_date": "2024-09-09",
+      "end_date": null
+  }
+]

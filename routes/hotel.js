@@ -19,7 +19,7 @@ router.get("/detail/:id", async (req, res) => {
     if (result.length === 0) {
       return res.status(404).json({
         status: "error",
-        message: "找不到指定旅館"
+        message: "找不到指定旅館~"
       });
     }
 

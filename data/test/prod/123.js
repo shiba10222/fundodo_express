@@ -1,14 +1,14 @@
-import readJSON from './read-json.mjs'
+import readJSON from '../read-json.js'
 import { resolve } from 'path'
-import writeJSON from './write-json.mjs'
+import writeJSON from '../write-json.js'
 
-const path = resolve(import.meta.dirname, "prod/prod_price_stock.json")
+const path = resolve(import.meta.dirname, "./product.json")
 const pkg = await readJSON(path)
 
 const dataArr = pkg.data;
 
 // console.log(dataArr[0]);
-const dice = () => Math.floor(Math.random()*2);
+// const dice = () => Math.floor(Math.random()*2);
 
 const newArr = dataArr.map((v, i)=>{
   let price_sp = 0;

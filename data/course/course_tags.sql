@@ -28,9 +28,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `course_tags` (
-  `id` int(5) UNSIGNED NOT NULL,
-  `course_id` int(5) UNSIGNED NOT NULL,
-  `tag_id` int(5) UNSIGNED NOT NULL
+  `id` mediumint(5) UNSIGNED NOT NULL,
+  `course_id` mediumint(5) UNSIGNED NOT NULL,
+  `tag_id` mediumint(5) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --

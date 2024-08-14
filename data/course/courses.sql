@@ -28,14 +28,14 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `courses` (
-  `id` int(5) UNSIGNED NOT NULL,
+  `id` mediumint(5) UNSIGNED NOT NULL,
   `title` varchar(50) NOT NULL,
   `summary` varchar(200) NOT NULL,
   `description` text DEFAULT NULL,
   `img_path` varchar(50) NOT NULL,
-  `original_price` decimal(5,0) NOT NULL,
+  `original_price` decimal(5,0) UNSIGNED NOT NULL,
   `sale_price` decimal(5,0) UNSIGNED NOT NULL,
-  `viewed_count` int(5) NOT NULL,
+  `viewed_count` mediumint(5) NOT NULL,
   `created_at` datetime NOT NULL,
   `deleted_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

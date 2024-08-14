@@ -28,8 +28,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `course_tag` (
-  `id` int(5) UNSIGNED NOT NULL,
-  `name` varchar(20) NOT NULL
+  `id` mediumint(5) UNSIGNED NOT NULL,
+  `name` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --

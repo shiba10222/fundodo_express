@@ -1,0 +1,7462 @@
+[
+  {
+      "id": null,
+      "user_id": 2,
+      "buy_sort": "PD",
+      "buy_id": 462,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-09-29 22:33:11",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 2,
+      "buy_sort": "PD",
+      "buy_id": 641,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-02-25 23:40:06",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 2,
+      "buy_sort": "PD",
+      "buy_id": 820,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-03-08 11:23:31",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 4,
+      "buy_sort": "PD",
+      "buy_id": 709,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2022-08-17 21:43:55",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 4,
+      "buy_sort": "PD",
+      "buy_id": 550,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2022-08-17 21:53:33",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 4,
+      "buy_sort": "PD",
+      "buy_id": 391,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2022-08-17 22:01:00",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 4,
+      "buy_sort": "PD",
+      "buy_id": 232,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2022-12-02 05:48:44",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 4,
+      "buy_sort": "PD",
+      "buy_id": 73,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2022-12-02 05:52:19",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 4,
+      "buy_sort": "PD",
+      "buy_id": 938,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2022-12-02 13:08:26",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 4,
+      "buy_sort": "PD",
+      "buy_id": 779,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2022-12-02 13:12:01",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 5,
+      "buy_sort": "PD",
+      "buy_id": 116,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2022-10-25 23:28:08",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 5,
+      "buy_sort": "PD",
+      "buy_id": 431,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2022-10-25 23:34:42",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 5,
+      "buy_sort": "PD",
+      "buy_id": 746,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2022-10-25 23:41:32",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 5,
+      "buy_sort": "PD",
+      "buy_id": 37,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2022-10-25 23:49:21",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 6,
+      "buy_sort": "PD",
+      "buy_id": 413,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-07-14 06:12:00",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 6,
+      "buy_sort": "PD",
+      "buy_id": 340,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-07-14 06:17:37",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 6,
+      "buy_sort": "PD",
+      "buy_id": 267,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-07-14 06:27:15",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 6,
+      "buy_sort": "PD",
+      "buy_id": 194,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-07-14 06:36:00",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 6,
+      "buy_sort": "PD",
+      "buy_id": 121,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-07-14 06:38:25",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 7,
+      "buy_sort": "PD",
+      "buy_id": 277,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2023-01-16 23:01:59",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 7,
+      "buy_sort": "PD",
+      "buy_id": 346,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-01-16 23:04:50",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 8,
+      "buy_sort": "PD",
+      "buy_id": 309,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2022-07-30 17:36:28",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 8,
+      "buy_sort": "PD",
+      "buy_id": 156,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2022-07-30 17:42:14",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 8,
+      "buy_sort": "PD",
+      "buy_id": 3,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2023-12-23 04:55:58",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 8,
+      "buy_sort": "PD",
+      "buy_id": 874,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-19 17:57:11",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 8,
+      "buy_sort": "PD",
+      "buy_id": 721,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-04 03:40:49",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 9,
+      "buy_sort": "PD",
+      "buy_id": 464,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2023-01-01 21:22:39",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 9,
+      "buy_sort": "PD",
+      "buy_id": 677,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-01-01 21:30:25",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 9,
+      "buy_sort": "PD",
+      "buy_id": 890,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-06-24 09:25:09",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 10,
+      "buy_sort": "PD",
+      "buy_id": 832,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2022-10-19 17:57:15",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 10,
+      "buy_sort": "PD",
+      "buy_id": 453,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2022-10-19 17:59:58",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 10,
+      "buy_sort": "PD",
+      "buy_id": 74,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2022-10-19 18:06:41",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 10,
+      "buy_sort": "PD",
+      "buy_id": 719,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2022-10-19 18:11:11",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 10,
+      "buy_sort": "PD",
+      "buy_id": 340,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2022-10-19 18:17:50",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 10,
+      "buy_sort": "PD",
+      "buy_id": 985,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2022-10-19 18:20:40",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 10,
+      "buy_sort": "PD",
+      "buy_id": 606,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2022-10-19 18:26:31",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 12,
+      "buy_sort": "PD",
+      "buy_id": 865,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-09-14 19:20:18",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 12,
+      "buy_sort": "PD",
+      "buy_id": 600,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-03-01 10:20:00",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 12,
+      "buy_sort": "PD",
+      "buy_id": 335,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-03-01 10:28:40",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 12,
+      "buy_sort": "PD",
+      "buy_id": 70,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-03-01 10:32:21",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 13,
+      "buy_sort": "PD",
+      "buy_id": 466,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-02-01 14:40:47",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 13,
+      "buy_sort": "PD",
+      "buy_id": 439,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2023-02-01 14:48:13",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 14,
+      "buy_sort": "PD",
+      "buy_id": 128,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-12-24 07:12:41",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 14,
+      "buy_sort": "PD",
+      "buy_id": 371,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-12-24 07:15:08",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 14,
+      "buy_sort": "PD",
+      "buy_id": 614,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2023-12-24 07:20:55",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 14,
+      "buy_sort": "PD",
+      "buy_id": 857,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-12-24 07:27:29",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 14,
+      "buy_sort": "PD",
+      "buy_id": 76,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-12-24 07:34:15",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 14,
+      "buy_sort": "PD",
+      "buy_id": 319,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-12-24 07:40:49",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 14,
+      "buy_sort": "PD",
+      "buy_id": 562,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2023-12-24 07:45:35",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 17,
+      "buy_sort": "PD",
+      "buy_id": 797,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2022-11-02 22:41:47",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 17,
+      "buy_sort": "PD",
+      "buy_id": 46,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-04-17 07:56:22",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 17,
+      "buy_sort": "PD",
+      "buy_id": 319,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-07-06 11:13:12",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 19,
+      "buy_sort": "PD",
+      "buy_id": 110,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2022-08-02 19:29:15",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 19,
+      "buy_sort": "PD",
+      "buy_id": 743,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2022-08-02 19:37:58",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 19,
+      "buy_sort": "PD",
+      "buy_id": 352,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2022-08-02 19:42:34",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 19,
+      "buy_sort": "PD",
+      "buy_id": 985,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2022-08-02 19:48:19",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 20,
+      "buy_sort": "PD",
+      "buy_id": 380,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2022-10-07 02:18:58",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 20,
+      "buy_sort": "PD",
+      "buy_id": 897,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2022-10-07 02:28:48",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 20,
+      "buy_sort": "PD",
+      "buy_id": 390,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2022-10-07 02:35:28",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 20,
+      "buy_sort": "PD",
+      "buy_id": 907,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2022-10-07 02:41:22",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 20,
+      "buy_sort": "PD",
+      "buy_id": 400,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-09-13 23:41:12",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 20,
+      "buy_sort": "PD",
+      "buy_id": 917,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-16 02:37:58",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 20,
+      "buy_sort": "PD",
+      "buy_id": 410,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-16 02:40:42",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 22,
+      "buy_sort": "PD",
+      "buy_id": 689,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-08-26 20:14:46",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 22,
+      "buy_sort": "PD",
+      "buy_id": 820,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-08-26 20:19:14",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 22,
+      "buy_sort": "PD",
+      "buy_id": 951,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-08-26 20:24:46",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 25,
+      "buy_sort": "PD",
+      "buy_id": 826,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2022-08-17 07:16:08",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 25,
+      "buy_sort": "PD",
+      "buy_id": 421,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2022-11-02 15:32:33",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 25,
+      "buy_sort": "PD",
+      "buy_id": 16,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2022-11-02 15:36:18",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 26,
+      "buy_sort": "PD",
+      "buy_id": 459,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-22 05:08:00",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 26,
+      "buy_sort": "PD",
+      "buy_id": 938,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-22 05:17:48",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 26,
+      "buy_sort": "PD",
+      "buy_id": 393,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-08-22 05:26:34",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 27,
+      "buy_sort": "PD",
+      "buy_id": 125,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2022-12-20 15:26:03",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 27,
+      "buy_sort": "PD",
+      "buy_id": 538,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-06-12 15:33:13",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 27,
+      "buy_sort": "PD",
+      "buy_id": 951,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-06-12 15:39:59",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 27,
+      "buy_sort": "PD",
+      "buy_id": 340,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-06-12 15:46:26",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 27,
+      "buy_sort": "PD",
+      "buy_id": 753,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-06-12 15:55:07",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 27,
+      "buy_sort": "PD",
+      "buy_id": 142,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-06-12 15:59:49",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 27,
+      "buy_sort": "PD",
+      "buy_id": 555,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-06-12 16:06:24",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 29,
+      "buy_sort": "PD",
+      "buy_id": 366,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-02-07 08:13:40",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 29,
+      "buy_sort": "PD",
+      "buy_id": 1009,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-02-07 08:23:26",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 29,
+      "buy_sort": "PD",
+      "buy_id": 628,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-02-07 08:27:18",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 29,
+      "buy_sort": "PD",
+      "buy_id": 247,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-02-07 08:33:51",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 29,
+      "buy_sort": "PD",
+      "buy_id": 890,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2023-02-07 08:37:21",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 29,
+      "buy_sort": "PD",
+      "buy_id": 509,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-02-07 08:41:04",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 29,
+      "buy_sort": "PD",
+      "buy_id": 128,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-02-07 08:48:43",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 30,
+      "buy_sort": "PD",
+      "buy_id": 938,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-01-17 13:44:02",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 31,
+      "buy_sort": "PD",
+      "buy_id": 883,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-12-10 13:08:45",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 31,
+      "buy_sort": "PD",
+      "buy_id": 654,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-12-10 13:13:14",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 32,
+      "buy_sort": "PD",
+      "buy_id": 615,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-08-04 00:29:28",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 34,
+      "buy_sort": "PD",
+      "buy_id": 889,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2022-08-14 20:52:23",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 34,
+      "buy_sort": "PD",
+      "buy_id": 512,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2022-08-14 20:58:03",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 34,
+      "buy_sort": "PD",
+      "buy_id": 135,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-14 04:40:47",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 34,
+      "buy_sort": "PD",
+      "buy_id": 782,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-14 04:47:32",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 34,
+      "buy_sort": "PD",
+      "buy_id": 405,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-14 04:50:05",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 37,
+      "buy_sort": "PD",
+      "buy_id": 48,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-01-04 01:30:45",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 38,
+      "buy_sort": "PD",
+      "buy_id": 336,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-04-14 17:08:42",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 38,
+      "buy_sort": "PD",
+      "buy_id": 901,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-04-14 17:16:12",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 40,
+      "buy_sort": "PD",
+      "buy_id": 75,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-06-20 01:59:36",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 40,
+      "buy_sort": "PD",
+      "buy_id": 1002,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-06-20 02:06:13",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 40,
+      "buy_sort": "PD",
+      "buy_id": 905,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-06-20 02:13:50",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 40,
+      "buy_sort": "PD",
+      "buy_id": 808,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-06-20 02:18:21",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 40,
+      "buy_sort": "PD",
+      "buy_id": 711,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2023-06-20 02:20:55",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 40,
+      "buy_sort": "PD",
+      "buy_id": 614,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-03-24 22:17:20",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 41,
+      "buy_sort": "PD",
+      "buy_id": 608,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-05-19 14:06:12",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 41,
+      "buy_sort": "PD",
+      "buy_id": 181,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-05-19 14:12:43",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 41,
+      "buy_sort": "PD",
+      "buy_id": 778,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-05-19 14:18:28",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 42,
+      "buy_sort": "PD",
+      "buy_id": 635,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-02 01:35:51",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 42,
+      "buy_sort": "PD",
+      "buy_id": 694,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-07-25 11:49:53",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 42,
+      "buy_sort": "PD",
+      "buy_id": 753,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-25 11:54:47",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 42,
+      "buy_sort": "PD",
+      "buy_id": 812,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-25 12:02:27",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 42,
+      "buy_sort": "PD",
+      "buy_id": 871,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-07-25 12:11:05",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 42,
+      "buy_sort": "PD",
+      "buy_id": 930,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-25 12:20:51",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 45,
+      "buy_sort": "PD",
+      "buy_id": 832,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2023-12-03 01:10:29",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 45,
+      "buy_sort": "PD",
+      "buy_id": 669,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-12-03 01:15:10",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 45,
+      "buy_sort": "PD",
+      "buy_id": 506,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-12-03 01:21:39",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 45,
+      "buy_sort": "PD",
+      "buy_id": 343,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-12-03 01:30:11",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 45,
+      "buy_sort": "PD",
+      "buy_id": 180,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-12-03 01:32:42",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 45,
+      "buy_sort": "PD",
+      "buy_id": 17,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2023-12-03 01:41:29",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 45,
+      "buy_sort": "PD",
+      "buy_id": 878,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-26 11:05:10",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 47,
+      "buy_sort": "PD",
+      "buy_id": 512,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-03-20 09:40:17",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 47,
+      "buy_sort": "PD",
+      "buy_id": 475,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-03-20 09:42:43",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 48,
+      "buy_sort": "PD",
+      "buy_id": 889,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-11 15:14:07",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 48,
+      "buy_sort": "PD",
+      "buy_id": 228,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-05-11 15:22:55",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 48,
+      "buy_sort": "PD",
+      "buy_id": 591,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-05-11 15:31:48",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 48,
+      "buy_sort": "PD",
+      "buy_id": 954,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-11 15:34:38",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 48,
+      "buy_sort": "PD",
+      "buy_id": 293,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-11 15:39:14",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 48,
+      "buy_sort": "PD",
+      "buy_id": 656,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-08-19 08:27:21",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 48,
+      "buy_sort": "PD",
+      "buy_id": 1019,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-19 08:35:15",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 49,
+      "buy_sort": "PD",
+      "buy_id": 475,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-05-05 09:44:18",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 51,
+      "buy_sort": "PD",
+      "buy_id": 934,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-02-13 01:17:06",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 51,
+      "buy_sort": "PD",
+      "buy_id": 483,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2023-02-13 01:24:41",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 55,
+      "buy_sort": "PD",
+      "buy_id": 512,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-08-15 09:36:40",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 55,
+      "buy_sort": "PD",
+      "buy_id": 397,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-29 08:22:32",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 55,
+      "buy_sort": "PD",
+      "buy_id": 282,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-29 08:25:08",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 55,
+      "buy_sort": "PD",
+      "buy_id": 167,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-29 08:27:57",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 55,
+      "buy_sort": "PD",
+      "buy_id": 52,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-08-29 08:37:42",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 55,
+      "buy_sort": "PD",
+      "buy_id": 961,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-29 08:44:07",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 55,
+      "buy_sort": "PD",
+      "buy_id": 846,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-29 08:46:32",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 56,
+      "buy_sort": "PD",
+      "buy_id": 645,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-08-06 20:32:26",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 56,
+      "buy_sort": "PD",
+      "buy_id": 852,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-08 05:24:41",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 56,
+      "buy_sort": "PD",
+      "buy_id": 35,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-08 05:27:31",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 56,
+      "buy_sort": "PD",
+      "buy_id": 242,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-08 05:37:03",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 56,
+      "buy_sort": "PD",
+      "buy_id": 449,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-20 14:42:55",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 56,
+      "buy_sort": "PD",
+      "buy_id": 656,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-20 14:46:35",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 56,
+      "buy_sort": "PD",
+      "buy_id": 863,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-20 14:53:07",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 57,
+      "buy_sort": "PD",
+      "buy_id": 510,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-11-24 00:23:31",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 57,
+      "buy_sort": "PD",
+      "buy_id": 963,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-03-04 15:25:28",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 57,
+      "buy_sort": "PD",
+      "buy_id": 392,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-03-04 15:29:01",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 59,
+      "buy_sort": "PD",
+      "buy_id": 979,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-04-16 08:19:42",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 59,
+      "buy_sort": "PD",
+      "buy_id": 288,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-12-09 10:59:53",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 59,
+      "buy_sort": "PD",
+      "buy_id": 621,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2023-12-09 11:04:40",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 59,
+      "buy_sort": "PD",
+      "buy_id": 954,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2023-12-09 11:08:29",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 59,
+      "buy_sort": "PD",
+      "buy_id": 263,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-12-09 11:15:54",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 59,
+      "buy_sort": "PD",
+      "buy_id": 596,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-04-24 07:55:53",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 60,
+      "buy_sort": "PD",
+      "buy_id": 567,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-10-28 11:09:53",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 60,
+      "buy_sort": "PD",
+      "buy_id": 580,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-10-28 11:13:18",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 60,
+      "buy_sort": "PD",
+      "buy_id": 593,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-10-28 11:22:43",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 60,
+      "buy_sort": "PD",
+      "buy_id": 606,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-10-28 11:31:29",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 60,
+      "buy_sort": "PD",
+      "buy_id": 619,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-10-28 11:38:17",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 60,
+      "buy_sort": "PD",
+      "buy_id": 632,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-09-08 02:57:11",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 61,
+      "buy_sort": "PD",
+      "buy_id": 612,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-01-20 00:28:06",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 61,
+      "buy_sort": "PD",
+      "buy_id": 807,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-02-25 21:43:25",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 61,
+      "buy_sort": "PD",
+      "buy_id": 1002,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-02-25 21:49:01",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 61,
+      "buy_sort": "PD",
+      "buy_id": 173,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-02-25 21:52:30",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 61,
+      "buy_sort": "PD",
+      "buy_id": 368,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2023-02-25 22:00:05",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 61,
+      "buy_sort": "PD",
+      "buy_id": 563,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-02-25 22:03:40",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 61,
+      "buy_sort": "PD",
+      "buy_id": 758,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-02-25 22:08:09",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 63,
+      "buy_sort": "PD",
+      "buy_id": 732,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-02-13 04:05:00",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 63,
+      "buy_sort": "PD",
+      "buy_id": 733,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-04-08 05:51:30",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 63,
+      "buy_sort": "PD",
+      "buy_id": 734,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2023-04-08 05:57:59",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 63,
+      "buy_sort": "PD",
+      "buy_id": 735,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-04-08 06:01:50",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 65,
+      "buy_sort": "PD",
+      "buy_id": 868,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2023-02-26 16:52:30",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 65,
+      "buy_sort": "PD",
+      "buy_id": 343,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-02-26 16:56:10",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 65,
+      "buy_sort": "PD",
+      "buy_id": 842,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-02-26 17:00:57",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 65,
+      "buy_sort": "PD",
+      "buy_id": 317,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2023-02-26 17:07:48",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 65,
+      "buy_sort": "PD",
+      "buy_id": 816,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2023-08-06 07:02:42",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 65,
+      "buy_sort": "PD",
+      "buy_id": 291,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2023-08-06 07:05:14",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 66,
+      "buy_sort": "PD",
+      "buy_id": 865,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-09-09 04:58:02",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 66,
+      "buy_sort": "PD",
+      "buy_id": 146,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-09-09 05:06:45",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 66,
+      "buy_sort": "PD",
+      "buy_id": 451,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-09-09 05:16:28",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 67,
+      "buy_sort": "PD",
+      "buy_id": 758,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-03-25 20:32:10",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 68,
+      "buy_sort": "PD",
+      "buy_id": 519,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-09-21 10:30:06",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 68,
+      "buy_sort": "PD",
+      "buy_id": 138,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-09-21 10:40:00",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 68,
+      "buy_sort": "PD",
+      "buy_id": 781,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-01-26 06:38:04",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 68,
+      "buy_sort": "PD",
+      "buy_id": 400,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-01-26 06:44:37",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 68,
+      "buy_sort": "PD",
+      "buy_id": 19,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-01-26 06:50:30",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 68,
+      "buy_sort": "PD",
+      "buy_id": 662,
+      "quantity": 4,
+      "amount": null,
+      "created_at": "2024-04-24 01:42:08",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 69,
+      "buy_sort": "PD",
+      "buy_id": 615,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-04-18 17:15:42",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 70,
+      "buy_sort": "PD",
+      "buy_id": 593,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-17 01:55:16",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 70,
+      "buy_sort": "PD",
+      "buy_id": 890,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-17 02:05:01",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 70,
+      "buy_sort": "PD",
+      "buy_id": 163,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-24 16:22:40",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 73,
+      "buy_sort": "PD",
+      "buy_id": 822,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-11-25 04:04:23",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 73,
+      "buy_sort": "PD",
+      "buy_id": 323,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-11-25 04:12:09",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 73,
+      "buy_sort": "PD",
+      "buy_id": 848,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-11-25 04:19:43",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 73,
+      "buy_sort": "PD",
+      "buy_id": 349,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-11-25 04:28:09",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 75,
+      "buy_sort": "PD",
+      "buy_id": 137,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-01-01 02:14:02",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 75,
+      "buy_sort": "PD",
+      "buy_id": 490,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-01-01 02:17:49",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 75,
+      "buy_sort": "PD",
+      "buy_id": 843,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-02-04 07:15:12",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 75,
+      "buy_sort": "PD",
+      "buy_id": 172,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-02-04 07:20:52",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 75,
+      "buy_sort": "PD",
+      "buy_id": 525,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-02-04 07:24:24",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 76,
+      "buy_sort": "PD",
+      "buy_id": 664,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-04-18 18:27:20",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 76,
+      "buy_sort": "PD",
+      "buy_id": 217,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-04-18 18:35:00",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 76,
+      "buy_sort": "PD",
+      "buy_id": 794,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-04-18 18:43:44",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 76,
+      "buy_sort": "PD",
+      "buy_id": 347,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-04-18 18:50:21",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 76,
+      "buy_sort": "PD",
+      "buy_id": 924,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-04-18 19:00:02",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 77,
+      "buy_sort": "PD",
+      "buy_id": 625,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2023-08-19 02:13:37",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 77,
+      "buy_sort": "PD",
+      "buy_id": 1002,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-08-19 02:23:19",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 77,
+      "buy_sort": "PD",
+      "buy_id": 355,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2023-08-19 02:29:48",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 77,
+      "buy_sort": "PD",
+      "buy_id": 732,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-10-25 00:55:39",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 77,
+      "buy_sort": "PD",
+      "buy_id": 85,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-10-25 01:01:20",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 77,
+      "buy_sort": "PD",
+      "buy_id": 462,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-07 13:53:46",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 78,
+      "buy_sort": "PD",
+      "buy_id": 568,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-03-24 02:51:12",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 78,
+      "buy_sort": "PD",
+      "buy_id": 681,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-03-24 02:56:48",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 79,
+      "buy_sort": "PD",
+      "buy_id": 716,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-18 09:40:27",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 79,
+      "buy_sort": "PD",
+      "buy_id": 567,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-18 09:48:11",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 79,
+      "buy_sort": "PD",
+      "buy_id": 418,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-18 09:50:36",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 79,
+      "buy_sort": "PD",
+      "buy_id": 269,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-05-18 10:00:22",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 80,
+      "buy_sort": "PD",
+      "buy_id": 857,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-03-16 16:07:04",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 80,
+      "buy_sort": "PD",
+      "buy_id": 346,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2023-03-16 16:10:48",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 80,
+      "buy_sort": "PD",
+      "buy_id": 859,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2023-03-16 16:18:28",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 80,
+      "buy_sort": "PD",
+      "buy_id": 348,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-03-16 16:22:09",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 84,
+      "buy_sort": "PD",
+      "buy_id": 536,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-04-24 18:22:39",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 84,
+      "buy_sort": "PD",
+      "buy_id": 751,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-04-24 18:32:06",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 84,
+      "buy_sort": "PD",
+      "buy_id": 966,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-04-24 18:41:56",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 84,
+      "buy_sort": "PD",
+      "buy_id": 157,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2023-04-24 18:45:23",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 84,
+      "buy_sort": "PD",
+      "buy_id": 372,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-04-24 18:52:13",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 84,
+      "buy_sort": "PD",
+      "buy_id": 587,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-04-24 19:00:01",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 85,
+      "buy_sort": "PD",
+      "buy_id": 487,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-12-25 09:24:09",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 85,
+      "buy_sort": "PD",
+      "buy_id": 426,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-12-25 09:33:46",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 86,
+      "buy_sort": "PD",
+      "buy_id": 235,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-10-07 05:23:13",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 86,
+      "buy_sort": "PD",
+      "buy_id": 948,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-10-07 05:27:03",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 86,
+      "buy_sort": "PD",
+      "buy_id": 637,
+      "quantity": 8,
+      "amount": null,
+      "created_at": "2023-10-07 05:35:46",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 89,
+      "buy_sort": "PD",
+      "buy_id": 90,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-04-22 11:15:32",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 89,
+      "buy_sort": "PD",
+      "buy_id": 591,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-04-22 11:25:20",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 89,
+      "buy_sort": "PD",
+      "buy_id": 68,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-04-22 11:28:52",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 89,
+      "buy_sort": "PD",
+      "buy_id": 569,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-04-22 11:32:40",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 89,
+      "buy_sort": "PD",
+      "buy_id": 46,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-04-22 11:37:19",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 89,
+      "buy_sort": "PD",
+      "buy_id": 547,
+      "quantity": 4,
+      "amount": null,
+      "created_at": "2024-04-22 11:41:00",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 89,
+      "buy_sort": "PD",
+      "buy_id": 24,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-04-22 11:43:35",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 90,
+      "buy_sort": "PD",
+      "buy_id": 402,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2023-06-30 17:30:21",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 90,
+      "buy_sort": "PD",
+      "buy_id": 469,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2023-06-30 17:38:51",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 90,
+      "buy_sort": "PD",
+      "buy_id": 536,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2023-06-30 17:48:24",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 90,
+      "buy_sort": "PD",
+      "buy_id": 603,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-06-30 17:56:17",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 90,
+      "buy_sort": "PD",
+      "buy_id": 670,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2023-12-02 15:48:25",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 90,
+      "buy_sort": "PD",
+      "buy_id": 737,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-14 16:42:59",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 91,
+      "buy_sort": "PD",
+      "buy_id": 513,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-08-20 00:01:35",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 91,
+      "buy_sort": "PD",
+      "buy_id": 784,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-09-01 14:34:31",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 91,
+      "buy_sort": "PD",
+      "buy_id": 31,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-09-01 14:42:07",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 91,
+      "buy_sort": "PD",
+      "buy_id": 302,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-09-01 14:44:46",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 91,
+      "buy_sort": "PD",
+      "buy_id": 573,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-09-01 14:48:29",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 91,
+      "buy_sort": "PD",
+      "buy_id": 844,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-09-07 20:03:16",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 91,
+      "buy_sort": "PD",
+      "buy_id": 91,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-09-07 20:10:41",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 94,
+      "buy_sort": "PD",
+      "buy_id": 135,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-03-15 20:10:04",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 94,
+      "buy_sort": "PD",
+      "buy_id": 588,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-03-15 20:18:38",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 94,
+      "buy_sort": "PD",
+      "buy_id": 17,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-15 14:37:44",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 94,
+      "buy_sort": "PD",
+      "buy_id": 470,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-15 14:43:20",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 94,
+      "buy_sort": "PD",
+      "buy_id": 923,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-12 17:39:26",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 94,
+      "buy_sort": "PD",
+      "buy_id": 352,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-12 17:43:03",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 94,
+      "buy_sort": "PD",
+      "buy_id": 805,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-12 17:49:30",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 97,
+      "buy_sort": "PD",
+      "buy_id": 344,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-12 08:33:15",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 99,
+      "buy_sort": "PD",
+      "buy_id": 485,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-10-18 14:14:59",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 99,
+      "buy_sort": "PD",
+      "buy_id": 266,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-10-18 14:19:24",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 100,
+      "buy_sort": "PD",
+      "buy_id": 976,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-07-16 04:27:12",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 100,
+      "buy_sort": "PD",
+      "buy_id": 655,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-16 04:29:43",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 100,
+      "buy_sort": "PD",
+      "buy_id": 334,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-21 01:47:03",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 100,
+      "buy_sort": "PD",
+      "buy_id": 13,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-08-21 01:54:54",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 102,
+      "buy_sort": "PD",
+      "buy_id": 100,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-04-28 19:09:40",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 102,
+      "buy_sort": "PD",
+      "buy_id": 707,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-04-28 19:12:31",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 102,
+      "buy_sort": "PD",
+      "buy_id": 290,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-04-28 19:18:21",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 102,
+      "buy_sort": "PD",
+      "buy_id": 897,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-10-18 17:16:27",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 102,
+      "buy_sort": "PD",
+      "buy_id": 480,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-10-18 17:24:11",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 102,
+      "buy_sort": "PD",
+      "buy_id": 63,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-10-18 17:27:42",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 102,
+      "buy_sort": "PD",
+      "buy_id": 670,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-04-20 03:30:09",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 103,
+      "buy_sort": "PD",
+      "buy_id": 653,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-04-13 06:44:24",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 105,
+      "buy_sort": "PD",
+      "buy_id": 840,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-03-11 22:04:31",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 105,
+      "buy_sort": "PD",
+      "buy_id": 671,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-03-11 22:07:19",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 105,
+      "buy_sort": "PD",
+      "buy_id": 502,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2023-03-11 22:12:08",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 105,
+      "buy_sort": "PD",
+      "buy_id": 333,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2023-03-11 22:15:38",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 105,
+      "buy_sort": "PD",
+      "buy_id": 164,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-03-11 22:19:12",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 105,
+      "buy_sort": "PD",
+      "buy_id": 1019,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-03-11 22:28:50",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 107,
+      "buy_sort": "PD",
+      "buy_id": 986,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-03-13 14:49:30",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 107,
+      "buy_sort": "PD",
+      "buy_id": 955,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-03-13 14:52:21",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 108,
+      "buy_sort": "PD",
+      "buy_id": 1015,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2023-11-16 22:28:52",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 109,
+      "buy_sort": "PD",
+      "buy_id": 805,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-04-07 03:43:10",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 109,
+      "buy_sort": "PD",
+      "buy_id": 708,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-04-07 03:48:57",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 109,
+      "buy_sort": "PD",
+      "buy_id": 611,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-04-07 03:57:40",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 109,
+      "buy_sort": "PD",
+      "buy_id": 514,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-04-07 04:02:34",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 109,
+      "buy_sort": "PD",
+      "buy_id": 417,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-04-07 04:12:05",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 109,
+      "buy_sort": "PD",
+      "buy_id": 320,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-05-13 19:53:34",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 109,
+      "buy_sort": "PD",
+      "buy_id": 223,
+      "quantity": 9,
+      "amount": null,
+      "created_at": "2023-05-13 20:01:27",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 111,
+      "buy_sort": "PD",
+      "buy_id": 728,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-05-30 22:52:38",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 111,
+      "buy_sort": "PD",
+      "buy_id": 875,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-05-30 23:01:11",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 111,
+      "buy_sort": "PD",
+      "buy_id": 1022,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2023-08-16 19:37:24",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 111,
+      "buy_sort": "PD",
+      "buy_id": 145,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-08-16 19:42:08",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 113,
+      "buy_sort": "PD",
+      "buy_id": 736,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-03-04 00:31:10",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 113,
+      "buy_sort": "PD",
+      "buy_id": 183,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-03-04 00:36:04",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 113,
+      "buy_sort": "PD",
+      "buy_id": 654,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-03-04 00:39:52",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 113,
+      "buy_sort": "PD",
+      "buy_id": 101,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-03-04 00:42:36",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 113,
+      "buy_sort": "PD",
+      "buy_id": 572,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-03-04 00:46:03",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 113,
+      "buy_sort": "PD",
+      "buy_id": 19,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-03-04 00:52:33",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 113,
+      "buy_sort": "PD",
+      "buy_id": 490,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2023-03-04 01:02:07",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 114,
+      "buy_sort": "PD",
+      "buy_id": 230,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-10-01 09:37:09",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 114,
+      "buy_sort": "PD",
+      "buy_id": 175,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-04 11:20:26",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 114,
+      "buy_sort": "PD",
+      "buy_id": 120,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-06-04 11:27:11",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 114,
+      "buy_sort": "PD",
+      "buy_id": 65,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-04 11:31:44",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 114,
+      "buy_sort": "PD",
+      "buy_id": 10,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-23 08:23:03",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 114,
+      "buy_sort": "PD",
+      "buy_id": 979,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-23 08:32:52",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 115,
+      "buy_sort": "PD",
+      "buy_id": 831,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2023-07-05 21:42:50",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 115,
+      "buy_sort": "PD",
+      "buy_id": 892,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-07-05 21:48:44",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 116,
+      "buy_sort": "PD",
+      "buy_id": 621,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-09-01 06:35:12",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 116,
+      "buy_sort": "PD",
+      "buy_id": 726,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-09-01 06:37:46",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 116,
+      "buy_sort": "PD",
+      "buy_id": 831,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-09-01 06:41:26",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 116,
+      "buy_sort": "PD",
+      "buy_id": 936,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-09-01 06:44:07",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 116,
+      "buy_sort": "PD",
+      "buy_id": 17,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-09-01 06:46:51",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 116,
+      "buy_sort": "PD",
+      "buy_id": 122,
+      "quantity": 9,
+      "amount": null,
+      "created_at": "2024-09-01 06:56:32",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 116,
+      "buy_sort": "PD",
+      "buy_id": 227,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-09-01 07:06:13",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 117,
+      "buy_sort": "PD",
+      "buy_id": 206,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-02-05 19:40:20",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 117,
+      "buy_sort": "PD",
+      "buy_id": 89,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-02-05 19:43:11",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 117,
+      "buy_sort": "PD",
+      "buy_id": 996,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-02-05 19:51:51",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 122,
+      "buy_sort": "PD",
+      "buy_id": 865,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-27 09:26:05",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 122,
+      "buy_sort": "PD",
+      "buy_id": 466,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-27 09:30:56",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 122,
+      "buy_sort": "PD",
+      "buy_id": 67,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-27 09:34:34",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 122,
+      "buy_sort": "PD",
+      "buy_id": 692,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-27 09:40:19",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 122,
+      "buy_sort": "PD",
+      "buy_id": 293,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-27 09:45:54",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 122,
+      "buy_sort": "PD",
+      "buy_id": 918,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-07-27 09:50:19",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 122,
+      "buy_sort": "PD",
+      "buy_id": 519,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-27 09:53:44",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 128,
+      "buy_sort": "PD",
+      "buy_id": 788,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-11-25 08:49:25",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 130,
+      "buy_sort": "PD",
+      "buy_id": 615,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-02-15 06:34:33",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 130,
+      "buy_sort": "PD",
+      "buy_id": 704,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-02-15 06:43:19",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 130,
+      "buy_sort": "PD",
+      "buy_id": 793,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-02-15 06:46:07",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 130,
+      "buy_sort": "PD",
+      "buy_id": 882,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-02-15 06:50:39",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 130,
+      "buy_sort": "PD",
+      "buy_id": 971,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-03 02:10:31",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 130,
+      "buy_sort": "PD",
+      "buy_id": 36,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-03 02:14:02",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 130,
+      "buy_sort": "PD",
+      "buy_id": 125,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-03 02:18:34",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 131,
+      "buy_sort": "PD",
+      "buy_id": 612,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-08-30 04:35:53",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 131,
+      "buy_sort": "PD",
+      "buy_id": 161,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-08-30 04:43:22",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 131,
+      "buy_sort": "PD",
+      "buy_id": 734,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-08-30 04:53:00",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 131,
+      "buy_sort": "PD",
+      "buy_id": 283,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-08-30 05:02:35",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 131,
+      "buy_sort": "PD",
+      "buy_id": 856,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2023-08-30 05:07:17",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 131,
+      "buy_sort": "PD",
+      "buy_id": 405,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-08-30 05:14:54",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 132,
+      "buy_sort": "PD",
+      "buy_id": 367,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-05-08 02:08:01",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 132,
+      "buy_sort": "PD",
+      "buy_id": 750,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-08 02:15:27",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 132,
+      "buy_sort": "PD",
+      "buy_id": 109,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-08 02:24:14",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 133,
+      "buy_sort": "PD",
+      "buy_id": 91,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-12 06:12:50",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 137,
+      "buy_sort": "PD",
+      "buy_id": 270,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-11-11 08:59:52",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 137,
+      "buy_sort": "PD",
+      "buy_id": 953,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-11-11 09:09:46",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 137,
+      "buy_sort": "PD",
+      "buy_id": 612,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-11-11 09:17:21",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 139,
+      "buy_sort": "PD",
+      "buy_id": 660,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-01-18 09:46:34",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 139,
+      "buy_sort": "PD",
+      "buy_id": 185,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-09-03 22:37:50",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 140,
+      "buy_sort": "PD",
+      "buy_id": 153,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-02-03 12:57:34",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 140,
+      "buy_sort": "PD",
+      "buy_id": 858,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-02-03 13:07:23",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 140,
+      "buy_sort": "PD",
+      "buy_id": 539,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-02-03 13:17:15",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 141,
+      "buy_sort": "PD",
+      "buy_id": 668,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2023-11-01 16:14:37",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 141,
+      "buy_sort": "PD",
+      "buy_id": 721,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2023-11-01 16:22:09",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 141,
+      "buy_sort": "PD",
+      "buy_id": 774,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-11-01 16:28:44",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 142,
+      "buy_sort": "PD",
+      "buy_id": 617,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-02-05 21:10:35",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 142,
+      "buy_sort": "PD",
+      "buy_id": 1002,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-02-05 21:20:00",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 142,
+      "buy_sort": "PD",
+      "buy_id": 363,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-02-05 21:27:30",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 142,
+      "buy_sort": "PD",
+      "buy_id": 748,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-07-19 16:59:09",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 142,
+      "buy_sort": "PD",
+      "buy_id": 109,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-19 17:02:50",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 142,
+      "buy_sort": "PD",
+      "buy_id": 494,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-07-19 17:12:18",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 142,
+      "buy_sort": "PD",
+      "buy_id": 879,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-19 17:18:55",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 143,
+      "buy_sort": "PD",
+      "buy_id": 893,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2023-10-15 17:31:08",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 143,
+      "buy_sort": "PD",
+      "buy_id": 800,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-10-15 17:35:40",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 147,
+      "buy_sort": "PD",
+      "buy_id": 176,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2023-08-03 21:26:15",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 147,
+      "buy_sort": "PD",
+      "buy_id": 281,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-08-03 21:31:51",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 147,
+      "buy_sort": "PD",
+      "buy_id": 386,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-02-06 23:41:51",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 149,
+      "buy_sort": "PD",
+      "buy_id": 577,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-04-07 01:25:39",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 149,
+      "buy_sort": "PD",
+      "buy_id": 50,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-04-07 01:28:09",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 149,
+      "buy_sort": "PD",
+      "buy_id": 547,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-04-07 01:33:49",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 149,
+      "buy_sort": "PD",
+      "buy_id": 20,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-04-07 01:36:31",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 149,
+      "buy_sort": "PD",
+      "buy_id": 517,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-05-14 09:53:56",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 149,
+      "buy_sort": "PD",
+      "buy_id": 1014,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-14 09:58:27",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 151,
+      "buy_sort": "PD",
+      "buy_id": 461,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-03-26 18:48:07",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 151,
+      "buy_sort": "PD",
+      "buy_id": 302,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-03-26 18:53:46",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 151,
+      "buy_sort": "PD",
+      "buy_id": 143,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-03-26 19:03:14",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 151,
+      "buy_sort": "PD",
+      "buy_id": 1008,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-03-26 19:10:06",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 151,
+      "buy_sort": "PD",
+      "buy_id": 849,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-03-26 19:16:43",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 154,
+      "buy_sort": "PD",
+      "buy_id": 651,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-12 12:11:50",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 154,
+      "buy_sort": "PD",
+      "buy_id": 240,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-09-01 15:46:12",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 154,
+      "buy_sort": "PD",
+      "buy_id": 853,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-09-07 21:40:33",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 154,
+      "buy_sort": "PD",
+      "buy_id": 442,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-09-07 21:48:00",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 155,
+      "buy_sort": "PD",
+      "buy_id": 357,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2023-12-24 19:54:30",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 155,
+      "buy_sort": "PD",
+      "buy_id": 210,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-12-24 20:01:04",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 155,
+      "buy_sort": "PD",
+      "buy_id": 63,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-31 07:31:23",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 155,
+      "buy_sort": "PD",
+      "buy_id": 940,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-07-31 07:33:59",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 157,
+      "buy_sort": "PD",
+      "buy_id": 7,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-12-05 22:58:00",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 157,
+      "buy_sort": "PD",
+      "buy_id": 716,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-12-05 23:07:46",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 157,
+      "buy_sort": "PD",
+      "buy_id": 401,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2023-12-05 23:15:29",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 158,
+      "buy_sort": "PD",
+      "buy_id": 1007,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-12-07 03:06:39",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 159,
+      "buy_sort": "PD",
+      "buy_id": 207,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-04-15 04:41:57",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 161,
+      "buy_sort": "PD",
+      "buy_id": 459,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-12-29 06:08:30",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 162,
+      "buy_sort": "PD",
+      "buy_id": 330,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-04-15 23:16:58",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 163,
+      "buy_sort": "PD",
+      "buy_id": 206,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-18 10:20:59",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 163,
+      "buy_sort": "PD",
+      "buy_id": 303,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-18 10:24:40",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 163,
+      "buy_sort": "PD",
+      "buy_id": 400,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-18 10:34:21",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 163,
+      "buy_sort": "PD",
+      "buy_id": 497,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-18 10:39:05",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 163,
+      "buy_sort": "PD",
+      "buy_id": 594,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-18 10:47:53",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 163,
+      "buy_sort": "PD",
+      "buy_id": 691,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-18 10:55:25",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 163,
+      "buy_sort": "PD",
+      "buy_id": 788,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-05-18 11:03:52",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 164,
+      "buy_sort": "PD",
+      "buy_id": 655,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-05-26 00:38:08",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 164,
+      "buy_sort": "PD",
+      "buy_id": 340,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-26 00:47:51",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 164,
+      "buy_sort": "PD",
+      "buy_id": 25,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-26 00:52:21",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 165,
+      "buy_sort": "PD",
+      "buy_id": 635,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-04 13:05:05",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 165,
+      "buy_sort": "PD",
+      "buy_id": 934,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-06-04 13:07:44",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 165,
+      "buy_sort": "PD",
+      "buy_id": 209,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-04 13:11:09",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 165,
+      "buy_sort": "PD",
+      "buy_id": 508,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-06-11 21:50:15",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 165,
+      "buy_sort": "PD",
+      "buy_id": 807,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-06-11 21:57:00",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 165,
+      "buy_sort": "PD",
+      "buy_id": 82,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-11 22:02:48",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 167,
+      "buy_sort": "PD",
+      "buy_id": 315,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-05-31 01:08:48",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 167,
+      "buy_sort": "PD",
+      "buy_id": 238,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-05-31 01:14:25",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 167,
+      "buy_sort": "PD",
+      "buy_id": 161,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-31 01:19:14",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 168,
+      "buy_sort": "PD",
+      "buy_id": 39,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-03-01 08:34:01",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 168,
+      "buy_sort": "PD",
+      "buy_id": 676,
+      "quantity": 8,
+      "amount": null,
+      "created_at": "2024-03-01 08:39:45",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 168,
+      "buy_sort": "PD",
+      "buy_id": 289,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-03-01 08:46:26",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 168,
+      "buy_sort": "PD",
+      "buy_id": 926,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-03-01 08:52:11",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 168,
+      "buy_sort": "PD",
+      "buy_id": 539,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-03-01 09:01:00",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 168,
+      "buy_sort": "PD",
+      "buy_id": 152,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-03-01 09:05:49",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 170,
+      "buy_sort": "PD",
+      "buy_id": 151,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-04-21 02:06:51",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 170,
+      "buy_sort": "PD",
+      "buy_id": 84,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-04-21 02:14:21",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 170,
+      "buy_sort": "PD",
+      "buy_id": 17,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-04-21 02:24:01",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 170,
+      "buy_sort": "PD",
+      "buy_id": 974,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-09 06:44:37",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 170,
+      "buy_sort": "PD",
+      "buy_id": 907,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-12 13:15:51",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 172,
+      "buy_sort": "PD",
+      "buy_id": 152,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-01-24 06:11:51",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 172,
+      "buy_sort": "PD",
+      "buy_id": 453,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-01-24 06:20:44",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 172,
+      "buy_sort": "PD",
+      "buy_id": 754,
+      "quantity": 4,
+      "amount": null,
+      "created_at": "2024-01-24 06:29:21",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 172,
+      "buy_sort": "PD",
+      "buy_id": 31,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-01-24 06:34:58",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 173,
+      "buy_sort": "PD",
+      "buy_id": 312,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-04-17 02:04:29",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 173,
+      "buy_sort": "PD",
+      "buy_id": 803,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-04-17 02:11:58",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 173,
+      "buy_sort": "PD",
+      "buy_id": 270,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-04-17 02:19:24",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 173,
+      "buy_sort": "PD",
+      "buy_id": 761,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-04-17 02:29:04",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 174,
+      "buy_sort": "PD",
+      "buy_id": 803,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2023-11-05 08:22:17",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 174,
+      "buy_sort": "PD",
+      "buy_id": 120,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2023-11-05 08:30:56",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 174,
+      "buy_sort": "PD",
+      "buy_id": 461,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-11-05 08:40:43",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 174,
+      "buy_sort": "PD",
+      "buy_id": 802,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-11-05 08:50:27",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 174,
+      "buy_sort": "PD",
+      "buy_id": 119,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2023-11-05 08:59:56",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 174,
+      "buy_sort": "PD",
+      "buy_id": 460,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2023-11-05 09:06:45",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 176,
+      "buy_sort": "PD",
+      "buy_id": 954,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-11-01 22:26:03",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 176,
+      "buy_sort": "PD",
+      "buy_id": 75,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-01-07 22:00:56",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 176,
+      "buy_sort": "PD",
+      "buy_id": 220,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-01-07 22:08:28",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 177,
+      "buy_sort": "PD",
+      "buy_id": 61,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-10-11 09:42:42",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 177,
+      "buy_sort": "PD",
+      "buy_id": 230,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-02-02 23:47:42",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 177,
+      "buy_sort": "PD",
+      "buy_id": 399,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-02-02 23:57:30",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 178,
+      "buy_sort": "PD",
+      "buy_id": 670,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-10-13 11:09:01",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 180,
+      "buy_sort": "PD",
+      "buy_id": 353,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-02-15 07:56:19",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 180,
+      "buy_sort": "PD",
+      "buy_id": 240,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-02-15 08:00:08",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 182,
+      "buy_sort": "PD",
+      "buy_id": 846,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-03-02 01:38:57",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 182,
+      "buy_sort": "PD",
+      "buy_id": 179,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-03-02 01:41:51",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 182,
+      "buy_sort": "PD",
+      "buy_id": 536,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-07-02 05:48:37",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 182,
+      "buy_sort": "PD",
+      "buy_id": 893,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-02 05:53:18",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 182,
+      "buy_sort": "PD",
+      "buy_id": 226,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-02 05:56:05",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 182,
+      "buy_sort": "PD",
+      "buy_id": 583,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-02 05:58:55",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 182,
+      "buy_sort": "PD",
+      "buy_id": 940,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-31 07:36:26",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 185,
+      "buy_sort": "PD",
+      "buy_id": 71,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-11-30 04:53:15",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 185,
+      "buy_sort": "PD",
+      "buy_id": 522,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-11-30 04:56:53",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 185,
+      "buy_sort": "PD",
+      "buy_id": 973,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-11-30 05:05:20",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 185,
+      "buy_sort": "PD",
+      "buy_id": 400,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-11-30 05:13:56",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 186,
+      "buy_sort": "PD",
+      "buy_id": 445,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-04-07 11:19:57",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 186,
+      "buy_sort": "PD",
+      "buy_id": 456,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-04-07 11:26:31",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 186,
+      "buy_sort": "PD",
+      "buy_id": 467,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-04-07 11:32:09",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 186,
+      "buy_sort": "PD",
+      "buy_id": 478,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-04-07 11:39:55",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 186,
+      "buy_sort": "PD",
+      "buy_id": 489,
+      "quantity": 10,
+      "amount": null,
+      "created_at": "2024-04-07 11:47:39",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 186,
+      "buy_sort": "PD",
+      "buy_id": 500,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-04-07 11:53:15",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 187,
+      "buy_sort": "PD",
+      "buy_id": 694,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-01-16 05:16:01",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 187,
+      "buy_sort": "PD",
+      "buy_id": 445,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-01-16 05:22:29",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 189,
+      "buy_sort": "PD",
+      "buy_id": 339,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-17 12:32:58",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 189,
+      "buy_sort": "PD",
+      "buy_id": 434,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-05-23 20:08:06",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 189,
+      "buy_sort": "PD",
+      "buy_id": 529,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-09 09:21:34",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 189,
+      "buy_sort": "PD",
+      "buy_id": 624,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-14 21:16:03",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 189,
+      "buy_sort": "PD",
+      "buy_id": 719,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-14 21:19:33",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 189,
+      "buy_sort": "PD",
+      "buy_id": 814,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-14 21:27:21",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 190,
+      "buy_sort": "PD",
+      "buy_id": 151,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2023-09-30 05:04:44",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 191,
+      "buy_sort": "PD",
+      "buy_id": 127,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-06-23 04:41:01",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 191,
+      "buy_sort": "PD",
+      "buy_id": 438,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-17 02:32:12",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 192,
+      "buy_sort": "PD",
+      "buy_id": 790,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-17 09:13:24",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 192,
+      "buy_sort": "PD",
+      "buy_id": 503,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-17 09:17:08",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 192,
+      "buy_sort": "PD",
+      "buy_id": 216,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-07-17 09:23:02",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 192,
+      "buy_sort": "PD",
+      "buy_id": 953,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-07-17 09:26:27",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 193,
+      "buy_sort": "PD",
+      "buy_id": 636,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2023-12-10 21:43:04",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 193,
+      "buy_sort": "PD",
+      "buy_id": 809,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-01 21:23:43",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 193,
+      "buy_sort": "PD",
+      "buy_id": 982,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-01 21:33:33",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 193,
+      "buy_sort": "PD",
+      "buy_id": 131,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-08-13 09:51:06",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 193,
+      "buy_sort": "PD",
+      "buy_id": 304,
+      "quantity": 5,
+      "amount": null,
+      "created_at": "2024-08-13 09:56:52",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 194,
+      "buy_sort": "PD",
+      "buy_id": 630,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-26 00:45:18",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 194,
+      "buy_sort": "PD",
+      "buy_id": 297,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-11 09:02:46",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 194,
+      "buy_sort": "PD",
+      "buy_id": 988,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-30 13:44:11",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 196,
+      "buy_sort": "PD",
+      "buy_id": 804,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2023-11-28 00:57:36",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 197,
+      "buy_sort": "PD",
+      "buy_id": 873,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-26 01:56:14",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 197,
+      "buy_sort": "PD",
+      "buy_id": 282,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-26 02:05:50",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 197,
+      "buy_sort": "PD",
+      "buy_id": 715,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-26 02:15:27",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 198,
+      "buy_sort": "PD",
+      "buy_id": 337,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-02-09 17:49:46",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 199,
+      "buy_sort": "PD",
+      "buy_id": 244,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-06-02 06:13:58",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 199,
+      "buy_sort": "PD",
+      "buy_id": 125,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-13 02:26:57",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 199,
+      "buy_sort": "PD",
+      "buy_id": 6,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-13 02:32:27",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 199,
+      "buy_sort": "PD",
+      "buy_id": 911,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-13 02:40:03",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 199,
+      "buy_sort": "PD",
+      "buy_id": 792,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-13 02:42:47",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 199,
+      "buy_sort": "PD",
+      "buy_id": 673,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-13 02:45:30",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 201,
+      "buy_sort": "PD",
+      "buy_id": 789,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-23 14:58:13",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 201,
+      "buy_sort": "PD",
+      "buy_id": 278,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-23 15:06:07",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 201,
+      "buy_sort": "PD",
+      "buy_id": 791,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-07-23 15:10:44",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 201,
+      "buy_sort": "PD",
+      "buy_id": 280,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-23 15:13:10",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 201,
+      "buy_sort": "PD",
+      "buy_id": 793,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-07-23 15:15:43",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 202,
+      "buy_sort": "PD",
+      "buy_id": 467,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-04-16 06:40:46",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 202,
+      "buy_sort": "PD",
+      "buy_id": 614,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-04-16 06:48:19",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 202,
+      "buy_sort": "PD",
+      "buy_id": 761,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-04-16 06:55:46",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 202,
+      "buy_sort": "PD",
+      "buy_id": 908,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-04-16 06:58:18",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 204,
+      "buy_sort": "PD",
+      "buy_id": 243,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-02-01 20:30:54",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 204,
+      "buy_sort": "PD",
+      "buy_id": 956,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-02-01 20:33:42",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 204,
+      "buy_sort": "PD",
+      "buy_id": 645,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-02-10 14:06:39",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 204,
+      "buy_sort": "PD",
+      "buy_id": 334,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-02-10 14:13:15",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 204,
+      "buy_sort": "PD",
+      "buy_id": 23,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-02-10 14:21:08",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 204,
+      "buy_sort": "PD",
+      "buy_id": 736,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-08 09:27:08",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 204,
+      "buy_sort": "PD",
+      "buy_id": 425,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-15 07:17:10",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 205,
+      "buy_sort": "PD",
+      "buy_id": 139,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-28 12:05:46",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 205,
+      "buy_sort": "PD",
+      "buy_id": 1016,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-07-28 12:11:27",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 205,
+      "buy_sort": "PD",
+      "buy_id": 869,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-08-18 11:16:46",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 205,
+      "buy_sort": "PD",
+      "buy_id": 722,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-18 11:22:33",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 205,
+      "buy_sort": "PD",
+      "buy_id": 575,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-20 18:02:59",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 205,
+      "buy_sort": "PD",
+      "buy_id": 428,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-08-20 18:07:39",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 205,
+      "buy_sort": "PD",
+      "buy_id": 281,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-24 20:08:29",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 206,
+      "buy_sort": "PD",
+      "buy_id": 907,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-03-30 22:53:36",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 206,
+      "buy_sort": "PD",
+      "buy_id": 450,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-17 20:08:32",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 206,
+      "buy_sort": "PD",
+      "buy_id": 1017,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-17 20:18:08",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 206,
+      "buy_sort": "PD",
+      "buy_id": 560,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-17 20:22:36",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 206,
+      "buy_sort": "PD",
+      "buy_id": 103,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-05-17 20:27:17",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 206,
+      "buy_sort": "PD",
+      "buy_id": 670,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-17 20:29:53",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 206,
+      "buy_sort": "PD",
+      "buy_id": 213,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-22 23:06:12",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 207,
+      "buy_sort": "PD",
+      "buy_id": 821,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-07-09 15:25:00",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 207,
+      "buy_sort": "PD",
+      "buy_id": 930,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-07-09 15:27:39",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 207,
+      "buy_sort": "PD",
+      "buy_id": 15,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-20 00:17:55",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 207,
+      "buy_sort": "PD",
+      "buy_id": 124,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-20 00:25:42",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 208,
+      "buy_sort": "PD",
+      "buy_id": 476,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-15 20:15:33",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 208,
+      "buy_sort": "PD",
+      "buy_id": 487,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-15 20:22:02",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 208,
+      "buy_sort": "PD",
+      "buy_id": 498,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-15 20:30:46",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 208,
+      "buy_sort": "PD",
+      "buy_id": 509,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-13 18:20:04",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 208,
+      "buy_sort": "PD",
+      "buy_id": 520,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-13 18:25:52",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 208,
+      "buy_sort": "PD",
+      "buy_id": 531,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-07-13 18:31:45",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 208,
+      "buy_sort": "PD",
+      "buy_id": 542,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-13 18:41:11",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 209,
+      "buy_sort": "PD",
+      "buy_id": 147,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-27 08:33:05",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 209,
+      "buy_sort": "PD",
+      "buy_id": 636,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-27 08:35:53",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 210,
+      "buy_sort": "PD",
+      "buy_id": 947,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-01 01:35:45",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 210,
+      "buy_sort": "PD",
+      "buy_id": 578,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-01 01:45:38",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 210,
+      "buy_sort": "PD",
+      "buy_id": 209,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-08-01 01:51:19",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 210,
+      "buy_sort": "PD",
+      "buy_id": 864,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-08-01 01:55:12",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 210,
+      "buy_sort": "PD",
+      "buy_id": 495,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-01 02:03:49",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 210,
+      "buy_sort": "PD",
+      "buy_id": 126,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-01 02:09:34",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 210,
+      "buy_sort": "PD",
+      "buy_id": 781,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-09-07 10:14:04",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 211,
+      "buy_sort": "PD",
+      "buy_id": 606,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-16 09:32:18",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 211,
+      "buy_sort": "PD",
+      "buy_id": 459,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-15 12:36:38",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 211,
+      "buy_sort": "PD",
+      "buy_id": 312,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-06-15 12:41:25",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 211,
+      "buy_sort": "PD",
+      "buy_id": 165,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-15 12:48:51",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 211,
+      "buy_sort": "PD",
+      "buy_id": 18,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-12 07:03:31",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 212,
+      "buy_sort": "PD",
+      "buy_id": 222,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-04-16 01:09:43",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 212,
+      "buy_sort": "PD",
+      "buy_id": 291,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-04-16 01:15:14",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 214,
+      "buy_sort": "PD",
+      "buy_id": 42,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-02-21 02:44:44",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 214,
+      "buy_sort": "PD",
+      "buy_id": 661,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-02-21 02:48:22",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 217,
+      "buy_sort": "PD",
+      "buy_id": 375,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-04-11 19:22:10",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 217,
+      "buy_sort": "PD",
+      "buy_id": 148,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-04-11 19:27:45",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 217,
+      "buy_sort": "PD",
+      "buy_id": 945,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-04-11 19:36:29",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 220,
+      "buy_sort": "PD",
+      "buy_id": 1017,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-04-18 14:14:37",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 220,
+      "buy_sort": "PD",
+      "buy_id": 176,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-28 18:58:46",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 220,
+      "buy_sort": "PD",
+      "buy_id": 359,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-28 19:02:30",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 220,
+      "buy_sort": "PD",
+      "buy_id": 542,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-28 19:09:04",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 220,
+      "buy_sort": "PD",
+      "buy_id": 725,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-28 19:17:52",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 220,
+      "buy_sort": "PD",
+      "buy_id": 908,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-28 19:26:25",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 220,
+      "buy_sort": "PD",
+      "buy_id": 67,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-28 19:36:14",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 221,
+      "buy_sort": "PD",
+      "buy_id": 674,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-04-15 18:15:35",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 221,
+      "buy_sort": "PD",
+      "buy_id": 867,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-04-15 18:19:29",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 221,
+      "buy_sort": "PD",
+      "buy_id": 36,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-30 03:29:39",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 221,
+      "buy_sort": "PD",
+      "buy_id": 229,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-30 03:33:23",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 221,
+      "buy_sort": "PD",
+      "buy_id": 422,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-30 03:39:07",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 221,
+      "buy_sort": "PD",
+      "buy_id": 615,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-30 03:43:50",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 222,
+      "buy_sort": "PD",
+      "buy_id": 133,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-04-25 10:33:23",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 222,
+      "buy_sort": "PD",
+      "buy_id": 254,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-31 08:52:44",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 222,
+      "buy_sort": "PD",
+      "buy_id": 375,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-31 09:02:37",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 222,
+      "buy_sort": "PD",
+      "buy_id": 496,
+      "quantity": 6,
+      "amount": null,
+      "created_at": "2024-08-31 09:07:14",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 222,
+      "buy_sort": "PD",
+      "buy_id": 617,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-31 09:11:01",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 224,
+      "buy_sort": "PD",
+      "buy_id": 419,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-15 12:41:19",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 224,
+      "buy_sort": "PD",
+      "buy_id": 660,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-07-15 12:51:08",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 224,
+      "buy_sort": "PD",
+      "buy_id": 901,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-29 04:25:58",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 225,
+      "buy_sort": "PD",
+      "buy_id": 193,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-30 04:09:07",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 225,
+      "buy_sort": "PD",
+      "buy_id": 890,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-09-08 14:57:58",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 225,
+      "buy_sort": "PD",
+      "buy_id": 563,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-09-08 15:06:42",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 225,
+      "buy_sort": "PD",
+      "buy_id": 236,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-09-08 15:16:32",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 226,
+      "buy_sort": "PD",
+      "buy_id": 339,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-01-18 11:14:11",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 226,
+      "buy_sort": "PD",
+      "buy_id": 606,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-01-18 11:21:56",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 228,
+      "buy_sort": "PD",
+      "buy_id": 914,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-02-05 05:29:22",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 229,
+      "buy_sort": "PD",
+      "buy_id": 90,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-08 13:57:30",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 229,
+      "buy_sort": "PD",
+      "buy_id": 613,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-08-08 14:04:59",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 229,
+      "buy_sort": "PD",
+      "buy_id": 112,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-08-08 14:12:28",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 229,
+      "buy_sort": "PD",
+      "buy_id": 635,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-23 06:43:56",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 229,
+      "buy_sort": "PD",
+      "buy_id": 134,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-08-23 06:52:46",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 230,
+      "buy_sort": "PD",
+      "buy_id": 449,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-03-27 12:45:02",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 231,
+      "buy_sort": "PD",
+      "buy_id": 112,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-02 17:01:46",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 231,
+      "buy_sort": "PD",
+      "buy_id": 993,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-16 03:03:45",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 231,
+      "buy_sort": "PD",
+      "buy_id": 850,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-16 03:09:29",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 231,
+      "buy_sort": "PD",
+      "buy_id": 707,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-16 03:17:18",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 232,
+      "buy_sort": "PD",
+      "buy_id": 451,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-02-10 16:39:29",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 232,
+      "buy_sort": "PD",
+      "buy_id": 196,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-02-10 16:48:21",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 232,
+      "buy_sort": "PD",
+      "buy_id": 965,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-02 20:04:27",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 236,
+      "buy_sort": "PD",
+      "buy_id": 740,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-24 14:19:07",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 236,
+      "buy_sort": "PD",
+      "buy_id": 1005,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-24 14:24:45",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 236,
+      "buy_sort": "PD",
+      "buy_id": 246,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-24 14:27:12",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 236,
+      "buy_sort": "PD",
+      "buy_id": 511,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-24 14:37:02",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 236,
+      "buy_sort": "PD",
+      "buy_id": 776,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-24 19:58:45",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 236,
+      "buy_sort": "PD",
+      "buy_id": 17,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-24 20:08:28",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 236,
+      "buy_sort": "PD",
+      "buy_id": 282,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-24 20:16:59",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 237,
+      "buy_sort": "PD",
+      "buy_id": 551,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-22 20:29:22",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 237,
+      "buy_sort": "PD",
+      "buy_id": 28,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-08-22 20:33:51",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 239,
+      "buy_sort": "PD",
+      "buy_id": 6,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-04-20 07:57:05",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 239,
+      "buy_sort": "PD",
+      "buy_id": 819,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-04-20 08:02:30",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 239,
+      "buy_sort": "PD",
+      "buy_id": 608,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-30 14:21:50",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 239,
+      "buy_sort": "PD",
+      "buy_id": 397,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-30 14:30:16",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 240,
+      "buy_sort": "PD",
+      "buy_id": 295,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-06-23 06:05:40",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 241,
+      "buy_sort": "PD",
+      "buy_id": 522,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-03-01 16:50:00",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 241,
+      "buy_sort": "PD",
+      "buy_id": 773,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-03-01 16:59:29",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 242,
+      "buy_sort": "PD",
+      "buy_id": 977,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-20 03:18:02",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 242,
+      "buy_sort": "PD",
+      "buy_id": 206,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-20 03:26:47",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 242,
+      "buy_sort": "PD",
+      "buy_id": 459,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-20 03:30:12",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 246,
+      "buy_sort": "PD",
+      "buy_id": 997,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-06-20 05:31:05",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 246,
+      "buy_sort": "PD",
+      "buy_id": 558,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-06-20 05:39:54",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 246,
+      "buy_sort": "PD",
+      "buy_id": 119,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-20 05:44:41",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 247,
+      "buy_sort": "PD",
+      "buy_id": 261,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-03-24 05:17:12",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 247,
+      "buy_sort": "PD",
+      "buy_id": 632,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-03-24 05:24:51",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 247,
+      "buy_sort": "PD",
+      "buy_id": 1003,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-03-24 05:29:16",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 248,
+      "buy_sort": "PD",
+      "buy_id": 609,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-05-24 04:50:47",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 248,
+      "buy_sort": "PD",
+      "buy_id": 422,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-24 04:53:39",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 248,
+      "buy_sort": "PD",
+      "buy_id": 235,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-24 05:03:17",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 248,
+      "buy_sort": "PD",
+      "buy_id": 48,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-24 05:08:56",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 248,
+      "buy_sort": "PD",
+      "buy_id": 885,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-24 05:12:27",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 248,
+      "buy_sort": "PD",
+      "buy_id": 698,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-05-24 05:17:11",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 249,
+      "buy_sort": "PD",
+      "buy_id": 480,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-29 18:56:07",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 251,
+      "buy_sort": "PD",
+      "buy_id": 809,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-07 12:31:15",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 251,
+      "buy_sort": "PD",
+      "buy_id": 470,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-07 12:40:52",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 252,
+      "buy_sort": "PD",
+      "buy_id": 778,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-06-11 00:55:31",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 252,
+      "buy_sort": "PD",
+      "buy_id": 147,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-11 01:02:10",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 252,
+      "buy_sort": "PD",
+      "buy_id": 540,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-07 10:51:26",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 253,
+      "buy_sort": "PD",
+      "buy_id": 201,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-04-24 03:53:48",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 253,
+      "buy_sort": "PD",
+      "buy_id": 830,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-04-24 04:02:38",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 253,
+      "buy_sort": "PD",
+      "buy_id": 435,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-04-24 04:10:13",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 254,
+      "buy_sort": "PD",
+      "buy_id": 839,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-04-07 12:51:22",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 254,
+      "buy_sort": "PD",
+      "buy_id": 362,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-04-07 13:01:05",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 254,
+      "buy_sort": "PD",
+      "buy_id": 909,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-02 17:17:37",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 254,
+      "buy_sort": "PD",
+      "buy_id": 432,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-02 17:22:06",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 254,
+      "buy_sort": "PD",
+      "buy_id": 979,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-02 17:30:43",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 258,
+      "buy_sort": "PD",
+      "buy_id": 187,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-06 21:51:18",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 260,
+      "buy_sort": "PD",
+      "buy_id": 866,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-06-26 03:40:39",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 260,
+      "buy_sort": "PD",
+      "buy_id": 839,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-26 03:44:29",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 260,
+      "buy_sort": "PD",
+      "buy_id": 812,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-26 03:50:05",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 261,
+      "buy_sort": "PD",
+      "buy_id": 138,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-06-08 22:46:41",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 261,
+      "buy_sort": "PD",
+      "buy_id": 695,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-06-08 22:54:20",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 261,
+      "buy_sort": "PD",
+      "buy_id": 228,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-08 22:56:58",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 261,
+      "buy_sort": "PD",
+      "buy_id": 785,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-08 23:06:38",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 262,
+      "buy_sort": "PD",
+      "buy_id": 528,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-05-06 10:00:16",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 262,
+      "buy_sort": "PD",
+      "buy_id": 825,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-06 10:06:10",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 264,
+      "buy_sort": "PD",
+      "buy_id": 165,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-04 05:17:34",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 264,
+      "buy_sort": "PD",
+      "buy_id": 610,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-03 04:18:31",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 264,
+      "buy_sort": "PD",
+      "buy_id": 31,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-03 04:23:08",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 264,
+      "buy_sort": "PD",
+      "buy_id": 476,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-08-03 04:25:43",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 264,
+      "buy_sort": "PD",
+      "buy_id": 921,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-03 04:28:27",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 264,
+      "buy_sort": "PD",
+      "buy_id": 342,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-03 04:35:08",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 264,
+      "buy_sort": "PD",
+      "buy_id": 787,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-03 04:43:33",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 265,
+      "buy_sort": "PD",
+      "buy_id": 253,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-28 20:07:40",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 265,
+      "buy_sort": "PD",
+      "buy_id": 622,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-28 20:13:20",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 265,
+      "buy_sort": "PD",
+      "buy_id": 991,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-05-28 20:17:05",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 265,
+      "buy_sort": "PD",
+      "buy_id": 336,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-13 14:06:58",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 266,
+      "buy_sort": "PD",
+      "buy_id": 132,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-08-29 20:29:35",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 266,
+      "buy_sort": "PD",
+      "buy_id": 153,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-09-07 02:39:08",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 266,
+      "buy_sort": "PD",
+      "buy_id": 174,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-09-07 02:45:59",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 266,
+      "buy_sort": "PD",
+      "buy_id": 195,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-09-07 02:54:47",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 266,
+      "buy_sort": "PD",
+      "buy_id": 216,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-09-09 00:52:19",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 266,
+      "buy_sort": "PD",
+      "buy_id": 237,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-09-09 00:54:53",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 266,
+      "buy_sort": "PD",
+      "buy_id": 258,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-09-09 00:59:45",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 267,
+      "buy_sort": "PD",
+      "buy_id": 241,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-27 16:12:00",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 268,
+      "buy_sort": "PD",
+      "buy_id": 987,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-05-26 18:45:15",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 270,
+      "buy_sort": "PD",
+      "buy_id": 769,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-02 11:38:08",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 270,
+      "buy_sort": "PD",
+      "buy_id": 406,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-08-15 06:14:34",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 270,
+      "buy_sort": "PD",
+      "buy_id": 43,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-15 06:22:15",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 270,
+      "buy_sort": "PD",
+      "buy_id": 704,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-15 12:30:04",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 270,
+      "buy_sort": "PD",
+      "buy_id": 341,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-30 10:47:18",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 270,
+      "buy_sort": "PD",
+      "buy_id": 1002,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-08-30 10:54:52",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 270,
+      "buy_sort": "PD",
+      "buy_id": 639,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-30 11:03:21",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 271,
+      "buy_sort": "PD",
+      "buy_id": 293,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-09-07 02:43:00",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 272,
+      "buy_sort": "PD",
+      "buy_id": 738,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-26 02:06:57",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 272,
+      "buy_sort": "PD",
+      "buy_id": 35,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-26 02:10:41",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 272,
+      "buy_sort": "PD",
+      "buy_id": 356,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-26 02:15:28",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 272,
+      "buy_sort": "PD",
+      "buy_id": 677,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-26 02:24:19",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 273,
+      "buy_sort": "PD",
+      "buy_id": 577,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-17 15:30:26",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 273,
+      "buy_sort": "PD",
+      "buy_id": 74,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-06-17 15:33:02",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 273,
+      "buy_sort": "PD",
+      "buy_id": 595,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-17 15:37:29",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 273,
+      "buy_sort": "PD",
+      "buy_id": 92,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-06-17 15:42:04",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 273,
+      "buy_sort": "PD",
+      "buy_id": 613,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-07-03 22:15:22",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 273,
+      "buy_sort": "PD",
+      "buy_id": 110,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-03 22:21:00",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 275,
+      "buy_sort": "PD",
+      "buy_id": 985,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-09-07 11:03:24",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 275,
+      "buy_sort": "PD",
+      "buy_id": 520,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-09-07 11:11:02",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 275,
+      "buy_sort": "PD",
+      "buy_id": 55,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-09-07 11:18:31",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 276,
+      "buy_sort": "PD",
+      "buy_id": 802,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-04 05:06:06",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 276,
+      "buy_sort": "PD",
+      "buy_id": 691,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-04 05:15:52",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 276,
+      "buy_sort": "PD",
+      "buy_id": 580,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-04 05:23:17",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 276,
+      "buy_sort": "PD",
+      "buy_id": 469,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-08-04 05:28:07",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 276,
+      "buy_sort": "PD",
+      "buy_id": 358,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-04 05:30:33",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 276,
+      "buy_sort": "PD",
+      "buy_id": 247,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-04 05:34:17",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 276,
+      "buy_sort": "PD",
+      "buy_id": 136,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-31 19:40:28",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 277,
+      "buy_sort": "PD",
+      "buy_id": 806,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-07-09 17:41:54",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 277,
+      "buy_sort": "PD",
+      "buy_id": 963,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-09 17:47:43",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 277,
+      "buy_sort": "PD",
+      "buy_id": 96,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-27 22:01:47",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 277,
+      "buy_sort": "PD",
+      "buy_id": 253,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-27 22:04:12",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 281,
+      "buy_sort": "PD",
+      "buy_id": 976,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-16 22:59:14",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 281,
+      "buy_sort": "PD",
+      "buy_id": 573,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-16 23:07:40",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 281,
+      "buy_sort": "PD",
+      "buy_id": 170,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-18 21:31:08",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 282,
+      "buy_sort": "PD",
+      "buy_id": 817,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-07-20 22:52:14",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 282,
+      "buy_sort": "PD",
+      "buy_id": 308,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-07-20 23:01:54",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 282,
+      "buy_sort": "PD",
+      "buy_id": 823,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-07-20 23:08:46",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 284,
+      "buy_sort": "PD",
+      "buy_id": 128,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-05 02:58:48",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 284,
+      "buy_sort": "PD",
+      "buy_id": 999,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-08-05 03:01:28",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 285,
+      "buy_sort": "PD",
+      "buy_id": 347,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-24 00:40:43",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 285,
+      "buy_sort": "PD",
+      "buy_id": 118,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-24 00:46:23",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 286,
+      "buy_sort": "PD",
+      "buy_id": 649,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-04 16:25:40",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 286,
+      "buy_sort": "PD",
+      "buy_id": 396,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-08-04 16:30:24",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 288,
+      "buy_sort": "PD",
+      "buy_id": 499,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-14 10:16:46",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 288,
+      "buy_sort": "PD",
+      "buy_id": 932,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-08-19 22:13:43",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 288,
+      "buy_sort": "PD",
+      "buy_id": 341,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-08-19 22:18:13",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 288,
+      "buy_sort": "PD",
+      "buy_id": 774,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-19 22:26:50",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 288,
+      "buy_sort": "PD",
+      "buy_id": 183,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-08-19 22:34:24",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 289,
+      "buy_sort": "PD",
+      "buy_id": 812,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-08-31 02:24:07",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 289,
+      "buy_sort": "PD",
+      "buy_id": 753,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-31 02:32:45",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 289,
+      "buy_sort": "PD",
+      "buy_id": 694,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-31 02:35:29",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 289,
+      "buy_sort": "PD",
+      "buy_id": 635,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-08-31 02:43:55",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 289,
+      "buy_sort": "PD",
+      "buy_id": 576,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-31 02:51:25",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 292,
+      "buy_sort": "PD",
+      "buy_id": 1015,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-20 21:21:33",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 292,
+      "buy_sort": "PD",
+      "buy_id": 78,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-20 21:29:01",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 292,
+      "buy_sort": "PD",
+      "buy_id": 165,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-20 21:36:36",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 292,
+      "buy_sort": "PD",
+      "buy_id": 252,
+      "quantity": 3,
+      "amount": null,
+      "created_at": "2024-08-20 21:45:03",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 292,
+      "buy_sort": "PD",
+      "buy_id": 339,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-20 21:47:40",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 294,
+      "buy_sort": "PD",
+      "buy_id": 994,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-28 15:34:39",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 295,
+      "buy_sort": "PD",
+      "buy_id": 409,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-08-27 15:47:14",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 295,
+      "buy_sort": "PD",
+      "buy_id": 180,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-08-27 15:50:51",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 295,
+      "buy_sort": "PD",
+      "buy_id": 975,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-29 20:54:40",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 295,
+      "buy_sort": "PD",
+      "buy_id": 746,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-08-29 21:04:34",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 297,
+      "buy_sort": "PD",
+      "buy_id": 597,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-09-07 08:01:49",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 297,
+      "buy_sort": "PD",
+      "buy_id": 336,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-09-07 08:07:21",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 297,
+      "buy_sort": "PD",
+      "buy_id": 75,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-09-07 08:13:03",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 297,
+      "buy_sort": "PD",
+      "buy_id": 838,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-09-07 08:18:37",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 299,
+      "buy_sort": "PD",
+      "buy_id": 226,
+      "quantity": 1,
+      "amount": null,
+      "created_at": "2024-09-05 04:01:36",
+      "deleted_at": null
+  },
+  {
+      "id": null,
+      "user_id": 300,
+      "buy_sort": "PD",
+      "buy_id": 762,
+      "quantity": 2,
+      "amount": null,
+      "created_at": "2024-09-05 07:17:16",
+      "deleted_at": null
+  }
+]

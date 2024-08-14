@@ -1,43 +1,44 @@
 Table product {
   id               int(9) [primary key]
   name             varchar(50)
-  brand_id         smallint(4)// pr_brand的id
-  cate_1_id        tinyint(1)// category_1的id
-  cate_2_id        smallint(4)// category_2的id
+  brand            varchar(20)
+  cate_1           varchar(20)
+  cate_2           varchar(20)
   is_near_expired  tinyint(1)
   is_refurbished   tinyint(1)
   description      varchar(2000)
 }
 
 Table prod_age {
-  id               int(10) [primary key]
-  prod_id          int(9)          // product的id
-  age_id           tinyint(1)
+  id        bugint(10) [primary key]
+  prod_id   int(9)          // product的id
+  age       varchar(10)
 }
 
 Table prod_body {
-  id               int(10) [primary key]
-  prod_id          int(9)          // product的id
-  body_id          tinyint(1)
+  id        int(10) [primary key]
+  prod_id   int(9)          // product的id
+  body      varchar(10)
 }
 
 Table prod_picture {
-  id               bigint(11) [primary key]
-  prod_id          int(9)         // product的id
-  name             varchar(20)
+  id        bigint(10) [primary key]
+  prod_id   int(9)         // product的id
+  name      varchar(20)
 }
 
 Table prod_price_stock {
-  id               bigint(13) [primary key]
-  prod_id          int(9)         // product的id
-  sort_id          bigint(10)     // pr_sort的id
-  spec_id          bigint(10)     // pr_spec的id
-  price            mediumint(7)
-  stock            smallint(4)
+  id          bigint(11) [primary key]
+  prod_id     int(9)         // product的id
+  price       mediumint(7)
+  price_sp    mediumint(6)
+  sortname    varchar(20)
+  specname    varchar(20)
+  stock       mediumint(6)
 }
 
 Table prod_tag {
-  id       bigint(11) [primary key]
+  id       bigint(10) [primary key]
   prod_id  int(9)          // product的id
-  tag_id   int(9)          // pr_tag的id
+  tag_id   varchar(20)
 }

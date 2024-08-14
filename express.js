@@ -37,7 +37,7 @@ app.use(logger('dev'));
 //=== 路由之根
 app.get('/', (_, res) => {
   res.status(301).json({
-    status: 'nothing here', message: '歡迎使用翻肚肚伺服器，請使用 api 路由以使用服務。'
+    status: 'success', message: '歡迎使用翻肚肚伺服器，請使用 api 路由以使用服務。'
   });
 });
 
@@ -45,16 +45,38 @@ app.get('/', (_, res) => {
 const dirPath = resolve(import.meta.dirname, 'routes');
 const routerFileNames = await readdir(dirPath)
 
-for (const filename of routerFileNames) {
-  const filePath = pathToFileURL(resolve(dirPath, filename));
-  //由於 import 的格式搖求，必須使用 url.pathToFileURL 路徑才能被讀到
-  const routeFile = await import(filePath);
+for (const nameStr of routerFileNames) {
+  const path2this = resolve(dirPath, nameStr);
+  if (nameStr.endsWith('.js')) {
+    //* js files
+    const filePath = pathToFileURL(path2this);
+    //由於 import 的格式搖求，必須使用 url.pathToFileURL 路徑才能被讀到
+    const routeFile = await import(filePath);
 
-  let slug = filename.split('.')[0];
-  slug = (slug === 'index') ? '' : slug;
+    let slug = nameStr.split('.')[0];
+    slug = (slug === 'index') ? '' : slug;
 
-  app.use(`/api/${slug}`, routeFile.default);
-  // .default 為將每個路由檔的 default export
+    app.use(`/api/${slug}`, routeFile.default);
+    // .default 為將每個路由檔的 default export
+  } else {
+    //* folders
+      if(nameStr.indexOf('.') >= 0) continue;//非 js 檔或資料夾者一律跳過
+
+      const subfileNames = await readdir(path2this);
+
+    for (const subNameStr of subfileNames) {
+    if(subNameStr.endsWith('.js') === false) continue;//第二層子資料夾一律跳過
+      
+      const filePath = pathToFileURL(resolve(path2this, subNameStr));
+      const routeFile = await import(filePath);
+
+      let slug = subNameStr.split('.')[0];
+      slug = (slug === 'index') ? '' : slug;
+
+      const routePath = ['', 'api', nameStr, slug].join('/');
+      app.use(routePath, routeFile.default);
+    }
+  }
 }
 
 //================== 沒有設定到的路由皆捕捉為 404

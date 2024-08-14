@@ -1988,7 +1988,7 @@ CREATE TABLE `prod_picture` (
 -- 傾印資料表的資料 `prod_picture`
 --
 
-INSERT INTO `prod_picture` (`id`, `prod_id`, `pic_name`) VALUES
+INSERT INTO `prod_picture` (`id`, `prod_id`, `name`) VALUES
 (1, 1, 'PR0000000011.jpg'),
 (2, 1, 'PR0000000012.jpg'),
 (3, 2, 'PR0000000025.jpg'),

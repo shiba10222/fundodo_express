@@ -24,12 +24,12 @@ SET time_zone = "+08:00";
 CREATE TABLE IF NOT EXISTS `cart_temp` (
     `id` int(9) UNSIGNED NOT NULL,
     `user_id` int(7) UNSIGNED NOT NULL,
-    `buy_sort` VARCHAR(2) CHARACTER SET utf8,
+    `buy_sort` VARCHAR(2) NOT NULL,
     `buy_id` bigint(13) UNSIGNED NOT NULL,
-    `quantity` mediumint(6) UNSIGNED,
-    `amount` mediumint(6) UNSIGNED,
+    `quantity` mediumint(6) UNSIGNED DEFAULT NULL,
+    `amount` mediumint(6) UNSIGNED DEFAULT NULL,
     `created_at` DATETIME NOT NULL,
-    `deleted_at` DATETIME
+    `deleted_at` DATETIME DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 ALTER TABLE `cart_temp` CHANGE `id` `id` INT(9) UNSIGNED NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`id`); 
 

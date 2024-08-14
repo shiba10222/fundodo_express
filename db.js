@@ -3,7 +3,7 @@ import 'dotenv/config.js'
 
 //!公告
 //請在自己的電腦以 .env 檔設定以下五項資訊
-const conn = await mysql.createConnection({
+const conn =  mysql.createPool({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     port: process.env.DB_PORT,

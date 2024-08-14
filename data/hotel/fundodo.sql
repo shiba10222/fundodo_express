@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： localhost
--- 產生時間： 2024 年 08 月 14 日 09:41
+-- 產生時間： 2024 年 08 月 14 日 12:51
 -- 伺服器版本： 10.4.28-MariaDB
 -- PHP 版本： 8.1.17
 
@@ -31,9 +31,11 @@ CREATE TABLE `booking` (
   `id` int(5) NOT NULL,
   `hotel_id` int(5) NOT NULL,
   `user_id` int(5) NOT NULL,
-  `room_type` int(3) NOT NULL,
+  `room_type` varchar(3) NOT NULL,
   `check_in_date` datetime(6) NOT NULL,
   `check_out_date` datetime(6) NOT NULL,
+  `uni_price` int(5) NOT NULL,
+  `total_price` int(5) NOT NULL,
   `total_nights` int(5) NOT NULL,
   `status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -42,18 +44,18 @@ CREATE TABLE `booking` (
 -- 傾印資料表的資料 `booking`
 --
 
-INSERT INTO `booking` (`id`, `hotel_id`, `user_id`, `room_type`, `check_in_date`, `check_out_date`, `total_nights`, `status`) VALUES
-(1, 18, 70, 3, '2024-02-09 00:00:00.000000', '2024-02-10 00:00:00.000000', 1, 'confirmed'),
-(2, 7, 193, 3, '2024-02-28 00:00:00.000000', '2024-03-01 00:00:00.000000', 2, 'confirmed'),
-(3, 1, 56, 2, '2024-02-25 00:00:00.000000', '2024-02-28 00:00:00.000000', 3, 'confirmed'),
-(4, 31, 267, 1, '2024-06-22 00:00:00.000000', '2024-06-23 00:00:00.000000', 1, 'confirmed'),
-(5, 2, 71, 3, '2024-03-15 00:00:00.000000', '2024-03-20 00:00:00.000000', 5, 'confirmed'),
-(6, 21, 182, 1, '2024-04-25 00:00:00.000000', '2024-04-27 00:00:00.000000', 2, 'confirmed'),
-(7, 10, 21, 2, '2024-06-10 00:00:00.000000', '2024-06-14 00:00:00.000000', 4, 'confirmed'),
-(8, 13, 101, 2, '2024-04-17 00:00:00.000000', '2024-04-19 00:00:00.000000', 2, 'confirmed'),
-(9, 32, 264, 1, '2024-06-23 00:00:00.000000', '2024-06-29 00:00:00.000000', 6, 'confirmed'),
-(10, 19, 268, 1, '2024-01-20 00:00:00.000000', '2024-01-22 00:00:00.000000', 2, 'confirmed'),
-(11, 30, 33, 2, '2024-03-14 00:00:00.000000', '2024-03-16 00:00:00.000000', 2, 'confirmed');
+INSERT INTO `booking` (`id`, `hotel_id`, `user_id`, `room_type`, `check_in_date`, `check_out_date`, `uni_price`, `total_price`, `total_nights`, `status`) VALUES
+(1, 18, 70, 'L', '2024-02-09 00:00:00.000000', '2024-02-10 00:00:00.000000', 1, 639, 639, 'confirmed'),
+(2, 7, 193, 'L', '2024-02-28 00:00:00.000000', '2024-03-01 00:00:00.000000', 2, 624, 1248, 'confirmed'),
+(3, 1, 56, 'M', '2024-02-25 00:00:00.000000', '2024-02-28 00:00:00.000000', 3, 570, 1710, 'confirmed'),
+(4, 31, 267, 'S', '2024-06-22 00:00:00.000000', '2024-06-23 00:00:00.000000', 1, 325, 325, 'confirmed'),
+(5, 2, 71, 'L', '2024-03-15 00:00:00.000000', '2024-03-20 00:00:00.000000', 5, 677, 3385, 'confirmed'),
+(6, 21, 182, 'S', '2024-04-25 00:00:00.000000', '2024-04-27 00:00:00.000000', 2, 364, 728, 'confirmed'),
+(7, 10, 21, 'M', '2024-06-10 00:00:00.000000', '2024-06-14 00:00:00.000000', 4, 550, 2200, 'confirmed'),
+(8, 13, 101, 'M', '2024-04-17 00:00:00.000000', '2024-04-19 00:00:00.000000', 2, 540, 1080, 'confirmed'),
+(9, 32, 264, 'S', '2024-06-23 00:00:00.000000', '2024-06-29 00:00:00.000000', 6, 340, 2040, 'confirmed'),
+(10, 19, 268, 'S', '2024-01-20 00:00:00.000000', '2024-01-22 00:00:00.000000', 2, 324, 648, 'confirmed'),
+(11, 30, 33, 'M', '2024-03-14 00:00:00.000000', '2024-03-16 00:00:00.000000', 2, 552, 1104, 'confirmed');
 
 -- --------------------------------------------------------
 
@@ -68,9 +70,9 @@ CREATE TABLE `hotel` (
   `description` varchar(300) NOT NULL,
   `address` varchar(100) NOT NULL,
   `main_img_path` varchar(100) NOT NULL,
-  `price_small_dog` decimal(6,0) NOT NULL,
-  `price_medium_dog` decimal(6,0) NOT NULL,
-  `price_large_dog` decimal(6,0) NOT NULL,
+  `price_s` decimal(6,0) NOT NULL,
+  `price_m` decimal(6,0) NOT NULL,
+  `price_l` decimal(6,0) NOT NULL,
   `service_food` tinyint(1) NOT NULL,
   `service_bath` tinyint(1) NOT NULL,
   `service_live_stream` tinyint(1) NOT NULL,
@@ -83,7 +85,7 @@ CREATE TABLE `hotel` (
 -- 傾印資料表的資料 `hotel`
 --
 
-INSERT INTO `hotel` (`id`, `location_id`, `name`, `description`, `address`, `main_img_path`, `price_small_dog`, `price_medium_dog`, `price_large_dog`, `service_food`, `service_bath`, `service_live_stream`, `service_playground`, `created_at`, `valid`) VALUES
+INSERT INTO `hotel` (`id`, `location_id`, `name`, `description`, `address`, `main_img_path`, `price_s`, `price_m`, `price_l`, `service_food`, `service_bath`, `service_live_stream`, `service_playground`, `created_at`, `valid`) VALUES
 (1, 1, 'W SPA寵物旅館', 'W SPA 寵物旅館位於台電大樓附近，以寵物美容、SPA、住宿安親服務為主，提供貓咪超大獨立挑高空間，而狗狗則採不關籠半開方式照顧，並都提供24H監視器（有夜視鏡功能），讓飼主可隨時觀看毛孩動態。消費者表示：「狗狗在這邊玩得很開心，環境乾淨」、「保姆姐姐對我們家小朋友超級好！！很仔細照顧毛孩子們」、「公館一帶，寵物住宿首選！！乾淨，有耐心，可雲端監控毛孩狀況」、「收費合理，並且很細心的照顧毛小孩」。', '台北市中正區羅斯福路三段139號1F', 'HT000011.jpg', 380, 570, 780, 1, 1, 0, 1, '2024-07-25 09:41:01.000000', 1),
 (2, 1, '有間狗旅精品度假中心', '有間狗旅位於中正紀念堂站附近，強調專注狗狗房與公共空間的設計，除了備有基本的 24 小時全天候監視器外，甚至還有狗狗行為諮商師駐館，協助狗狗們快速安穩地適應環境，服務相當貼心。家長大力推薦：「老闆非常細心，對於狗狗的動向都有仔細掌握」、「整體氛圍感覺非常溫馨悠閒，老闆也非常的專業」、「環境很漂亮整潔，服務也非常專業細心」、「很用心了解寵物的喜好及需求，有問題的時候回覆也都很即時」。', '台北市中正區南昌路一段14號二樓', 'HT000021.jpg', 330, 575, 677, 1, 1, 0, 1, '2024-03-18 07:22:09.000000', 1),
 (3, 1, 'VERY旺寵物旅館', 'VERY旺以打造市中心的寵物樂園為出發點，提供貓狗美容、SPA、住宿、安親臨托等，也有販售寵物用品及鮮食，旅館除了採貓狗獨立分層空間外，最大特色就是頂樓有設計戶外運動場，能讓住宿的狗狗自由自在奔跑玩耍。住過都說讚：「是真心愛寵物的寵物旅館，住宿價格很實惠，還有狗狗們的放風時間」、「每天回報狗狗狀態，可以視訊看寶貝狀況，頂樓有空地可以讓寶貝放風」、「保姆都非常細心 帶寶貝來住宿都很放心」、「服務好，對待毛寶貝們都很友善」。', '台北市松山區八德路二段429號2樓', 'HT000031.jpg', 348, 542, 735, 0, 0, 1, 1, '2024-03-17 12:08:40.000000', 1),

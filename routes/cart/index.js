@@ -56,82 +56,104 @@ const checkToken = (req, res, next) => {
 //======== 讀取全部 ==========//
 
 //兵分三路
+/**
+ * 查詢 product 並打包資料
+ * @param {number} uid user id
+ * @returns {{
+ * buy_id: number, quantity: number,
+ * created_at: string, deleted_at: string
+ * }[]} object[ ] | null
+ */
 const handleProd = async uid => {
-  const [rows] = await conn.query(
-    `SELECT buy_id, quantity, created_at, deleted_at FROM cart_temp WHERE buy_sort = ? AND user_id = ?`,
+  //== 1 ==== 查詢 cart_PD ==========================
+  const [rows_cart] = await conn.query(
+    `SELECT buy_id, quantity, created_at, deleted_at
+    FROM cart_temp WHERE buy_sort = ? AND user_id = ?`,
     ['PD', uid]
   );
 
-  return rows;
-  console.log(rows);
-  process.exit(0);
-  //================================================
-  let cartData = DB.data.carts.filter(item => item.user_id === uid);
-  if (cartData.length === 0) {
-    res.status(404).json({ status: "failed", message: `查無 ID ${uid} 用戶之購物車資料` });
-    return;
-  }
+  if (rows_cart.length === 0) return null;
 
-  const cartResult = cartData.map(item => {
-    const priceStockObj = DB.data.prod_price_stock.find(d => d.id == item.prod_item_id);
-    //====
-    const sortObj = priceStockObj.sort_id ? DB.data.pr_sort.find(d => d.id == priceStockObj.sort_id) : null;
-    const sort_name = sortObj ? sortObj.name : null;
-    //====
-    const specObj = priceStockObj.spec_id ? DB.data.pr_spec.find(d => d.id == priceStockObj.spec_id) : null;
-    const spec_name = specObj ? specObj.name : null;
-    //====
-    const price = Number(priceStockObj.price);
+  const sample = {
+    "buy_id": 979,
+    "quantity": 1,
+    "created_at": "2023-04-16T00:19:42.000Z",
+    "deleted_at": null
+  };
 
-    const prodObj = DB.data.products.find(d => d.id == priceStockObj.prod_id);
+  //== 2 ==== 打包資料 =================================
+  const pkgArr = await Promise.all(
+    rows_cart.map(async cartItem => {
+      //== 2-1 ==== 查詢 prod_price_stock ========
+      const [rows_item] = await conn.query(
+        `SELECT * FROM prod_price_stock WHERE id = ?`,
+        [cartItem.buy_id]
+      );
 
-    return ({
-      key: item.prod_item_id,
-      name: prodObj.name,
-      pic_path: "PR" + priceStockObj.prod_id.padStart(9, '0') + "1.jpg",
-      sort_name,
-      spec_name,
-      price,
-      qty: item.qty,
-      created_at: item.created_at,
-      isOutOfStock: priceStockObj.stock == 0
-    });
+      if (rows_item.length !== 1) {
+        console.error("發生了未預期的結果：給定的 prod_price_stock id 不存在或是非唯一");
+        return null;
+      }
+      const subProd = rows_item[0];
+      //== 2-2 ==== 查詢 product ==================
+      const [rows_prod] = await conn.query(
+        `SELECT name FROM product WHERE id = ?`,
+        [subProd.prod_id]
+      );
+
+      if (rows_prod.length !== 1) {
+        console.error("發生了未預期的結果：給定的 product id 不存在或是非唯一");
+        return null;
+      }
+      const product = rows_prod[0];
+      //== 2-3 ==== 查詢 prod_picture ==================
+      const [rows_pic] = await conn.query(
+        "SELECT name FROM prod_picture WHERE prod_id = ?",
+        [subProd.prod_id]
+      );
+      
+      const picName = rows_pic[0]['name'];
+
+      return ({
+        key: cartItem.buy_id,
+        prod_name: product.name,
+        pic_name: picName,
+        sort_name: subProd.sortname,
+        spec_name: subProd.specname,
+        price: subProd.price,
+        price_sp: subProd.price_sp,
+        quantity: cartItem.quantity,
+        isOutOfStock: subProd.stock === 0,
+        stock_when_few: (subProd.stock < 20) ? subProd.stock : null
+      })
+    })
+  ).catch(err => {
+    console.error(err);
+    return null;
   });
+
+  return pkgArr.filter(obj => !!obj);
 }
 
 //正文開始
 router.get('/', (req, res) => {
-  // let result = DB.data.carts.slice(-30);
-
-  // if (!result) res.status(404).json({ status: "failed", message: "查無任何購物車資料" });
-
-
-  res.status(200).send({ status: "success", message: '筆數過多不及備載，僅回傳最新的 30 筆', result });
+  res.status(400).send({ status: "Bad Request", message: '欲使用購物車查詢系統，請輸入正確的路由' });
 });
 
-//======== 搜尋指定 ==========//
-// 必須在讀取前，否則會被攔截
-//* test pnum = 1003
-router.get('/prod', (req, res) => {
-  const pnum = Number(req.query.pnum);
-
-  // let result = DB.data.carts.filter(item => item.prod_item_id === pnum);
-
-  // if (!result) {
-  //   res.status(404).json({ status: "failed", message: `查無型號 ${pnum} 商品品項之購物車資料` });
-  //   return;
-  // }
-
-  res.status(200).json({ status: "success", message: "查詢成功", result });
-});
 
 //======== 讀取指定 ==========//
 //【核心功能】使用者的購物車內容
 //* test uid = 59
 router.get('/:uid', async (req, res) => {
   const uid = Number(req.params.uid);
-  const rows = await handleProd(uid);
+  const rows_PD = await handleProd(uid);
 
+
+  let rows = {
+    PD: rows_PD,
+    HT: null,
+    CR: null,
+  };
   res.status(200).json({ status: "success", message: "查詢成功", result: rows });
 });
 

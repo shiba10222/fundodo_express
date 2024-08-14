@@ -28,7 +28,7 @@ SET time_zone = "+08:00";
 --
 
 CREATE TABLE `brand_category` (
-  `id` int(10) UNSIGNED NOT NULL,
+  `id` bigint(10) UNSIGNED NOT NULL,
   `category` varchar(20) NOT NULL,
   `brand` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -209,7 +209,7 @@ INSERT INTO `category` (`id`, `cate_1_name`, `cate_2_name`) VALUES
 --
 
 CREATE TABLE `product` (
-  `id` int(10) UNSIGNED NOT NULL,
+  `id` int(9) UNSIGNED NOT NULL,
   `name` varchar(50) NOT NULL,
   `brand` varchar(20) NOT NULL,
   `cate_1` varchar(20) NOT NULL,
@@ -633,7 +633,7 @@ INSERT INTO `product` (`id`, `name`, `brand`, `cate_1`, `cate_2`, `is_near_expir
 --
 
 CREATE TABLE `prod_age` (
-  `id` int(10) UNSIGNED NOT NULL,
+  `id` bigint(10) UNSIGNED NOT NULL,
   `prod_id` int(9) UNSIGNED NOT NULL,
   `age` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1331,7 +1331,7 @@ INSERT INTO `prod_age` (`id`, `prod_id`, `age`) VALUES
 --
 
 CREATE TABLE `prod_body` (
-  `id` int(10) UNSIGNED NOT NULL,
+  `id` bigint(10) UNSIGNED NOT NULL,
   `prod_id` int(9) UNSIGNED NOT NULL,
   `body` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1979,16 +1979,16 @@ INSERT INTO `prod_body` (`id`, `prod_id`, `body`) VALUES
 --
 
 CREATE TABLE `prod_picture` (
-  `id` bigint(11) UNSIGNED NOT NULL,
+  `id` bigint(10) UNSIGNED NOT NULL,
   `prod_id` int(9) UNSIGNED NOT NULL,
-  `pic_name` varchar(20) NOT NULL
+  `name` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- 傾印資料表的資料 `prod_picture`
 --
 
-INSERT INTO `prod_picture` (`id`, `prod_id`, `pic_name`) VALUES
+INSERT INTO `prod_picture` (`id`, `prod_id`, `name`) VALUES
 (1, 1, 'PR0000000011.jpg'),
 (2, 1, 'PR0000000012.jpg'),
 (3, 2, 'PR0000000025.jpg'),
@@ -2979,12 +2979,12 @@ INSERT INTO `prod_picture` (`id`, `prod_id`, `pic_name`) VALUES
 
 CREATE TABLE `prod_price_stock` (
   `id` int(11) UNSIGNED NOT NULL,
-  `prod_id` int(11) UNSIGNED DEFAULT NULL,
-  `price_sp` int(11) UNSIGNED DEFAULT NULL,
-  `price` int(11) UNSIGNED DEFAULT NULL,
-  `stock` int(11) UNSIGNED DEFAULT NULL,
-  `sortname` varchar(18) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `specname` varchar(14) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL
+  `prod_id` int(9) UNSIGNED DEFAULT NULL,
+  `price_sp` mediumint(6) UNSIGNED DEFAULT NULL,
+  `price` mediumint(7) UNSIGNED DEFAULT NULL,
+  `stock` mediumint(6) UNSIGNED DEFAULT NULL,
+  `sortname` varchar(20) DEFAULT NULL,
+  `specname` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -4631,7 +4631,7 @@ ALTER TABLE `prod_tag`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `brand_category`
 --
 ALTER TABLE `brand_category`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
+  MODIFY `id` bigint(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `category`
@@ -4643,19 +4643,19 @@ ALTER TABLE `category`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=402;
+  MODIFY `id` bigint(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=402;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `prod_age`
 --
 ALTER TABLE `prod_age`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=681;
+  MODIFY `id` bigint(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=681;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `prod_body`
 --
 ALTER TABLE `prod_body`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=631;
+  MODIFY `id` bigint(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=631;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `prod_picture`

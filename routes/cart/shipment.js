@@ -1,3 +1,8 @@
+//! ================== Failed ==================== !//
+//綠界的地圖選取器，只給正式環境用
+//且自己伺服器的 api 連結必須跟送訂單一樣的打包流程
+//因此無法得到使用者選取的結果
+
 import { Router } from 'express'
 import cookieParser from 'cookie-parser'
 const router = Router()

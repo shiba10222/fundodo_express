@@ -60,12 +60,12 @@ for (const nameStr of routerFileNames) {
     // .default 為將每個路由檔的 default export
   } else {
     //* folders
-      if(nameStr.indexOf('.')) continue;//非 js 檔或資料夾者一律跳過
+      if(nameStr.indexOf('.') >= 0) continue;//非 js 檔或資料夾者一律跳過
 
       const subfileNames = await readdir(path2this);
 
     for (const subNameStr of subfileNames) {
-      if(subNameStr.endsWith('.js') === false) continue;//第二層子資料夾一律跳過
+    if(subNameStr.endsWith('.js') === false) continue;//第二層子資料夾一律跳過
       
       const filePath = pathToFileURL(resolve(path2this, subNameStr));
       const routeFile = await import(filePath);
@@ -74,7 +74,6 @@ for (const nameStr of routerFileNames) {
       slug = (slug === 'index') ? '' : slug;
 
       const routePath = ['', 'api', nameStr, slug].join('/');
-      console.log(routePath);
       app.use(routePath, routeFile.default);
     }
   }

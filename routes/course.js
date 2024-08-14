@@ -64,6 +64,10 @@ router.get("/detail/:id", async (req, res) => {
         `, [id]);
         course.tags = tagsResult.map(tag => tag.name);
 
+        const [imgResult]=await conn.query("SELECT path FROM course_imgs WHERE course_id = ?", [id])
+        course.images= imgResult.map(img => img.path)   
+
+
         res.status(200).json({
             status: "success",
             message: "取得指定課程",

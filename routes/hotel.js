@@ -10,6 +10,25 @@ import conn from "../db.js";
 
 const router = express.Router();
 
+router.get("/", async (req, res) => {
+  try {
+    const [result] = await conn.query("SELECT * FROM hotel");
+    res.status(200).json({
+      status: "success",
+      message: "取得所有旅館",
+      data: result
+
+    })
+
+  } catch (error) {
+    res.status(500).json({
+      status: "error",
+      message: "找不到旅館",
+      error: error.message
+    })
+  }
+});
+
 
 router.get("/detail/:id", async (req, res) => {
   try {
@@ -19,7 +38,8 @@ router.get("/detail/:id", async (req, res) => {
     if (result.length === 0) {
       return res.status(404).json({
         status: "error",
-        message: "找不到指定旅館~"
+        message: "找不到指定旅館~",
+        data: allHotels, 
       });
     }
 

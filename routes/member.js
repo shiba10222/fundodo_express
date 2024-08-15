@@ -165,7 +165,7 @@ router.post('/login', upload.none(), async (req, res) => {
 
     // 登入成功，創建 JWT token
     const token = jwt.sign(
-      { userId: user.id, email: user.email },
+      { userId: user.id, email: user.email, uuid: user.uuid },
       process.env.JWT_SECRET,
       { expiresIn: '1h' }
     );

@@ -1,8 +1,8 @@
 CREATE TABLE IF NOT EXISTS `crs_perm` (
-    `user_id` INT,
-    `crs_id` INT,
-    `start_date` DATETIME,
-    `end_date` INT
+    `user_id` int(7),
+    `crs_id` mediumint(5),
+    `start_date` date NOT NULL,
+    `end_date` date DEFAULT NULL
 );
 INSERT INTO `crs_perm` VALUES (3,15,'2022-07-17 00:00:00',NULL),
 	(12,12,'2022-07-27 00:00:00',NULL),

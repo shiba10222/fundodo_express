@@ -2978,11 +2978,11 @@ INSERT INTO `prod_picture` (`id`, `prod_id`, `name`) VALUES
 --
 
 CREATE TABLE `prod_price_stock` (
-  `id` int(11) UNSIGNED NOT NULL,
-  `prod_id` int(9) UNSIGNED DEFAULT NULL,
-  `price_sp` mediumint(6) UNSIGNED DEFAULT NULL,
-  `price` mediumint(7) UNSIGNED DEFAULT NULL,
-  `stock` mediumint(6) UNSIGNED DEFAULT NULL,
+  `id` bigint(11) UNSIGNED NOT NULL,
+  `prod_id` int(9) UNSIGNED NOT NULL,
+  `price` mediumint(7) UNSIGNED NOT NULL,
+  `price_sp` mediumint(7) UNSIGNED DEFAULT NULL,
+  `stock` mediumint(6) UNSIGNED NOT NULL,
   `sortname` varchar(20) DEFAULT NULL,
   `specname` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

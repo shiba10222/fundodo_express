@@ -1,8 +1,8 @@
 CREATE TABLE IF NOT EXISTS `crs_cart` (
     `id` INT,
-    `user_id` INT,
+    `user_id` int(7),
     `buy_sort` VARCHAR(2) CHARACTER SET utf8,
-    `buy_id` INT,
+    `buy_id` bigint(11),
     `quantity` INT,
     `amount` INT,
     `created_at` BIGINT,

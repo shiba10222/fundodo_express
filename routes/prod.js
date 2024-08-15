@@ -9,6 +9,9 @@ router.get("/", async (req, res) => {
       `SELECT
           product.id,
           product.name,
+          product.brand,
+          product.cate_1,
+          product.cate_2,   
           (SELECT 
               GROUP_CONCAT(prod_price_stock.price ORDER BY prod_price_stock.price) 
            FROM 
@@ -56,35 +59,40 @@ router.get("/:id", async (req, res) => {
           product.is_refurbished,
           product.description,
           (SELECT 
-              GROUP_CONCAT(prod_price_stock.price ORDER BY prod_price_stock.price) 
-           FROM 
-              prod_price_stock
-           WHERE 
-              prod_price_stock.prod_id = product.id
-          ) AS priceArr,
-           (SELECT 
-              GROUP_CONCAT(DISTINCT prod_picture.pic_name ORDER BY prod_picture.pic_name)
+              GROUP_CONCAT(DISTINCT prod_picture.pic_name ORDER BY prod_picture.id)
            FROM 
               prod_picture
            WHERE 
               prod_picture.prod_id = product.id
           ) AS picNameArr,
-           
-          
            (SELECT 
-              GROUP_CONCAT(DISTINCT prod_price_stock.sortname ORDER BY prod_price_stock.sortname)
+              GROUP_CONCAT(prod_price_stock.sortname ORDER BY prod_price_stock.id)
            FROM 
               prod_price_stock
            WHERE 
               prod_price_stock.prod_id = product.id
           ) AS sortArr,
            (SELECT 
-              GROUP_CONCAT(DISTINCT prod_price_stock.specname ORDER BY prod_price_stock.specname)
+              GROUP_CONCAT(prod_price_stock.specname ORDER BY prod_price_stock.id)
            FROM 
               prod_price_stock
            WHERE 
               prod_price_stock.prod_id = product.id
-          ) AS specArr
+          ) AS specArr,
+           (SELECT 
+              GROUP_CONCAT(prod_price_stock.stock ORDER BY prod_price_stock.id)
+           FROM 
+              prod_price_stock
+           WHERE 
+              prod_price_stock.prod_id = product.id
+          ) AS stockArr,
+          (SELECT 
+              GROUP_CONCAT(prod_price_stock.price ORDER BY prod_price_stock.id) 
+           FROM 
+              prod_price_stock
+           WHERE 
+              prod_price_stock.prod_id = product.id
+          ) AS priceArr
       FROM
           product
       LEFT JOIN 
@@ -120,8 +128,8 @@ router.get("/:id", async (req, res) => {
     console.error('資料庫查詢錯誤：', error);
     res.status(500).json({ status: "error", message: '資料庫查詢錯誤', error: error.message });
   }
+});
 
-})
 
 //================== 匯出
 export default router;

@@ -9,7 +9,7 @@
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
-SET time_zone = "+00:00";
+SET time_zone = "+08:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -28,23 +28,23 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `booking` (
-  `id` int(5) NOT NULL,
-  `hotel_id` int(5) NOT NULL,
-  `user_id` int(5) NOT NULL,
+  `id` int(7) UNSIGNED NOT NULL,
+  `hotel_id` mediumint(6) UNSIGNED NOT NULL,
+  `user_id` int(7) UNSIGNED NOT NULL,
   `room_type` varchar(3) NOT NULL,
-  `check_in_date` datetime(6) NOT NULL,
-  `check_out_date` datetime(6) NOT NULL,
-  `uni_price` int(5) NOT NULL,
-  `total_price` int(5) NOT NULL,
-  `total_nights` int(5) NOT NULL,
-  `status` varchar(20) NOT NULL
+  `check_in_date` date NOT NULL,
+  `check_out_date` date NOT NULL,
+  `uni_price` mediumint(5) UNSIGNED NOT NULL,
+  `total_price` mediumint(6) UNSIGNED NOT NULL,
+  `total_nights` smallint(3) UNSIGNED NOT NULL,
+  `status` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- 傾印資料表的資料 `booking`
 --
 
-INSERT INTO `booking` (`id`, `hotel_id`, `user_id`, `room_type`, `check_in_date`, `check_out_date`, `uni_price`, `total_price`, `total_nights`, `status`) VALUES
+INSERT INTO `booking` (`id`, `hotel_id`, `user_id`, `room_type`, `check_in_date`, `check_out_date`, `total_nights`, `uni_price`, `total_price`, `status`) VALUES
 (1, 18, 70, 'L', '2024-02-09 00:00:00.000000', '2024-02-10 00:00:00.000000', 1, 639, 639, 'confirmed'),
 (2, 7, 193, 'L', '2024-02-28 00:00:00.000000', '2024-03-01 00:00:00.000000', 2, 624, 1248, 'confirmed'),
 (3, 1, 56, 'M', '2024-02-25 00:00:00.000000', '2024-02-28 00:00:00.000000', 3, 570, 1710, 'confirmed'),
@@ -64,12 +64,12 @@ INSERT INTO `booking` (`id`, `hotel_id`, `user_id`, `room_type`, `check_in_date`
 --
 
 CREATE TABLE `hotel` (
-  `id` int(5) NOT NULL,
-  `location_id` int(5) NOT NULL,
-  `name` varchar(30) NOT NULL,
+  `id` mediumint(6) UNSIGNED NOT NULL,
+  `location_id` smallint(3) NOT NULL,
+  `name` varchar(20) NOT NULL,
   `description` varchar(300) NOT NULL,
-  `address` varchar(100) NOT NULL,
-  `main_img_path` varchar(100) NOT NULL,
+  `address` varchar(50) NOT NULL,
+  `main_img_path` varchar(30) NOT NULL,
   `price_s` decimal(6,0) NOT NULL,
   `price_m` decimal(6,0) NOT NULL,
   `price_l` decimal(6,0) NOT NULL,
@@ -77,8 +77,8 @@ CREATE TABLE `hotel` (
   `service_bath` tinyint(1) NOT NULL,
   `service_live_stream` tinyint(1) NOT NULL,
   `service_playground` tinyint(1) NOT NULL,
-  `created_at` timestamp(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6),
-  `valid` tinyint(3) NOT NULL
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6),
+  `valid` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -126,9 +126,9 @@ INSERT INTO `hotel` (`id`, `location_id`, `name`, `description`, `address`, `mai
 --
 
 CREATE TABLE `hotel_img` (
-  `id` int(5) NOT NULL,
-  `hotel_id` int(5) NOT NULL,
-  `path` varchar(255) NOT NULL
+  `id` int(7) UNSIGNED NOT NULL,
+  `hotel_id` mediumint(6) UNSIGNED NOT NULL,
+  `path` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -199,19 +199,19 @@ ALTER TABLE `hotel_img`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `hotel`
 --
 ALTER TABLE `hotel`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` mediumint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `hotel_img`
 --
 ALTER TABLE `hotel_img`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

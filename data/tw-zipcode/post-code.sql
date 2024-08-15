@@ -20,7 +20,7 @@ SET time_zone = "+08:00";
 
 CREATE TABLE IF NOT EXISTS `tw_areas` (
   `id` tinyint(1) UNSIGNED NOT NULL,
-  `name` varchar(10) NOT NULL
+  `name` varchar(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -42,7 +42,7 @@ INSERT INTO `tw_areas` (`id`, `name`) VALUES
 
 CREATE TABLE `tw_citys` (
   `id` tinyint(2) UNSIGNED NOT NULL,
-  `name` varchar(8) NOT NULL,
+  `name` varchar(3) NOT NULL,
   `area_id` tinyint(1) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -82,7 +82,7 @@ INSERT INTO `tw_citys` (`id`, `name`, `area_id`) VALUES
 
 CREATE TABLE `tw_dist` (
   `id` smallint(3) UNSIGNED NOT NULL,
-  `name` varchar(14) NOT NULL,
+  `name` varchar(6) NOT NULL,
   `zipcode` smallint(3) UNSIGNED NOT NULL,
   `area_id` tinyint(1) UNSIGNED NOT NULL,
   `city_id` tinyint(2) UNSIGNED NOT NULL

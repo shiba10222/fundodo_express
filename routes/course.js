@@ -64,8 +64,8 @@ router.get("/detail/:id", async (req, res) => {
         `, [id]);
         course.tags = tagsResult.map(tag => tag.name);
 
-        const [imgResult]=await conn.query("SELECT path FROM course_imgs WHERE course_id = ?", [id])
-        course.images= imgResult.map(img => img.path)   
+        const [imgResult] = await conn.query("SELECT path FROM course_imgs WHERE course_id = ?", [id])
+        course.images = imgResult.map(img => img.path)
 
 
         res.status(200).json({
@@ -80,6 +80,73 @@ router.get("/detail/:id", async (req, res) => {
             error: error.message
         })
     }
+});
+
+router.get("/categories", async (req, res) => {
+    try {
+        const [result] = await conn.query("SELECT id, name FROM course_tag");
+        res.status(200).json({
+            status: "success",
+            message: "取得所有分類",
+            data: result
+
+        })
+
+    } catch (error) {
+        res.status(404).json({
+            status: "error",
+            message: "找不到分類資料",
+            error: error.message
+        })
+    }
+});
+
+router.get("/category/:id", async (req, res) => {
+    const id = req.params.id
+
+    try {
+        let tagQuery = "SELECT name FROM course_tag WHERE id = ?"
+
+        const [tagResult] = await conn.query(tagQuery, [id])
+
+        if (tagResult.length === 0) {
+            return res.status(404).json({
+                status: "error",
+                message: "找不到指定分類"
+            })
+        }
+
+        const categoryName = tagResult[0].name;
+        let query = `
+            SELECT c.*
+            FROM courses c
+            JOIN course_tags ct ON c.id = ct.course_id
+            JOIN course_tag t ON ct.tag_id = t.id
+            WHERE t.id = ?`;
+
+            const [cateResult] = await conn.query(query, [id])
+            if(cateResult===0){
+                return res.status(404).json({
+                    status: "error",
+                    message: `找不到分類: ${categoryName} 的課程`
+                })
+            }
+
+
+        res.status(200).json({
+            status: "success",
+            message: `取得分類為: ${categoryName} 的課程`,
+            data: cateResult
+        })
+    } catch (error) {
+        res.status(404).json({
+            status: "error",
+            message: "找不到指定課程",
+            error: error.message
+        })
+    }
+
+
 });
 
 router.post("/", async (req, res) => {

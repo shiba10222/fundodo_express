@@ -1,0 +1,482 @@
+[
+  {
+      "id": null,
+      "hotel_id": 1,
+      "path": "HT000011.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 1,
+      "path": "HT000012.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 1,
+      "path": "HT000013.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 2,
+      "path": "HT000021.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 2,
+      "path": "HT000022.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 2,
+      "path": "HT000023.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 3,
+      "path": "HT000031.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 3,
+      "path": "HT000032.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 3,
+      "path": "HT000033.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 4,
+      "path": "HT000041.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 4,
+      "path": "HT000042.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 4,
+      "path": "HT000043.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 5,
+      "path": "HT000051.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 5,
+      "path": "HT000052.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 5,
+      "path": "HT000053.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 6,
+      "path": "HT000061.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 6,
+      "path": "HT000062.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 6,
+      "path": "HT000063.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 7,
+      "path": "HT000071.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 7,
+      "path": "HT000072.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 7,
+      "path": "HT000073.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 8,
+      "path": "HT000081.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 8,
+      "path": "HT000082.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 8,
+      "path": "HT000083.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 9,
+      "path": "HT000091.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 9,
+      "path": "HT000092.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 9,
+      "path": "HT000093.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 10,
+      "path": "HT000101.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 10,
+      "path": "HT000102.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 10,
+      "path": "HT000103.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 11,
+      "path": "HT000111.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 11,
+      "path": "HT000112.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 11,
+      "path": "HT000113.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 12,
+      "path": "HT000121.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 12,
+      "path": "HT000122.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 12,
+      "path": "HT000123.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 13,
+      "path": "HT000131.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 13,
+      "path": "HT000132.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 13,
+      "path": "HT000133.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 14,
+      "path": "HT000141.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 14,
+      "path": "HT000142.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 14,
+      "path": "HT000143.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 15,
+      "path": "HT000151.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 15,
+      "path": "HT000152.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 15,
+      "path": "HT000153.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 16,
+      "path": "HT000161.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 16,
+      "path": "HT000162.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 16,
+      "path": "HT000163.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 17,
+      "path": "HT000171.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 17,
+      "path": "HT000172.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 17,
+      "path": "HT000173.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 18,
+      "path": "HT000181.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 18,
+      "path": "HT000182.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 18,
+      "path": "HT000183.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 19,
+      "path": "HT000191.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 19,
+      "path": "HT000192.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 19,
+      "path": "HT000193.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 20,
+      "path": "HT000201.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 20,
+      "path": "HT000202.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 20,
+      "path": "HT000203.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 21,
+      "path": "HT000211.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 21,
+      "path": "HT000212.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 21,
+      "path": "HT000213.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 22,
+      "path": "HT000221.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 22,
+      "path": "HT000222.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 22,
+      "path": "HT000223.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 23,
+      "path": "HT000231.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 23,
+      "path": "HT000232.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 23,
+      "path": "HT000233.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 24,
+      "path": "HT000241.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 24,
+      "path": "HT000242.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 24,
+      "path": "HT000243.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 25,
+      "path": "HT000251.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 25,
+      "path": "HT000252.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 25,
+      "path": "HT000253.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 26,
+      "path": "HT000261.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 26,
+      "path": "HT000262.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 26,
+      "path": "HT000263.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 27,
+      "path": "HT000271.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 27,
+      "path": "HT000272.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 27,
+      "path": "HT000273.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 28,
+      "path": "HT000281.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 28,
+      "path": "HT000282.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 28,
+      "path": "HT000283.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 29,
+      "path": "HT000291.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 29,
+      "path": "HT000292.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 29,
+      "path": "HT000293.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 30,
+      "path": "HT000301.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 30,
+      "path": "HT000302.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 30,
+      "path": "HT000303.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 31,
+      "path": "HT000311.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 31,
+      "path": "HT000312.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 31,
+      "path": "HT000313.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 32,
+      "path": "HT000321.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 32,
+      "path": "HT000322.jpg"
+  },
+  {
+      "id": null,
+      "hotel_id": 32,
+      "path": "HT000323.jpg"
+  }
+]

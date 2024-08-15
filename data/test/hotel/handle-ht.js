@@ -1,117 +1,29 @@
-//====== 製作課程的購物車資料
+//==========================================================================
+//========================= 製作課程的訂單資料 ================================
+//==========================================================================
 
-import { resolve } from 'path';
-import readJson from '../read-json.js';
-import writeJson from '../write-json.js';
+import { readJson, writeJson } from '../lib-json.js';
+import { diceOf, shuffle, normalRandInt } from '../lib-math.js';
+import {
+  getTimeStr,
+  getTimeNum,
+  nDaysAfter,
+  randDateBetween,
+  longAfter
+} from '../lib-time.js';
 
-const pathTo = pahtStr => resolve(import.meta.dirname, pahtStr);
 
 //====== Json =========================================
-const userPath = pathTo('../user/users.json');
-const userList = await readJson(userPath);
-
-const dogPath = pathTo('../dog/dogs.json');
-const dogList = await readJson(dogPath);
-
-const hotelPath = pathTo('hotel.json');
-const hotelPKG = await readJson(hotelPath);
+const userList = await readJson('../user/users.json');
+const dogList = await readJson('../dog/dogs.json');
+const hotelPKG = await readJson('hotel.json');
 
 const hotelList = hotelPKG.hotel;
-const bookingList = hotelPKG.booking;
 
 userList.shift();//排除管理者
 const NUM_HT = hotelList.length;
 
-//====== 機率 Functions ================================
-/**
- * 0 ~ n - 1 的整數
- * @param {number} n 
- * @returns {number}
- */
-const diceOf = n => Math.floor(Math.random() * n);
-
-/**
- * 將陣列的順序打亂，且為平均分佈
- * @param {array} 要洗牌的陣列 
- */
-function shuffle(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    let j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
-}
-
-/**
- * 亂序的旅館 ID 列表
- * from 1 to 32
- */
-const ALL_INDEX = shuffle(Array(NUM_HT).fill(0).map((_, i) => i + 1));
-
-const gaussianRandom = (mean, stddev) => {
-  let u = 0,
-    v = 0;
-  while (u === 0) u = Math.random();
-  while (v === 0) v = Math.random();
-  const sample = Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
-
-  return sample * stddev + mean;
-};
-
-const randID = () => {
-  const MD = NUM_HT / 2;//median
-  const MU = NUM_HT / 6;//μ, 正負三個標準差範圍設為全範圍
-  const MIN = 0;
-  const MAX = NUM_HT - 1;
-
-  let index = Math.round(gaussianRandom(MD, MU));
-
-  while (index > MAX || index < MIN) index = Math.round(gaussianRandom(MD, MU));
-
-  return ALL_INDEX[index];
-};
 //====== 時間 Functions ================================
-/**
- * 將時間戳記的格式轉成指定的字串格式
- * @param {number} timeNum
- * @returns 
- */
-const getTimeStr = timeNum => {
-  let str = new Date(timeNum).toJSON();
-  return str.split('T')[0];
-}
-
-/**
- * 將所有符合 new Date() 建構子的時間格式轉成時間戳記的格式
- * @param {*} timeLike 時間格式
- * @returns {number} 時間戳記
- */
-const getTimeNum = timeLike => new Date(timeLike).getTime();
-
-const nDaysAfter = (time, n) => {
-  const day = new Date(time);
-  day.setDate(day.getDate() + n);
-
-  return getTimeNum(day);
-}
-
-const longAfter = time => {
-  const t_i = getTimeNum(time);
-  const t_f = getTimeNum("2024-09-09T20:00:00");
-  const D_t = t_f - t_i;
-
-  const delta = diceOf(D_t - 1) + 1;
-  return t_i + delta;
-}
-
-const randDateBetween = (start, end) => {
-  const t_i = getTimeNum(start);
-  const t_f = getTimeNum(end);
-  const D_t = t_f - t_i;
-
-  const delta = diceOf(D_t - 1) + 1;
-  return t_i + delta;
-}
 
 const randNumDay = () => {
   const dice = diceOf(20);
@@ -134,7 +46,7 @@ const geneTimeSeries = (t_ref, N) => {
 
   for (let i = 0; i < N; i++) {
     refSeries.push(nDaysAfter(inDateSeries[i], daySeries[i]));
-    inDateSeries.push(longAfter(refSeries[i + 1]));
+    inDateSeries.push(longAfter(refSeries[i + 1], 10 * (diceOf(6) + 1)));
     daySeries.push(randNumDay());
   }
   const resultArr = inDateSeries.map(t => getTimeStr(t));
@@ -230,6 +142,8 @@ const getPrice = (hotelPkg, bodytype) => {
 }
 
 //====== Main ==========================================
+const TIME_BOUND = "2024-09-09";
+const ALL_INDEX = shuffle(Array(NUM_HT).fill(0).map((_, i) => i + 1));
 const bookRecord = [];
 
 await Promise.all(userList.map(async u => {
@@ -239,7 +153,7 @@ await Promise.all(userList.map(async u => {
   if (petArr.length === 0) return;
 
   const numBooked = getBookedNum();
-  const hotelID = randID();
+  const hotelID = ALL_INDEX[normalRandInt(0, NUM_HT - 1)];
   const selectedhotel = hotelList.find(h => h.id == hotelID);
   const [dogStayList, time_ref] = handleDogList(petArr);
   const [inDateArr, daysArr] = geneTimeSeries(time_ref, numBooked);
@@ -247,10 +161,13 @@ await Promise.all(userList.map(async u => {
   //================================================
 
   inDateArr.forEach((date, i) => {
-    const checkin_date = inDateArr[i];
-    const orderedDate = getTimeStr(randDateBetween(time_ref, checkin_date));
+    const checkin_date = date;
+
+    // const ref_start = Math.max(getTimeNum(time_ref), getTimeNum(TIME_BOUND));
+    const ref_end = Math.min(getTimeNum(checkin_date), getTimeNum(TIME_BOUND));
+    const orderedDate = getTimeStr(randDateBetween(time_ref, ref_end));
     const stayDays = daysArr[i];
-    const checkout_date = getTimeStr(nDaysAfter(inDateArr[i], stayDays));
+    const checkout_date = getTimeStr(nDaysAfter(date, stayDays));
 
     dogStayList.forEach(dog => {
       const price = getPrice(selectedhotel, dog.bodytype);
@@ -273,5 +190,4 @@ await Promise.all(userList.map(async u => {
   });
 }));
 
-const rslPath = pathTo('./book-record.json');
-await writeJson(rslPath, JSON.stringify(bookRecord));
+await writeJson('./book-record.json', bookRecord);

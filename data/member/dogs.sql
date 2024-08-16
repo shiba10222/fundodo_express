@@ -22,6 +22,9 @@ CREATE TABLE IF NOT EXISTS `dogs` (
     `created_at` DATETIME NOT NULL,
     `deleted_at` DATETIME DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+ALTER TABLE `dogs` CHANGE `id` `id` INT(8) UNSIGNED NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`id`); 
+
 INSERT INTO `dogs` VALUES
   (1,27,'2022-08-04 03:08:30',2,12,'SMALL','狐狸犬','吉利', NULL),
 	(2,10,'2022-08-22 16:02:23',2,7,'SMALL','貴賓犬','球球', NULL),

@@ -33,8 +33,8 @@ CREATE TABLE `courses` (
   `summary` varchar(200) NOT NULL,
   `description` text DEFAULT NULL,
   `img_path` varchar(50) NOT NULL,
-  `original_price` decimal(5,0) UNSIGNED NOT NULL,
-  `sale_price` decimal(5,0) UNSIGNED NOT NULL,
+  `price` decimal(5,0) UNSIGNED NOT NULL,
+  `price_sp` decimal(5,0) UNSIGNED NOT NULL,
   `viewed_count` mediumint(5) NOT NULL,
   `created_at` datetime NOT NULL,
   `deleted_at` datetime DEFAULT NULL
@@ -44,7 +44,7 @@ CREATE TABLE `courses` (
 -- 傾印資料表的資料 `courses`
 --
 
-INSERT INTO `courses` (`id`, `title`, `summary`, `description`, `img_path`, `original_price`, `sale_price`, `viewed_count`, `created_at`, `deleted_at`) VALUES
+INSERT INTO `courses` (`id`, `title`, `summary`, `description`, `img_path`, `price`, `price_sp`, `viewed_count`, `created_at`, `deleted_at`) VALUES
 (1, '玩出好感情！與狗兒的互動遊戲課', '與狗兒的線上遊戲課程，一起練習合作遊戲，加深彼此的信任關係！', '• 深入理解狗兒遊戲偏好，設計適合的活動提高參與度和樂趣。\n• 創建安全有趣的遊戲場景，激發狗兒興趣，滿足不同品種需求。\n• 增進人狗合作技巧，建立默契，提高狗兒對指令的反應能力。\n• 建立一致的遊戲規則，培養狗兒自制力，平衡自由和規矩。\n• 在遊戲中融入基本服從訓練，提高狗兒學習積極性和效率。', 'CR0000011.jpg', 1500, 1200, 175, '2023-10-18 11:02:37', NULL),
 (2, '狗狗教養實作- 線上體驗課', '9/19 (四) ：不同狗兒教養方式全面解析 ！+ 吠叫案例詳解 【好評加開！報名截止日到 9/4（三） 23:59】\r\n9/22 （日）：破解常見狗狗教養迷思！+ 戶外撿拾案例詳解【報名截止日到 9/6（五） 23:59】', '• 探索多種教養方式，分析優缺點，選擇最適合的策略。\n• 分析常見吠叫案例，探討原因，提供個性化解決方案。\n• 破解教養迷思，糾正錯誤觀念，建立平衡的教養方式。\n• 學習戶外訓練技巧，應對環境干擾，確保安全和禮儀。\n• 制定不良行為應對策略，識別問題根源，實現長期改善。', 'CR0000021.jpg', 500, 350, 142, '2023-10-18 19:32:47', NULL),
 (3, '正向教養生活課－吃飯啃咬', '餵正餐時狗兒愛吃不吃，非得要過一兩小時才肯吃光，一邊趕上班一邊配合狗兒步調，情緒好崩潰！散步又會到處撿拾，不知道吃到什麼東西，實在很擔心牠的安全。面對這類生活裡經常發生的養狗情境，如何才能找到最理想的解決方案？', '• 解析挑食問題根源，制定個性化飲食計劃，建立健康習慣。\r\n• 學習防止狗狗撿拾異物的方法，訓練自制力，創造安全環境。\r\n• 介紹適合的咀嚼玩具，根據狗狗特點選擇，滿足需求保護牙齒。\r\n• 訓練進食習慣，設定固定餵食時間，建立規律飲食節奏。\r\n• 指導建立餐桌禮儀，訓練不打擾他人進食，改善乞食行為。', 'CR0000031.jpg', 1500, 1200, 188, '2023-10-19 00:00:50', NULL),

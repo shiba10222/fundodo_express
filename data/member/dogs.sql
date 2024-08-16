@@ -13,19 +13,19 @@ SET time_zone = "+08:00";
 
 CREATE TABLE IF NOT EXISTS `dogs` (
     `id` int(8) NOT NULL,
+    `name` VARCHAR(6) NOT NULL,
     `user_id` int(7) NOT NULL,
     `gender` tinyint(1) UNSIGNED NOT NULL,
     `age` tinyint(2) UNSIGNED,
     `bodytype` VARCHAR(6) NOT NULL,
     `breed` VARCHAR(4) NOT NULL,
-    `name` VARCHAR(6) NOT NULL,
     `created_at` DATETIME NOT NULL,
     `deleted_at` DATETIME DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 ALTER TABLE `dogs` CHANGE `id` `id` INT(8) UNSIGNED NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`id`); 
 
-INSERT INTO `dogs` VALUES
+INSERT INTO `dogs` (`id`, `user_id`, `created_at`, `gender`, `age`, `bodytype`, `breed`, `name`, `deleted_at`) VALUES
   (1,27,'2022-08-04 03:08:30',2,12,'SMALL','狐狸犬','吉利', NULL),
 	(2,10,'2022-08-22 16:02:23',2,7,'SMALL','貴賓犬','球球', NULL),
 	(3,40,'2022-09-23 16:07:40',1,3,'MEDIUM','米克斯','Moose', NULL),

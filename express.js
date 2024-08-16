@@ -5,9 +5,12 @@ import logger from "morgan";
 import { readdir } from "fs/promises";
 import { resolve } from 'path';
 import { pathToFileURL } from "url";
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
 
 //================== 初始化 =======================//
 const app = express();
+dotenv.config();
 
 //================== 中介軟體設定 ==================//
 express.json();

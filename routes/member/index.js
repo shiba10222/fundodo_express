@@ -5,7 +5,8 @@ import jwt from 'jsonwebtoken';
 import { v4 as uuidv4 } from 'uuid';
 import bcrypt from 'bcrypt';
 import { resolve } from "path";
-import conn from '../db.js';
+import conn from '../../db.js';
+import authenticateToken from './auth/authToken.js';
 
 // 參數
 const secretKey = process.argv[2];
@@ -99,7 +100,7 @@ router.get('/prod', (req, res) => {
   res.status(200).json({ status: "success", message: "查詢成功", result });
 });
 
-//======== 讀取指定(uuid) ==========//
+//======== 讀取指定會員(uuid) ==========//
 //* test id=302 uuid = 1eaf3f71-0568-4541-86fe-c6e9f0108636 網址 = http://localhost:3005/api/member/1eaf3f71-0568-4541-86fe-c6e9f0108636
 router.get('/:uuid', async (req, res) => {
   const { uuid } = req.params; // 從路由參數中取得 uuid
@@ -129,7 +130,42 @@ router.get('/:uuid', async (req, res) => {
   }
 });
 
-//======== 登入指定 ==========//
+//======== 讀取指定狗狗資料(uuid) ==========//
+//* test id=302 uuid = 1eaf3f71-0568-4541-86fe-c6e9f0108636 網址 = http://localhost:3005/api/member/1eaf3f71-0568-4541-86fe-c6e9f0108636
+router.get('/dog/:uuid', authenticateToken, async (req, res) => {
+  const userId = req.user.userId;
+  const { uuid } = req.params;
+
+  if (!uuid) {
+    return res.status(400).json({ status: 'failed', message: 'UUID 參數缺失' });
+  }
+
+  if (!userId) {
+    return res.status(400).json({ status: 'failed', message: 'userId 參數缺失' });
+  }
+
+  try {
+    // 查詢資料庫中的用戶資料
+    const [rows] = await conn.execute('SELECT * FROM dogs WHERE user_id = ?', [userId]);
+
+    if (rows.length === 0) {
+      // 沒有找到對應的用戶
+      return res.status(404).json({ status: 'failed', message: '狗狗未找到' });
+    }
+
+    // 返回查詢結果
+    res.status(200).json({
+      status: 'success',
+      message: '查詢成功',
+      result: rows
+    });
+  } catch (error) {
+    console.error('資料庫查詢錯誤：', error);
+    res.status(500).json({ status: 'error', message: '資料庫查詢錯誤', error: error.message });
+  }
+});
+
+//======== 登入指定(會員完工) ==========//
 //* test id=302 uuid = 1eaf3f71-0568-4541-86fe-c6e9f0108636 網址 = http://localhost:3005/api/member/1eaf3f71-0568-4541-86fe-c6e9f0108636
 router.post('/login', upload.none(), async (req, res) => {
   const { email, password } = req.body;
@@ -165,8 +201,8 @@ router.post('/login', upload.none(), async (req, res) => {
 
     // 登入成功，創建 JWT token
     const token = jwt.sign(
-      { userId: user.id, email: user.email },
-      process.env.JWT_SECRET,
+      { userId: user.id, email: user.email, uuid: user.uuid },
+      'j123456',
       { expiresIn: '1h' }
     );
 
@@ -177,9 +213,17 @@ router.post('/login', upload.none(), async (req, res) => {
       token: token,
       user: {
         id: user.id,
+        uuid: user.uuid,
+        name: user.name,
         nickname: user.nickname,
+        gender: user.gender,
+        dob: user.dob,
+        tel: user.tel,
         email: user.email,
-        uuid: user.uuid
+        avatar_file: user.avatar_file,
+        address: user.address,
+        adr_city: user.adr_city,
+        adr_district: user.	adr_district,
       }
     });
 

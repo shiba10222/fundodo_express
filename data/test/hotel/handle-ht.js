@@ -14,9 +14,10 @@ import {
 
 
 //====== Json =========================================
-const userList = await readJson('../user/users.json');
-const dogList = await readJson('../dog/dogs.json');
-const hotelPKG = await readJson('hotel.json');
+const PATH_HERE = import.meta.dirname;
+const userList = await readJson(PATH_HERE, '../user/users.json');
+const dogList = await readJson(PATH_HERE, '../dog/dogs.json');
+const hotelPKG = await readJson(PATH_HERE, 'hotel.json');
 
 const hotelList = hotelPKG.hotel;
 
@@ -63,11 +64,31 @@ const getBookedNum = () => {
   else return 1;
 }
 //====== 狗勾 ================================
+const typeOf = {
+  "MINI": "S",
+  "SMALL": "S",
+  "MEDIUM": "M",
+  "BIG": "L"
+};
+
 /**
  * @param {number} uid user ID
  * @returns array of data of each dog of the user
  */
 const findDogs = uid => dogList.filter(dog => dog.user_id === uid);
+
+const geneDogs = (time_ref) => {
+  const numPet = diceOf(3) + 1;
+  const types = Object.keys(typeOf);
+
+  //因為後面會經過 max 函數，必須提供 number
+  const dogs = Array(numPet).fill(0).map(_ => ({
+    id: 0,
+    bodytype: types[diceOf(types.length)],
+    created_at: time_ref
+  }));
+  return dogs;
+}
 
 const handleDogList = dogs => {
   if (dogs.length === 1) {
@@ -101,13 +122,6 @@ const handleDogList = dogs => {
 
   return [rslArr, lastDog.created_at];
 }
-
-const typeOf = {
-  "MINI": "S",
-  "SMALL": "S",
-  "MEDIUM": "M",
-  "BIG": "L"
-};
 
 /**
  * 
@@ -149,8 +163,8 @@ const bookRecord = [];
 await Promise.all(userList.map(async u => {
   if (diceOf(2) !== 0) return;
   //全部會員二分之一在購物車有訂過旅館
-  const petArr = findDogs(u.id);
-  if (petArr.length === 0) return;
+  let petArr = findDogs(u.id);
+  if (petArr.length === 0) petArr = geneDogs(u.created_at);
 
   const numBooked = getBookedNum();
   const hotelID = ALL_INDEX[normalRandInt(0, NUM_HT - 1)];
@@ -176,7 +190,7 @@ await Promise.all(userList.map(async u => {
         id: null,
         hotel_id: hotelID,
         user_id: u.id,
-        dog_id: dog.id,
+        dog_id: (dog.id === 0) ? null : dog.id,
         room_type: typeOf[dog.bodytype],
         ordered_date: orderedDate,
         check_in_date: checkin_date,
@@ -190,4 +204,4 @@ await Promise.all(userList.map(async u => {
   });
 }));
 
-await writeJson('./book-record.json', bookRecord);
+await writeJson(PATH_HERE, './book-record.json', bookRecord);

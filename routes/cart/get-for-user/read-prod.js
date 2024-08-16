@@ -2,37 +2,40 @@ import conn from "../../../db.js";
 
 //=== 參考格式
 const sample_f = {
-  name: '玩出好感情！與狗兒的互動遊戲課',
-  pic_path: 'CR0000011.png',
-  plan: '單堂線上遊戲課(5/18的重播教學)',
-  price: 1200,
-  key: 'semv8942lm'
+  name: 'Plus+機能保健系列 泌尿道紓壓保健',
+  pic_path: 'PR0000001611.jpg',
+  sort_name: '',
+  spec_name: '1.5g x 30入',
+  price: 450,
+  qty: 1,
+  key: '拿 prod item id'
 };
 const sample_b = {
   id: null,
-  user_id: 100,
+  user_id: 8,
   dog_id: null,
-  buy_sort: "CR",
-  buy_id: 12,
+  buy_sort: "PD",
+  buy_id: 309,
   quantity: 1,
+  amount: null,
   room_type: null,
   check_in_date: null,
   check_out_date: null,
-  created_at: "2024-02-25 22:44:28",
+  created_at: "2022-07-30 17:36:28",
   deleted_at: null
 };
 
 //================================================================
-const getCourse = id => new Promise(async (resolve, reject) => {
+const getSubProd = id => new Promise(async (resolve, reject) => {
   const [rows] = await conn.query(
-    `SELECT * FROM courses WHERE id = ?`,
+    `SELECT * FROM prod_price_stock WHERE id = ?`,
     [id]
   );
   if (rows.length === 0) {
-    reject(new Error(`發生了未預期的結果：找不到 courses id: ${id} 的品項`));
+    reject(new Error(`發生了未預期的結果：找不到 prod_price_stock id: ${id} 的品項`));
     return;
   } else if (rows.length > 1) {
-    reject(new Error(`courses id: ${id} 非唯一`));
+    reject(new Error(`發生了未預期的結果：prod_price_stock id: ${id} 非唯一`));
     return;
   }
   resolve(rows[0]);
@@ -44,7 +47,7 @@ const getProdName = id => new Promise(async (resolve, reject) => {
     [id]
   );
   if (rows.length === 0) {
-    reject(new Error(`發生了未預期的結果：找不到 product id: ${id} 的品項`));
+    reject(new Error(`發生了未預期的結果：找不到 id: ${id} 的 product`));
     return;
   } else if (rows.length > 1) {
     reject(new Error(`發生了未預期的結果：product id: ${id} 非唯一`));
@@ -59,18 +62,34 @@ const getProdPic = id => new Promise(async (resolve, reject) => {
     [id]
   );
   if (rows.length === 0) {
-    reject(new Error(`發生了未預期的結果：找不到 product id: ${id} 的品項`));
+    reject(new Error(`發生了未預期的結果：找不到 product id: ${id} 的圖片`));
     return;
   }
   resolve(rows[0]['name']);
 });
 
+/**
+ * 打包商品部份的購物車資料
+ * @param {object} cartData from database cart
+ * @returns {{
+ *  key: number,
+ *  prod_name: string,
+ *  pic_name: string,
+ *  sort_name: string,
+ *  spec_name: string,
+ *  price: number,
+ *  quantity: number,
+ *  isOutOfStock: boolean,
+ *  stock_when_few: (number|null)
+ *  }}
+ */
 export default async function (cartData) {
   return new Promise(async (resolve, reject) => {
     const cartList = await Promise.all(
       cartData.map(async cartItem => {
         //== 2-1 查詢 prod_price_stock
-        const crsObj = await getCourse(cartItem.buy_id);
+        const subProdObj = await getSubProd(cartItem.buy_id);
+        const isSpecial = subProdObj.price_sp && subProdObj.price_sp > 0;
         //== 2-2 查詢 product
         const prodName = await getProdName(subProdObj.prod_id);
         //== 2-3 查詢 prod_picture
@@ -83,7 +102,9 @@ export default async function (cartData) {
           sort_name: subProdObj.sortname,
           spec_name: subProdObj.specname,
           price: isSpecial ? subProdObj.price_sp : subProdObj.price,
-          price_sp: subProdObj.price_sp,
+          quantity: cartItem.quantity,
+          isOutOfStock: subProdObj.stock === 0,
+          stock_when_few: (subProdObj.stock < 20) ? subProdObj.stock : null
         })
       })
     );

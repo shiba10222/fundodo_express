@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS `users` (
     `adr_district` smallint(3) UNSIGNED,
     `created_at` DATETIME NOT NULL,
     `deleted_at` DATETIME
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 INSERT INTO `users` VALUES (1,'管理者','管理者','admin','$2b$12$lX60kP.yVknGDkgYb1K2fOyxvNqEYbmmV1DE/mTdh1zjlja.r/lJS',1,20,'2022-04-09 00:00:00',0900000000,'fundodoAdmin@gmail.com','1.png','新生路二段421號',4,320,'2022-04-09 11:00:00',NULL),
 	(2,'蔣恬軒','shelley9794','shelley9794674','$2b$12$4kDp58uHf.sSb07F9A.7Ae3gfpYcElts4sos2tsH5gpwrywcMYv9W',2,0,'1970-11-18 00:00:00',0913543926,'shelley9794@yahoo.com',NULL,'大昌路大德巷59號',15,833,'2022-04-13 15:49:31',NULL),
 	(3,'游婕惠','Christy','christy889','$2b$12$B0ioQOliusozT6bGiNVTseP7.RDidvPJ778aNDOnB6ZxB.GEXFWOq',2,0,'1998-08-27 00:00:00',0922229519,'bell6007@outlook.com',NULL,'賴華街35號',4,325,'2022-04-16 06:16:19',NULL),
@@ -323,7 +323,7 @@ INSERT INTO `users` VALUES (251,'傅棟瑞','gates6409','gates6409818','$2b$12$6
 	(301,'姚亞言','orange','orange164','$2b$12$FSkybD.XKslBjHXnCyjRguRMl8Il1T4FbyIICP2vLZUjrc.iucK4C',2,0,'1978-11-22 00:00:00',0933510630,'mullally9186@gmail.com',NULL,'員集路３段73號6樓之18',9,530,'2024-09-03 11:47:55',NULL);
 
 --
--- 使用資料表自動遞增(AUTO_INCREMENT) `tw_areas`
+-- 使用資料表自動遞增(AUTO_INCREMENT) `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(7) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=302;
+  MODIFY `id` int(7) UNSIGNED NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`id`), AUTO_INCREMENT=302;

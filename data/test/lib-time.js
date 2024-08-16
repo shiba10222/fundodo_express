@@ -5,9 +5,20 @@
  * @param {number} timeNum
  * @returns 
  */
-const getTimeStr = timeNum => {
+const getDateStr = timeNum => {
   let str = new Date(timeNum).toJSON();
   return str.split('T')[0];
+}
+/**
+ * 將時間戳記的格式轉成指定的字串格式
+ * @param {number} timeNum
+ * @returns 
+ */
+const getTimeStr = timeNum => {
+  let str = new Date(timeNum).toJSON();
+  const temp = str.split('T');
+  const result = temp[0] + ' ' + temp[1].split('.')[0];
+  return result;
 }
 
 /**
@@ -68,6 +79,7 @@ const longAfter = (time, bound) => {
 
 export {
   getTimeStr,
+  getDateStr,
   getTimeNum,
   nDaysAfter,
   randDateBetween,

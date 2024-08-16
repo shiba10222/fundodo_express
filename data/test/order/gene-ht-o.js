@@ -17,9 +17,10 @@ import {
 const PATH_HERE = import.meta.dirname;
 const userList = await readJson(PATH_HERE, '../user/users.json');
 const dogList = await readJson(PATH_HERE, '../dog/dogs.json');
-const hotelPKG = await readJson(PATH_HERE, 'hotel.json');
+const hotelPKG = await readJson(PATH_HERE, '../hotel/hotel.json');
 
 const hotelList = hotelPKG.hotel;
+
 
 userList.shift();//排除管理者
 const NUM_HT = hotelList.length;
@@ -58,8 +59,7 @@ const geneTimeSeries = (t_ref, N) => {
 const getBookedNum = () => {
   const dice = diceOf(20);
 
-  if (dice === 0) return 5;
-  else if (dice <= 3) return 3;
+  if (dice <= 1) return 3;
   else if (dice <= 10) return 2;
   else return 1;
 }
@@ -159,7 +159,6 @@ const getPrice = (hotelPkg, bodytype) => {
 const TIME_BOUND = "2024-09-09";
 const ALL_INDEX = shuffle(Array(NUM_HT).fill(0).map((_, i) => i + 1));
 const bookRecord = [];
-
 await Promise.all(userList.map(async u => {
   if (diceOf(2) !== 0) return;
   //全部會員二分之一在購物車有訂過旅館
@@ -173,7 +172,6 @@ await Promise.all(userList.map(async u => {
   const [inDateArr, daysArr] = geneTimeSeries(time_ref, numBooked);
 
   //================================================
-
   inDateArr.forEach((date, i) => {
     const checkin_date = date;
 
@@ -192,16 +190,30 @@ await Promise.all(userList.map(async u => {
         user_id: u.id,
         dog_id: (dog.id === 0) ? null : dog.id,
         room_type: typeOf[dog.bodytype],
-        ordered_date: orderedDate,
+        created_at: orderedDate,
         check_in_date: checkin_date,
         check_out_date: checkout_date,
         uni_price: price,
         total_price: price * stayDays,
-        total_nights: stayDays,
-        status: "confirmed",
       });
     });
   });
 }));
+
+//參考，訂單的格式
+// const reference = {
+//   id: null,
+//   hotel_id: hotelID,
+//   user_id: u.id,
+//   dog_id: (dog.id === 0) ? null : dog.id,
+//   room_type: typeOf[dog.bodytype],
+//   ordered_date: orderedDate,
+//   check_in_date: checkin_date,
+//   check_out_date: checkout_date,
+//   uni_price: price,
+//   total_price: price * stayDays,
+//   total_nights: stayDays,
+//   status: "confirmed",
+// }
 
 await writeJson(PATH_HERE, './book-record.json', bookRecord);

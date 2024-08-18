@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import multer from 'multer';
 import conn from "../../db.js";
 import readPD from './get-for-user/read-prod.js'
 import readCR from './get-for-user/read-crs.js';
@@ -9,6 +10,48 @@ const envMode = process.argv[2];//dev or dist
 
 // 模組物件
 const router = Router();
+const upload = multer();
+
+// 函數
+const getCoursePrice = id => new Promise(async (resolve, reject) => {
+  const [rows] = await conn.query(
+    "SELECT price, price_sp FROM courses WHERE id = ?",
+    [id]
+  );
+  if (rows.length === 0) {
+    reject(new Error(`發生了未預期的結果：找不到 courses id: ${id} 的品項`));
+    return;
+  } else if (rows.length > 1) {
+    reject(new Error(`courses id: ${id} 非唯一`));
+    return;
+  }
+
+  const course = rows[0];
+  const price = course.price_sp || course.price;
+  resolve(price);
+});
+
+const insert = data => new Promise(async (resolve, reject) => {
+  const colArr = [];
+  const valueArr = [];
+  for (const [key, value] of Object.entries(data)) {
+    colArr.push(key);
+    valueArr.push(value);
+  }
+
+  const colStr = '(' + colArr.join(', ') + ')';
+  const valueStr = '(' + Array(valueArr.length).fill('?').join(', ') + ')';
+  const sql = `INSERT INTO cart ${colStr} VALUES ${valueStr}`;
+
+  const [results] = await conn.query(sql, valueArr);
+
+  if (results.affectedRows < 1) {
+    reject(new Error(`寫入 cart 資料表失敗`));
+  }
+  console.log(`成功匯入 ${results.affectedRows} 筆，其 ID 為 ${results.insertId}`);
+  resolve(results);
+});
+
 
 //==================================================
 //================== 設置路由架構 ====================
@@ -17,12 +60,12 @@ const router = Router();
 //======== 讀取全部 ==========//
 
 router.get('/', (req, res) => {
-  res.status(400).send({ status: "Bad Request", message: '欲使用購物車查詢系統，請輸入正確的路由' });
+  res.status(400).send({ status: "Bad Request", message: '欲使用後台的購物車系統，請輸入正確的路由' });
 });
 
 
 //======== 讀取指定 ==========//
-//【核心功能】使用者的購物車內容
+//【核心功能】查詢使用者的購物車內容
 router.get('/:uid', async (req, res) => {
   const uid = Number(req.params.uid);
 
@@ -64,6 +107,116 @@ router.get('/:uid', async (req, res) => {
   res.status(200).json({ status: "success", message: "查詢成功", result });
 });
 
+router.post('/', upload.none(), async (req, res) => {
+  if (Object.prototype.hasOwnProperty.call(req.body, 'user_id')
+    && Object.prototype.hasOwnProperty.call(req.body, 'buy_sort')
+    && Object.prototype.hasOwnProperty.call(req.body, 'buy_id') === false) {
+    res.status(400).json({ status: "failure", message: "格式錯誤，請確認請求至少包含 user_id、buy_sort、buy_id 三種參數" });
+    return;
+  }
+  const { user_id, buy_sort, buy_id } = req.body;
+
+  const time_now = new Date().toLocaleString('zh-TW', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false,
+    timeZone: 'Asia/Taipei',
+  });
+  let valuePkg;
+
+  if (buy_sort === 'PD') {
+    if (Object.prototype.hasOwnProperty.call(req.body, 'quantity') === false) {
+      res.status(400).json({ status: "failure", message: "格式錯誤，商品類必須包含 quantity 參數" });
+      return;
+    }
+
+    valuePkg = {
+      user_id: user_id,
+      dog_id: null,
+      buy_sort,
+      buy_id,
+      quantity: req.body.quantity,
+      amount: null,
+      room_type: null,
+      check_in_date: null,
+      check_out_date: null,
+      created_at: time_now,
+      deleted_at: null
+    };
+  } else if (buy_sort === 'HT') {
+    let isNotOK = false;
+    ['dog_id', 'amount', 'room_type', 'check_in_date', 'check_out_date'].forEach(property => {
+      if (Object.prototype.hasOwnProperty.call(req.body, property) === false) {
+        (property === 'dog_id')
+          ? res.status(400).json({ status: "failure", message: "格式錯誤，旅館類即使沒有綁定狗勾，也必須寫 dog_id: null" })
+          : res.status(400).json({ status: "failure", message: `格式錯誤，旅館類必須包含 ${property} 參數` });
+        isNotOK = true;
+        return;
+      }
+    });
+    if (isNotOK) return;
+
+    valuePkg = {
+      user_id,
+      dog_id: req.body.dog_id,
+      buy_sort,
+      buy_id,
+      quantity: 1,
+      amount: 4788,
+      room_type: req.body.room_type,
+      check_in_date: req.body.check_in_date,
+      check_out_date: req.body.check_out_date,
+      created_at: time_now,
+      deleted_at: null
+    };
+  } else if (buy_sort === 'CR') {
+    const amount = await getCoursePrice(buy_id);
+
+    valuePkg = {
+      user_id,
+      dog_id: null,
+      buy_sort,
+      buy_id,
+      quantity: 1,
+      amount,
+      room_type: null,
+      check_in_date: null,
+      check_out_date: null,
+      created_at: time_now,
+      deleted_at: null
+    };
+  } else { /*//TODO  */ }
+
+  const formatPD_in = {
+    "user_id": 214,
+    "buy_sort": "PD",
+    "buy_id": 42,
+    "quantity": 3,
+  };
+
+  const formatHT_in = {
+    "user_id": 116,
+    "dog_id": 119,
+    "buy_sort": "HT",
+    "buy_id": 7,
+    "amount": 4788,
+    "room_type": "S",
+    "check_in_date": "2023-10-18",
+    "check_out_date": "2023-11-01",
+  };
+  const formatCR_in = {
+    "user_id": 11,
+    "buy_sort": "CR",
+    "buy_id": 5,
+  };
+
+  const result = await insert(valuePkg);
+  res.json({ status: "success", message: "新增成功", result });
+});
 
 
 //======== handle 404

@@ -71,6 +71,7 @@ const getProdPic = id => new Promise(async (resolve, reject) => {
 /**
  * 打包商品部份的購物車資料
  * @param {object} cartData from database cart
+ * @description key 為 cart 之 ID
  * @returns {{
  *  key: number,
  *  prod_name: string,
@@ -96,7 +97,7 @@ export default async function (cartData) {
         const picName = await getProdPic(subProdObj.prod_id);
 
         return ({
-          key: cartItem.buy_id,
+          key: cartItem.id,
           prod_name: prodName,
           pic_name: picName,
           sort_name: subProdObj.sortname,

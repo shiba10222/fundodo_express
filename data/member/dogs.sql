@@ -276,7 +276,7 @@ INSERT INTO `dogs` (`id`, `user_id`, `created_at`, `gender`, `age`, `bodytype`, 
 	(248,174,'2024-02-12 12:49:17',2,6,'MINI','約克夏','Brynn', NULL),
 	(249,41,'2024-02-12 19:21:29',1,14,'SMALL','臘腸犬','白雪', NULL),
 	(250,41,'2024-02-12 19:27:06',1,4,'MINI','馬爾濟斯','Marnie', NULL);
-INSERT INTO `dogs` VALUES (251,21,'2024-02-13 06:20:23',2,10,'BIG','哈士奇','Canyon', NULL),
+INSERT INTO `dogs` (`id`, `user_id`, `created_at`, `gender`, `age`, `bodytype`, `breed`, `name`, `deleted_at`) VALUES (251,21,'2024-02-13 06:20:23',2,10,'BIG','哈士奇','Canyon', NULL),
 	(252,21,'2024-02-13 06:28:03',2,6,'MEDIUM','米克斯','Scotch', NULL),
 	(253,230,'2024-02-18 09:52:41',2,8,'MEDIUM','柴犬','Simba', NULL),
 	(254,230,'2024-02-18 10:00:11',2,9,'BIG','黃金獵犬','MOMO', NULL),
@@ -526,7 +526,7 @@ INSERT INTO `dogs` VALUES (251,21,'2024-02-13 06:20:23',2,10,'BIG','哈士奇','
 	(498,202,'2024-08-18 02:33:22',1,5,'BIG','哈士奇','弟弟', NULL),
 	(499,202,'2024-08-18 09:20:47',1,12,'BIG','哈士奇','Hurricane', NULL),
 	(500,202,'2024-08-18 09:28:15',1,15,'SMALL','狐狸犬','Dennis', NULL);
-INSERT INTO `dogs` VALUES (501,284,'2024-08-18 20:50:20',1,6,'MEDIUM','柯基','奶油', NULL),
+INSERT INTO `dogs` (`id`, `user_id`, `created_at`, `gender`, `age`, `bodytype`, `breed`, `name`, `deleted_at`) VALUES (501,284,'2024-08-18 20:50:20',1,6,'MEDIUM','柯基','奶油', NULL),
 	(502,212,'2024-08-20 00:23:46',1,4,'MEDIUM','米克斯','Kiki', NULL),
 	(503,214,'2024-08-20 12:37:01',2,2,'MEDIUM','米克斯','Aggie', NULL),
 	(504,294,'2024-08-20 17:02:30',1,11,'SMALL','雪納瑞','Vixen', NULL),

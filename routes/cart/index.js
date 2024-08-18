@@ -23,7 +23,6 @@ router.get('/', (req, res) => {
 
 //======== 讀取指定 ==========//
 //【核心功能】使用者的購物車內容
-//* test uid = 59
 router.get('/:uid', async (req, res) => {
   const uid = Number(req.params.uid);
 
@@ -33,8 +32,20 @@ router.get('/:uid', async (req, res) => {
     [uid]
   );
 
-  if (rows_cart.length === 0) return null;
+  if (rows_cart.length === 0) {
+    res.status(200).json({
+      status: "success",
+      message: "查詢成功",
+      result: {
+        PD: null,
+        CR: null,
+        HT: null,
+      }
+    });
+    return;
+  }
   //== 2 ==== 打包三種資料 =================================
+  // await 被 ts(80007) 說沒必要，但是經測試有非同步的效果與需要
   const pkgPD = rows_cart.filter(d => d.buy_sort === 'PD');
   const rows_PD = pkgPD.length === 0 ? null : await readPD(pkgPD);
 

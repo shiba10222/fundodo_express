@@ -1,31 +1,6 @@
 import conn from "../../../db.js";
-
-//=== 參考格式
-const sample_f = {
-  hotel_name: '毛起來住寵物旅館',
-  pic_path: '',
-  start_date: '2024-08-16',
-  end_date: '2024-08-17',
-  bodytype: '大型犬',
-  price: 422,
-  qty: 1,
-  tot: 422,
-  key: 'ef53dsegkj'
-};
-const sample_b = {
-  id: null,
-  user_id: 28,
-  dog_id: null,
-  buy_sort: "HT",
-  buy_id: 9,
-  quantity: 1,
-  amount: 666,
-  room_type: "S",
-  check_in_date: "2022-07-26",
-  check_out_date: "2022-07-28",
-  created_at: "2022-07-25 20:22:58",
-  deleted_at: null
-};
+import { v4 as uuid4 } from "uuid";
+import { getTimeNum } from '../../../data/test/lib-time.js';
 
 const bodytypeOf = {
   'S': "小型犬",
@@ -61,7 +36,7 @@ const getDogName = id => new Promise(async (resolve, reject) => {
     reject(new Error(`dogs id: ${id} 非唯一`));
     return;
   }
-  resolve(rows[0]);
+  resolve(rows[0]['name']);
 });
 
 /**
@@ -81,19 +56,31 @@ const getDogName = id => new Promise(async (resolve, reject) => {
  */
 export default async function (cartData) {
   return new Promise(async (resolve, reject) => {
+    cartData.sort((a, b) => {
+      const d1 = getTimeNum(a.check_in_date) - getTimeNum(b.check_in_date);
+      if (d1 !== 0) return d1;
+
+      if (a.dog_id && b.dog_id) return a.dog_id - b.dog_id;
+      else if (a.dog_id) return 1;
+      else if (b.dog_id) return -1;
+      else {
+        const list = ['S', 'M', 'L'];
+        return list.indexOf(a.room_type) - list.indexOf(b.room_type);
+      }
+    })
+    
     const cartList = await Promise.all(
       cartData.map(async cartItem => {
         //== 查詢 hotel
         const hotelObj = await getHotel(cartItem.buy_id);
-
         const dogName = cartItem.dog_id ? await getDogName(cartItem.dog_id) : null;
 
         return ({
-          key: cartItem.buy_id,
+          key: uuid4(),
           prod_name: hotelObj.name,
           pic_name: hotelObj.main_img_path,
-          dog_name: dogName.name,
-          bodytype: bodytypeOf[cartItem.room_type],
+          dog_name: dogName,
+          room_type: bodytypeOf[cartItem.room_type],
           check_in_date: cartItem.check_in_date,
           check_out_date: cartItem.check_out_date,
           amount: cartItem.amount,

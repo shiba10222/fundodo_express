@@ -3,7 +3,7 @@
 /**
  * 將時間戳記的格式轉成指定的字串格式
  * @param {number} timeNum
- * @returns 
+ * @example 2024-08-18
  */
 const getDateStr = timeNum => {
   let str = new Date(timeNum).toJSON();
@@ -12,7 +12,7 @@ const getDateStr = timeNum => {
 /**
  * 將時間戳記的格式轉成指定的字串格式
  * @param {number} timeNum
- * @returns 
+ * @example 2024-08-18 12:00:55
  */
 const getTimeStr = timeNum => {
   let str = new Date(timeNum).toJSON();

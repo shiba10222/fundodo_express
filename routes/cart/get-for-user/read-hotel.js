@@ -1,5 +1,4 @@
 import conn from "../../../db.js";
-import { v4 as uuid4 } from "uuid";
 import { getTimeNum } from '../../../data/test/lib-time.js';
 
 const bodytypeOf = {
@@ -42,6 +41,7 @@ const getDogName = id => new Promise(async (resolve, reject) => {
 /**
  * 打包旅館部份的購物車資料
  * @param {object} cartData from database cart
+ * @description key 為 cart 之 ID
  * @returns {{
  * key: number,
  * prod_name: string,
@@ -76,7 +76,7 @@ export default async function (cartData) {
         const dogName = cartItem.dog_id ? await getDogName(cartItem.dog_id) : null;
 
         return ({
-          key: uuid4(),
+          key: cartItem.id,
           prod_name: hotelObj.name,
           pic_name: hotelObj.main_img_path,
           dog_name: dogName,

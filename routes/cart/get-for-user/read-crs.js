@@ -19,6 +19,7 @@ const getCourse = id => new Promise(async (resolve, reject) => {
 /**
  * 打包課程部份的購物車資料
  * @param {object} cartData from database cart
+ * @description key 為 cart 之 ID
  * @returns {{
  * key: number, prod_name: string, pic_name: string, price: number
  * }}
@@ -32,7 +33,7 @@ export default async function (cartData) {
         const isSpecial = crsObj.price_sp && crsObj.price_sp > 0;
         const price = isSpecial ? crsObj.price_sp : crsObj.price;
         return ({
-          key: cartItem.buy_id,
+          key: cartItem.id,
           prod_name: crsObj.title,
           pic_name: crsObj.img_path,
           price: Number(price)

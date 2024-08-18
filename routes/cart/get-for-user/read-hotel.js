@@ -1,4 +1,5 @@
 import conn from "../../../db.js";
+import { v4 as uuid4 } from "uuid";
 
 //=== 參考格式
 const sample_f = {
@@ -89,7 +90,7 @@ export default async function (cartData) {
         const dogName = cartItem.dog_id ? await getDogName(cartItem.dog_id) : null;
 
         return ({
-          key: cartItem.buy_id,
+          key: uuid4(),
           prod_name: hotelObj.name,
           pic_name: hotelObj.main_img_path,
           dog_name: dogName.name,

@@ -1,27 +1,5 @@
 import conn from "../../../db.js";
 
-//=== 參考格式
-const sample_f = {
-  name: '玩出好感情！與狗兒的互動遊戲課',
-  pic_path: 'CR0000011.png',
-  // plan: '單堂線上遊戲課(5/18的重播教學)',
-  price: 1200,
-  key: 'semv8942lm'
-};
-const sample_b = {
-  id: null,
-  user_id: 100,
-  dog_id: null,
-  buy_sort: "CR",
-  buy_id: 12,
-  quantity: 1,
-  room_type: null,
-  check_in_date: null,
-  check_out_date: null,
-  created_at: "2024-02-25 22:44:28",
-  deleted_at: null
-};
-
 //================================================================
 const getCourse = id => new Promise(async (resolve, reject) => {
   const [rows] = await conn.query(
@@ -51,12 +29,13 @@ export default async function (cartData) {
       cartData.map(async cartItem => {
         //== 查詢 courses
         const crsObj = await getCourse(cartItem.buy_id);
-        const  isSpecial = crsObj.price_sp && crsObj.price_sp > 0;
+        const isSpecial = crsObj.price_sp && crsObj.price_sp > 0;
+        const price = isSpecial ? crsObj.price_sp : crsObj.price;
         return ({
           key: cartItem.buy_id,
           prod_name: crsObj.title,
           pic_name: crsObj.img_path,
-          price: isSpecial ? crsObj.price_sp : crsObj.price,
+          price: Number(price)
         })
       })
     );

@@ -294,44 +294,42 @@ router.post('/register', upload.none(), async (req, res, next) => {
 });
 
 //======== 更新 ==========//
-router.put('/:id', upload.none(), async (req, res) => {
-  let user;//todo: remove this
-  // const id = req.params.id;
-  // const user = DB.data.users.find(u => u.id === id);
-  if (!user) {
-    res.status(404).json({ status: "failed", message: "查無此使用者，請檢查輸入的 ID 是否有誤" });
-    return;
+router.put('/:uuid', upload.none(), async (req, res) => {
+  console.log('Received request body:', req.body);
+
+  const { name, gender, dob, tel, address } = req.body;
+  const uuid = req.params.uuid;
+
+  if (!name || !gender || !dob || !tel || !address) {
+    return res.status(400).json({ status: "error", message: "必填欄位缺失", receivedData: req.body });
   }
-  // 將修改後的資料更新到 user
-  // console.log(req.body);
-  // const {
-  //   account,
-  //   password,
-  //   name,
-  //   email,
-  //   telephone,
-  //   dob,
-  //   address,
-  // } = req.body;
-  // const newData = {
-  //   account,
-  //   password,
-  //   name,
-  //   email,
-  //   telephone,
-  //   dob,
-  //   address,
-  // };
-  // // console.log(newData);
-  // DB.data.users = DB.data.users.map(
-  //   u => (u.id === id) ? { ...u, ...newData } : u
-  // );
-  // await DB.write();
-  // res.status(200).json({
-  //   status: "success",
-  //   message: "更新成功",
-  //   result: req.body
-  // });
+
+  try {
+    // 檢查是否有此用戶
+    const [existingUser] = await conn.execute('SELECT * FROM users WHERE uuid = ?', [uuid]);
+    if (existingUser.length === 0) {
+      return res.status(400).json({ status: "error", message: "無此用戶" });
+    }
+
+    const sql = 'UPDATE users SET name = ?, gender = ?, dob = ?, tel = ?, address = ? WHERE uuid = ?';
+    const values = [name, gender, dob, tel, address, uuid];
+
+    console.log('Executing SQL:', sql);
+    console.log('With values:', values);
+
+    const [result] = await conn.execute(sql, values);
+
+    console.log('Update result:', result);
+
+    res.status(200).json({
+      status: "success",
+      message: "更新成功",
+      result: req.body
+    });
+  } catch (error) {
+    console.error('Error occurred:', error);
+    res.status(500).json({ status: "error", message: "伺服器錯誤" });
+  }
 });
 
 router.patch('/:id', upload.none(), (req, res) => {

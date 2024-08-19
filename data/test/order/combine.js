@@ -37,7 +37,7 @@ cartCR = cartCR.map(d => ({
   buy_sort: d.buy_sort,
   buy_id: d.buy_id,
   quantity: 1,
-  amount: priceList[d.user_id],
+  amount: priceList[d.id],/* 此行經過事後修正 */
   room_type: null,
   check_in_date: null,
   check_out_date: null,

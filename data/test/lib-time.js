@@ -15,10 +15,21 @@ const getDateStr = timeNum => {
  * @example 2024-08-18 12:00:55
  */
 const getTimeStr = timeNum => {
-  let str = new Date(timeNum).toJSON();
-  const temp = str.split('T');
-  const result = temp[0] + ' ' + temp[1].split('.')[0];
-  return result;
+  let str = new Date(timeNum).toLocaleString('zh-TW', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false,
+    timeZone: 'Asia/Taipei',
+  });
+  // let str = new Date(timeNum).toJSON();
+  // const temp = str.split('T');
+  // const result = temp[0] + ' ' + temp[1].split('.')[0];
+  // return result;
+  return str;
 }
 
 /**
@@ -47,6 +58,13 @@ const nDaysAfter = (time, n) => {
   day.setDate(day.getDate() + n);
 
   return getTimeNum(day);
+}
+
+const nYearsBefore = (time, n) => {
+  const ano_toki = new Date(time);
+  ano_toki.setFullYear(ano_toki.getFullYear() - n);
+
+  return getTimeNum(ano_toki);
 }
 
 const randDateBetween = (start, end) => {
@@ -82,6 +100,7 @@ export {
   getDateStr,
   getTimeNum,
   nDaysAfter,
+  nYearsBefore,
   randDateBetween,
   longAfter
 }

@@ -12,7 +12,7 @@ const envMode = process.argv[2];//dev or dist
 const router = Router();
 const upload = multer();
 
-// 函數
+//=================== 函數
 const getCoursePrice = id => new Promise(async (resolve, reject) => {
   const [rows] = await conn.query(
     "SELECT price, price_sp FROM courses WHERE id = ?",
@@ -189,33 +189,31 @@ router.post('/', upload.none(), async (req, res) => {
     };
   } else { /*//TODO  */ }
 
-  const formatPD_in = {
-    "user_id": 214,
-    "buy_sort": "PD",
-    "buy_id": 42,
-    "quantity": 3,
-  };
-
-  const formatHT_in = {
-    "user_id": 116,
-    "dog_id": 119,
-    "buy_sort": "HT",
-    "buy_id": 7,
-    "amount": 4788,
-    "room_type": "S",
-    "check_in_date": "2023-10-18",
-    "check_out_date": "2023-11-01",
-  };
-  const formatCR_in = {
-    "user_id": 11,
-    "buy_sort": "CR",
-    "buy_id": 5,
-  };
-
   const result = await insert(valuePkg);
   res.json({ status: "success", message: "新增成功", result });
 });
 
+//======== 刪除資料 ==========//
+
+router.patch('/:id', async (req, res) => {
+  const cartID = Number(req.params.id);
+
+  const timeObj = new Date().toJSON();
+  const now = timeObj.split('.')[0].replace(/T/, ' ');
+
+  try {
+    await conn.execute(
+      "UPDATE `cart` SET `deleted_at` = ? WHERE id = ?",
+      [now, cartID]
+    );
+  } catch (e) {
+    res.status(500).json({ status: "failure", message: "刪除失敗，請稍後再嘗試" });
+    console.error(e);
+    return;
+  };
+
+    res.json({ status: "success", message: `成功刪除 ID ${cartID} 之購物車項目` });
+  });
 
 //======== handle 404
 

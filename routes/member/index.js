@@ -5,7 +5,8 @@ import jwt from 'jsonwebtoken';
 import { v4 as uuidv4 } from 'uuid';
 import bcrypt from 'bcrypt';
 import { resolve } from "path";
-import conn from '../db.js';
+import conn from '../../db.js';
+import authenticateToken from './auth/authToken.js';
 
 // 參數
 const secretKey = process.argv[2];
@@ -99,7 +100,7 @@ router.get('/prod', (req, res) => {
   res.status(200).json({ status: "success", message: "查詢成功", result });
 });
 
-//======== 讀取指定(uuid) ==========//
+//======== 讀取指定會員(uuid) ==========//
 //* test id=302 uuid = 1eaf3f71-0568-4541-86fe-c6e9f0108636 網址 = http://localhost:3005/api/member/1eaf3f71-0568-4541-86fe-c6e9f0108636
 router.get('/:uuid', async (req, res) => {
   const { uuid } = req.params; // 從路由參數中取得 uuid
@@ -129,7 +130,42 @@ router.get('/:uuid', async (req, res) => {
   }
 });
 
-//======== 登入指定 ==========//
+//======== 讀取指定狗狗資料(uuid) ==========//
+//* test id=302 uuid = 1eaf3f71-0568-4541-86fe-c6e9f0108636 網址 = http://localhost:3005/api/member/1eaf3f71-0568-4541-86fe-c6e9f0108636
+router.get('/dog/:uuid', authenticateToken, async (req, res) => {
+  const userId = req.user.userId;
+  const { uuid } = req.params;
+
+  if (!uuid) {
+    return res.status(400).json({ status: 'failed', message: 'UUID 參數缺失' });
+  }
+
+  if (!userId) {
+    return res.status(400).json({ status: 'failed', message: 'userId 參數缺失' });
+  }
+
+  try {
+    // 查詢資料庫中的用戶資料
+    const [rows] = await conn.execute('SELECT * FROM dogs WHERE user_id = ?', [userId]);
+
+    if (rows.length === 0) {
+      // 沒有找到對應的用戶
+      return res.status(404).json({ status: 'failed', message: '狗狗未找到' });
+    }
+
+    // 返回查詢結果
+    res.status(200).json({
+      status: 'success',
+      message: '查詢成功',
+      result: rows
+    });
+  } catch (error) {
+    console.error('資料庫查詢錯誤：', error);
+    res.status(500).json({ status: 'error', message: '資料庫查詢錯誤', error: error.message });
+  }
+});
+
+//======== 登入指定(會員完工) ==========//
 //* test id=302 uuid = 1eaf3f71-0568-4541-86fe-c6e9f0108636 網址 = http://localhost:3005/api/member/1eaf3f71-0568-4541-86fe-c6e9f0108636
 router.post('/login', upload.none(), async (req, res) => {
   const { email, password } = req.body;
@@ -165,8 +201,8 @@ router.post('/login', upload.none(), async (req, res) => {
 
     // 登入成功，創建 JWT token
     const token = jwt.sign(
-      { userId: user.id, email: user.email },
-      process.env.JWT_SECRET,
+      { userId: user.id, email: user.email, uuid: user.uuid },
+      'j123456',
       { expiresIn: '1h' }
     );
 
@@ -177,9 +213,17 @@ router.post('/login', upload.none(), async (req, res) => {
       token: token,
       user: {
         id: user.id,
+        uuid: user.uuid,
+        name: user.name,
         nickname: user.nickname,
+        gender: user.gender,
+        dob: user.dob,
+        tel: user.tel,
         email: user.email,
-        uuid: user.uuid
+        avatar_file: user.avatar_file,
+        address: user.address,
+        adr_city: user.adr_city,
+        adr_district: user.	adr_district,
       }
     });
 
@@ -250,44 +294,42 @@ router.post('/register', upload.none(), async (req, res, next) => {
 });
 
 //======== 更新 ==========//
-router.put('/:id', upload.none(), async (req, res) => {
-  let user;//todo: remove this
-  // const id = req.params.id;
-  // const user = DB.data.users.find(u => u.id === id);
-  if (!user) {
-    res.status(404).json({ status: "failed", message: "查無此使用者，請檢查輸入的 ID 是否有誤" });
-    return;
+router.put('/:uuid', upload.none(), async (req, res) => {
+  console.log('Received request body:', req.body);
+
+  const { name, gender, dob, tel, address } = req.body;
+  const uuid = req.params.uuid;
+
+  if (!name || !gender || !dob || !tel || !address) {
+    return res.status(400).json({ status: "error", message: "必填欄位缺失", receivedData: req.body });
   }
-  // 將修改後的資料更新到 user
-  // console.log(req.body);
-  // const {
-  //   account,
-  //   password,
-  //   name,
-  //   email,
-  //   telephone,
-  //   dob,
-  //   address,
-  // } = req.body;
-  // const newData = {
-  //   account,
-  //   password,
-  //   name,
-  //   email,
-  //   telephone,
-  //   dob,
-  //   address,
-  // };
-  // // console.log(newData);
-  // DB.data.users = DB.data.users.map(
-  //   u => (u.id === id) ? { ...u, ...newData } : u
-  // );
-  // await DB.write();
-  // res.status(200).json({
-  //   status: "success",
-  //   message: "更新成功",
-  //   result: req.body
-  // });
+
+  try {
+    // 檢查是否有此用戶
+    const [existingUser] = await conn.execute('SELECT * FROM users WHERE uuid = ?', [uuid]);
+    if (existingUser.length === 0) {
+      return res.status(400).json({ status: "error", message: "無此用戶" });
+    }
+
+    const sql = 'UPDATE users SET name = ?, gender = ?, dob = ?, tel = ?, address = ? WHERE uuid = ?';
+    const values = [name, gender, dob, tel, address, uuid];
+
+    console.log('Executing SQL:', sql);
+    console.log('With values:', values);
+
+    const [result] = await conn.execute(sql, values);
+
+    console.log('Update result:', result);
+
+    res.status(200).json({
+      status: "success",
+      message: "更新成功",
+      result: req.body
+    });
+  } catch (error) {
+    console.error('Error occurred:', error);
+    res.status(500).json({ status: "error", message: "伺服器錯誤" });
+  }
 });
 
 router.patch('/:id', upload.none(), (req, res) => {

@@ -1,8 +1,8 @@
 {
   "workbench.colorCustomizations": {
     //============ 上方 =============//
-    // "titleBar.inactiveBackground": "#c2ae81",
-    "titleBar.inactiveForeground": "#2b1f1a",
+    "titleBar.inactiveBackground": "#3a2e0d",
+    "titleBar.inactiveForeground": "#f4d284",
     "titleBar.activeBackground": "#f4d284",
     "titleBar.activeForeground": "#49352c",
     //============ 分頁 =============//

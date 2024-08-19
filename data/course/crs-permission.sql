@@ -1,10 +1,36 @@
+-- 資料表標題： Fundodo 訂單資料
+-- 摘要：根據會員總表與商品總表生成的訂單資料
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+08:00";
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- 資料庫： `fundodo`
+--
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `crs_perm`
+--
+
 CREATE TABLE IF NOT EXISTS `crs_perm` (
-    `user_id` int(7),
-    `crs_id` mediumint(5),
+    `id` int(7) UNSIGNED NOT NULL,
+    `user_id` int(7) UNSIGNED NOT NULL,
+    `crs_id` mediumint(5) UNSIGNED NOT NULL,
     `start_date` date NOT NULL,
     `end_date` date DEFAULT NULL
-);
-INSERT INTO `crs_perm` VALUES (3,15,'2022-07-17 00:00:00',NULL),
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+ALTER TABLE `crs_perm` CHANGE `id` `id` int(7) UNSIGNED NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`id`); 
+
+INSERT INTO `crs_perm` (`user_id`, `crs_id`, `start_date`, `end_date`) VALUES (3,15,'2022-07-17 00:00:00',NULL),
 	(12,12,'2022-07-27 00:00:00',NULL),
 	(11,8,'2022-11-21 00:00:00',NULL),
 	(11,10,'2022-11-21 00:00:00',NULL),
@@ -123,3 +149,9 @@ INSERT INTO `crs_perm` VALUES (3,15,'2022-07-17 00:00:00',NULL),
 	(241,14,'2024-09-05 00:00:00',NULL),
 	(297,22,'2024-09-09 00:00:00',NULL),
 	(297,2,'2024-09-09 00:00:00',NULL);
+
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

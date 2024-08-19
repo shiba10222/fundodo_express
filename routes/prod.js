@@ -7,7 +7,7 @@ const router = Router();  // 創建 Express 路由器實例
 router.get("/", async (req, res) => {
   try {
     // 從查詢參數中解構出篩選條件
-    const { category, subcategory, brand, minPrice, maxPrice } = req.query;
+    const { category, subcategory, brand, minPrice, maxPrice, sortBy } = req.query;
 
     // 構建基本的 SQL 查詢
     // 這個查詢使用了多個子查詢來獲取每個產品的價格數組和圖片名稱數組
@@ -68,6 +68,18 @@ router.get("/", async (req, res) => {
     }
 
     query += ` GROUP BY product.id`;  // 按產品 ID 分組，確保每個產品只返回一次
+
+    switch (sortBy) {
+      case 'price_asc':
+        query += ` ORDER BY CAST(SUBSTRING_INDEX(priceArr, ',', 1) AS DECIMAL(10,2)) ASC`;
+        break;
+      case 'price_desc':
+        query += ` ORDER BY CAST(SUBSTRING_INDEX(priceArr, ',', 1) AS DECIMAL(10,2)) DESC`;
+        break;
+      case 'newest':
+      default:
+        query += ` ORDER BY product.id DESC`;  // 假設較新的產品 ID 較大
+    }
 
     // 執行 SQL 查詢
     const [rows] = await conn.execute(query, params);

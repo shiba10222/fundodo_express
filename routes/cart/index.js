@@ -12,7 +12,7 @@ const envMode = process.argv[2];//dev or dist
 const router = Router();
 const upload = multer();
 
-// 函數
+//=================== 函數
 const getCoursePrice = id => new Promise(async (resolve, reject) => {
   const [rows] = await conn.query(
     "SELECT price, price_sp FROM courses WHERE id = ?",
@@ -57,19 +57,16 @@ const insert = data => new Promise(async (resolve, reject) => {
 //================== 設置路由架構 ====================
 //==================================================
 
-//======== 讀取全部 ==========//
-
 router.get('/', (req, res) => {
   res.status(400).send({ status: "Bad Request", message: '欲使用後台的購物車系統，請輸入正確的路由' });
 });
-
 
 //======== 讀取指定 ==========//
 //【核心功能】查詢使用者的購物車內容
 router.get('/:uid', async (req, res) => {
   const uid = Number(req.params.uid);
 
-  //== 1 ==== 查詢 cart_PD ==========================
+  //== 1 ==== 查詢 cart_PD
   const [rows_cart] = await conn.query(
     `SELECT * FROM cart WHERE user_id = ?`,
     [uid]
@@ -87,7 +84,7 @@ router.get('/:uid', async (req, res) => {
     });
     return;
   }
-  //== 2 ==== 打包三種資料 =================================
+  //== 2 ==== 打包三種資料
   // await 被 ts(80007) 說沒必要，但是經測試有非同步的效果與需要
   const pkgPD = rows_cart.filter(d => d.buy_sort === 'PD');
   const rows_PD = pkgPD.length === 0 ? null : await readPD(pkgPD);
@@ -98,7 +95,7 @@ router.get('/:uid', async (req, res) => {
   const pkgHT = rows_cart.filter(d => d.buy_sort === 'HT');
   const rows_HT = pkgHT.length === 0 ? null : await readHT(pkgHT);
 
-  //== 3 ==== 組合三包資料 ==========================
+  //== 3 ==== 組合三包資料
   let result = {
     PD: rows_PD,
     CR: rows_CR,
@@ -107,6 +104,7 @@ router.get('/:uid', async (req, res) => {
   res.status(200).json({ status: "success", message: "查詢成功", result });
 });
 
+//======== 新增資料 ==========//
 router.post('/', upload.none(), async (req, res) => {
   if (Object.prototype.hasOwnProperty.call(req.body, 'user_id')
     && Object.prototype.hasOwnProperty.call(req.body, 'buy_sort')
@@ -191,33 +189,31 @@ router.post('/', upload.none(), async (req, res) => {
     };
   } else { /*//TODO  */ }
 
-  const formatPD_in = {
-    "user_id": 214,
-    "buy_sort": "PD",
-    "buy_id": 42,
-    "quantity": 3,
-  };
-
-  const formatHT_in = {
-    "user_id": 116,
-    "dog_id": 119,
-    "buy_sort": "HT",
-    "buy_id": 7,
-    "amount": 4788,
-    "room_type": "S",
-    "check_in_date": "2023-10-18",
-    "check_out_date": "2023-11-01",
-  };
-  const formatCR_in = {
-    "user_id": 11,
-    "buy_sort": "CR",
-    "buy_id": 5,
-  };
-
   const result = await insert(valuePkg);
   res.json({ status: "success", message: "新增成功", result });
 });
 
+//======== 刪除資料 ==========//
+
+router.patch('/:id', async (req, res) => {
+  const cartID = Number(req.params.id);
+
+  const timeObj = new Date().toJSON();
+  const now = timeObj.split('.')[0].replace(/T/, ' ');
+
+  try {
+    await conn.execute(
+      "UPDATE `cart` SET `deleted_at` = ? WHERE id = ?",
+      [now, cartID]
+    );
+  } catch (e) {
+    res.status(500).json({ status: "failure", message: "刪除失敗，請稍後再嘗試" });
+    console.error(e);
+    return;
+  };
+
+    res.json({ status: "success", message: `成功刪除 ID ${cartID} 之購物車項目` });
+  });
 
 //======== handle 404
 

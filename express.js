@@ -3,18 +3,26 @@ import express from 'express';
 import cors from 'cors';
 import logger from "morgan";
 import { readdir } from "fs/promises";
-import { resolve } from 'path';
-import { pathToFileURL } from "url";
+import { dirname,resolve } from 'path';
+import { fileURLToPath,pathToFileURL } from "url";
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 
 //================== 初始化 =======================//
 const app = express();
 dotenv.config();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 //================== 中介軟體設定 ==================//
-express.json();
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+//=== 設置靜態文件夾 ===//
+console.log('Static files directory:', resolve(__dirname, 'public/upload'));
+console.log('Public upload directory path:', resolve(__dirname, 'public/upload'));
+app.use('/upload', express.static(resolve(__dirname, 'public/upload')));
+
 //=== CORS
 let whitelist = ["http://127.0.0.1", "http://localhost:5500", "http://localhost:3000", "https://emap.pcsc.com.tw", "https://emap.pcsc.com.tw/ecmap/default.aspx", undefined];
 let corsOptions = {

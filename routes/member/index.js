@@ -23,8 +23,8 @@ const storage = multer.diskStorage({
     cb(null, 'public/upload'); // 文件存儲路徑
   },
   filename: (req, file, cb) => {
-    const userId = req.params.userId; // 從路由參數獲取用戶 ID
-    cb(null, `${userId}.png`); // 文件名稱
+    const uuid = req.params.uuid; // 從路由參數獲取用戶 ID
+    cb(null, `${uuid}.png`); // 文件名稱
   }
 });
 
@@ -36,8 +36,8 @@ const uploadAvatar = multer({
       cb(null, 'public/upload');
     },
     filename: (req, file, cb) => {
-      const userId = req.params.userId;
-      cb(null, `${userId}.png`);
+      const uuid = req.params.uuid;
+      cb(null, `${uuid}.png`);
     }
   }),
   // 只接受 'avatar' 字段
@@ -196,6 +196,23 @@ router.get('/dog/:uuid', authenticateToken, async (req, res) => {
     console.error('資料庫查詢錯誤：', error);
     res.status(500).json({ status: 'error', message: '資料庫查詢錯誤', error: error.message });
   }
+});
+
+//======== 讀取指定圖片 ==========//
+//* test id=302 uuid = 1eaf3f71-0568-4541-86fe-c6e9f0108636 網址 = http://localhost:3005/api/member/1eaf3f71-0568-4541-86fe-c6e9f0108636
+router.get('/upload/:uuid.png', async (req, res) => {
+  const { uuid } = req.params;
+  const filePath = path.resolve(__dirname, 'public/upload', `${uuid}.png`);
+
+  fs.access(filePath, fs.constants.F_OK, (err) => {
+    if (err) {
+      // 文件不存在
+      res.status(404).json({ message: 'File not found' });
+    } else {
+      // 文件存在，將其發送到客戶端
+      res.sendFile(filePath);
+    }
+  });
 });
 
 //======== 登入指定(會員完工) ==========//
@@ -383,8 +400,8 @@ router.put('/:uuid', upload.none(), async (req, res) => {
   }
 });
 
-router.put('/ForumMemberInfo/:uuid', uploadAvatar.single('avatar'), async (req, res) => {
-  const { nickname, introduce, avatar_file } = req.body;
+router.put('/ForumMemberInfo/:uuid', upload.none(), async (req, res) => {
+  const { nickname, introduce } = req.body;
   const uuid = req.params.uuid;
 
   if (!nickname || !introduce) {
@@ -399,8 +416,8 @@ router.put('/ForumMemberInfo/:uuid', uploadAvatar.single('avatar'), async (req, 
     }
 
     // 更新用戶資料
-    const sql = 'UPDATE users SET nickname = ?, introduce = ?, avatar_file = ? WHERE uuid = ?';
-    const values = [nickname, introduce, avatar_file || null, uuid];
+    const sql = 'UPDATE users SET nickname = ?, introduce = ? WHERE uuid = ?';
+    const values = [nickname, introduce, uuid];
     const [result] = await conn.execute(sql, values);
 
     // 重新生成 token
@@ -421,7 +438,7 @@ router.put('/ForumMemberInfo/:uuid', uploadAvatar.single('avatar'), async (req, 
         uuid: user.uuid,
         nickname: user.nickname,
         introduce: user.introduce,
-        avatar_file: avatar_file || user.avatar_file,
+        avatar_file: user.avatar_file,
       }
     });
   } catch (error) {
@@ -430,14 +447,25 @@ router.put('/ForumMemberInfo/:uuid', uploadAvatar.single('avatar'), async (req, 
   }
 });
 
-router.post('/uploadAvatar/:id',  uploadAvatar.single('avatar'), async (req, res) => {
+router.post('/uploadAvatar/:uuid', uploadAvatar.single('avatar'), async (req, res) => {
+  console.log('Received request body:', req.body);
+  const uuid = req.params.uuid;
   try {
     if (!req.file) {
       return res.status(400).json({ status: 'error', message: '檔案上傳失敗' });
     }
 
+    // 獲取上傳成功的檔案路徑
+    const filePath = `/upload/${req.file.filename}`;
+    // 獲取上傳成功的檔案路徑
+    const sqlfilePath = `${req.file.filename}`;
+    // 更新資料庫中的用戶資料
+    const sql = 'UPDATE users SET avatar_file = ? WHERE uuid = ?';
+    const values = [sqlfilePath, uuid];
+    await conn.execute(sql, values);
+
     // 返回上傳成功的檔案路徑
-    res.status(200).json({ status: 'success', filePath: `/upload/${req.file.filename}` });
+    res.status(200).json({ status: 'success', filePath: filePath });
   } catch (error) {
     console.error('檔案上傳錯誤：', error);
     res.status(500).json({ status: 'error', message: '檔案上傳失敗' });

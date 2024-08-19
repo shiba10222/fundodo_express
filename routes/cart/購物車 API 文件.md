@@ -4,6 +4,8 @@
 
 ### API information
 
+使用前請先確認資料庫是否已經建立 cart 資料表
+
 URL: `http://localhost:3005/cart`
 
 method: `POST`

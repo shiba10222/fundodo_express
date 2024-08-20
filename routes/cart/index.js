@@ -4,6 +4,7 @@ import conn from "../../db.js";
 import readPD from './get-for-user/read-prod.js'
 import readCR from './get-for-user/read-crs.js';
 import readHT from './get-for-user/read-hotel.js';
+import { getTimeStr_DB } from '../../data/test/lib-time.js';
 
 // 參數
 const envMode = process.argv[2];//dev or dist
@@ -114,16 +115,8 @@ router.post('/', upload.none(), async (req, res) => {
   }
   const { user_id, buy_sort, buy_id } = req.body;
 
-  const time_now = new Date().toLocaleString('zh-TW', {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-    hour12: false,
-    timeZone: 'Asia/Taipei',
-  });
+  const timeObj = new Date().getTime();
+  const time_now = getTimeStr_DB(timeObj);
   let valuePkg;
 
   if (buy_sort === 'PD') {
@@ -193,13 +186,13 @@ router.post('/', upload.none(), async (req, res) => {
   res.json({ status: "success", message: "新增成功", result });
 });
 
-//======== 刪除資料 ==========//
+//======== 軟刪除資料 ==========//
 
-router.patch('/:id', async (req, res) => {
+router.patch('/del/:id', async (req, res) => {
   const cartID = Number(req.params.id);
 
-  const timeObj = new Date().toJSON();
-  const now = timeObj.split('.')[0].replace(/T/, ' ');
+  const timeObj = new Date().getTime();
+  const now = getTimeStr_DB(timeObj);
 
   try {
     await conn.execute(
@@ -212,8 +205,26 @@ router.patch('/:id', async (req, res) => {
     return;
   };
 
-    res.json({ status: "success", message: `成功刪除 ID ${cartID} 之購物車項目` });
-  });
+  res.json({ status: "success", message: `成功刪除 ID ${cartID} 之購物車項目` });
+});
+//======== 恢復軟刪除資料 ==========//
+
+router.patch('/undodel/:id', async (req, res) => {
+  const cartID = Number(req.params.id);
+
+  try {
+    await conn.execute(
+      "UPDATE `cart` SET `deleted_at` = NULL WHERE id = ?",
+      [now, cartID]
+    );
+  } catch (e) {
+    res.status(500).json({ status: "failure", message: "刪除失敗，請稍後再嘗試" });
+    console.error(e);
+    return;
+  };
+
+  res.json({ status: "success", message: `成功刪除 ID ${cartID} 之購物車項目` });
+});
 
 //======== handle 404
 

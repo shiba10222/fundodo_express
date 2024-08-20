@@ -12,7 +12,7 @@ const getDateStr = timeNum => {
 /**
  * 將時間戳記的格式轉成指定的字串格式
  * @param {number} timeNum
- * @example 2024-08-18 12:00:55
+ * @example 2024/08/18 12:00:55
  */
 const getTimeStr = timeNum => {
   let str = new Date(timeNum).toLocaleString('zh-TW', {
@@ -25,10 +25,25 @@ const getTimeStr = timeNum => {
     hour12: false,
     timeZone: 'Asia/Taipei',
   });
-  // let str = new Date(timeNum).toJSON();
-  // const temp = str.split('T');
-  // const result = temp[0] + ' ' + temp[1].split('.')[0];
-  // return result;
+  return str;
+}
+/**
+ * 將時間戳記的格式轉成指定的字串格式
+ * @param {number} timeNum
+ * @example 2024-08-18 12:00:55
+ */
+const getTimeStr_DB = timeNum => {
+  let str = new Date(timeNum).toLocaleString('zh-TW', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false,
+    timeZone: 'Asia/Taipei',
+  });
+  str = str.replaceAll('/', '-');
   return str;
 }
 
@@ -97,6 +112,7 @@ const longAfter = (time, bound) => {
 
 export {
   getTimeStr,
+  getTimeStr_DB,
   getDateStr,
   getTimeNum,
   nDaysAfter,

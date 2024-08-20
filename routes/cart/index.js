@@ -86,7 +86,7 @@ router.get('/:uid', async (req, res) => {
     return;
   }
   //== 2 ==== 打包三種資料
-  // await 被 ts(80007) 說沒必要，但是經測試有非同步的效果與需要
+  //! await 被 ts(80007) 說沒必要，但是經測試有非同步的效果與需要
   const pkgPD = rows_cart.filter(d => d.buy_sort === 'PD');
   const rows_PD = pkgPD.length === 0 ? null : await readPD(pkgPD);
 

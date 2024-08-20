@@ -18,44 +18,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- 資料庫： `hotel`
+-- 資料庫： `fundodo`
 --
-
--- --------------------------------------------------------
-
---
--- 資料表結構 `booking`
---
-
-CREATE TABLE `booking` (
-  `id` int(7) NOT NULL,
-  `hotel_id` mediumint(6) UNSIGNED NOT NULL,
-  `user_id` int(7) UNSIGNED NOT NULL,
-  `room_type` varchar(3) NOT NULL,
-  `check_in_date` date NOT NULL,
-  `check_out_date` date NOT NULL,
-  `uni_price` mediumint(5) UNSIGNED NOT NULL,
-  `total_price` mediumint(6) UNSIGNED NOT NULL,
-  `total_nights` smallint(3) UNSIGNED NOT NULL,
-  `status` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- 傾印資料表的資料 `booking`
---
-
-INSERT INTO `booking` (`id`, `hotel_id`, `user_id`, `room_type`, `check_in_date`, `check_out_date`, `uni_price`, `total_price`, `total_nights`, `status`) VALUES
-(1, 18, 70, 'L', '2024-02-09', '2024-02-10', 639, 639, 1, 'confirmed'),
-(2, 7, 193, 'L', '2024-02-28', '2024-03-01', 624, 1248, 2, 'confirmed'),
-(3, 1, 56, 'M', '2024-02-25', '2024-02-28', 570, 1710, 3, 'confirmed'),
-(4, 31, 267, 'S', '2024-06-22', '2024-06-23', 325, 325, 1, 'confirmed'),
-(5, 2, 71, 'L', '2024-03-15', '2024-03-20', 677, 3385, 5, 'confirmed'),
-(6, 21, 182, 'S', '2024-04-25', '2024-04-27', 364, 728, 2, 'confirmed'),
-(7, 10, 21, 'M', '2024-06-10', '2024-06-14', 550, 2200, 4, 'confirmed'),
-(8, 13, 101, 'M', '2024-04-17', '2024-04-19', 540, 1080, 2, 'confirmed'),
-(9, 32, 264, 'S', '2024-06-23', '2024-06-29', 340, 2040, 6, 'confirmed'),
-(10, 19, 268, 'S', '2024-01-20', '2024-01-22', 324, 648, 2, 'confirmed'),
-(11, 30, 33, 'M', '2024-03-14', '2024-03-16', 552, 1104, 2, 'confirmed');
 
 -- --------------------------------------------------------
 
@@ -244,6 +208,14 @@ INSERT INTO `hotel_img` (`id`, `hotel_id`, `path`) VALUES
 --
 ALTER TABLE `hotel`
   ADD PRIMARY KEY (`id`);
+
+  --
+-- 資料表索引 `hotel`
+--
+ALTER TABLE `hotel_img`
+  ADD PRIMARY KEY (`id`);
+
+
 
 --
 -- 在傾印的資料表使用自動遞增(AUTO_INCREMENT)

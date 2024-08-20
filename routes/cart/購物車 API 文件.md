@@ -10,6 +10,8 @@ URL: `http://localhost:3005/api/cart`
 
 method: `POST`
 
+資料請用 FormData 包裝，並置於 body 屬性下。
+
 ### 商品類 Product
 
 ```js

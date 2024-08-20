@@ -472,6 +472,53 @@ router.post('/uploadAvatar/:uuid', uploadAvatar.single('avatar'), async (req, re
   }
 });
 
+router.put('/dogInfo/:id', upload.none(), async (req, res) => {
+  const { name, gender, dob, weight, introduce, behavior, vaccinations, neutering } = req.body;
+  const id = req.params.id;
+
+  try {
+    // 檢查是否有此狗
+    const [dogs] = await conn.execute('SELECT * FROM dogs WHERE id = ?', [id]);
+    if (dogs.length === 0) {
+      return res.status(400).json({ status: 'error', message: '無此狗' });
+    }
+
+    // 更新用戶資料
+    const sql = 'UPDATE dogs SET name = ?, gender = ?, dob = ?, weight = ?, introduce = ?, behavior = ?, vaccinations = ?, neutering  = ? WHERE id = ?';
+    const values = [name, gender, dob, weight, introduce, behavior, vaccinations, neutering, id];
+    const [result] = await conn.execute(sql, values);
+
+  } catch (error) {
+    console.error('更新用戶資料錯誤：', error);
+    res.status(500).json({ status: 'error', message: '伺服器錯誤' });
+  }
+});
+
+router.post('/uploadAvatar_dog/:uuid', uploadAvatar.single('avatar'), async (req, res) => {
+  console.log('Received request body:', req.body);
+  const uuid = req.params.uuid;
+  try {
+    if (!req.file) {
+      return res.status(400).json({ status: 'error', message: '檔案上傳失敗' });
+    }
+
+    // 獲取上傳成功的檔案路徑
+    const filePath = `/upload/${req.file.filename}`;
+    // 獲取上傳成功的檔案路徑
+    const sqlfilePath = `${req.file.filename}`;
+    // 更新資料庫中的用戶資料
+    const sql = 'UPDATE users SET avatar_file = ? WHERE uuid = ?';
+    const values = [sqlfilePath, uuid];
+    await conn.execute(sql, values);
+
+    // 返回上傳成功的檔案路徑
+    res.status(200).json({ status: 'success', filePath: filePath });
+  } catch (error) {
+    console.error('檔案上傳錯誤：', error);
+    res.status(500).json({ status: 'error', message: '檔案上傳失敗' });
+  }
+});
+
 //======== 刪除 ==========//
 router.delete('/:id', upload.none(), async (req, res) => {
   let user;//todo: remove this

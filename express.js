@@ -22,6 +22,9 @@ app.use(express.urlencoded({ extended: true }));
 console.log('Static files directory:', resolve(__dirname, 'public/upload'));
 console.log('Public upload directory path:', resolve(__dirname, 'public/upload'));
 app.use('/upload', express.static(resolve(__dirname, 'public/upload')));
+console.log('Static files directory:', resolve(__dirname, 'public/upload_dog'));
+console.log('Public upload directory path:', resolve(__dirname, 'public/upload_dog'));
+app.use('/upload_dog', express.static(resolve(__dirname, 'public/upload_dog')));
 
 //=== CORS
 let whitelist = ["http://127.0.0.1", "http://localhost:5500", "http://localhost:3000", "https://emap.pcsc.com.tw", "https://emap.pcsc.com.tw/ecmap/default.aspx", undefined];

@@ -3,13 +3,13 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2024-08-14 16:12:48
+-- 產生時間： 2024-08-22 00:46:51
 -- 伺服器版本： 10.4.32-MariaDB
 -- PHP 版本： 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
-SET time_zone = "+08:00";
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -28,8 +28,8 @@ SET time_zone = "+08:00";
 --
 
 CREATE TABLE `course_tag` (
-  `id` mediumint(5) UNSIGNED NOT NULL,
-  `name` varchar(10) NOT NULL
+  `id` int(5) UNSIGNED NOT NULL,
+  `name` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --

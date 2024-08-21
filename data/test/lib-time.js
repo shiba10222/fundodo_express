@@ -12,13 +12,39 @@ const getDateStr = timeNum => {
 /**
  * 將時間戳記的格式轉成指定的字串格式
  * @param {number} timeNum
- * @example 2024-08-18 12:00:55
+ * @example 2024/08/18 12:00:55
  */
 const getTimeStr = timeNum => {
-  let str = new Date(timeNum).toJSON();
-  const temp = str.split('T');
-  const result = temp[0] + ' ' + temp[1].split('.')[0];
-  return result;
+  let str = new Date(timeNum).toLocaleString('zh-TW', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false,
+    timeZone: 'Asia/Taipei',
+  });
+  return str;
+}
+/**
+ * 將時間戳記的格式轉成指定的字串格式
+ * @param {number} timeNum
+ * @example 2024-08-18 12:00:55
+ */
+const getTimeStr_DB = timeNum => {
+  let str = new Date(timeNum).toLocaleString('zh-TW', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false,
+    timeZone: 'Asia/Taipei',
+  });
+  str = str.replaceAll('/', '-');
+  return str;
 }
 
 /**
@@ -47,6 +73,13 @@ const nDaysAfter = (time, n) => {
   day.setDate(day.getDate() + n);
 
   return getTimeNum(day);
+}
+
+const nYearsBefore = (time, n) => {
+  const ano_toki = new Date(time);
+  ano_toki.setFullYear(ano_toki.getFullYear() - n);
+
+  return getTimeNum(ano_toki);
 }
 
 const randDateBetween = (start, end) => {
@@ -79,9 +112,11 @@ const longAfter = (time, bound) => {
 
 export {
   getTimeStr,
+  getTimeStr_DB,
   getDateStr,
   getTimeNum,
   nDaysAfter,
+  nYearsBefore,
   randDateBetween,
   longAfter
 }

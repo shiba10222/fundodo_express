@@ -6,11 +6,10 @@ const router = Router();  // 創建 Express 路由器實例
 // 獲取產品列表的路由，支持多種篩選條件
 router.get("/", async (req, res) => {
   try {
-    // 從查詢參數中解構出篩選條件
-    const { category, subcategory, brand, minPrice, maxPrice } = req.query;
+    const { category, subcategory, brand, minPrice, maxPrice, sortBy, tag, age, page = 1, limit = 12 } = req.query;
+    const offset = (parseInt(page) - 1) * parseInt(limit);
 
     // 構建基本的 SQL 查詢
-    // 這個查詢使用了多個子查詢來獲取每個產品的價格數組和圖片名稱數組
     let query = `
       SELECT
         product.id,
@@ -19,74 +18,122 @@ router.get("/", async (req, res) => {
         product.cate_1 as category,
         product.cate_2 as subcategory,   
        (SELECT 
-              GROUP_CONCAT(prod_price_stock.price ORDER BY prod_price_stock.id) 
+              GROUP_CONCAT(prod_price_stock.price ORDER BY prod_price_stock.id)
            FROM 
               prod_price_stock
            WHERE 
               prod_price_stock.prod_id = product.id
-          ) AS priceArr,  -- 使用子查詢獲取每個產品的所有價格
-       (SELECT DISTINCT
-              GROUP_CONCAT(prod_picture.pic_name ORDER BY prod_picture.id) 
+       ) AS priceArr,
+       (SELECT 
+              GROUP_CONCAT(DISTINCT prod_picture.pic_name ORDER BY prod_picture.id)
            FROM 
               prod_picture
            WHERE 
               prod_picture.prod_id = product.id
-          ) AS picNameArr  -- 使用子查詢獲取每個產品的所有圖片名稱
+       ) AS picNameArr,
+       (SELECT 
+              GROUP_CONCAT(DISTINCT prod_tag.tag ORDER BY prod_tag.id)
+           FROM 
+              prod_tag
+           WHERE 
+              prod_tag.prod_id = product.id
+       ) AS tagArr,
+       (SELECT 
+              GROUP_CONCAT(DISTINCT prod_age.age ORDER BY prod_age.id)
+           FROM 
+              prod_age
+           WHERE 
+              prod_age.prod_id = product.id
+       ) AS ageArr
       FROM
         product
-      LEFT JOIN 
-        prod_price_stock ON prod_price_stock.prod_id = product.id
-      LEFT JOIN 
-        prod_picture ON prod_picture.prod_id = product.id
-      WHERE 1=1  -- 這個條件總是為真，用於開始 WHERE 子句
+      WHERE 1=1
     `;
 
-    const params = [];  // 用於存儲查詢參數的數組
+    const params = [];
 
-    // 根據篩選條件動態添加 WHERE 子句
+    // 添加篩選條件
     if (category) {
-      query += ` AND product.cate_1 = ?`;  // 添加類別篩選
+      query += ` AND product.cate_1 = ?`;
       params.push(category);
     }
     if (subcategory) {
-      query += ` AND product.cate_2 = ?`;  // 添加子類別篩選
+      query += ` AND product.cate_2 = ?`;
       params.push(subcategory);
     }
     if (brand) {
-      query += ` AND product.brand = ?`;  // 添加品牌篩選
+      query += ` AND product.brand = ?`;
       params.push(brand);
     }
     if (minPrice) {
-      // 使用 EXISTS 子查詢來檢查是否存在大於或等於最小價格的價格
       query += ` AND EXISTS (SELECT 1 FROM prod_price_stock pps WHERE pps.prod_id = product.id AND pps.price >= ?)`;
       params.push(minPrice);
     }
     if (maxPrice) {
-      // 使用 EXISTS 子查詢來檢查是否存在小於或等於最大價格的價格
       query += ` AND EXISTS (SELECT 1 FROM prod_price_stock pps WHERE pps.prod_id = product.id AND pps.price <= ?)`;
       params.push(maxPrice);
     }
+    // 添加年齡篩選條件
+    if (age && ['飼料', '罐頭', '保健'].includes(category)) {
+      query += ` AND EXISTS (SELECT 1 FROM prod_age pa WHERE pa.prod_id = product.id AND pa.age = ?)`;
+      params.push(age);
+    }
 
-    query += ` GROUP BY product.id`;  // 按產品 ID 分組，確保每個產品只返回一次
+    // 添加分組
+    query += ` GROUP BY product.id`;
+
+    // 添加排序
+    switch (sortBy) {
+      case 'price_asc':
+        query += ` ORDER BY CAST(SUBSTRING_INDEX(priceArr, ',', 1) AS DECIMAL(10,2)) ASC`;
+        break;
+      case 'price_desc':
+        query += ` ORDER BY CAST(SUBSTRING_INDEX(priceArr, ',', 1) AS DECIMAL(10,2)) DESC`;
+        break;
+      case 'newest':
+        query += ` ORDER BY product.id DESC`;
+        break;
+      default:
+        query += ` ORDER BY product.id ASC`;
+    }
+
+    // 計算總數量
+    const [countResult] = await conn.execute(
+      `SELECT COUNT(DISTINCT product.id) as total FROM product WHERE 1=1 ${
+        query.split('WHERE 1=1')[1].split('GROUP BY')[0]
+      }`,
+      params
+    );
+    const totalCount = countResult[0].total;
+    const totalPages = Math.ceil(totalCount / parseInt(limit));
+
+    query += ` LIMIT ? OFFSET ?`;
+    params.push(parseInt(limit), offset);
 
     // 執行 SQL 查詢
     const [rows] = await conn.execute(query, params);
 
-    // 處理查詢結果，將字符串轉換為數組
+    // 處理查詢結果
     const productList = rows.map(row => ({
       id: row.id,
       name: row.name,
       brand: row.brand,
       category: row.category,
       subcategory: row.subcategory,
-      priceArr: row.priceArr ? row.priceArr.split(',').map(Number) : [],  // 將價格字符串轉換為數字數組
-      picNameArr: row.picNameArr ? row.picNameArr.split(',') : []  // 將圖片名稱字符串轉換為數組
+      priceArr: row.priceArr ? row.priceArr.split(',').map(Number) : [],  
+      picNameArr: row.picNameArr ? row.picNameArr.split(',') : [],
+      tagArr: row.tagArr ? row.tagArr.split(',') : [],
+      ageArr: row.ageArr ? row.ageArr.split(',') : []
     }));
 
-    // 發送成功響應
-    res.status(200).send({ status: "success", message: '回傳篩選後的商品資料', productList });
+    res.status(200).send({ 
+      status: "success", 
+      message: '回傳篩選後的商品資料', 
+      productList,
+      totalPages,
+      currentPage: parseInt(page)
+    });
   } catch (error) {
-    // 錯誤處理
     console.error('資料庫查詢錯誤：', error);
     res.status(500).json({ status: "error", message: '資料庫查詢錯誤', error: error.message });
   }
@@ -104,34 +151,22 @@ router.get("/filter-options", async (req, res) => {
     const [brandCategories] = await conn.execute(
       `SELECT DISTINCT category, brand FROM brand_category ORDER BY category, brand`
     );
-
+    const [ages] = await conn.execute(
+      `SELECT DISTINCT age FROM prod_age ORDER BY age`
+    );
     // 獲取價格範圍（最小值和最大值）
     const [priceRange] = await conn.execute(
       `SELECT MIN(price) as min_price, MAX(price) as max_price FROM prod_price_stock`
     );
 
-    // 處理類別和子類別數據=========================
-    // categories = [
-    // { cate_1: "寵物食品", cate_2: "狗糧" },
-    // { cate_1: "寵物食品", cate_2: "貓糧" },
-    // { cate_1: "寵物食品", cate_2: "狗糧" }, // 重複項
-    // { cate_1: "寵物用品", cate_2: "玩具" },
-    // { cate_1: "寵物用品", cate_2: "床" },
-    // { cate_1: "寵物食品", cate_2: "貓零食" }]
-    // 經過這段代碼處理後，categoryStructure = {
-    // "寵物食品": ["狗糧", "貓糧", "貓零食"],
-    // "寵物用品": ["玩具", "床"]}
-
-    const categoryStructure = categories.reduce((acc, curr) => {// 使用 reduce 方法遍歷 categories 陣列。reduce 方法允許我們將陣列轉換為單個值。
-      // acc 累加器(存儲我們正在構建的類別結構對象) curr當前值(當前正在處理的類別項，包含 cate_1（主類別）和 cate_2（子類別）)
-      if (!acc[curr.cate_1]) acc[curr.cate_1] = [];// 檢查累加器對象中是否已經有當前主類別的鍵，如果沒有，則為這個主類別創建一個空數組。
+    // 處理類別和子類別數據
+    const categoryStructure = categories.reduce((acc, curr) => {
+      if (!acc[curr.cate_1]) acc[curr.cate_1] = [];
       if (curr.cate_2 && !acc[curr.cate_1].includes(curr.cate_2)) {
         acc[curr.cate_1].push(curr.cate_2);
       }
       return acc;
     }, {});
-
-    //============================================
 
     // 處理品牌和類別數據，創建一個按類別分類的品牌對象
     const categoryBrands = brandCategories.reduce((acc, { category, brand }) => {
@@ -152,7 +187,8 @@ router.get("/filter-options", async (req, res) => {
       priceRange: {
         min: priceRange[0].min_price,
         max: priceRange[0].max_price
-      }
+      },
+      ages: ages.map(age => age.age) // 新增年齡選項
     };
 
     // 發送成功響應

@@ -4,6 +4,7 @@ import conn from "../../db.js";
 import readPD from './get-for-user/read-prod.js'
 import readCR from './get-for-user/read-crs.js';
 import readHT from './get-for-user/read-hotel.js';
+import { getTimeStr_DB } from '../../data/test/lib-time.js';
 
 // 參數
 const envMode = process.argv[2];//dev or dist
@@ -12,7 +13,7 @@ const envMode = process.argv[2];//dev or dist
 const router = Router();
 const upload = multer();
 
-// 函數
+//=================== 函數
 const getCoursePrice = id => new Promise(async (resolve, reject) => {
   const [rows] = await conn.query(
     "SELECT price, price_sp FROM courses WHERE id = ?",
@@ -85,7 +86,7 @@ router.get('/:uid', async (req, res) => {
     return;
   }
   //== 2 ==== 打包三種資料
-  // await 被 ts(80007) 說沒必要，但是經測試有非同步的效果與需要
+  //! await 被 ts(80007) 說沒必要，但是經測試有非同步的效果與需要
   const pkgPD = rows_cart.filter(d => d.buy_sort === 'PD');
   const rows_PD = pkgPD.length === 0 ? null : await readPD(pkgPD);
 
@@ -114,16 +115,8 @@ router.post('/', upload.none(), async (req, res) => {
   }
   const { user_id, buy_sort, buy_id } = req.body;
 
-  const time_now = new Date().toLocaleString('zh-TW', {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-    hour12: false,
-    timeZone: 'Asia/Taipei',
-  });
+  const timeObj = new Date().getTime();
+  const time_now = getTimeStr_DB(timeObj);
   let valuePkg;
 
   if (buy_sort === 'PD') {
@@ -189,33 +182,49 @@ router.post('/', upload.none(), async (req, res) => {
     };
   } else { /*//TODO  */ }
 
-  const formatPD_in = {
-    "user_id": 214,
-    "buy_sort": "PD",
-    "buy_id": 42,
-    "quantity": 3,
-  };
-
-  const formatHT_in = {
-    "user_id": 116,
-    "dog_id": 119,
-    "buy_sort": "HT",
-    "buy_id": 7,
-    "amount": 4788,
-    "room_type": "S",
-    "check_in_date": "2023-10-18",
-    "check_out_date": "2023-11-01",
-  };
-  const formatCR_in = {
-    "user_id": 11,
-    "buy_sort": "CR",
-    "buy_id": 5,
-  };
-
   const result = await insert(valuePkg);
   res.json({ status: "success", message: "新增成功", result });
 });
 
+//======== 軟刪除資料 ==========//
+
+router.patch('/del/:id', async (req, res) => {
+  const cartID = Number(req.params.id);
+
+  const timeObj = new Date().getTime();
+  const now = getTimeStr_DB(timeObj);
+
+  try {
+    await conn.execute(
+      "UPDATE `cart` SET `deleted_at` = ? WHERE id = ?",
+      [now, cartID]
+    );
+  } catch (e) {
+    res.status(500).json({ status: "failure", message: "刪除失敗，請稍後再嘗試" });
+    console.error(e);
+    return;
+  };
+
+  res.json({ status: "success", message: `成功刪除 ID ${cartID} 之購物車項目` });
+});
+//======== 恢復軟刪除資料 ==========//
+
+router.patch('/undodel/:id', async (req, res) => {
+  const cartID = Number(req.params.id);
+
+  try {
+    await conn.execute(
+      "UPDATE `cart` SET `deleted_at` = NULL WHERE id = ?",
+      [now, cartID]
+    );
+  } catch (e) {
+    res.status(500).json({ status: "failure", message: "刪除失敗，請稍後再嘗試" });
+    console.error(e);
+    return;
+  };
+
+  res.json({ status: "success", message: `成功刪除 ID ${cartID} 之購物車項目` });
+});
 
 //======== handle 404
 

@@ -15,7 +15,40 @@ const blackList = [];
 
 // 模組物件
 const router = Router();
-const upload = multer();
+//const upload = multer();
+
+//特定路由區要修改 upload = multer();
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'public/upload'); // 文件存儲路徑
+  },
+  filename: (req, file, cb) => {
+    const uuid = req.params.uuid; // 從路由參數獲取用戶 ID
+    cb(null, `${uuid}.png`); // 文件名稱
+  }
+});
+
+const upload = multer({ storage });
+
+const uploadAvatar = multer({
+  storage: multer.diskStorage({
+    destination: (req, file, cb) => {
+      cb(null, 'public/upload');
+    },
+    filename: (req, file, cb) => {
+      const uuid = req.params.uuid;
+      cb(null, `${uuid}.png`);
+    }
+  }),
+  // 只接受 'avatar' 字段
+  fileFilter: (req, file, cb) => {
+    if (file.fieldname === 'avatar') {
+      cb(null, true);
+    } else {
+      cb(new MulterError('Unexpected field'));
+    }
+  }
+});
 
 // 資料表
 // const defaultDB = { users: [], products: [] };
@@ -165,6 +198,23 @@ router.get('/dog/:uuid', authenticateToken, async (req, res) => {
   }
 });
 
+//======== 讀取指定圖片 ==========//
+//* test id=302 uuid = 1eaf3f71-0568-4541-86fe-c6e9f0108636 網址 = http://localhost:3005/api/member/1eaf3f71-0568-4541-86fe-c6e9f0108636
+router.get('/upload/:uuid.png', async (req, res) => {
+  const { uuid } = req.params;
+  const filePath = path.resolve(__dirname, 'public/upload', `${uuid}.png`);
+
+  fs.access(filePath, fs.constants.F_OK, (err) => {
+    if (err) {
+      // 文件不存在
+      res.status(404).json({ message: 'File not found' });
+    } else {
+      // 文件存在，將其發送到客戶端
+      res.sendFile(filePath);
+    }
+  });
+});
+
 //======== 登入指定(會員完工) ==========//
 //* test id=302 uuid = 1eaf3f71-0568-4541-86fe-c6e9f0108636 網址 = http://localhost:3005/api/member/1eaf3f71-0568-4541-86fe-c6e9f0108636
 router.post('/login', upload.none(), async (req, res) => {
@@ -222,8 +272,6 @@ router.post('/login', upload.none(), async (req, res) => {
         email: user.email,
         avatar_file: user.avatar_file,
         address: user.address,
-        adr_city: user.adr_city,
-        adr_district: user.	adr_district,
       }
     });
 
@@ -306,10 +354,11 @@ router.put('/:uuid', upload.none(), async (req, res) => {
 
   try {
     // 檢查是否有此用戶
-    const [existingUser] = await conn.execute('SELECT * FROM users WHERE uuid = ?', [uuid]);
-    if (existingUser.length === 0) {
+    const [users] = await conn.execute('SELECT * FROM users WHERE uuid = ?', [uuid]);
+    if (users.length === 0) {
       return res.status(400).json({ status: "error", message: "無此用戶" });
     }
+    const user = users[0];
 
     const sql = 'UPDATE users SET name = ?, gender = ?, dob = ?, tel = ?, address = ? WHERE uuid = ?';
     const values = [name, gender, dob, tel, address, uuid];
@@ -321,10 +370,29 @@ router.put('/:uuid', upload.none(), async (req, res) => {
 
     console.log('Update result:', result);
 
+    const token = jwt.sign(
+      { userId: user.id, email: user.email, uuid: user.uuid },
+      'j123456',
+      { expiresIn: '1h' }
+    );
+
     res.status(200).json({
       status: "success",
       message: "更新成功",
-      result: req.body
+      result: req.body,
+      token: token,
+      user: {
+        id: user.id,
+        uuid: user.uuid,
+        name: user.name,
+        nickname: user.nickname,
+        gender: user.gender,
+        dob: user.dob,
+        tel: user.tel,
+        email: user.email,
+        avatar_file: user.avatar_file,
+        address: user.address,
+      }
     });
   } catch (error) {
     console.error('Error occurred:', error);
@@ -332,10 +400,76 @@ router.put('/:uuid', upload.none(), async (req, res) => {
   }
 });
 
-router.patch('/:id', upload.none(), (req, res) => {
-  const id = req.params.id;
+router.put('/ForumMemberInfo/:uuid', upload.none(), async (req, res) => {
+  const { nickname, introduce } = req.body;
+  const uuid = req.params.uuid;
 
-  res.status(200).send(`部份更新 ID ${id} 的使用者`);
+  if (!nickname || !introduce) {
+    return res.status(400).json({ status: 'error', message: '必填欄位缺失' });
+  }
+
+  try {
+    // 檢查是否有此用戶
+    const [users] = await conn.execute('SELECT * FROM users WHERE uuid = ?', [uuid]);
+    if (users.length === 0) {
+      return res.status(400).json({ status: 'error', message: '無此用戶' });
+    }
+
+    // 更新用戶資料
+    const sql = 'UPDATE users SET nickname = ?, introduce = ? WHERE uuid = ?';
+    const values = [nickname, introduce, uuid];
+    const [result] = await conn.execute(sql, values);
+
+    // 重新生成 token
+    const user = users[0];
+    const token = jwt.sign(
+      { userId: user.id, email: user.email, uuid: user.uuid },
+      'j123456',
+      { expiresIn: '1h' }
+    );
+
+    res.status(200).json({
+      status: 'success',
+      message: '更新成功',
+      result: req.body,
+      token: token,
+      user: {
+        id: user.id,
+        uuid: user.uuid,
+        nickname: user.nickname,
+        introduce: user.introduce,
+        avatar_file: user.avatar_file,
+      }
+    });
+  } catch (error) {
+    console.error('更新用戶資料錯誤：', error);
+    res.status(500).json({ status: 'error', message: '伺服器錯誤' });
+  }
+});
+
+router.post('/uploadAvatar/:uuid', uploadAvatar.single('avatar'), async (req, res) => {
+  console.log('Received request body:', req.body);
+  const uuid = req.params.uuid;
+  try {
+    if (!req.file) {
+      return res.status(400).json({ status: 'error', message: '檔案上傳失敗' });
+    }
+
+    // 獲取上傳成功的檔案路徑
+    const filePath = `/upload/${req.file.filename}`;
+    // 獲取上傳成功的檔案路徑
+    const sqlfilePath = `${req.file.filename}`;
+    // 更新資料庫中的用戶資料
+    const sql = 'UPDATE users SET avatar_file = ? WHERE uuid = ?';
+    const values = [sqlfilePath, uuid];
+    await conn.execute(sql, values);
+
+    // 返回上傳成功的檔案路徑
+    res.status(200).json({ status: 'success', filePath: filePath });
+  } catch (error) {
+    console.error('檔案上傳錯誤：', error);
+    res.status(500).json({ status: 'error', message: '檔案上傳失敗' });
+  }
 });
 
 //======== 刪除 ==========//

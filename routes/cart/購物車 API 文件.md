@@ -4,9 +4,13 @@
 
 ### API information
 
-URL: `http://localhost:3005/cart`
+使用前請先確認資料庫是否已經建立 cart 資料表
+
+URL: `http://localhost:3005/api/cart`
 
 method: `POST`
+
+資料請用 FormData 包裝，並置於 body 屬性下。
 
 ### 商品類 Product
 

@@ -9,7 +9,7 @@
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
-SET time_zone = "+00:00";
+SET time_zone = "+08:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -28,17 +28,17 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `hotel` (
-  `id` mediumint(6) NOT NULL,
-  `location_id` smallint(3) NOT NULL,
+  `id` mediumint(6) UNSIGNED NOT NULL,
+  `location_id` smallint(3) UNSIGNED NOT NULL,
   `name` varchar(50) NOT NULL,
   `description` varchar(300) NOT NULL,
   `address` varchar(50) NOT NULL,
-  `Latitude` decimal(11,8) NOT NULL,
-  `Longitude` decimal(11,8) NOT NULL,
+  `latitude` decimal(11,8) NOT NULL,
+  `longitude` decimal(11,8) NOT NULL,
   `main_img_path` varchar(30) NOT NULL,
-  `price_s` decimal(6,0) NOT NULL,
-  `price_m` decimal(6,0) NOT NULL,
-  `price_l` decimal(6,0) NOT NULL,
+  `price_s` decimal(6,0) UNSIGNED NOT NULL,
+  `price_m` decimal(6,0) UNSIGNED NOT NULL,
+  `price_l` decimal(6,0) UNSIGNED NOT NULL,
   `service_food` tinyint(1) NOT NULL,
   `service_bath` tinyint(1) NOT NULL,
   `service_live_stream` tinyint(1) NOT NULL,
@@ -51,7 +51,7 @@ CREATE TABLE `hotel` (
 -- 傾印資料表的資料 `hotel`
 --
 
-INSERT INTO `hotel` (`id`, `location_id`, `name`, `description`, `address`, `Latitude`, `Longitude`, `main_img_path`, `price_s`, `price_m`, `price_l`, `service_food`, `service_bath`, `service_live_stream`, `service_playground`, `created_at`, `valid`) VALUES
+INSERT INTO `hotel` (`id`, `location_id`, `name`, `description`, `address`, `latitude`, `longitude`, `main_img_path`, `price_s`, `price_m`, `price_l`, `service_food`, `service_bath`, `service_live_stream`, `service_playground`, `created_at`, `valid`) VALUES
 (1, 1, 'W SPA寵物旅館', 'W SPA 寵物旅館位於台電大樓附近，以寵物美容、SPA、住宿安親服務為主，提供貓咪超大獨立挑高空間，而狗狗則採不關籠半開方式照顧，並都提供24H監視器（有夜視鏡功能），讓飼主可隨時觀看毛孩動態。消費者表示：「狗狗在這邊玩得很開心，環境乾淨」、「保姆姐姐對我們家小朋友超級好！！很仔細照顧毛孩子們」、「公館一帶，寵物住宿首選！！乾淨，有耐心，可雲端監控毛孩狀況」、「收費合理，並且很細心的照顧毛小孩」。', '台北市中正區羅斯福路三段139號1F', 25.02186590, 121.52720700, 'HT0000011.jpg', 380, 570, 780, 1, 1, 0, 1, '2024-07-25 17:41:01', 1),
 (2, 1, '有間狗旅精品度假中心', '有間狗旅位於中正紀念堂站附近，強調專注狗狗房與公共空間的設計，除了備有基本的 24 小時全天候監視器外，甚至還有狗狗行為諮商師駐館，協助狗狗們快速安穩地適應環境，服務相當貼心。家長大力推薦：「老闆非常細心，對於狗狗的動向都有仔細掌握」、「整體氛圍感覺非常溫馨悠閒，老闆也非常的專業」、「環境很漂亮整潔，服務也非常專業細心」、「很用心了解寵物的喜好及需求，有問題的時候回覆也都很即時」。', '台北市中正區南昌路一段14號二樓', 25.03224660, 121.51631640, 'HT0000021.jpg', 330, 575, 677, 1, 1, 0, 1, '2024-03-18 15:22:09', 1),
 (3, 1, 'VERY旺寵物旅館', 'VERY旺以打造市中心的寵物樂園為出發點，提供貓狗美容、SPA、住宿、安親臨托等，也有販售寵物用品及鮮食，旅館除了採貓狗獨立分層空間外，最大特色就是頂樓有設計戶外運動場，能讓住宿的狗狗自由自在奔跑玩耍。住過都說讚：「是真心愛寵物的寵物旅館，住宿價格很實惠，還有狗狗們的放風時間」、「每天回報狗狗狀態，可以視訊看寶貝狀況，頂樓有空地可以讓寶貝放風」、「保姆都非常細心 帶寶貝來住宿都很放心」、「服務好，對待毛寶貝們都很友善」。', '台北市松山區八德路二段429號2樓', 25.04830810, 121.54664640, 'HT0000031.jpg', 348, 542, 735, 0, 0, 1, 1, '2024-03-17 20:08:40', 1),

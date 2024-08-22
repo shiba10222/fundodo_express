@@ -3,13 +3,13 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2024-08-14 16:12:58
+-- 產生時間： 2024-08-22 00:49:03
 -- 伺服器版本： 10.4.32-MariaDB
 -- PHP 版本： 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
-SET time_zone = "+08:00";
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -28,9 +28,9 @@ SET time_zone = "+08:00";
 --
 
 CREATE TABLE `course_tags` (
-  `id` mediumint(5) UNSIGNED NOT NULL,
-  `course_id` mediumint(5) UNSIGNED NOT NULL,
-  `tag_id` mediumint(5) UNSIGNED NOT NULL
+  `id` int(5) UNSIGNED NOT NULL,
+  `course_id` int(5) UNSIGNED NOT NULL,
+  `tag_id` int(5) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `course_tags` (
 --
 
 INSERT INTO `course_tags` (`id`, `course_id`, `tag_id`) VALUES
-(1, 1, 2),
+(1, 1, 1),
 (2, 2, 9),
 (3, 3, 9),
 (4, 3, 8),
@@ -81,7 +81,10 @@ INSERT INTO `course_tags` (`id`, `course_id`, `tag_id`) VALUES
 (41, 21, 1),
 (42, 22, 8),
 (43, 23, 2),
-(44, 23, 7);
+(44, 23, 7),
+(45, 1, 2),
+(46, 24, 0),
+(49, 25, 0);
 
 --
 -- 已傾印資料表的索引
@@ -101,7 +104,7 @@ ALTER TABLE `course_tags`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `course_tags`
 --
 ALTER TABLE `course_tags`
-  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

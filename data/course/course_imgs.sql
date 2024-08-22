@@ -3,13 +3,13 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2024-08-14 16:12:15
+-- 產生時間： 2024-08-22 00:39:49
 -- 伺服器版本： 10.4.32-MariaDB
 -- PHP 版本： 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
-SET time_zone = "+08:00";
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -28,9 +28,9 @@ SET time_zone = "+08:00";
 --
 
 CREATE TABLE `course_imgs` (
-  `id` mediumint(5) UNSIGNED NOT NULL,
-  `course_id` mediumint(5) NOT NULL,
-  `path` varchar(20) NOT NULL
+  `id` int(5) UNSIGNED NOT NULL,
+  `course_id` int(5) NOT NULL,
+  `path` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --

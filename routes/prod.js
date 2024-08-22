@@ -1,15 +1,14 @@
 import { Router } from "express";
-import conn from '../db.js';  // 導入資料庫連接
+import conn from '../db.js';
 
-const router = Router();  // 創建 Express 路由器實例
+const router = Router();
 
 // 獲取產品列表的路由，支持多種篩選條件
 router.get("/", async (req, res) => {
   try {
-    const { category, subcategory, brand, minPrice, maxPrice, sortBy, tag, age, page = 1, limit = 12 } = req.query;
+    const { category, subcategory, brand, minPrice, maxPrice, sortBy, tag, page = 1, limit = 12 } = req.query;
     const offset = (parseInt(page) - 1) * parseInt(limit);
 
-    // 構建基本的 SQL 查詢
     let query = `
       SELECT
         product.id,
@@ -17,34 +16,27 @@ router.get("/", async (req, res) => {
         product.brand,
         product.cate_1 as category,
         product.cate_2 as subcategory,   
-       (SELECT 
-              GROUP_CONCAT(prod_price_stock.price ORDER BY prod_price_stock.id)
-           FROM 
-              prod_price_stock
-           WHERE 
-              prod_price_stock.prod_id = product.id
-       ) AS priceArr,
-       (SELECT 
-              GROUP_CONCAT(DISTINCT prod_picture.pic_name ORDER BY prod_picture.id)
-           FROM 
-              prod_picture
-           WHERE 
-              prod_picture.prod_id = product.id
-       ) AS picNameArr,
-       (SELECT 
-              GROUP_CONCAT(DISTINCT prod_tag.tag ORDER BY prod_tag.id)
-           FROM 
-              prod_tag
-           WHERE 
-              prod_tag.prod_id = product.id
-       ) AS tagArr,
-       (SELECT 
-              GROUP_CONCAT(DISTINCT prod_age.age ORDER BY prod_age.id)
-           FROM 
-              prod_age
-           WHERE 
-              prod_age.prod_id = product.id
-       ) AS ageArr
+        (SELECT 
+          GROUP_CONCAT(prod_price_stock.price ORDER BY prod_price_stock.id)
+        FROM 
+          prod_price_stock
+        WHERE 
+          prod_price_stock.prod_id = product.id
+        ) AS priceArr,
+        (SELECT 
+          GROUP_CONCAT(DISTINCT prod_picture.pic_name ORDER BY prod_picture.id)
+        FROM 
+          prod_picture
+        WHERE 
+          prod_picture.prod_id = product.id
+        ) AS picNameArr,
+        (SELECT 
+          GROUP_CONCAT(DISTINCT prod_tag.tag ORDER BY prod_tag.id)
+        FROM 
+          prod_tag
+        WHERE 
+          prod_tag.prod_id = product.id
+        ) AS tagArr
       FROM
         product
       WHERE 1=1
@@ -73,10 +65,9 @@ router.get("/", async (req, res) => {
       query += ` AND EXISTS (SELECT 1 FROM prod_price_stock pps WHERE pps.prod_id = product.id AND pps.price <= ?)`;
       params.push(maxPrice);
     }
-    // 添加年齡篩選條件
-    if (age && ['飼料', '罐頭', '保健'].includes(category)) {
-      query += ` AND EXISTS (SELECT 1 FROM prod_age pa WHERE pa.prod_id = product.id AND pa.age = ?)`;
-      params.push(age);
+    if (tag) {
+      query += ` AND EXISTS (SELECT 1 FROM prod_tag pt WHERE pt.prod_id = product.id AND pt.tag = ?)`;
+      params.push(tag);
     }
 
     // 添加分組
@@ -97,18 +88,12 @@ router.get("/", async (req, res) => {
         query += ` ORDER BY product.id ASC`;
     }
 
-    // 計算總數量
-    const [countResult] = await conn.execute(
-      `SELECT COUNT(DISTINCT product.id) as total FROM product WHERE 1=1 ${
-        query.split('WHERE 1=1')[1].split('GROUP BY')[0]
-      }`,
-      params
-    );
-    const totalCount = countResult[0].total;
-    const totalPages = Math.ceil(totalCount / parseInt(limit));
-
+    // 添加分頁
     query += ` LIMIT ? OFFSET ?`;
     params.push(parseInt(limit), offset);
+
+    console.log('Executing query:', query); // 添加日誌
+    console.log('Query params:', params); // 添加日誌
 
     // 執行 SQL 查詢
     const [rows] = await conn.execute(query, params);
@@ -120,11 +105,20 @@ router.get("/", async (req, res) => {
       brand: row.brand,
       category: row.category,
       subcategory: row.subcategory,
-      priceArr: row.priceArr ? row.priceArr.split(',').map(Number) : [],  
+      priceArr: row.priceArr ? row.priceArr.split(',').map(Number) : [],
       picNameArr: row.picNameArr ? row.picNameArr.split(',') : [],
-      tagArr: row.tagArr ? row.tagArr.split(',') : [],
-      ageArr: row.ageArr ? row.ageArr.split(',') : []
+      tagArr: row.tagArr ? row.tagArr.split(',') : []
     }));
+
+    // 計算總頁數
+    const [countResult] = await conn.execute(
+      `SELECT COUNT(DISTINCT product.id) as total FROM product WHERE 1=1 ${
+        query.split('WHERE 1=1')[1].split('GROUP BY')[0]
+      }`,
+      params.slice(0, -2)
+    );
+    const totalCount = countResult[0].total;
+    const totalPages = Math.ceil(totalCount / parseInt(limit));
 
     res.status(200).send({ 
       status: "success", 
@@ -158,7 +152,9 @@ router.get("/filter-options", async (req, res) => {
     const [priceRange] = await conn.execute(
       `SELECT MIN(price) as min_price, MAX(price) as max_price FROM prod_price_stock`
     );
-
+    const [tags] = await conn.execute(
+      `SELECT DISTINCT tag FROM prod_tag ORDER BY tag`
+    );
     // 處理類別和子類別數據
     const categoryStructure = categories.reduce((acc, curr) => {
       if (!acc[curr.cate_1]) acc[curr.cate_1] = [];
@@ -188,7 +184,8 @@ router.get("/filter-options", async (req, res) => {
         min: priceRange[0].min_price,
         max: priceRange[0].max_price
       },
-      ages: ages.map(age => age.age) // 新增年齡選項
+      ages: ages.map(age => age.age), // 新增年齡選項
+      tags: tags.map(t => t.tag)
     };
 
     // 發送成功響應

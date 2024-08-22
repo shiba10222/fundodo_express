@@ -2,8 +2,8 @@ Table product {
   id               int(9) [primary key]
   name             varchar(50)
   brand            varchar(20)
-  cate_1           varchar(20)
-  cate_2           varchar(20)
+  cate_1           varchar(2)
+  cate_2           varchar(10)
   is_near_expired  tinyint(1)
   is_refurbished   tinyint(1)
   description      varchar(2000)

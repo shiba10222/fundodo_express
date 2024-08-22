@@ -50,6 +50,31 @@ const uploadAvatar = multer({
   }
 });
 
+//狗狗圖片;
+const storage2 = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'public/upload_dog'); // 文件存儲路徑
+  },
+  filename: (req, file, cb) => {
+    const id = req.params.id; // 從路由參數獲取用戶 ID
+    cb(null, `${id}.png`); // 文件名稱
+  }
+});
+
+const uploadAvatar2 = multer({
+  storage: storage2,
+  fileFilter: (req, file, cb) => {
+    if (file.fieldname === 'avatar') {
+      cb(null, true);
+    } else {
+      cb(new MulterError('Unexpected field'));
+    }
+  }
+});
+
+
+
+
 // 資料表
 // const defaultDB = { users: [], products: [] };
 // const path = resolve(import.meta.dirname, '../data/database.json')
@@ -164,7 +189,6 @@ router.get('/:uuid', async (req, res) => {
 });
 
 //======== 讀取指定狗狗資料(uuid) ==========//
-//* test id=302 uuid = 1eaf3f71-0568-4541-86fe-c6e9f0108636 網址 = http://localhost:3005/api/member/1eaf3f71-0568-4541-86fe-c6e9f0108636
 router.get('/dog/:uuid', authenticateToken, async (req, res) => {
   const userId = req.user.userId;
   const { uuid } = req.params;
@@ -267,6 +291,7 @@ router.post('/login', upload.none(), async (req, res) => {
         name: user.name,
         nickname: user.nickname,
         gender: user.gender,
+        user_level : user.user_level,
         dob: user.dob,
         tel: user.tel,
         email: user.email,
@@ -336,6 +361,57 @@ router.post('/register', upload.none(), async (req, res, next) => {
     res.status(500).json({
       status: "error",
       message: '註冊失敗，請聯絡系統管理員',
+      error: error.message
+    });
+  }
+});
+
+router.post('/addDog/:id', upload.none(), async (req, res, next) => {
+  console.log('Received request body:', req.body); // 記錄接收到的請求體
+  
+
+  const { name, vaccinations, neutering, introduce, behavior } = req.body;
+  const id = req.params.id;
+
+  
+  if (!name) {
+    return res.status(400).json({ status: "error", message: "資料傳遞錯誤", receivedData: req.body });
+  }
+
+  try {
+    // 檢查是否存在對應id用戶
+    const [existingUser] = await conn.execute('SELECT * FROM users WHERE id = ?', [id]);
+    if (existingUser.length === 0) {
+      return res.status(400).json({ status: "error", message: "無此用戶" });
+    }
+
+    const [existingDog] = await conn.execute('SELECT * FROM dogs WHERE user_id = ?', [id]);
+    if (existingDog.length > 4) {
+      return res.status(400).json({ status: "error", message: "狗狗數量到上限" });
+    }
+
+    const sql = 'INSERT INTO dogs (name, vaccinations, neutering, introduce, behavior, user_id) VALUES (?, ?, ?, ?, ?, ?)';
+    const values = [name, vaccinations, neutering, introduce, behavior, id];
+
+    console.log('Executing SQL:', sql);
+    console.log('With values:', values);
+
+    const [result] = await conn.execute(sql, values);
+
+
+
+    console.log('Insert result:', result);
+
+    res.status(200).json({
+      status: "success",
+      message: "狗狗新增成功",
+    });
+
+  } catch (error) {
+    console.error('資料庫操作錯誤:', error);
+    res.status(500).json({
+      status: "error",
+      message: '新增狗狗失敗，請聯絡系統管理員',
       error: error.message
     });
   }
@@ -473,42 +549,72 @@ router.post('/uploadAvatar/:uuid', uploadAvatar.single('avatar'), async (req, re
 });
 
 router.put('/dogInfo/:id', upload.none(), async (req, res) => {
-  const { name, gender, dob, weight, introduce, behavior, vaccinations, neutering } = req.body;
+  const { name, gender, dob, weight, introduce, behavior, vaccinations, neutering } = req.body ;
   const id = req.params.id;
 
   try {
     // 檢查是否有此狗
     const [dogs] = await conn.execute('SELECT * FROM dogs WHERE id = ?', [id]);
+    if (!name || !gender || !dob || !weight) {
+      return res.status(400).json({ status: 'error', message: '必填欄位缺失' });
+    }
     if (dogs.length === 0) {
       return res.status(400).json({ status: 'error', message: '無此狗' });
     }
 
     // 更新用戶資料
     const sql = 'UPDATE dogs SET name = ?, gender = ?, dob = ?, weight = ?, introduce = ?, behavior = ?, vaccinations = ?, neutering  = ? WHERE id = ?';
-    const values = [name, gender, dob, weight, introduce, behavior, vaccinations, neutering, id];
+    const values = [
+      name,
+      gender,
+      dob,
+      weight,
+      introduce || '',
+      behavior || '',
+      vaccinations ? JSON.stringify(vaccinations) : null,
+      neutering || '',
+      id
+    ];
     const [result] = await conn.execute(sql, values);
 
+    // 返回成功訊息和更新後的狗狗資料
+    res.status(200).json({
+      status: 'success',
+      message: '狗狗資料更新成功',
+      data: {
+        id,
+        name,
+        gender,
+        dob,
+        weight,
+        introduce,
+        behavior,
+        vaccinations: vaccinations ? JSON.parse(vaccinations) : null,
+        neutering
+      }
+    });
+
   } catch (error) {
-    console.error('更新用戶資料錯誤：', error);
-    res.status(500).json({ status: 'error', message: '伺服器錯誤' });
+    console.error('更新狗狗資料錯誤：', error);
+    res.status(500).json({ status: 'error', message: '伺服器錯誤', error: error.message });
   }
 });
 
-router.post('/uploadAvatar_dog/:uuid', uploadAvatar.single('avatar'), async (req, res) => {
+router.post('/uploadAvatar_dog/:id', uploadAvatar2.single('avatar'), async (req, res) => {
   console.log('Received request body:', req.body);
-  const uuid = req.params.uuid;
+  const id = req.params.id;
   try {
     if (!req.file) {
       return res.status(400).json({ status: 'error', message: '檔案上傳失敗' });
     }
 
     // 獲取上傳成功的檔案路徑
-    const filePath = `/upload/${req.file.filename}`;
+    const filePath = `/upload_dog/${req.file.filename}`;
     // 獲取上傳成功的檔案路徑
     const sqlfilePath = `${req.file.filename}`;
     // 更新資料庫中的用戶資料
-    const sql = 'UPDATE users SET avatar_file = ? WHERE uuid = ?';
-    const values = [sqlfilePath, uuid];
+    const sql = 'UPDATE dogs SET dog_avatar_file = ? WHERE id = ?';
+    const values = [sqlfilePath, id];
     await conn.execute(sql, values);
 
     // 返回上傳成功的檔案路徑

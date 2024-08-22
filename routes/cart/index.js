@@ -186,6 +186,26 @@ router.post('/', upload.none(), async (req, res) => {
   res.json({ status: "success", message: "新增成功", result });
 });
 
+//======== 更新數量 ==========//
+
+router.patch('/:id', upload.none(), async (req, res) => {
+  const cartID = Number(req.params.id);
+  const newQty = Number(req.body.quantity);
+
+  try {
+    await conn.execute(
+      "UPDATE `cart` SET `quantity` = ? WHERE id = ?",
+      [newQty, cartID]
+    );
+  } catch (e) {
+    res.status(500).json({ status: "failure", message: "更新失敗，請稍後再嘗試" });
+    console.error(e);
+    return;
+  };
+
+  res.json({ status: "success", message: `成功更新 ID ${cartID} 之購物車項目` });
+});
+
 //======== 軟刪除資料 ==========//
 
 router.patch('/del/:id', async (req, res) => {

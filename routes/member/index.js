@@ -625,6 +625,58 @@ router.post('/uploadAvatar_dog/:id', uploadAvatar2.single('avatar'), async (req,
   }
 });
 
+router.post('/ChangePassword/:uuid', upload.none(), async (req, res, next) => {
+  console.log('Received request body:', req.body); // 記錄接收到的請求體
+
+  const { password } = req.body;
+  const uuid = req.params.uuid;
+
+  if (!password) {
+    return res.status(400).json({ status: "error", message: "必填欄位缺失", receivedData: req.body });
+  }
+
+  try {
+    // 檢查郵件是否已經註冊過
+    const [existingUser] = await conn.execute('SELECT * FROM users WHERE uuid = ?', [uuid]);
+    if (existingUser.length === 0) {
+      return res.status(400).json({ status: "error", message: "用戶不存在" });
+    }
+
+    // 密碼加密
+    const saltRounds = 10;
+    const password_hash = await bcrypt.hash(password, saltRounds);
+
+
+    const sql = 'UPDATE users SET password_hash = ? WHERE uuid = ?';
+    const values = [password_hash, uuid];
+
+    console.log('Executing SQL:', sql);
+    console.log('With values:', values);
+
+    const [result] = await conn.execute(sql, values);
+
+
+
+    console.log('Update result:', result);
+
+    if (result.affectedRows > 0) {
+      // 成功更新
+      res.status(200).json({
+        status: "success",
+        message: "修改成功",
+      });
+    } else {
+      throw new Error('修改失敗：未能更新數據');
+    }
+  } catch (error) {
+    console.error('資料庫操作錯誤:', error);
+    res.status(500).json({
+      status: "error",
+      message: '修改失敗，請聯絡系統管理員',
+      error: error.message
+    });
+  }
+});
 //======== 刪除 ==========//
 router.delete('/:id', upload.none(), async (req, res) => {
   let user;//todo: remove this

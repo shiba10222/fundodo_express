@@ -152,13 +152,150 @@ router.post("/", upload.none(), async (req, res) => {
 });
 
 
-// 修改單一旅館
-router.put("/detail/:id", async (req, res) => {
-})
+// 更新旅館
+router.put("/:id", upload.none(), async (req, res) => {
+  const { id } = req.params;
+  const {
+    location_id,
+    name,
+    description,
+    address,
+    Latitude,
+    Longitude,
+    main_img_path,
+    price_s,
+    price_m,
+    price_l,
+    service_food,
+    service_bath,
+    service_live_stream,
+    service_playground
+  } = req.body;
+
+  let isNotOK = false;
+  ['name', 'description', 'address', 'price_s', 'price_m', 'price_l'].forEach(property => {
+    if (Object.prototype.hasOwnProperty.call(req.body, property) === false) {
+      res.status(400).json({ status: "failure", message: `格式錯誤，旅館類必須包含 ${property} 參數` });
+      isNotOK = true;
+      return;
+    }
+  });
+  if (isNotOK) return;
+
+  // 驗證必填項目
+  if (!name || !description || !address || !price_s || !price_m || !price_l) {
+    return res.status(400).json({
+      status: "error",
+      message: "所有項目皆必填"
+    });
+  }
+
+  try {
+    // 更新數據
+    const [result] = await conn.query(
+      "UPDATE `hotel` SET `name`=?, `description`=?, `address`=?, `price_s`=?, `price_m`=?, `price_l`=?, `service_food`=?, `service_bath`=?, `service_live_stream`=?, `service_playground`=?, `created_at`=? WHERE `id`=?",
+      [
+        name,
+        description,
+        address,
+        price_s,
+        price_m,
+        price_l,
+        service_food,
+        service_bath,
+        service_live_stream,
+        service_playground,
+        new Date(),
+        id
+      ]
+    );
+    // 返回成功訊息
+    res.status(200).json({
+      status: "success",
+      message: "更新旅館成功",
+      data: result
+    });
+  } catch (error) {
+    console.error('發生錯誤:', error);
+    console.error('錯誤詳情:', error.stack);
+    res.status(500).json({ error: '發生內部服務器錯誤' });
+  }
+});
+
+
+// 更新旅館狀態（軟刪除）
+// router.put("/:id/status", upload.none(), async (req, res) => {
+//   const { id } = req.params;
+//   const { valid } = req.body;
+
+//   // 驗證必填項目
+//   if (valid === undefined) {
+//     return res.status(400).json({
+//       status: "error",
+//       message: "valid 參數是必須的"
+//     });
+//   }
+
+//   try {
+//     const [result] = await conn.query(
+//       "UPDATE `hotel` SET `valid` = ? WHERE `id` = ?",
+//       [valid, id]
+//     );
+
+//     if (result.affectedRows === 0) {
+//       return res.status(404).json({
+//         status: "error",
+//         message: "找不到旅館"
+//       });
+//     }
+
+//     res.status(200).json({
+//       status: "success",
+//       message: "旅館狀態成功更新",
+//       data: { id, valid }
+//     });
+//   } catch (error) {
+//     console.error('發生錯誤:', error);
+//     console.error('錯誤詳情:', error.stack);
+//     res.status(500).json({
+//       status: "error",
+//       message: "發生內部服務器錯誤"
+//     });
+//   }
+// });
 
 
 
+//刪除旅館
+router.delete("/:                                                                                                                                                                                                                                                                                                                                             id", async (req, res, next)=>{
+  const id = req.params.id;
 
+  try {
+    const [result] = await conn.query(
+        "DELETE FROM hotel WHERE `hotel`.`id` = ?",
+        [id]
+    );
+
+    if (result.affectedRows === 0) {
+        return res.status(404).json({
+            status: "error",
+            message: "找不到指定的旅館"
+        });
+    }
+
+    res.status(200).json({
+        status: "success",
+        message: "旅館已被刪除"
+    });
+} catch (error) {
+    res.status(500).json({
+        status: "error",
+        message: "刪除旅館失敗",
+        error: error.message
+    });
+}
+
+});
 
 
 

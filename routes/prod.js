@@ -133,6 +133,72 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/recommended", async (req, res) => {
+  try {
+    const { category, excludeId, limit = 4 } = req.query;
+
+    if (!category) {
+      return res.status(400).json({ status: "error", message: "必須提供類別參數" });
+    }
+
+    const query = `
+      SELECT
+        product.id,
+        product.name,
+        product.brand,
+        product.cate_1 as category,
+        product.cate_2 as subcategory,
+        (SELECT 
+          MIN(prod_price_stock.price)
+        FROM 
+          prod_price_stock
+        WHERE 
+          prod_price_stock.prod_id = product.id
+        ) AS price,
+        (SELECT 
+          pic_name
+        FROM 
+          prod_picture
+        WHERE 
+          prod_picture.prod_id = product.id
+        LIMIT 1
+        ) AS image
+      FROM
+        product
+      WHERE
+        product.cate_1 = ?
+        ${excludeId ? 'AND product.id != ?' : ''}
+      ORDER BY RAND()
+      LIMIT ?
+    `;
+
+    const params = excludeId 
+      ? [category, excludeId, parseInt(limit)]
+      : [category, parseInt(limit)];
+
+    const [rows] = await conn.execute(query, params);
+
+    // 處理查詢結果
+    const recommendedProducts = rows.map(row => ({
+      id: row.id,
+      name: row.name,
+      brand: row.brand,
+      category: row.category,
+      subcategory: row.subcategory,
+      price: row.price,
+      image: row.image
+    }));
+
+    res.status(200).json({ 
+      status: "success", 
+      message: '獲取推薦產品成功', 
+      products: recommendedProducts
+    });
+  } catch (error) {
+    console.error('獲取推薦產品錯誤：', error);
+    res.status(500).json({ status: "error", message: '獲取推薦產品錯誤', error: error.message });
+  }
+});
 // 獲取篩選選項的路由
 router.get("/filter-options", async (req, res) => {
   try {
@@ -287,6 +353,7 @@ router.get("/:id", async (req, res) => {
     res.status(500).json({ status: "error", message: '資料庫查詢錯誤', error: error.message });
   }
 });
+
 
 // 導出路由器
 export default router;

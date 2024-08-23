@@ -10,6 +10,10 @@ const charDice = () => {
   return charset[index];
 }
 
+/**
+ * 
+ * @returns {string} 13 碼優惠碼
+ */
 export default function () {
   let str = 'fdd';
   for (var i = 0; i < lengthCode; i++) {

@@ -678,24 +678,54 @@ router.post('/ChangePassword/:uuid', upload.none(), async (req, res, next) => {
   }
 });
 //======== 刪除 ==========//
-router.delete('/:id', upload.none(), async (req, res) => {
-  let user;//todo: remove this
-  const id = req.params.id;
-  // const user = DB.data.users.find(u => u.id === id);
-  if (!user) {
-    res.status(404).json({ status: "failed", message: "查無此使用者，請檢查輸入的 ID 是否有誤" });
-    return;
+router.delete('/deleteUser/:uuid', async (req, res) => {
+  const uuid = req.params.uuid;
+
+  if (!uuid) {
+    return res.status(400).json({ status: 'error', message: 'uuid 參數缺失' });
   }
-  //使用軟刪除，設定 deleteTime
-  // DB.data.users = DB.data.users.map(
-  //   u => (u.id === id) ? { ...u, deleteTime: Date.now() } : u
-  // );
-  // await DB.write();
-  // res.status(200).json({
-  //   status: "success",
-  //   message: "刪除成功",
-  //   result: req.body
-  // });
+
+  try {
+    // 檢查是否有此用戶
+    const [Userexist] = await conn.execute('SELECT * FROM users WHERE uuid = ?', [uuid]);
+    if (Userexist.length === 0) {
+      return res.status(404).json({ status: 'error', message: '無此用戶' });
+    }
+
+    // 刪除用戶的資料
+    const sql = 'DELETE FROM users WHERE uuid = ?';
+    await conn.execute(sql, [uuid]);
+
+    res.status(200).json({ status: 'success', message: '用戶刪除成功' });
+  } catch (error) {
+    console.error('刪除用戶資料錯誤：', error);
+    res.status(500).json({ status: 'error', message: '伺服器錯誤' });
+  }
+});
+
+router.delete('/deleteDog/:id', async (req, res) => {
+  const { id } = req.params;
+
+  if (!id) {
+    return res.status(400).json({ status: 'error', message: 'ID 參數缺失' });
+  }
+
+  try {
+    // 檢查是否有此狗
+    const [dogs] = await conn.execute('SELECT * FROM dogs WHERE id = ?', [id]);
+    if (dogs.length === 0) {
+      return res.status(404).json({ status: 'error', message: '無此狗' });
+    }
+
+    // 刪除狗的資料
+    const sql = 'DELETE FROM dogs WHERE id = ?';
+    await conn.execute(sql, [id]);
+
+    res.status(200).json({ status: 'success', message: '狗狗刪除成功' });
+  } catch (error) {
+    console.error('刪除狗狗資料錯誤：', error);
+    res.status(500).json({ status: 'error', message: '伺服器錯誤' });
+  }
 });
 
 //======== handle 404

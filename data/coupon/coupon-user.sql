@@ -21,6 +21,7 @@ SET time_zone = "+08:00";
 --
 
 CREATE TABLE IF NOT EXISTS `coupon_user` (
+    `id` bigint(10) UNSIGNED NOT NULL,
     `code` VARCHAR(13),
     `user_id` int(7) UNSIGNED NOT NULL,
     `cp_id` mediumint(5) UNSIGNED NOT NULL,

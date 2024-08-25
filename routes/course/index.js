@@ -4,6 +4,7 @@ import multer from 'multer';
 import path from 'path';
 import moment from 'moment';
 import { v4 as uuidv4 } from 'uuid';
+import authenticateToken from "../member/auth/authToken.js";
 
 const router = express.Router();
 
@@ -68,7 +69,7 @@ router.get("/", async (req, res) => {
     const [coursesResult] = await conn.query(query, [`%${search}%`, coursesPerPage, offset]);
     const [totalResult] = await conn.query("SELECT COUNT(*) as total FROM courses WHERE status = '1' AND title LIKE ?", [`%${search}%`]);
     const totalCourses = totalResult[0].total;
-    
+
     const coursesWithTags = coursesResult.map(course => ({
       ...course,
       tags: course.tags ? course.tags.split(',') : [],
@@ -379,6 +380,96 @@ router.patch("/delete/:id", async (req, res) => {
     res.status(500).json({
       status: "error",
       message: "刪除課程失敗",
+      error: error.message
+    });
+  }
+});
+
+router.post("/cart", authenticateToken, async (req, res) => {
+  try {
+    // const {
+    //   user_id,
+    //   buy_sort,
+    //   buy_id,
+    // } = req.body;
+
+    if (!buy_sort || !buy_id) {
+      return res.status(400).json({
+        status: "error",
+        message: "缺少必要欄位"
+      });
+    }
+
+    // 檢查商品是否已存在於購物車中
+    const [existingItem] = await conn.query(
+      "SELECT * FROM cart WHERE user_id = ? AND buy_sort = ? AND buy_id = ?",
+      [user_id, buy_sort, buy_id]
+    );
+
+    if (existingItem.length > 0) {
+      return res.status(400).json({
+        status: "error",
+        message: "此項目已在購物車中"
+      });
+    }
+
+    // 插入資料到購物車表
+    const [result] = await conn.query(
+      `INSERT INTO cart (user_id,buy_sort, buy_id,)
+     VALUES (?, ?, ?)`,
+      [user_id, buy_sort, buy_id]
+    );
+
+    res.status(201).json({
+      status: "success",
+      message: "成功添加到購物車",
+      data: { id: result.insertId }
+    });
+  } catch (error) {
+    console.error("添加到購物車時出錯", error);
+    res.status(500).json({
+      status: "error",
+      message: "伺服器錯誤",
+      error: error.message
+    });
+  }
+});
+
+
+router.get("/permission", authenticateToken, async (req, res) => {
+  const { courseId } = req.query;
+  const userId = req.user.id; // 從已驗證的 token 中獲取 user_id
+
+  if (!courseId) {
+    return res.status(400).json({
+      status: "error",
+      message: "缺少必要的查詢參數"
+    });
+  }
+
+
+  try {
+    const [result] = await conn.query(
+      "SELECT * FROM crs_perm WHERE user_id = ? AND crs_id = ?",
+      [userId, courseId]
+    );
+
+    if (result.length > 0) {
+      res.status(200).json({
+        status: "success",
+        hasPurchased: true,
+        startDate: result[0].start_date
+      });
+    } else {
+      res.status(200).json({
+        status: "success",
+        hasPurchased: false
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      status: "error",
+      message: "檢查課程權限時發生錯誤",
       error: error.message
     });
   }

@@ -7,10 +7,18 @@ import { resolve } from "path";
 import express from "express";
 import conn from "../db.js";
 import path from 'path';
+import { fileURLToPath } from 'url';
 
 
-const router = express.Router();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const router = Router();
 const upload = multer();
+
+//顯示圖片
+
+router.use('/images', express.static(path.join(__dirname, '..', 'public/hotelPic/pic')));
 
 //fetch 全部旅館
 router.get("/", async (req, res) => {

@@ -6,7 +6,7 @@ const router = Router();
 // 獲取產品列表的路由，支持多種篩選條件
 router.get("/", async (req, res) => {
   try {
-    const { category, subcategory, brand, minPrice, maxPrice, sortBy, tag, page = 1, limit = 12 } = req.query;
+    const { category, subcategory, brand, minPrice, maxPrice, sortBy, tag, page = 1, limit = 12, search } = req.query;
     const offset = (parseInt(page) - 1) * parseInt(limit);
 
     let query = `
@@ -43,6 +43,13 @@ router.get("/", async (req, res) => {
     `;
 
     const params = [];
+
+    // 添加搜索條件
+    if (search) {
+      query += ` AND (product.name LIKE ? OR product.brand LIKE ? OR product.cate_1 LIKE ? OR product.cate_2 LIKE ?)`;
+      const searchParam = `%${search}%`;
+      params.push(searchParam, searchParam, searchParam, searchParam);
+    }
 
     // 添加篩選條件
     if (category) {
@@ -112,17 +119,16 @@ router.get("/", async (req, res) => {
 
     // 計算總頁數
     const [countResult] = await conn.execute(
-      `SELECT COUNT(DISTINCT product.id) as total FROM product WHERE 1=1 ${
-        query.split('WHERE 1=1')[1].split('GROUP BY')[0]
+      `SELECT COUNT(DISTINCT product.id) as total FROM product WHERE 1=1 ${query.split('WHERE 1=1')[1].split('GROUP BY')[0]
       }`,
       params.slice(0, -2)
     );
     const totalCount = countResult[0].total;
     const totalPages = Math.ceil(totalCount / parseInt(limit));
 
-    res.status(200).send({ 
-      status: "success", 
-      message: '回傳篩選後的商品資料', 
+    res.status(200).send({
+      status: "success",
+      message: '回傳篩選後的商品資料',
       productList,
       totalPages,
       currentPage: parseInt(page)
@@ -172,7 +178,7 @@ router.get("/recommended", async (req, res) => {
       LIMIT ?
     `;
 
-    const params = excludeId 
+    const params = excludeId
       ? [category, excludeId, parseInt(limit)]
       : [category, parseInt(limit)];
 
@@ -189,9 +195,9 @@ router.get("/recommended", async (req, res) => {
       image: row.image
     }));
 
-    res.status(200).json({ 
-      status: "success", 
-      message: '獲取推薦產品成功', 
+    res.status(200).json({
+      status: "success",
+      message: '獲取推薦產品成功',
       products: recommendedProducts
     });
   } catch (error) {
@@ -284,35 +290,49 @@ router.get("/:id", async (req, res) => {
               prod_picture
            WHERE 
               prod_picture.prod_id = product.id
-          ) AS picNameArr,  -- 獲取所有圖片名稱
+          ) AS picNameArr, 
            (SELECT 
               GROUP_CONCAT(prod_price_stock.sortname ORDER BY prod_price_stock.id)
            FROM 
               prod_price_stock
            WHERE 
               prod_price_stock.prod_id = product.id
-          ) AS sortArr,  -- 獲取所有排序名稱
+          ) AS sortArr,  
            (SELECT 
               GROUP_CONCAT(prod_price_stock.specname ORDER BY prod_price_stock.id)
            FROM 
               prod_price_stock
            WHERE 
               prod_price_stock.prod_id = product.id
-          ) AS specArr,  -- 獲取所有規格名稱
+          ) AS specArr, 
            (SELECT 
               GROUP_CONCAT(prod_price_stock.stock ORDER BY prod_price_stock.id)
            FROM 
               prod_price_stock
            WHERE 
               prod_price_stock.prod_id = product.id
-          ) AS stockArr,  -- 獲取所有庫存數量
+          ) AS stockArr,  
           (SELECT 
               GROUP_CONCAT(prod_price_stock.price ORDER BY prod_price_stock.id) 
            FROM 
               prod_price_stock
            WHERE 
               prod_price_stock.prod_id = product.id
-          ) AS priceArr  -- 獲取所有價格
+          ) AS priceArr,
+           (SELECT 
+          GROUP_CONCAT(DISTINCT prod_tag.tag ORDER BY prod_tag.id)
+        FROM 
+          prod_tag
+        WHERE 
+          prod_tag.prod_id = product.id
+        ) AS tagArr,
+         (SELECT 
+          GROUP_CONCAT(DISTINCT prod_age.age ORDER BY prod_age.id)
+        FROM 
+          prod_age
+        WHERE 
+          prod_age.prod_id = product.id
+        ) AS ageArr
       FROM
           product
       LEFT JOIN 
@@ -333,6 +353,8 @@ router.get("/:id", async (req, res) => {
       product.stockArr = product.stockArr ? product.stockArr.split(',') : [];
       product.sortArr = product.sortArr ? product.sortArr.split(',') : [];
       product.specArr = product.specArr ? product.specArr.split(',') : [];
+      product.tagArr = product.tagArr ? product.tagArr.split(',') : [];
+      product.ageArr = product.ageArr ? product.ageArr.split(',') : [];
 
       // 發送成功響應
       res.status(200).json({

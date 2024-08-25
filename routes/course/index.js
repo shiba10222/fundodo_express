@@ -3,7 +3,7 @@ import conn from "../../db.js";
 import multer from 'multer';
 import path from 'path';
 import moment from 'moment';
-import { v4 as uuid } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 
 const router = express.Router();
 
@@ -26,7 +26,7 @@ const storage = multer.diskStorage({
 const upload = multer({
   storage: storage,
   fileFilter: function (req, file, cb) {
-  if (file.fieldname.startsWith('video_')) {
+    if (file.fieldname === 'video_path') {
       // 檢查是否為允許的視頻格式
       const filetypes = /mp4|avi|mov|wmv/;
       const mimetype = filetypes.test(file.mimetype);
@@ -38,10 +38,10 @@ const upload = multer({
     } else {
       cb(null, true);
     }
-    }
+  }
 }).fields([
   { name: 'img_path', maxCount: 1 },
-  { name: /^video_\d+_\d+$/, maxCount: 1 } // 使用正則表達式匹配動態視頻字段名
+  { name: 'video_path', maxCount: 10 }
 ]);
 
 // GET: 獲取所有課程
@@ -63,7 +63,6 @@ router.get("/", async (req, res) => {
       WHERE c.status = "1" AND c.title LIKE ?
       GROUP BY c.id
       LIMIT ? OFFSET ?
-
     `;
 
     const [coursesResult] = await conn.query(query, [`%${search}%`, coursesPerPage, offset]);
@@ -93,6 +92,7 @@ router.get("/", async (req, res) => {
   }
 });
 
+// GET: 獲取所有標籤
 router.get("/tags", async (req, res) => {
   try {
     const [result] = await conn.query("SELECT id, name FROM course_tag");
@@ -100,15 +100,13 @@ router.get("/tags", async (req, res) => {
       status: "success",
       message: "取得所有分類",
       data: result
-
-    })
-
+    });
   } catch (error) {
     res.status(404).json({
       status: "error",
       message: "找不到分類資料",
       error: error.message
-    })
+    });
   }
 });
 
@@ -180,25 +178,32 @@ router.post("/", (req, res, next) => {
   });
 }, async (req, res) => {
   try {
+
+    console.log('Received files:', req.files);
+    console.log('Received body:', req.body);
     const { title, summary, description, original_price, sale_price, tags, chapters } = req.body;
     const img_path = req.files['img_path'] ? req.files['img_path'][0].filename : null;
     const created_at = moment().format('YYYY-MM-DD HH:mm:ss');
 
+    // 插入課程基本信息
     const [result] = await conn.query(
-      "INSERT INTO courses (title, summary, description, img_path, original_price, sale_price, created_at, status) VALUES (?, ?, ?, ?, ?, ?, ?, '1')",
+      "INSERT INTO courses (title, summary, description, img_path, original_price, sale_price, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)",
       [title, summary, description, img_path, original_price, sale_price, created_at]
     );
 
     const courseId = result.insertId;
 
-    // 插入分類
-    const tagsArray = JSON.parse(tags);
+    // 插入課程分類
+    let tagsArray = Array.isArray(tags) ? tags : [tags].filter(Boolean);
     if (tagsArray.length > 0) {
       const tagValues = tagsArray.map(tagId => [courseId, tagId]);
-      await conn.query("INSERT INTO course_tags (course_id, tag_id) VALUES ?", [tagValues]);
+      await conn.query(
+        "INSERT INTO course_tags (course_id, tag_id) VALUES ?",
+        [tagValues]
+      );
     }
 
-    // 插入章節和課程
+    // 處理章節和課程
     const parsedChapters = JSON.parse(chapters);
     for (let chapterIndex = 0; chapterIndex < parsedChapters.length; chapterIndex++) {
       const chapter = parsedChapters[chapterIndex];
@@ -212,8 +217,25 @@ router.post("/", (req, res, next) => {
       for (let lessonIndex = 0; lessonIndex < chapter.lessons.length; lessonIndex++) {
         const lesson = chapter.lessons[lessonIndex];
         const videoFieldName = `video_${chapterIndex}_${lessonIndex}`;
-        const videoFile = req.files[videoFieldName] ? req.files[videoFieldName][0] : null;
-        const videoPath = videoFile ? videoFile.filename : null;
+        console.log('Looking for video file:', videoFieldName);
+        const videoFile = req.files['video_path'] ?
+          req.files['video_path'].find(file => file.fieldname === 'video_path') :
+          null;
+
+        let videoPath = null;
+        if (videoFile) {
+          videoPath = videoFile.filename;
+          console.log(`Video file found for ${videoFieldName}:`, videoFile.filename);
+        } else {
+          console.warn(`No video file found for ${videoFieldName}`);
+        }
+
+        console.log('Inserting lesson:', {
+          chapterId,
+          name: lesson.name,
+          duration: lesson.duration,
+          videoPath
+        });
 
         await conn.query(
           "INSERT INTO course_lessons (chapter_id, name, duration, video_path) VALUES (?, ?, ?, ?)",
@@ -228,7 +250,7 @@ router.post("/", (req, res, next) => {
       data: { courseId }
     });
   } catch (error) {
-    console.error("Error in course creation:", error);
+    console.error("新增課程時發生錯誤:", error);
     res.status(500).json({
       status: "error",
       message: "課程新增失敗",
@@ -238,9 +260,20 @@ router.post("/", (req, res, next) => {
 });
 
 // PATCH: 更新特定課程
-router.patch("/:id", upload, async (req, res) => {
+router.patch("/:id", (req, res, next) => {
+  upload(req, res, function (err) {
+    if (err) {
+      console.error("File upload error:", err);
+      return res.status(400).json({ status: "error", message: err.message });
+    }
+    console.log('Files received:', JSON.stringify(req.files, null, 2));
+    console.log('Request body:', JSON.stringify(req.body, null, 2));
+    next();
+  });
+}, async (req, res) => {
   const courseId = req.params.id;
   try {
+    // 檢查課程是否存在
     const [courseCheck] = await conn.query("SELECT * FROM courses WHERE id = ? AND status = '1'", [courseId]);
     if (courseCheck.length === 0) {
       return res.status(404).json({
@@ -249,7 +282,7 @@ router.patch("/:id", upload, async (req, res) => {
       });
     }
 
-    const { title, summary, description, original_price, sale_price, tags, chapters } = req.body;
+    const { title, summary, description, original_price, sale_price, tag_ids, chapters } = req.body;
     const img_path = req.files['img_path'] ? req.files['img_path'][0].filename : null;
     const updated_at = moment().format('YYYY-MM-DD HH:mm:ss');
 
@@ -267,11 +300,11 @@ router.patch("/:id", upload, async (req, res) => {
 
     await conn.query(updateQuery, updateParams);
 
-    // 更新標籤
+    // 更新課程標籤
     await conn.query("DELETE FROM course_tags WHERE course_id = ?", [courseId]);
-    const parsedTags = JSON.parse(tags);
-    if (parsedTags && parsedTags.length > 0) {
-      const tagValues = parsedTags.map(tagId => [courseId, tagId]);
+    const parsedTagIds = JSON.parse(tag_ids);
+    if (parsedTagIds && parsedTagIds.length > 0) {
+      const tagValues = parsedTagIds.map(tagId => [courseId, tagId]);
       await conn.query("INSERT INTO course_tags (course_id, tag_id) VALUES ?", [tagValues]);
     }
 
@@ -280,7 +313,8 @@ router.patch("/:id", upload, async (req, res) => {
     await conn.query("DELETE FROM course_lessons WHERE chapter_id IN (SELECT id FROM course_chapters WHERE course_id = ?)", [courseId]);
 
     const parsedChapters = JSON.parse(chapters);
-    for (let chapter of parsedChapters) {
+    for (let chapterIndex = 0; chapterIndex < parsedChapters.length; chapterIndex++) {
+      const chapter = parsedChapters[chapterIndex];
       const [chapterResult] = await conn.query(
         "INSERT INTO course_chapters (course_id, name) VALUES (?, ?)",
         [courseId, chapter.name]
@@ -288,11 +322,12 @@ router.patch("/:id", upload, async (req, res) => {
 
       const chapterId = chapterResult.insertId;
 
-      for (let lesson of chapter.lessons) {
-        const videoFieldName = `video_${chapter.index}_${lesson.index}`;
+      for (let lessonIndex = 0; lessonIndex < chapter.lessons.length; lessonIndex++) {
+        const lesson = chapter.lessons[lessonIndex];
+        const videoFieldName = `video_${chapterIndex}_${lessonIndex}`;
         const videoFile = req.files[videoFieldName] ? req.files[videoFieldName][0] : null;
-        let videoPath = lesson.video_path;
 
+        let videoPath = lesson.video_path;
         if (videoFile) {
           videoPath = videoFile.filename;
         }
@@ -310,6 +345,7 @@ router.patch("/:id", upload, async (req, res) => {
       data: { courseId }
     });
   } catch (error) {
+    console.error("更新課程時發生錯誤:", error);
     res.status(500).json({
       status: "error",
       message: "課程更新失敗",

@@ -1,9 +1,9 @@
-import express from "express";
+import express,{Router} from "express";
 import multer from "multer";
-import { Low } from "lowdb";
+// import { Low } from "lowdb";
 import cors from "cors";
-import { JSONFile } from "lowdb/node";
-import connect from "./db.js";
+// import { JSONFile } from "lowdb/node";
+// import connect from "./db.js";
 import path from "path";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
@@ -12,9 +12,9 @@ import fs from "fs";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const app = express();
-app.use(cors());
-app.use(express.json());
+const router = Router();
+router.use(cors());
+router.use(express.json());
 
 const uploadDir = path.join(__dirname, "public", "articleImg");
 if (!fs.existsSync(uploadDir)) {
@@ -36,16 +36,16 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-const defaultDate = { article: [] };
-const db = new Low(new JSONFile("article.json"), defaultDate);
-await db.read();
+// const defaultDate = { article: [] };
+// const db = new Low(new JSONFile("article.json"), defaultDate);
+// await db.read();
 
-app.use("/public", express.static(path.join(__dirname, "public")));
+router.use("/public", express.static(path.join(__dirname, "public")));
 
-app.get("/", (req, res) => {
+router.get("/", (req, res) => {
   res.send("首頁");
 });
-app.get("/api/articles", (req, res) => {
+router.get("/api/articles", (req, res) => {
   const sort = req.query.sort;
   const search = req.query.search;
 
@@ -81,7 +81,7 @@ app.get("/api/articles", (req, res) => {
   });
 });
 
-// app.get("/api/articles", (req, res) => {
+// router.get("/api/articles", (req, res) => {
 //     connect.execute(
 //         "SELECT * FROM `article` WHERE `article_delete` = 0 ORDER BY `create_at` DESC",
 //         (err, articles) => {
@@ -98,7 +98,7 @@ app.get("/api/articles", (req, res) => {
 //     )
 // })
 
-// app.get("/api/articles/:sort", (req, res) => {
+// router.get("/api/articles/:sort", (req, res) => {
 //     const sort = req.params.sort
 //     if (sort) {
 //         connect.execute(
@@ -119,7 +119,7 @@ app.get("/api/articles", (req, res) => {
 
 // })
 
-app.get("/api/sort", (req, res) => {
+router.get("/api/sort", (req, res) => {
   connect.execute("SELECT * FROM `article_sort`", (err, sorts) => {
     if (err) {
       console.log(err);
@@ -133,7 +133,7 @@ app.get("/api/sort", (req, res) => {
   });
 });
 
-app.get("/api/articleContent/:id", (req, res) => {
+router.get("/api/articleContent/:id", (req, res) => {
   const id = req.params.id;
   connect.execute(
     "SELECT * FROM `article` WHERE `id`= ? AND `article_delete` = 0",
@@ -152,7 +152,7 @@ app.get("/api/articleContent/:id", (req, res) => {
   );
 });
 
-app.post("/api/upload2", upload.single("articleImage"), (req, res) => {
+router.post("/api/upload2", upload.single("articleImage"), (req, res) => {
   try {
     if (!req.file) {
       return res.status(400).json({ message: "檔案未上傳成功" });
@@ -185,7 +185,7 @@ app.post("/api/upload2", upload.single("articleImage"), (req, res) => {
 });
 
 // 獲取圖片的路由（如果需要的話）
-app.get("/api/images/:id", (req, res) => {
+router.get("/api/images/:id", (req, res) => {
   const articleId = req.params.id;
 
   connect.execute(
@@ -215,7 +215,7 @@ app.get("/api/images/:id", (req, res) => {
 });
 
 // 修改創建文章的 API 路由，以關聯上傳的圖片
-app.post("/api/createArticle", (req, res) => {
+router.post("/api/createArticle", (req, res) => {
   const { title, content, sort } = req.body;
 
   connect.execute(
@@ -281,7 +281,7 @@ app.post("/api/createArticle", (req, res) => {
   );
 });
 
-app.put("/api/editArticle/:id", (req, res) => {
+router.put("/api/editArticle/:id", (req, res) => {
   const { title, content, sort, imageIds } = req.body;
   const articleId = req.params.id;
 
@@ -353,7 +353,7 @@ app.put("/api/editArticle/:id", (req, res) => {
   );
 });
 
-app.delete("/api/deleteArticle/:id", (req, res) => {
+router.delete("/api/deleteArticle/:id", (req, res) => {
   const articleId = req.params.id;
 
   console.log('收到刪除文章請求:', { articleId });
@@ -380,7 +380,7 @@ app.delete("/api/deleteArticle/:id", (req, res) => {
   );
 });
 
-app.post("/api/createReply/:aid", (req, res) => {
+router.post("/api/createReply/:aid", (req, res) => {
   const { content } = req.body;
   const articleId = req.params.aid;
   const userid = 0; // 這裡應該是從身份驗證中獲取的
@@ -406,7 +406,7 @@ app.post("/api/createReply/:aid", (req, res) => {
   );
 });
 
-app.get("/api/replys/:aid", (req, res) => {
+router.get("/api/replys/:aid", (req, res) => {
   const articleId = req.params.aid;
   connect.execute(
     "SELECT * FROM `reply` WHERE `article_id` = ?",
@@ -425,6 +425,9 @@ app.get("/api/replys/:aid", (req, res) => {
   );
 });
 
-app.listen(3001, () => {
-  console.log("http://localhost:3001");
-});
+// router.listen(3001, () => {
+//   console.log("http://localhost:3001");
+// });
+
+
+export default router;

@@ -58,7 +58,7 @@ const getProdName = id => new Promise(async (resolve, reject) => {
 
 const getProdPic = id => new Promise(async (resolve, reject) => {
   const [rows] = await conn.query(
-    "SELECT name FROM prod_picture WHERE prod_id = ?",
+    "SELECT pic_name FROM prod_picture WHERE prod_id = ?",
     [id]
   );
   if (rows.length === 0) {

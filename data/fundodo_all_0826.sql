@@ -9089,14 +9089,14 @@ INSERT INTO `prod_body` (`id`, `prod_id`, `body`) VALUES
 CREATE TABLE `prod_picture` (
   `id` bigint(11) UNSIGNED NOT NULL,
   `prod_id` int(9) UNSIGNED NOT NULL,
-  `name` varchar(20) NOT NULL
+  `pic_name` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- 傾印資料表的資料 `prod_picture`
 --
 
-INSERT INTO `prod_picture` (`id`, `prod_id`, `name`) VALUES
+INSERT INTO `prod_picture` (`id`, `prod_id`, `pic_name`) VALUES
 (1, 1, 'PR0000000011.jpg'),
 (2, 1, 'PR0000000012.jpg'),
 (3, 2, 'PR0000000025.jpg'),

@@ -97,7 +97,7 @@ export default async function (cartData) {
         const picName = await getProdPic(subProdObj.prod_id);
 
         return ({
-          key: cartItem.id,
+          cart_id: cartItem.id,
           prod_name: prodName,
           pic_name: picName,
           sort_name: subProdObj.sortname,
@@ -105,7 +105,8 @@ export default async function (cartData) {
           price: isSpecial ? subProdObj.price_sp : subProdObj.price,
           quantity: cartItem.quantity,
           isOutOfStock: subProdObj.stock === 0,
-          stock_when_few: (subProdObj.stock < 20) ? subProdObj.stock : null
+          stock_when_few: (subProdObj.stock < 20) ? subProdObj.stock : null,
+          deleted_at: cartItem.deleted_at
         })
       })
     );

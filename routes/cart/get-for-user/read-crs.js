@@ -33,10 +33,11 @@ export default async function (cartData) {
         const isSpecial = crsObj.price_sp && crsObj.price_sp > 0;
         const price = isSpecial ? crsObj.price_sp : crsObj.price;
         return ({
-          key: cartItem.id,
+          cart_id: cartItem.id,
           prod_name: crsObj.title,
           pic_name: crsObj.img_path,
-          price: Number(price)
+          price: Number(price),
+          deleted_at: cartItem.deleted_at
         })
       })
     );

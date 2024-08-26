@@ -14,9 +14,12 @@ router.get('/', (req, res) => {
   });
 });
 
-const notyet = time => {
+const isOverDue = time => {
+  const timeStr = time.replaceAll('/', '-');
   const now = new Date().getTime();
-  const then = getTimeNum(time);
+  const then = getTimeNum(timeStr);
+  console.log(then);
+  // console.log(now);
 
   return then < now;
 }
@@ -45,10 +48,9 @@ router.get('/:uid', async (req, res) => {
     );
   }
 
-  const unusedArr = rows.filter(cp => !cp.used_at && notyet(cp.expired_at));
+  const unusedArr = rows.filter(cp => !(cp.used_at || isOverDue(cp.expired_at)));
   const usedArr = rows.filter(cp => cp.used_at);
-  const overdueArr = rows.filter(cp => !cp.used_at && !notyet(cp.expired_at));
-
+  const overdueArr = rows.filter(cp => isOverDue(cp.expired_at));
 
   res.status(200).json({
     status: "success",

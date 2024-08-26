@@ -76,7 +76,7 @@ export default async function (cartData) {
         const dogName = cartItem.dog_id ? await getDogName(cartItem.dog_id) : null;
 
         return ({
-          key: cartItem.id,
+          cart_id: cartItem.id,
           prod_name: hotelObj.name,
           pic_name: hotelObj.main_img_path,
           dog_name: dogName,
@@ -85,6 +85,7 @@ export default async function (cartData) {
           check_out_date: cartItem.check_out_date,
           amount: cartItem.amount,
           created_at: cartItem.created_at,
+          deleted_at: cartItem.deleted_at
         })
       })
     );

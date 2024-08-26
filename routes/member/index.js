@@ -275,7 +275,7 @@ router.post('/login', upload.none(), async (req, res) => {
 
     // 登入成功，創建 JWT token
     const token = jwt.sign(
-      { userId: user.id, email: user.email, uuid: user.uuid },
+      { userId: user.id, email: user.email, uuid: user.uuid, nickname: user.nickname, user_level : user.user_level,avatar_file: user.avatar_file },
       'j123456',
       { expiresIn: '1h' }
     );
@@ -499,7 +499,7 @@ router.put('/ForumMemberInfo/:uuid', upload.none(), async (req, res) => {
     // 重新生成 token
     const user = users[0];
     const token = jwt.sign(
-      { userId: user.id, email: user.email, uuid: user.uuid },
+      { userId: user.id, email: user.email, uuid: user.uuid, nickname: user.nickname, user_level : user.user_level,avatar_file: user.avatar_file },
       'j123456',
       { expiresIn: '1h' }
     );

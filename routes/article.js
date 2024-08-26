@@ -301,9 +301,8 @@ router.delete("/deleteArticle/:id", async (req, res) => {
 });
 
 router.post("/createReply/:aid", async (req, res) => {
-  const { content } = req.body;
+  const { content,userid } = req.body;
   const articleId = req.params.aid;
-  const userid = 0; // 這裡應該是從身份驗證中獲取的
 
   try {
     const [result] = await connect.execute(
@@ -325,14 +324,18 @@ router.post("/createReply/:aid", async (req, res) => {
 router.get("/replys/:aid", async (req, res) => {
   const articleId = req.params.aid;
   try {
-    const [articles] = await connect.execute(
-      "SELECT * FROM `reply` WHERE `article_id` = ?",
+    const [replies] = await connect.execute(
+      `SELECT r.*, u.nickname as author_nickname
+       FROM reply r
+       LEFT JOIN users u ON r.userid = u.id
+       WHERE r.article_id = ?
+       ORDER BY r.create_at DESC`,
       [articleId]
     );
     res.status(200).json({
       status: "success",
       message: "所有回覆",
-      articles,
+      replies,
     });
   } catch (err) {
     console.error(err);

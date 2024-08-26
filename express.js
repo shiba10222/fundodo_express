@@ -19,6 +19,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
+app.use('/public', express.static(resolve(__dirname, 'public')));
+
 //=== 設置靜態文件夾 ===//
 console.log('Static files directory:', resolve(__dirname, 'public/upload'));
 console.log('Public upload directory path:', resolve(__dirname, 'public/upload'));

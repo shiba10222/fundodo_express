@@ -7,6 +7,8 @@ import bcrypt from 'bcrypt';
 import { resolve } from "path";
 import conn from '../../db.js';
 import authenticateToken from './auth/authToken.js';
+import mailRouter from './mail.js';
+
 
 // 參數
 const secretKey = process.argv[2];
@@ -16,6 +18,8 @@ const blackList = [];
 // 模組物件
 const router = Router();
 //const upload = multer();
+
+router.use('/email', mailRouter);
 
 //特定路由區要修改 upload = multer();
 const storage = multer.diskStorage({
@@ -72,7 +76,8 @@ const uploadAvatar2 = multer({
   }
 });
 
-
+//導向email
+// app.use('/api/mail', mailRouter);
 
 
 // 資料表
@@ -447,7 +452,7 @@ router.put('/:uuid', upload.none(), async (req, res) => {
     console.log('Update result:', result);
 
     const token = jwt.sign(
-      { userId: user.id, email: user.email, uuid: user.uuid },
+      { userId: user.id, email: user.email, uuid: user.uuid, email_verified: user.email_verified },
       'j123456',
       { expiresIn: '1h' }
     );
@@ -466,6 +471,7 @@ router.put('/:uuid', upload.none(), async (req, res) => {
         dob: user.dob,
         tel: user.tel,
         email: user.email,
+        email_verified: user.email_verified,
         avatar_file: user.avatar_file,
         address: user.address,
       }
@@ -499,7 +505,7 @@ router.put('/ForumMemberInfo/:uuid', upload.none(), async (req, res) => {
     // 重新生成 token
     const user = users[0];
     const token = jwt.sign(
-      { userId: user.id, email: user.email, uuid: user.uuid, nickname: user.nickname, user_level : user.user_level,avatar_file: user.avatar_file },
+      { userId: user.id, email: user.email, uuid: user.uuid, nickname: user.nickname, user_level : user.user_level,avatar_file: user.avatar_file, email_verified: user.email_verified },
       'j123456',
       { expiresIn: '1h' }
     );
@@ -727,6 +733,10 @@ router.delete('/deleteDog/:id', async (req, res) => {
     res.status(500).json({ status: 'error', message: '伺服器錯誤' });
   }
 });
+
+
+//======== 驗證信箱 ==========//
+
 
 //======== handle 404
 

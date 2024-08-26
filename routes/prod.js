@@ -24,7 +24,7 @@ router.get("/", async (req, res) => {
           prod_price_stock.prod_id = product.id
         ) AS priceArr,
         (SELECT 
-          GROUP_CONCAT(DISTINCT prod_picture.pic_name ORDER BY prod_picture.id)
+          GROUP_CONCAT(DISTINCT prod_picture.name ORDER BY prod_picture.id)
         FROM 
           prod_picture
         WHERE 
@@ -162,7 +162,7 @@ router.get("/recommended", async (req, res) => {
           prod_price_stock.prod_id = product.id
         ) AS price,
         (SELECT 
-          pic_name
+          name
         FROM 
           prod_picture
         WHERE 
@@ -292,7 +292,7 @@ router.get("/:id", async (req, res) => {
               prod_price_stock.prod_id = product.id
           ) AS pidArr,
           (SELECT 
-              GROUP_CONCAT(DISTINCT prod_picture.pic_name ORDER BY prod_picture.id)
+              GROUP_CONCAT(DISTINCT prod_picture.name ORDER BY prod_picture.id)
            FROM 
               prod_picture
            WHERE 

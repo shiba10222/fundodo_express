@@ -385,41 +385,6 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// router.post("/cart", async (req, res) => {
-//   try {
-//     const {
-//       user_id,
-//       buy_sort,
-//       buy_id,
-//       quantity
-//     } = req.body;
 
-//     if (!user_id || !buy_sort || !buy_id || !quantity) {
-//       return res.status(400).json({
-//         status: "error",
-//         message: "缺少必要欄位"
-//       });
-//     }
-
-//     const [result] = await conn.query(
-//       `INSERT INTO cart (user_id, buy_sort, buy_id, quantity)
-//      VALUES (?, ?, ?, ?)`,
-//       [user_id, buy_sort, buy_id, quantity]
-//     );
-
-//     res.status(200).json({
-//       status: "success",
-//       message: "成功添加到購物車",
-//       data: { id: result.insertId }
-//     });
-//   } catch (error) {
-//     console.error("添加到購物車時出錯", error);
-//     res.status(500).json({
-//       status: "error",
-//       message: "伺服器錯誤",
-//       error: error.message
-//     });
-//   }
-// })
 // 導出路由器
 export default router;

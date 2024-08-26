@@ -65,7 +65,7 @@ const getProdPic = id => new Promise(async (resolve, reject) => {
     reject(new Error(`發生了未預期的結果：找不到 product id: ${id} 的圖片`));
     return;
   }
-  resolve(rows[0]['name']);
+  resolve(rows[0]['pic_name']);
 });
 
 /**

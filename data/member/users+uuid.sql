@@ -9,7 +9,7 @@
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
-SET time_zone = "+00:00";
+SET time_zone = "+08:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `users` (
   `id` int(7) UNSIGNED NOT NULL,
-  `uuid` char(40) NOT NULL,
+  `uuid` varchar(40) NOT NULL,
   `name` varchar(15) DEFAULT NULL,
   `nickname` varchar(15) DEFAULT NULL,
   `account` varchar(17) NOT NULL,

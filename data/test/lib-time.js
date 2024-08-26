@@ -25,6 +25,8 @@ const getTimeStr = timeNum => {
     hour12: false,
     timeZone: 'Asia/Taipei',
   });
+  //! 不使用 Asia/Taipei，因為顯示的都以 UTC 為本位
+  // 例如：台灣（+8）的 0 點會顯示成（+0）的 8 點
   return str;
 }
 /**
@@ -43,6 +45,8 @@ const getTimeStr_DB = timeNum => {
     hour12: false,
     timeZone: 'Asia/Taipei',
   });
+  //! 不使用 Asia/Taipei，因為顯示的都以 UTC 為本位
+  // 例如：台灣（+8）的 0 點會顯示成（+0）的 8 點
   str = str.replaceAll('/', '-');
   return str;
 }
@@ -68,7 +72,12 @@ const diceOf = n => Math.floor(Math.random() * n);
 
 //*=====================  日期跳轉  ======================
 
-const nDaysAfter = (time, n) => {
+/**
+ * @param {number} time new Date() 可以接受的時間格式
+ * @param {number} n 欲得多少天後的時間點
+ * @returns 
+ */
+const nDaysAfter = (time, n = 0) => {
   const day = new Date(time);
   day.setDate(day.getDate() + n);
 
@@ -82,7 +91,7 @@ const nYearsBefore = (time, n) => {
   return getTimeNum(ano_toki);
 }
 
-const randDateBetween = (start, end) => {
+const randTimeBetween = (start, end) => {
   const t_i = getTimeNum(start);
   const t_f = getTimeNum(end);
   const D_t = t_f - t_i;
@@ -107,7 +116,7 @@ const randDateBetween = (start, end) => {
 const longAfter = (time, bound) => {
   const t_i = getTimeNum(time);
   const t_f = nDaysAfter(time, bound);
-  return randDateBetween(t_i, t_f);
+  return randTimeBetween(t_i, t_f);
 }
 
 export {
@@ -117,6 +126,6 @@ export {
   getTimeNum,
   nDaysAfter,
   nYearsBefore,
-  randDateBetween,
+  randTimeBetween,
   longAfter
 }

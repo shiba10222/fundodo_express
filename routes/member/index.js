@@ -625,25 +625,107 @@ router.post('/uploadAvatar_dog/:id', uploadAvatar2.single('avatar'), async (req,
   }
 });
 
-//======== 刪除 ==========//
-router.delete('/:id', upload.none(), async (req, res) => {
-  let user;//todo: remove this
-  const id = req.params.id;
-  // const user = DB.data.users.find(u => u.id === id);
-  if (!user) {
-    res.status(404).json({ status: "failed", message: "查無此使用者，請檢查輸入的 ID 是否有誤" });
-    return;
+router.post('/ChangePassword/:uuid', upload.none(), async (req, res, next) => {
+  console.log('Received request body:', req.body); // 記錄接收到的請求體
+
+  const { password } = req.body;
+  const uuid = req.params.uuid;
+
+  if (!password) {
+    return res.status(400).json({ status: "error", message: "必填欄位缺失", receivedData: req.body });
   }
-  //使用軟刪除，設定 deleteTime
-  // DB.data.users = DB.data.users.map(
-  //   u => (u.id === id) ? { ...u, deleteTime: Date.now() } : u
-  // );
-  // await DB.write();
-  // res.status(200).json({
-  //   status: "success",
-  //   message: "刪除成功",
-  //   result: req.body
-  // });
+
+  try {
+    // 檢查郵件是否已經註冊過
+    const [existingUser] = await conn.execute('SELECT * FROM users WHERE uuid = ?', [uuid]);
+    if (existingUser.length === 0) {
+      return res.status(400).json({ status: "error", message: "用戶不存在" });
+    }
+
+    // 密碼加密
+    const saltRounds = 10;
+    const password_hash = await bcrypt.hash(password, saltRounds);
+
+
+    const sql = 'UPDATE users SET password_hash = ? WHERE uuid = ?';
+    const values = [password_hash, uuid];
+
+    console.log('Executing SQL:', sql);
+    console.log('With values:', values);
+
+    const [result] = await conn.execute(sql, values);
+
+
+
+    console.log('Update result:', result);
+
+    if (result.affectedRows > 0) {
+      // 成功更新
+      res.status(200).json({
+        status: "success",
+        message: "修改成功",
+      });
+    } else {
+      throw new Error('修改失敗：未能更新數據');
+    }
+  } catch (error) {
+    console.error('資料庫操作錯誤:', error);
+    res.status(500).json({
+      status: "error",
+      message: '修改失敗，請聯絡系統管理員',
+      error: error.message
+    });
+  }
+});
+//======== 刪除 ==========//
+router.delete('/deleteUser/:uuid', async (req, res) => {
+  const uuid = req.params.uuid;
+
+  if (!uuid) {
+    return res.status(400).json({ status: 'error', message: 'uuid 參數缺失' });
+  }
+
+  try {
+    // 檢查是否有此用戶
+    const [Userexist] = await conn.execute('SELECT * FROM users WHERE uuid = ?', [uuid]);
+    if (Userexist.length === 0) {
+      return res.status(404).json({ status: 'error', message: '無此用戶' });
+    }
+
+    // 刪除用戶的資料
+    const sql = 'DELETE FROM users WHERE uuid = ?';
+    await conn.execute(sql, [uuid]);
+
+    res.status(200).json({ status: 'success', message: '用戶刪除成功' });
+  } catch (error) {
+    console.error('刪除用戶資料錯誤：', error);
+    res.status(500).json({ status: 'error', message: '伺服器錯誤' });
+  }
+});
+
+router.delete('/deleteDog/:id', async (req, res) => {
+  const { id } = req.params;
+
+  if (!id) {
+    return res.status(400).json({ status: 'error', message: 'ID 參數缺失' });
+  }
+
+  try {
+    // 檢查是否有此狗
+    const [dogs] = await conn.execute('SELECT * FROM dogs WHERE id = ?', [id]);
+    if (dogs.length === 0) {
+      return res.status(404).json({ status: 'error', message: '無此狗' });
+    }
+
+    // 刪除狗的資料
+    const sql = 'DELETE FROM dogs WHERE id = ?';
+    await conn.execute(sql, [id]);
+
+    res.status(200).json({ status: 'success', message: '狗狗刪除成功' });
+  } catch (error) {
+    console.error('刪除狗狗資料錯誤：', error);
+    res.status(500).json({ status: 'error', message: '伺服器錯誤' });
+  }
 });
 
 //======== handle 404

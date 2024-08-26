@@ -1,20 +1,50 @@
 {
-	// Place your _fdd-layout 工作區 snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
-	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
-	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
-	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
-	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
-	// Placeholders with the same ids are connected.
-	// Example:
-	// "Print to console": {
-	// 	"scope": "javascript,typescript",
-	// 	"prefix": "log",
-	// 	"body": [
-	// 		"console.log('$1');",
-	// 		"$2"
-	// 	],
-	// 	"description": "Log output to console"
-	// }
+  // Place your _fdd-layout 工作區 snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+  // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+  // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+  // used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+  // Placeholders with the same ids are connected.
+  // Example:
+  // "Print to console": {
+  // 	"scope": "javascript,typescript",
+  // 	"prefix": "log",
+  // 	"body": [
+  // 		"console.log('$1');",
+  // 		"$2"
+  // 	],
+  // 	"description": "Log output to console"
+  // }
+  "express router set": {
+    "scope": "javascript,typescript",
+    "prefix": "!express-router",
+    "body": [
+      "import { Router } from 'express';",
+      "",
+      "//================== 初始化",
+      "const router = Router();",
+      "",
+      "//================== 設置路由架構",
+      "router.get('/', (req, res) => {",
+      "\tres.status(400).json({",
+      "\t\tstatus: \"Bad Request\",",
+      "\t\tmessage: \"尼豪，歡迎乃到本區域。要使用服務請輸入更完整的路由網址\"",
+      "\t});",
+      "});",
+      "",
+      "//======== handle 404",
+      "router.all('*', (req, res) => {",
+      "\tres.status(404).json({",
+      "\t\tstatus: \"success\",",
+      "\t\tmessage: \"喔不！沒有這個網址。請修正尼要使用的路由網址\"",
+      "\t});",
+      "});",
+      "",
+      "//================== 匯出",
+      "export default router;"
+    ],
+    "description": "Express 路由檔用的基本架構"
+  },
   "express router rule": {
     "scope": "javascript,typescript",
     "prefix": "rr-express",

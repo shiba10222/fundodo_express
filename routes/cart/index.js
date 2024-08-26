@@ -5,6 +5,8 @@ import readPD from './get-for-user/read-prod.js'
 import readCR from './get-for-user/read-crs.js';
 import readHT from './get-for-user/read-hotel.js';
 import { getTimeStr_DB } from '../../data/test/lib-time.js';
+import updateQuantity from './handle-patch/update-quantity.js';
+import softDelete from './handle-patch/soft-delete.js';
 
 // 參數
 const envMode = process.argv[2];//dev or dist
@@ -186,44 +188,35 @@ router.post('/', upload.none(), async (req, res) => {
   res.json({ status: "success", message: "新增成功", result });
 });
 
-//======== 軟刪除資料 ==========//
+//======== PATCH 區 ==========//
+// 目前提供軟刪除及其回復，和更改商品數量
+// 其他則不予供應
 
-router.patch('/del/:id', async (req, res) => {
+router.patch('/:id', upload.none(), async (req, res) => {
+  const reqCount = Object.keys(req.body).length;
+  if (reqCount === 0) {
+    res.status(400).json({ status: "failure", message: "沒有資料的請求算什麼請求" });
+    return;
+  }
+  if (reqCount !== 1) {
+    res.status(400).json({ status: "failure", message: "要求太多，拒絕受理" });
+    return;
+  }
+
+  const [attribute, value] = Object.entries(req.body)[0];
   const cartID = Number(req.params.id);
 
-  const timeObj = new Date().getTime();
-  const now = getTimeStr_DB(timeObj);
-
-  try {
-    await conn.execute(
-      "UPDATE `cart` SET `deleted_at` = ? WHERE id = ?",
-      [now, cartID]
-    );
-  } catch (e) {
-    res.status(500).json({ status: "failure", message: "刪除失敗，請稍後再嘗試" });
-    console.error(e);
+  if (attribute !== 'quantity' && attribute !== 'deleted_at') {
+    res.status(400).json({ status: "failure", message: "本路由只提供更新數量與軟刪除之服務" });
     return;
-  };
+  }
 
-  res.json({ status: "success", message: `成功刪除 ID ${cartID} 之購物車項目` });
-});
-//======== 恢復軟刪除資料 ==========//
+  //====== 服務一 ==== 更新購物車中的商品數量
+  if (attribute === 'quantity') updateQuantity(res, conn, cartID, value);
 
-router.patch('/undodel/:id', async (req, res) => {
-  const cartID = Number(req.params.id);
+  //====== 服務二 ==== 軟刪除與還原購物車的項目
+  if (attribute === 'deleted_at') softDelete(res, conn, cartID, value);
 
-  try {
-    await conn.execute(
-      "UPDATE `cart` SET `deleted_at` = NULL WHERE id = ?",
-      [now, cartID]
-    );
-  } catch (e) {
-    res.status(500).json({ status: "failure", message: "刪除失敗，請稍後再嘗試" });
-    console.error(e);
-    return;
-  };
-
-  res.json({ status: "success", message: `成功刪除 ID ${cartID} 之購物車項目` });
 });
 
 //======== handle 404

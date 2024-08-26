@@ -1,5 +1,6 @@
 import { Router } from "express";
 import conn from '../db.js';
+import authenticateToken from './member/auth/authToken.js'; 
 
 const router = Router();
 
@@ -385,6 +386,54 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+router.get('/check/:productId', authenticateToken, async (req, res) => {
+  const { productId } = req.params;
+  const userId = req.user.id;
 
+  try {
+      const [rows] = await conn.execute(
+          'SELECT * FROM favorites WHERE user_id = ? AND product_id = ?',
+          [userId, productId]
+      );
+
+      res.json({ isFavorite: rows.length > 0 });
+  } catch (error) {
+      res.status(500).json({ error: '檢查收藏狀態失敗' });
+  }
+});
+
+// 添加收藏
+router.post('/', authenticateToken, async (req, res) => {
+  const { productId, productData } = req.body;
+  const userId = req.user.id;
+
+  try {
+      await conn.execute(
+          'INSERT INTO favorites (user_id, product_id, product_data) VALUES (?, ?, ?)',
+          [userId, productId, JSON.stringify(productData)]
+      );
+
+      res.status(201).json({ message: '成功加入收藏' });
+  } catch (error) {
+      res.status(500).json({ error: '加入收藏失敗' });
+  }
+});
+
+// 移除收藏
+router.delete('/', authenticateToken, async (req, res) => {
+  const { productId } = req.body;
+  const userId = req.user.id;
+
+  try {
+      await conn.execute(
+          'DELETE FROM favorites WHERE user_id = ? AND product_id = ?',
+          [userId, productId]
+      );
+
+      res.json({ message: '成功移除收藏' });
+  } catch (error) {
+      res.status(500).json({ error: '移除收藏失敗' });
+  }
+});
 // 導出路由器
 export default router;

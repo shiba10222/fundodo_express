@@ -5,7 +5,6 @@ import { readdir } from 'fs/promises';
 import { dirname, resolve } from 'path';
 import { fileURLToPath, pathToFileURL } from 'url';
 import dotenv from 'dotenv';
-
 //================== 初始化 =======================//
 const app = express();
 dotenv.config();
@@ -17,11 +16,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //=== 設置靜態文件夾 ===//
-console.log('Static files directory:', resolve(__dirname, 'public/upload'));
-console.log('Public upload directory path:', resolve(__dirname, 'public/upload'));
+// console.log('Static files directory:', resolve(__dirname, 'public/upload'));
+// console.log('Public upload directory path:', resolve(__dirname, 'public/upload'));
 app.use('/upload', express.static(resolve(__dirname, 'public/upload')));
-console.log('Static files directory:', resolve(__dirname, 'public/upload_dog'));
-console.log('Public upload directory path:', resolve(__dirname, 'public/upload_dog'));
+// console.log('Static files directory:', resolve(__dirname, 'public/upload_dog'));
+// console.log('Public upload directory path:', resolve(__dirname, 'public/upload_dog'));
 app.use('/upload_dog', express.static(resolve(__dirname, 'public/upload_dog')));
 
 //=== CORS ===

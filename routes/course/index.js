@@ -1,308 +1,478 @@
 import express from "express";
 import conn from "../../db.js";
 import multer from 'multer';
+import path from 'path';
 import moment from 'moment';
-import { v4 as uuid } from 'uuid';
-
-// 處理圖片上傳
+import { v4 as uuidv4 } from 'uuid';
+import authenticateToken from "../member/auth/authToken.js";
 
 const router = express.Router();
+
+// 圖片影片上傳配置
 const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'public/coursePics');
-    },
-    filename: (req, file, cb) => {
-        cb(null, uuid() + "_" + file.originalname);
+  destination: function (req, file, cb) {
+    if (file.fieldname === 'img_path') {
+      cb(null, 'public/upload/crs_images');
+    } else if (file.fieldname.startsWith('video_')) {
+      cb(null, 'public/upload/crs_videos');
     }
-})
-const upload = multer({ storage: storage })
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    const extension = path.extname(file.originalname);
+    cb(null, file.fieldname + '-' + uniqueSuffix + extension);
+  }
+});
 
+const upload = multer({
+  storage: storage,
+  fileFilter: function (req, file, cb) {
+    if (file.fieldname === 'video_path') {
+      // 檢查是否為允許的視頻格式
+      const filetypes = /mp4|avi|mov|wmv/;
+      const mimetype = filetypes.test(file.mimetype);
+      const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+      if (mimetype && extname) {
+        return cb(null, true);
+      }
+      cb(new Error('只允許上傳 mp4, avi, mov, wmv 格式的視頻文件'));
+    } else {
+      cb(null, true);
+    }
+  }
+}).fields([
+  { name: 'img_path', maxCount: 1 },
+  { name: 'video_path', maxCount: 10 }
+]);
 
-
-// 路由開始//
-
-// 取得所有課程
+// GET: 獲取所有課程
 router.get("/", async (req, res) => {
-    try {
-        const query = `
-            SELECT c.*, GROUP_CONCAT(ct.name) AS tags
-            FROM courses c
-            LEFT JOIN course_tags cta ON c.id = cta.course_id
-            LEFT JOIN course_tag ct ON cta.tag_id = ct.id
-            WHERE c.status ="1"
-            GROUP BY c.id
-        `;
+  try {
+    const search = req.query.search || '';
+    const page = parseInt(req.query.page) || 1;
+    const coursesPerPage = 12;
+    const offset = (page - 1) * coursesPerPage;
 
-        const [coursesResult] = await conn.query(query);
-        const coursesWithTags = coursesResult.map(course => ({
-            ...course,
-            tags: course.tags ? course.tags.split(',') : []
-        }));
+    const query = `
+      SELECT c.*, 
+        GROUP_CONCAT(DISTINCT ct.name) AS tags,
+        GROUP_CONCAT(DISTINCT ci.path) AS image_paths
+      FROM courses c
+      LEFT JOIN course_tags cta ON c.id = cta.course_id
+      LEFT JOIN course_tag ct ON cta.tag_id = ct.id
+      LEFT JOIN course_imgs ci ON c.id = ci.course_id
+      WHERE c.status = "1" AND c.title LIKE ?
+      GROUP BY c.id
+      LIMIT ? OFFSET ?
+    `;
 
-        res.status(200).json({
-            status: "success",
-            message: "取得所有課程",
-            data: coursesWithTags
-        });
-    } catch (error) {
-        res.status(404).json({
-            status: "error",
-            message: "找不到課程",
-            error: error.message
-        });
-    }
+    const [coursesResult] = await conn.query(query, [`%${search}%`, coursesPerPage, offset]);
+    const [totalResult] = await conn.query("SELECT COUNT(*) as total FROM courses WHERE status = '1' AND title LIKE ?", [`%${search}%`]);
+    const totalCourses = totalResult[0].total;
+
+    const coursesWithTags = coursesResult.map(course => ({
+      ...course,
+      tags: course.tags ? course.tags.split(',') : [],
+      images: course.image_paths ? course.image_paths.split(',') : []
+    }));
+
+    res.status(200).json({
+      status: "success",
+      message: "取得所有課程",
+      data: coursesWithTags,
+      currentPage: page,
+      totalCourses: totalCourses,
+      coursesPerPage: coursesPerPage,
+    });
+  } catch (error) {
+    res.status(500).json({
+      status: "error",
+      message: "獲取課程失敗",
+      error: error.message
+    });
+  }
 });
 
-router.get("/category", async (req, res) => {
-    try {
-        const [result] = await conn.query("SELECT id, name FROM course_tag");
-        res.status(200).json({
-            status: "success",
-            message: "取得所有分類",
-            data: result
-
-        })
-
-    } catch (error) {
-        res.status(404).json({
-            status: "error",
-            message: "找不到分類資料",
-            error: error.message
-        })
-    }
+// GET: 獲取所有標籤
+router.get("/tags", async (req, res) => {
+  try {
+    const [result] = await conn.query("SELECT id, name FROM course_tag");
+    res.status(200).json({
+      status: "success",
+      message: "取得所有分類",
+      data: result
+    });
+  } catch (error) {
+    res.status(404).json({
+      status: "error",
+      message: "找不到分類資料",
+      error: error.message
+    });
+  }
 });
 
-// 取得特定課程
+// GET: 獲取特定課程
 router.get("/:id", async (req, res) => {
-    const id = req.params.id
-    try {
-        const [courseResult] = await conn.query("SELECT * FROM courses WHERE id = ? AND status = '1' ", [id]);
-        if (courseResult.length === 0) {
-            return res.status(404).json({
-                status: "error",
-                message: "找不到指定課程"
-            })
-        }
-
-        const course = courseResult[0];
-        const [chaptersResult] = await conn.query("SELECT * FROM course_chapters WHERE course_id = ?", [id])
-
-        const [lessonsResult] = await conn.query(`
-            SELECT cl.id, cl.chapter_id, cl.name, cl.duration, cl.video_path, cl.preview_videos, cc.course_id
-            FROM course_lessons cl
-            JOIN course_chapters cc ON cl.chapter_id = cc.id
-            WHERE cc.course_id = ?
-            ORDER BY cl.chapter_id, cl.id
-        `, [id]);
-
-        course.chapters = chaptersResult.map(chapter => ({
-            ...chapter,
-            lessons: lessonsResult.filter(lesson => lesson.chapter_id === chapter.id)
-        }));
-
-        const [tagsResult] = await conn.query(`
-            SELECT ct.name
-            FROM course_tags cta
-            JOIN course_tag ct ON cta.tag_id = ct.id
-            WHERE cta.course_id = ?
-        `, [id]);
-        course.tags = tagsResult.map(tag => tag.name);
-
-        const [imgResult] = await conn.query("SELECT path FROM course_imgs WHERE course_id = ?", [id])
-        course.images = imgResult.map(img => img.path)
-
-
-        res.status(200).json({
-            status: "success",
-            message: "取得指定課程",
-            data: course
-        })
-    } catch (error) {
-        res.status(404).json({
-            status: "error",
-            message: "找不到指定課程",
-            error: error.message
-        })
+  const id = req.params.id;
+  try {
+    const [courseResult] = await conn.query("SELECT * FROM courses WHERE id = ? AND status = '1'", [id]);
+    if (courseResult.length === 0) {
+      return res.status(404).json({
+        status: "error",
+        message: "找不到指定課程"
+      });
     }
+
+    const course = courseResult[0];
+    const [chaptersResult] = await conn.query("SELECT * FROM course_chapters WHERE course_id = ?", [id]);
+    const [lessonsResult] = await conn.query(`
+      SELECT cl.*
+      FROM course_lessons cl
+      JOIN course_chapters cc ON cl.chapter_id = cc.id
+      WHERE cc.course_id = ?
+      ORDER BY cl.chapter_id, cl.id 
+    `, [id]);
+
+    course.chapters = chaptersResult.map(chapter => ({
+      ...chapter,
+      lessons: lessonsResult.filter(lesson => lesson.chapter_id === chapter.id)
+    }));
+
+    const [tagResults] = await conn.query(`
+      SELECT ct.id, ct.name
+      FROM course_tags cta
+      JOIN course_tag ct ON cta.tag_id = ct.id
+      WHERE cta.course_id = ?
+    `, [id]);
+
+    course.tag_ids = tagResults.map(tag => tag.id);
+    course.tags = tagResults.map(tag => tag.name);
+
+    const [imgResult] = await conn.query("SELECT path FROM course_imgs WHERE course_id = ?", [id]);
+    course.images = imgResult.map(img => img.path);
+
+    res.status(200).json({
+      status: "success",
+      message: "取得指定課程",
+      data: course,
+      imgPath: course.img_path
+    });
+  } catch (error) {
+    res.status(500).json({
+      status: "error",
+      message: "獲取課程失敗",
+      error: error.message
+    });
+  }
 });
 
+// POST: 新增課程
+router.post("/", (req, res, next) => {
+  upload(req, res, function (err) {
+    if (err) {
+      console.error("File upload error:", err);
+      return res.status(400).json({ status: "error", message: err.message });
+    }
+    console.log('Files received:', JSON.stringify(req.files, null, 2));
+    console.log('Request body:', JSON.stringify(req.body, null, 2));
+    next();
+  });
+}, async (req, res) => {
+  try {
 
-// 新增課程
-router.post("/", upload.single('img_path'), async (req, res) => {
-    const { title, summary, description, tags, chapters, original_price, sale_price } = req.body;
+    console.log('Received files:', req.files);
+    console.log('Received body:', req.body);
+    const { title, summary, description, original_price, sale_price, tags, chapters } = req.body;
     const img_path = req.files['img_path'] ? req.files['img_path'][0].filename : null;
+    const created_at = moment().format('YYYY-MM-DD HH:mm:ss');
 
-    if (!title || !summary || !description || !chapters || !img_path || !original_price || !sale_price || !tags || tags.length === 0) {
-        return res.status(400).json({
-            status: "error",
-            message: "所有必填項目皆需填寫"
-        });
+    // 插入課程基本信息
+    const [result] = await conn.query(
+      "INSERT INTO courses (title, summary, description, img_path, original_price, sale_price, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)",
+      [title, summary, description, img_path, original_price, sale_price, created_at]
+    );
+
+    const courseId = result.insertId;
+
+    // 插入課程分類
+    let tagsArray = Array.isArray(tags) ? tags : [tags].filter(Boolean);
+    if (tagsArray.length > 0) {
+      const tagValues = tagsArray.map(tagId => [courseId, tagId]);
+      await conn.query(
+        "INSERT INTO course_tags (course_id, tag_id) VALUES ?",
+        [tagValues]
+      );
     }
 
-    if (isNaN(Number(original_price)) || isNaN(Number(sale_price))) {
-        return res.status(400).json({
-            status: "error",
-            message: "價格必須為數字"
-        });
-    }
+    // 處理章節和課程
+    const parsedChapters = JSON.parse(chapters);
+    for (let chapterIndex = 0; chapterIndex < parsedChapters.length; chapterIndex++) {
+      const chapter = parsedChapters[chapterIndex];
+      const [chapterResult] = await conn.query(
+        "INSERT INTO course_chapters (course_id, name) VALUES (?, ?)",
+        [courseId, chapter.name]
+      );
 
-    const tagArray = JSON.parse(tags);
-    if (tagArray.length === 0) {
-        return res.status(400).json({
-            status: "error",
-            message: "至少要有一個分類標籤"
-        });
-    }
+      const chapterId = chapterResult.insertId;
 
-    try {
-        // 插入課程基本信息
-        const [courseResult] = await conn.query(
-            "INSERT INTO courses (title, summary, description, img_path, original_price, sale_price, created_at) VALUES (?, ?, ?, ?, ?, ?, NOW())",
-            [title, summary, description, img_path, original_price, sale_price]
+      for (let lessonIndex = 0; lessonIndex < chapter.lessons.length; lessonIndex++) {
+        const lesson = chapter.lessons[lessonIndex];
+        const videoFieldName = `video_${chapterIndex}_${lessonIndex}`;
+        console.log('Looking for video file:', videoFieldName);
+        const videoFile = req.files['video_path'] ?
+          req.files['video_path'].find(file => file.fieldname === 'video_path') :
+          null;
+
+        let videoPath = null;
+        if (videoFile) {
+          videoPath = videoFile.filename;
+          console.log(`Video file found for ${videoFieldName}:`, videoFile.filename);
+        } else {
+          console.warn(`No video file found for ${videoFieldName}`);
+        }
+
+        console.log('Inserting lesson:', {
+          chapterId,
+          name: lesson.name,
+          duration: lesson.duration,
+          videoPath
+        });
+
+        await conn.query(
+          "INSERT INTO course_lessons (chapter_id, name, duration, video_path) VALUES (?, ?, ?, ?)",
+          [chapterId, lesson.name, lesson.duration, videoPath]
         );
-
-        const courseId = courseResult.insertId;
-
-        // 插入標籤
-        for (const tagId of tagArray) {
-            await conn.query("INSERT INTO course_tags (course_id, tag_id) VALUES (?, ?)", [courseId, tagId]);
-        }
-
-        // 插入章節和課程
-        const chaptersArray = JSON.parse(chapters);
-        for (let i = 0; i < chaptersArray.length; i++) {
-            const chapter = chaptersArray[i];
-            const [chapterResult] = await conn.query(
-                "INSERT INTO course_chapters (course_id, name) VALUES (?, ?)",
-                [courseId, chapter.name]
-            );
-            const chapterId = chapterResult.insertId;
-
-            for (let j = 0; j < chapter.lessons.length; j++) {
-                const lesson = chapter.lessons[j];
-                const videoFile = req.files[`video_${i}_${j}`];
-                const videoPath = videoFile ? videoFile[0].filename : null;
-                await conn.query(
-                    "INSERT INTO course_lessons (chapter_id, name, duration, video_path) VALUES (?, ?, ?, ?)",
-                    [chapterId, lesson.name, lesson.duration, videoPath]
-                );
-            }
-        }
-
-        res.status(201).json({
-            status: "success",
-            message: "新增課程成功",
-            data: { id: courseId }
-        });
-    } catch (error) {
-        console.error('新增課程失敗:', error);
-        res.status(500).json({
-            status: "error",
-            message: "新增課程失敗",
-            error: error.message
-        });
+      }
     }
+
+    res.status(201).json({
+      status: "success",
+      message: "課程新增成功",
+      data: { courseId }
+    });
+  } catch (error) {
+    console.error("新增課程時發生錯誤:", error);
+    res.status(500).json({
+      status: "error",
+      message: "課程新增失敗",
+      error: error.message
+    });
+  }
 });
 
-// 更新特定課程
-router.patch("/:id", upload.single('img_path'), async (req, res) => {
-    const id = req.params.id;
-    const { title, summary, description, original_price, sale_price, tags } = req.body;
-    const img_path = req.file ? `${req.file.filename}` : null;
-
-    if (!title || !summary || !description || !original_price || !sale_price || !tags || tags.length === 0) {
-        return res.status(400).json({
-            status: "error",
-            message: "所有必填項目皆需填寫"
-        });
+// PATCH: 更新特定課程
+router.patch("/:id", (req, res, next) => {
+  upload(req, res, function (err) {
+    if (err) {
+      console.error("File upload error:", err);
+      return res.status(400).json({ status: "error", message: err.message });
+    }
+    console.log('Files received:', JSON.stringify(req.files, null, 2));
+    console.log('Request body:', JSON.stringify(req.body, null, 2));
+    next();
+  });
+}, async (req, res) => {
+  const courseId = req.params.id;
+  try {
+    // 檢查課程是否存在
+    const [courseCheck] = await conn.query("SELECT * FROM courses WHERE id = ? AND status = '1'", [courseId]);
+    if (courseCheck.length === 0) {
+      return res.status(404).json({
+        status: "error",
+        message: "找不到指定課程或課程已被刪除"
+      });
     }
 
-    // 驗證欄位
-    if (isNaN(Number(original_price)) || isNaN(Number(sale_price))) {
-        return res.status(400).json({
-            status: "error",
-            message: "價格必須為數字"
-        });
+    const { title, summary, description, original_price, sale_price, tag_ids, chapters } = req.body;
+    const img_path = req.files['img_path'] ? req.files['img_path'][0].filename : null;
+    const updated_at = moment().format('YYYY-MM-DD HH:mm:ss');
+
+    // 更新課程基本信息
+    let updateQuery = "UPDATE courses SET title = ?, summary = ?, description = ?, original_price = ?, sale_price = ?, updated_at = ?";
+    let updateParams = [title, summary, description, original_price, sale_price, updated_at];
+
+    if (img_path) {
+      updateQuery += ", img_path = ?";
+      updateParams.push(img_path);
     }
 
-    const tagArray = Array.isArray(tags) ? tags : tags.split(",").map(tag => tag.trim());
-    if (tagArray.length === 0) {
-        return res.status(400).json({
-            status: "error",
-            message: "至少要有一個分類標籤"
-        });
+    updateQuery += " WHERE id = ? AND status = '1'";
+    updateParams.push(courseId);
+
+    await conn.query(updateQuery, updateParams);
+
+    // 更新課程標籤
+    await conn.query("DELETE FROM course_tags WHERE course_id = ?", [courseId]);
+    const parsedTagIds = JSON.parse(tag_ids);
+    if (parsedTagIds && parsedTagIds.length > 0) {
+      const tagValues = parsedTagIds.map(tagId => [courseId, tagId]);
+      await conn.query("INSERT INTO course_tags (course_id, tag_id) VALUES ?", [tagValues]);
     }
 
-    try {
-        // 更新課程資料
-        const [result] = await conn.query(
-            `UPDATE courses 
-             SET title = ?, summary = ?, description = ?, img_path = IFNULL(?, img_path), original_price = ?, sale_price = ?, updated_at = NOW() 
-             WHERE id = ? AND status = "1" `,
-            [title, summary, description, img_path, original_price, sale_price, id]
+    // 更新章節和課程
+    await conn.query("DELETE FROM course_chapters WHERE course_id = ?", [courseId]);
+    await conn.query("DELETE FROM course_lessons WHERE chapter_id IN (SELECT id FROM course_chapters WHERE course_id = ?)", [courseId]);
+
+    const parsedChapters = JSON.parse(chapters);
+    for (let chapterIndex = 0; chapterIndex < parsedChapters.length; chapterIndex++) {
+      const chapter = parsedChapters[chapterIndex];
+      const [chapterResult] = await conn.query(
+        "INSERT INTO course_chapters (course_id, name) VALUES (?, ?)",
+        [courseId, chapter.name]
+      );
+
+      const chapterId = chapterResult.insertId;
+
+      for (let lessonIndex = 0; lessonIndex < chapter.lessons.length; lessonIndex++) {
+        const lesson = chapter.lessons[lessonIndex];
+        const videoFieldName = `video_${chapterIndex}_${lessonIndex}`;
+        const videoFile = req.files[videoFieldName] ? req.files[videoFieldName][0] : null;
+
+        let videoPath = lesson.video_path;
+        if (videoFile) {
+          videoPath = videoFile.filename;
+        }
+
+        await conn.query(
+          "INSERT INTO course_lessons (chapter_id, name, duration, video_path) VALUES (?, ?, ?, ?)",
+          [chapterId, lesson.name, lesson.duration, videoPath]
         );
-
-        if (result.affectedRows === 0) {
-            return res.status(404).json({
-                status: "error",
-                message: "找不到指定的課程"
-            });
-        }
-
-        // 先刪除現有的標籤關聯
-        await conn.query("DELETE FROM course_tags WHERE course_id = ?", [id]);
-
-        // 再新增新的標籤關聯
-        for (const tag of tagArray) {
-            await conn.query("INSERT INTO course_tags (course_id, tag_id) VALUES (?, ?)", [id, tag]);
-        }
-
-        res.status(200).json({
-            status: "success",
-            message: "課程更新成功"
-        });
-    } catch (error) {
-        res.status(500).json({
-            status: "error",
-            message: "更新課程失敗",
-            error: error.message
-        });
+      }
     }
+
+    res.status(200).json({
+      status: "success",
+      message: "課程更新成功",
+      data: { courseId }
+    });
+  } catch (error) {
+    console.error("更新課程時發生錯誤:", error);
+    res.status(500).json({
+      status: "error",
+      message: "課程更新失敗",
+      error: error.message
+    });
+  }
 });
 
-// 軟刪除特定課程
-router.delete("/:id", async (req, res) => {
-    const id = req.params.id;
+// DELETE: 軟刪除特定課程
+router.patch("/delete/:id", async (req, res) => {
+  const id = req.params.id;
 
-    try {
-        const [result] = await conn.query(
-            "UPDATE courses SET updated_at = NOW(),status = '0'  WHERE id = ? AND status = '1'",
-            [id]
-        );
+  try {
+    const [result] = await conn.query(
+      "UPDATE courses SET updated_at = NOW(), status = '0' WHERE id = ? AND status = '1'",
+      [id]
+    );
 
-        if (result.affectedRows === 0) {
-            return res.status(404).json({
-                status: "error",
-                message: "找不到指定的課程"
-            });
-        }
-
-        res.status(200).json({
-            status: "success",
-            message: "課程已被軟刪除"
-        });
-    } catch (error) {
-        res.status(500).json({
-            status: "error",
-            message: "刪除課程失敗",
-            error: error.message
-        });
+    if (result.affectedRows === 0) {
+      return res.status(404).json({
+        status: "error",
+        message: "找不到指定的課程或課程已被刪除"
+      });
     }
+
+    res.status(200).json({
+      status: "success",
+      message: "課程軟刪除成功"
+    });
+  } catch (error) {
+    res.status(500).json({
+      status: "error",
+      message: "刪除課程失敗",
+      error: error.message
+    });
+  }
+});
+
+router.post("/cart", authenticateToken, async (req, res) => {
+  try {
+    // const {
+    //   user_id,
+    //   buy_sort,
+    //   buy_id,
+    // } = req.body;
+
+    if (!buy_sort || !buy_id) {
+      return res.status(400).json({
+        status: "error",
+        message: "缺少必要欄位"
+      });
+    }
+
+    // 檢查商品是否已存在於購物車中
+    const [existingItem] = await conn.query(
+      "SELECT * FROM cart WHERE user_id = ? AND buy_sort = ? AND buy_id = ?",
+      [user_id, buy_sort, buy_id]
+    );
+
+    if (existingItem.length > 0) {
+      return res.status(400).json({
+        status: "error",
+        message: "此項目已在購物車中"
+      });
+    }
+
+    // 插入資料到購物車表
+    const [result] = await conn.query(
+      `INSERT INTO cart (user_id,buy_sort, buy_id,)
+     VALUES (?, ?, ?)`,
+      [user_id, buy_sort, buy_id]
+    );
+
+    res.status(201).json({
+      status: "success",
+      message: "成功添加到購物車",
+      data: { id: result.insertId }
+    });
+  } catch (error) {
+    console.error("添加到購物車時出錯", error);
+    res.status(500).json({
+      status: "error",
+      message: "伺服器錯誤",
+      error: error.message
+    });
+  }
 });
 
 
+router.get("/permission", authenticateToken, async (req, res) => {
+  const { courseId } = req.query;
+  const userId = req.user.id; // 從已驗證的 token 中獲取 user_id
+
+  if (!courseId) {
+    return res.status(400).json({
+      status: "error",
+      message: "缺少必要的查詢參數"
+    });
+  }
 
 
+  try {
+    const [result] = await conn.query(
+      "SELECT * FROM crs_perm WHERE user_id = ? AND crs_id = ?",
+      [userId, courseId]
+    );
 
+    if (result.length > 0) {
+      res.status(200).json({
+        status: "success",
+        hasPurchased: true,
+        startDate: result[0].start_date
+      });
+    } else {
+      res.status(200).json({
+        status: "success",
+        hasPurchased: false
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      status: "error",
+      message: "檢查課程權限時發生錯誤",
+      error: error.message
+    });
+  }
+});
 
 export default router;

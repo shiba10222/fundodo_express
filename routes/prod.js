@@ -162,7 +162,7 @@ router.get("/recommended", async (req, res) => {
           prod_price_stock.prod_id = product.id
         ) AS price,
         (SELECT 
-          pic_name
+          name
         FROM 
           prod_picture
         WHERE 
@@ -205,6 +205,7 @@ router.get("/recommended", async (req, res) => {
     res.status(500).json({ status: "error", message: '獲取推薦產品錯誤', error: error.message });
   }
 });
+
 // 獲取篩選選項的路由
 router.get("/filter-options", async (req, res) => {
   try {
@@ -284,6 +285,13 @@ router.get("/:id", async (req, res) => {
           product.is_near_expired,
           product.is_refurbished,
           product.description,
+           (SELECT 
+              GROUP_CONCAT(DISTINCT prod_price_stock.id ORDER BY prod_price_stock.id)
+           FROM 
+              prod_price_stock
+           WHERE 
+              prod_price_stock.prod_id = product.id
+          ) AS pidArr,
           (SELECT 
               GROUP_CONCAT(DISTINCT prod_picture.pic_name ORDER BY prod_picture.id)
            FROM 
@@ -348,6 +356,7 @@ router.get("/:id", async (req, res) => {
     if (rows.length > 0) {
       const product = rows[0];
       // 將字符串轉換為數組
+      product.pidArr = product.pidArr ? product.pidArr.split(',').map(Number) : [];
       product.priceArr = product.priceArr ? product.priceArr.split(',').map(Number) : [];
       product.picNameArr = product.picNameArr ? product.picNameArr.split(',') : [];
       product.stockArr = product.stockArr ? product.stockArr.split(',') : [];

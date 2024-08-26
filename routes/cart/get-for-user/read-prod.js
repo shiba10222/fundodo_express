@@ -58,14 +58,14 @@ const getProdName = id => new Promise(async (resolve, reject) => {
 
 const getProdPic = id => new Promise(async (resolve, reject) => {
   const [rows] = await conn.query(
-    "SELECT name FROM prod_picture WHERE prod_id = ?",
+    "SELECT pic_name FROM prod_picture WHERE prod_id = ?",
     [id]
   );
   if (rows.length === 0) {
     reject(new Error(`發生了未預期的結果：找不到 product id: ${id} 的圖片`));
     return;
   }
-  resolve(rows[0]['name']);
+  resolve(rows[0]['pic_name']);
 });
 
 /**
@@ -97,7 +97,7 @@ export default async function (cartData) {
         const picName = await getProdPic(subProdObj.prod_id);
 
         return ({
-          key: cartItem.id,
+          cart_id: cartItem.id,
           prod_name: prodName,
           pic_name: picName,
           sort_name: subProdObj.sortname,
@@ -105,7 +105,8 @@ export default async function (cartData) {
           price: isSpecial ? subProdObj.price_sp : subProdObj.price,
           quantity: cartItem.quantity,
           isOutOfStock: subProdObj.stock === 0,
-          stock_when_few: (subProdObj.stock < 20) ? subProdObj.stock : null
+          stock_when_few: (subProdObj.stock < 20) ? subProdObj.stock : null,
+          deleted_at: cartItem.deleted_at
         })
       })
     );

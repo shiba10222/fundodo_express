@@ -8,17 +8,19 @@ import express from "express";
 import conn from "../db.js";
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { rename } from 'fs/promises';
 
-
+//將後端圖片傳到前端
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const router = Router();
-const upload = multer();
+// const upload = multer();
+
 
 //顯示圖片
-
 router.use('/images', express.static(path.join(__dirname, '..', 'public/hotelPic/pic')));
+
 
 //fetch 全部旅館
 router.get("/", async (req, res) => {
@@ -97,35 +99,101 @@ router.get("/cities", async (req, res) => {
 
 
 
+// 新增旅館-ori
+
+// router.post("/", upload.none(), async (req, res) => {
+
+//   const {
+//     id,
+//     location_id,
+//     name, description,
+//     address,
+//     Latitude, Longitude,
+//     main_img_path,
+//     price_s, price_m, price_l,
+//     service_food, service_bath, service_live_stream, service_playground
+//   } = req.body;
+
+//   let isNotOK = false;
+//   ['name', 'description', 'address', 'price_s', 'price_m', 'price_l'].forEach(property => {
+//     if (Object.prototype.hasOwnProperty.call(req.body, property) === false) {
+//       res.status(400).json({ status: "failure", message: `格式錯誤，旅館類必須包含 ${property} 參數` });
+//       isNotOK = true;
+//       return;
+//     }
+//   });
+//   if (isNotOK) return;
+
+
+//   // 驗證必填項目
+//   if (!name || !description || !address || !price_s || !price_m || !price_l) {
+
+//     return res.status(400).json({
+//       status: "error",
+//       message: "所有項目皆必填"
+//     });
+//   }
+
+//   try {
+//     // 插入數據
+//     const [result] = await conn.query(
+//       "INSERT INTO `hotel`(`name`, `description`, `address`, `price_s`, `price_m`,`price_l`,`service_food`,`service_bath`,`service_live_stream`,`service_playground`,`created_at`) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
+//       [
+//         name,
+//         description,
+//         address,
+//         price_s, price_m, price_l,
+//         service_food, service_bath, service_live_stream, service_playground,
+//         new Date()]
+//     );
+
+//     // 返回成功訊息
+//     res.status(200).json({
+//       status: "success",
+//       message: "新增旅館成功",
+//       data: result
+//     });
+
+//   } catch (error) {
+//     console.error('發生錯誤:', error);
+//     console.error('錯誤詳情:', error.stack);
+//     res.status(500).json({ error: '發生內部服務器錯誤' });
+//   }
+// });
+
+
 // 新增旅館
 
-router.post("/", upload.none(), async (req, res) => {
+// 設置 multer 儲存設定
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'public/hotelPic/pic/') // 確保這個目錄存在
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + path.extname(file.originalname)) // 給檔案一個唯一的名稱
+  }
+});
 
+const upload = multer({ storage: storage });
+
+// 處理圖片上傳的路由
+router.post('/upload', upload.single('image'), (req, res) => {
+  if (!req.file) {
+    return res.status(400).json({ status: 'error', message: '沒有檔案被上傳' });
+  }
+  res.json({ status: 'success', path: req.file.filename });
+});
+
+// 原有的新增旅館路由
+router.post("/", async (req, res) => {
   const {
-    id,
-    location_id,
-    name, description,
-    address,
-    Latitude, Longitude,
-    main_img_path,
-    price_s, price_m, price_l,
-    service_food, service_bath, service_live_stream, service_playground
+    name, description, address, price_s, price_m, price_l,
+    service_food, service_bath, service_live_stream, service_playground,
+    main_img_path
   } = req.body;
 
-  let isNotOK = false;
-  ['name', 'description', 'address', 'price_s', 'price_m','price_l'].forEach(property => {
-    if (Object.prototype.hasOwnProperty.call(req.body, property) === false) {
-      res.status(400).json({ status: "failure", message: `格式錯誤，旅館類必須包含 ${property} 參數` });
-      isNotOK = true;
-      return;
-    }
-  });
-  if (isNotOK) return;
-
-
   // 驗證必填項目
-  if (!name || !description || !address || !price_s || !price_m || !price_l) {
-
+  if (!name || !description || !address || !price_s || !price_m || !price_l || !main_img_path) {
     return res.status(400).json({
       status: "error",
       message: "所有項目皆必填"
@@ -135,14 +203,13 @@ router.post("/", upload.none(), async (req, res) => {
   try {
     // 插入數據
     const [result] = await conn.query(
-      "INSERT INTO `hotel`(`name`, `description`, `address`, `price_s`, `price_m`,`price_l`,`service_food`,`service_bath`,`service_live_stream`,`service_playground`,`created_at`) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
+      "INSERT INTO `hotel`(`name`, `description`, `address`, `price_s`, `price_m`,`price_l`,`service_food`,`service_bath`,`service_live_stream`,`service_playground`,`main_img_path`,`created_at`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
       [
-        name,
-        description,
-        address,
-        price_s, price_m, price_l,
+        name, description, address, price_s, price_m, price_l,
         service_food, service_bath, service_live_stream, service_playground,
-        new Date()]
+        main_img_path, // 新增這個欄位
+        new Date()
+      ]
     );
 
     // 返回成功訊息
@@ -151,13 +218,15 @@ router.post("/", upload.none(), async (req, res) => {
       message: "新增旅館成功",
       data: result
     });
-
   } catch (error) {
     console.error('發生錯誤:', error);
-    console.error('錯誤詳情:', error.stack);
     res.status(500).json({ error: '發生內部服務器錯誤' });
   }
 });
+
+
+
+
 
 
 // 更新旅館
@@ -275,33 +344,33 @@ router.put("/:id", upload.none(), async (req, res) => {
 
 
 //刪除旅館
-router.delete("/:                                                                                                                                                                                                                                                                                                                                             id", async (req, res, next)=>{
+router.delete("/:id", async (req, res, next) => {
   const id = req.params.id;
 
   try {
     const [result] = await conn.query(
-        "DELETE FROM hotel WHERE `hotel`.`id` = ?",
-        [id]
+      "DELETE FROM hotel WHERE `hotel`.`id` = ?",
+      [id]
     );
 
     if (result.affectedRows === 0) {
-        return res.status(404).json({
-            status: "error",
-            message: "找不到指定的旅館"
-        });
+      return res.status(404).json({
+        status: "error",
+        message: "找不到指定的旅館"
+      });
     }
 
     res.status(200).json({
-        status: "success",
-        message: "旅館已被刪除"
+      status: "success",
+      message: "旅館已被刪除"
     });
-} catch (error) {
+  } catch (error) {
     res.status(500).json({
-        status: "error",
-        message: "刪除旅館失敗",
-        error: error.message
+      status: "error",
+      message: "刪除旅館失敗",
+      error: error.message
     });
-}
+  }
 
 });
 

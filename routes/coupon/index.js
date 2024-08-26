@@ -46,7 +46,6 @@ router.get('/:uid', async (req, res) => {
     expired_at: row.expired_at ? getTimeStr(row.expired_at) : null,
     code: row.code,
   }))
-  console.log(rows);
 
   let usableArr = rows.filter(cp => !(cp.used_at || isOverDue(cp.expired_at)));
   const usedArr = rows.filter(cp => cp.used_at);

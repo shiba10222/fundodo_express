@@ -30,8 +30,8 @@ export default async function (cartData) {
       cartData.map(async cartItem => {
         //== 查詢 courses
         const crsObj = await getCourse(cartItem.buy_id);
-        const isSpecial = crsObj.price_sp && crsObj.price_sp > 0;
-        const price = isSpecial ? crsObj.price_sp : crsObj.price;
+        const isSpecial = crsObj.sale_price && crsObj.sale_price > 0;
+        const price = isSpecial ? crsObj.sale_price : crsObj.original_price;
         return ({
           cart_id: cartItem.id,
           prod_name: crsObj.title,

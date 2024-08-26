@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import conn from "../../db.js";
 
-import { getTimeNum } from '../../data/test/lib-time.js';
+import { getTimeNum, getTimeStr } from '../../data/test/lib-time.js';
 
 //================== 初始化
 const router = Router();
@@ -24,21 +24,39 @@ const notyet = time => {
 router.get('/:uid', async (req, res) => {
   const uid = Number(req.params.uid);
 
-  const [rows] = await conn.query(
+  let [rows] = await conn.query(
     `SELECT * FROM coupon_user WHERE user_id = ?`,
     [uid]
   );
+
+  if (rows.length > 0) {
+    rows = await Promise.all(
+      rows.map(async cp => {
+        const [rows_info] = await conn.query(
+          'SELECT name, `desc`, desc_ps, discount, min_spent, max_discount FROM coupon WHERE id = ?',
+          [cp.cp_id]
+        );
+        return { ...cp,
+          created_at: cp.created_at ? getTimeStr(cp.created_at) : null,
+          applied_at: cp.applied_at ? getTimeStr(cp.applied_at) : null,
+          expired_at: cp.expired_at ? getTimeStr(cp.expired_at) : null,
+          ...rows_info[0] }
+      })
+    );
+  }
 
   const unusedArr = rows.filter(cp => !cp.used_at && notyet(cp.expired_at));
   const usedArr = rows.filter(cp => cp.used_at);
   const overdueArr = rows.filter(cp => !cp.used_at && !notyet(cp.expired_at));
 
+
   res.status(200).json({
     status: "success",
-    message: {
-      unusedArr: unusedArr.length,
-      usedArr: usedArr.length,
-      overdueArr: overdueArr.length
+    message: "查詢成功",
+    result: {
+      unusedArr,
+      usedArr,
+      overdueArr
     }
   });
 });

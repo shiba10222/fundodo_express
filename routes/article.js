@@ -44,7 +44,12 @@ router.get("/articles", async (req, res) => {
   const sort = req.query.sort;
   const search = req.query.search;
 
-  let query = "SELECT * FROM `article` WHERE `article_delete` = 0";
+  let query = `
+    SELECT a.*, u.nickname as author_nickname
+    FROM article a
+    LEFT JOIN users u ON a.userid = u.id
+    WHERE a.article_delete = 0
+  `
   let params = [];
 
   if (sort) {
@@ -96,9 +101,15 @@ router.get("/articleContent/:id", async (req, res) => {
   const id = req.params.id;
   try {
     const [content] = await connect.execute(
-      "SELECT * FROM `article` WHERE `id`= ? AND `article_delete` = 0",
+      `
+      SELECT a.*, u.nickname as author_nickname
+      FROM article a
+      LEFT JOIN users u ON a.userid = u.id
+      WHERE a.id = ? AND a.article_delete = 0
+    `,
       [id]
-    );
+    )
+
     res.status(200).json({
       status: "success",
       message: "文章內容",

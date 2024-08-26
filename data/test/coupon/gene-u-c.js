@@ -284,7 +284,7 @@ userList.forEach(user => {
     const dist_time = getTimeNum(plan[0]);
     const coupon = cpList[plan[1]];
 
-    if (user.t_ref >= dist_time) {
+    if (user.t_ref <= dist_time) {
       const t_f = toLastSecAfterNDays(dist_time, coupon.time_span);
 
       newArr.push({
@@ -305,7 +305,7 @@ userList.forEach(user => {
     const coupon = cpList[cp_id];
     const distTime = getTimeNum(coupon.start_date);
 
-    if (user.t_ref >= distTime) {
+    if (user.t_ref <= distTime) {
       const t_f = getTimeNum(coupon.end_date);
 
       newArr.push({

@@ -3,8 +3,9 @@ import express from 'express';
 import cors from 'cors';
 import logger from "morgan";
 import { readdir } from "fs/promises";
-import { dirname,resolve } from 'path';
+import {dirname,resolve } from 'path';
 import { fileURLToPath,pathToFileURL } from "url";
+import path from 'path';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 
@@ -18,6 +19,7 @@ const __dirname = dirname(__filename);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
+app.use('/public', express.static(resolve(__dirname, 'public')));
 
 app.use('/public', express.static(resolve(__dirname, 'public')));
 
@@ -29,6 +31,8 @@ app.use('/upload', express.static(resolve(__dirname, 'public/upload/crs_images')
 console.log('Static files directory:', resolve(__dirname, 'public/upload_dog'));
 console.log('Public upload directory path:', resolve(__dirname, 'public/upload_dog'));
 app.use('/upload_dog', express.static(resolve(__dirname, 'public/upload_dog')));
+app.use('/videos', express.static(path.join(__dirname, 'public/upload/crs_videos')));
+app.use('/images', express.static(path.join(__dirname, 'public/upload/crs_images')));
 
 //=== CORS
 let whitelist = ["http://127.0.0.1", "http://localhost:5500", "http://localhost:3000", "https://emap.pcsc.com.tw", "https://emap.pcsc.com.tw/ecmap/default.aspx", undefined];

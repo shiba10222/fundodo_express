@@ -74,7 +74,7 @@ router.post('/send', upload.none(), async (req, res) => {
 });
 
 //======== 驗證指定信箱 ==========//
-router.get('/verify-email',async (req, res) => {
+router.get('/verify-email', async (req, res) => {
   const { token } = req.query;
 
   if (!token) {
@@ -103,6 +103,99 @@ router.get('/verify-email',async (req, res) => {
     }
   } catch (err) {
     // 處理錯誤，例如令牌過期
+    console.error('Error verifying token:', err);
+    res.status(400).json({ status: 'error', message: '驗證令牌過期或無效。' });
+  }
+});
+
+//============ 寄送 OTP 的路由 ================================//
+router.post('/send-otp', upload.none(), async (req, res) => {
+  console.log('接收到的請求體:', req.body); // 記錄接收到的請求體
+
+  const { email } = req.body; // 從請求體中獲取郵件地址
+
+  if (!email) {
+    return res.status(400).json({ status: 'error', message: '郵件地址未提供' });
+  }
+
+  // 查詢用戶是否存在
+  const [users] = await conn.execute('SELECT * FROM users WHERE email = ?', [email]);
+  if (users.length === 0) {
+    return res.status(400).json({ status: "error", message: "無此用戶，請先註冊" });
+  }
+
+  // 生成 JWT 令牌
+  const token = jwt.sign({ email }, process.env.JWT_SECRET, { expiresIn: '1h' });
+
+  // 驗證鏈接
+  const OTPLink = `${process.env.BASE_URL}/api/member/email/OTP?token=${token}`;
+
+  const dynamicMailOptions = {
+    from: `"support" <${process.env.SMTP_TO_EMAIL}>`,
+    to: email,
+    subject: 'Fundodo臨時密碼郵件',
+    text: `您好，\r\n請點擊以下鏈接以使用臨時登陸: ${OTPLink}\r\n\r\n敬上\r\n開發團隊`,
+  };
+
+  console.log('動態郵件選項:', dynamicMailOptions);
+
+  try {
+    await transporter.sendMail(dynamicMailOptions);
+    console.log('郵件發送成功。');
+    return res.json({ status: 'success', message: '郵件已成功發送' });
+  } catch (err) {
+    console.error('發送郵件時發生錯誤:', err);
+    return res.status(500).json({ status: 'error', message: '發送郵件時發生錯誤: ' + err.message });
+  }
+});
+
+
+//======== OTP 臨時登入 ==========//
+router.get('/OTP', async (req, res) => {
+  const { token } = req.query;
+
+  if (!token) {
+    return res.status(400).json({ status: 'error', message: '缺少驗證令牌。' });
+  }
+
+  try {
+    console.log('Received token:', token);  // 記錄收到的令牌
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    console.log('Decoded token:', decoded);  // 記錄解碼後的令牌內容
+    const email = decoded.email;
+
+    const [users] = await conn.execute('SELECT * FROM users WHERE email = ?', [email]);
+    if (users.length === 0) {
+      return res.status(400).json({ status: "error", message: "無此用戶" });
+    }
+    const user = users[0];
+
+    const newToken = jwt.sign(
+      { userId: user.id, email: user.email, uuid: user.uuid, nickname: user.nickname, user_level: user.user_level, avatar_file: user.avatar_file },
+      process.env.JWT_SECRET,
+      { expiresIn: '1h' }
+    );
+
+    res.redirect(`http://localhost:3000/member/verify?token=${newToken}`);
+
+  } catch (err) {
+    console.error('Error verifying token:', err);
+    res.status(400).json({ status: 'error', message: '驗證令牌過期或無效。' });
+  }
+});
+
+// 新增一個API端點來處理前端的驗證請求
+router.get('/verifyToken', async (req, res) => {
+  const { token } = req.query;
+
+  if (!token) {
+    return res.status(400).json({ status: 'error', message: '缺少驗證令牌。' });
+  }
+
+  try {
+    // 這裡可以再次驗證token，或者直接返回成功
+    res.json({ status: 'success', token: token });
+  } catch (err) {
     console.error('Error verifying token:', err);
     res.status(400).json({ status: 'error', message: '驗證令牌過期或無效。' });
   }

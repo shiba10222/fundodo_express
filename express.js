@@ -14,7 +14,7 @@ const __dirname = dirname(__filename);
 //================== 中介軟體設定 ==================//
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
+// app.use(express.static('public'));
 
 app.use('/public', express.static(resolve(__dirname, 'public')));
 
@@ -60,7 +60,7 @@ const routerFileNames = await readdir(dirPath);
 for (const nameStr of routerFileNames) {
   const path2this = resolve(dirPath, nameStr);
   if (nameStr.endsWith('.js')) {
-    // JS 文件
+    //== JS 檔 ==//
     const filePath = pathToFileURL(path2this);
     const routeFile = await import(filePath);
 
@@ -74,7 +74,7 @@ for (const nameStr of routerFileNames) {
       console.error(`路由模組 ${nameStr} 未正確導出為中介軟體函數`);
     }
   } else {
-    // 資料夾
+    //== 資料夾 ==//
     if (nameStr.indexOf('.') >= 0) continue; // 非 JS 檔與非資料夾者一律跳過
 
     const subfileNames = await readdir(path2this);
@@ -85,7 +85,6 @@ for (const nameStr of routerFileNames) {
       const filePath = pathToFileURL(resolve(path2this, subNameStr));
       const routeFile = await import(filePath);
 
-      // 確保 routeFile.default 是一個有效的中介軟體函數
       if (typeof routeFile.default === 'function') {
         let slug = subNameStr.split('.')[0];
         slug = (slug === 'index') ? '' : slug;

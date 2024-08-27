@@ -329,7 +329,7 @@ router.get("/replys/:aid", async (req, res) => {
        FROM reply r
        LEFT JOIN users u ON r.userid = u.id
        WHERE r.article_id = ?
-       ORDER BY r.create_at DESC`,
+       `,
       [articleId]
     );
     res.status(200).json({

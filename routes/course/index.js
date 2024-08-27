@@ -3,7 +3,7 @@ import conn from "../../db.js";
 import multer from 'multer';
 import path from 'path';
 import moment from 'moment';
-import fs from "fs";
+import fs from 'fs'
 import authenticateToken from "../member/auth/authToken.js";
 
 const router = express.Router();

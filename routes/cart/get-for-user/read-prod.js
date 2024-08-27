@@ -98,6 +98,7 @@ export default async function (cartData) {
 
         return ({
           cart_id: cartItem.id,
+          buy_id: cartItem.buy_id,/* 結帳環節串接用 */
           prod_name: prodName,
           pic_name: picName,
           sort_name: subProdObj.sortname,

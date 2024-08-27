@@ -34,6 +34,7 @@ export default async function (cartData) {
         const price = isSpecial ? crsObj.sale_price : crsObj.original_price;
         return ({
           cart_id: cartItem.id,
+          buy_id: cartItem.buy_id,/* 結帳環節串接用 */
           prod_name: crsObj.title,
           pic_name: crsObj.img_path,
           price: Number(price),

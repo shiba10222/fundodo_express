@@ -179,12 +179,12 @@ router.get("/images/:id", async (req, res) => {
 });
 
 router.post("/createArticle", async (req, res) => {
-  const { title, content, sort } = req.body;
+  const { title, content, sort,userId } = req.body;
 
   try {
     const [result] = await connect.execute(
-      "INSERT INTO `article` (title, content, sort, create_at) VALUES (?, ?, ?, NOW())",
-      [title, content, sort]
+      "INSERT INTO `article` (title, content, sort, userid, create_at) VALUES (?, ?, ?, ?, NOW())",
+      [title, content, sort,userId]
     );
 
     const articleId = result.insertId;
@@ -329,7 +329,7 @@ router.get("/replys/:aid", async (req, res) => {
        FROM reply r
        LEFT JOIN users u ON r.userid = u.id
        WHERE r.article_id = ?
-       ORDER BY r.create_at DESC`,
+       `,
       [articleId]
     );
     res.status(200).json({

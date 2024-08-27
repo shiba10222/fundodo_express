@@ -28,7 +28,7 @@ const TotalAmount = 1850
 const TradeDesc = '商店線上付款'
 const ItemName = '翻肚肚商城購買訂單一筆'
 const ReturnURL = 'https://www.ecpay.com.tw'
-const OrderResultURL = 'http://localhost:3000/buy/pay/return' //前端成功頁面
+const OrderResultURL = 'http://localhost:3000/buy/return' //前端成功頁面
 const ChoosePayment = 'ALL'
 
 //======================以下參數不用改========================
@@ -152,11 +152,6 @@ router.get('/', upload.none(), function (req, res, next) {
   `)
 });
 
-//======== handle 404
-
-router.all("*", (req, res) => {
-  res.send('Send Tree Pay: 404');
-})
 
 //================== 匯出
 export default router;

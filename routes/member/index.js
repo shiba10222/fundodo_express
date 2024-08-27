@@ -7,6 +7,9 @@ import bcrypt from 'bcrypt';
 import { resolve } from "path";
 import conn from '../../db.js';
 import authenticateToken from './auth/authToken.js';
+import mailRouter from './mail.js';
+import user_order_info from './user_order_info.js';
+
 
 // 參數
 const secretKey = process.argv[2];
@@ -17,6 +20,8 @@ const blackList = [];
 const router = Router();
 //const upload = multer();
 
+router.use('/email', mailRouter);
+router.use('/order', user_order_info);
 //特定路由區要修改 upload = multer();
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -72,7 +77,8 @@ const uploadAvatar2 = multer({
   }
 });
 
-
+//導向email
+// app.use('/api/mail', mailRouter);
 
 
 // 資料表
@@ -275,8 +281,8 @@ router.post('/login', upload.none(), async (req, res) => {
 
     // 登入成功，創建 JWT token
     const token = jwt.sign(
-      { userId: user.id, email: user.email, uuid: user.uuid },
-      'j123456',
+      { userId: user.id, email: user.email, uuid: user.uuid, nickname: user.nickname, user_level : user.user_level,avatar_file: user.avatar_file },
+      process.env.JWT_SECRET,
       { expiresIn: '1h' }
     );
 
@@ -447,8 +453,8 @@ router.put('/:uuid', upload.none(), async (req, res) => {
     console.log('Update result:', result);
 
     const token = jwt.sign(
-      { userId: user.id, email: user.email, uuid: user.uuid },
-      'j123456',
+      { userId: user.id, email: user.email, uuid: user.uuid, email_verified: user.email_verified },
+      process.env.JWT_SECRET,
       { expiresIn: '1h' }
     );
 
@@ -466,6 +472,7 @@ router.put('/:uuid', upload.none(), async (req, res) => {
         dob: user.dob,
         tel: user.tel,
         email: user.email,
+        email_verified: user.email_verified,
         avatar_file: user.avatar_file,
         address: user.address,
       }
@@ -499,8 +506,8 @@ router.put('/ForumMemberInfo/:uuid', upload.none(), async (req, res) => {
     // 重新生成 token
     const user = users[0];
     const token = jwt.sign(
-      { userId: user.id, email: user.email, uuid: user.uuid },
-      'j123456',
+      { userId: user.id, email: user.email, uuid: user.uuid, nickname: user.nickname, user_level : user.user_level,avatar_file: user.avatar_file, email_verified: user.email_verified },
+      process.env.JWT_SECRET,
       { expiresIn: '1h' }
     );
 
@@ -727,6 +734,10 @@ router.delete('/deleteDog/:id', async (req, res) => {
     res.status(500).json({ status: 'error', message: '伺服器錯誤' });
   }
 });
+
+
+//======== 驗證信箱 ==========//
+
 
 //======== handle 404
 

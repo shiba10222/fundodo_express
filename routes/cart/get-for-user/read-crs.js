@@ -30,13 +30,15 @@ export default async function (cartData) {
       cartData.map(async cartItem => {
         //== 查詢 courses
         const crsObj = await getCourse(cartItem.buy_id);
-        const isSpecial = crsObj.price_sp && crsObj.price_sp > 0;
-        const price = isSpecial ? crsObj.price_sp : crsObj.price;
+        const isSpecial = crsObj.sale_price && crsObj.sale_price > 0;
+        const price = isSpecial ? crsObj.sale_price : crsObj.original_price;
         return ({
-          key: cartItem.id,
+          cart_id: cartItem.id,
+          buy_id: cartItem.buy_id,/* 結帳環節串接用 */
           prod_name: crsObj.title,
           pic_name: crsObj.img_path,
-          price: Number(price)
+          price: Number(price),
+          deleted_at: cartItem.deleted_at
         })
       })
     );

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2024-08-22 00:46:51
+-- 產生時間： 2024-08-26 11:03:43
 -- 伺服器版本： 10.4.32-MariaDB
--- PHP 版本： 8.0.30
+-- PHP 版本： 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,43 +18,36 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- 資料庫： `fundodo`
+-- 資料庫： `db_test`
 --
 
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `course_tag`
+-- 資料表結構 `article_img`
 --
 
-CREATE TABLE `course_tag` (
-  `id` int(5) UNSIGNED NOT NULL,
-  `name` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE `article_img` (
+  `id` int(11) NOT NULL,
+  `img_path` varchar(255) NOT NULL,
+  `article_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- 傾印資料表的資料 `course_tag`
+-- 傾印資料表的資料 `article_img`
 --
 
-INSERT INTO `course_tag` (`id`, `name`) VALUES
-(1, '外出禮儀'),
-(2, '感情增溫'),
-(3, '情緒穩定'),
-(4, '狗兒社交'),
-(5, '放鬆紓壓'),
-(6, '狗拔麻必修課'),
-(7, '線上行為知識講座'),
-(8, '主題分享會'),
-(9, '正向教養體驗式課程');
+INSERT INTO `article_img` (`id`, `img_path`, `article_id`) VALUES
+(78, '/public/articleImg/articleImage-1724641129098-875663739.jfif', 55);
 
 --
 -- 已傾印資料表的索引
 --
 
 --
--- 資料表索引 `course_tag`
+-- 資料表索引 `article_img`
 --
-ALTER TABLE `course_tag`
+ALTER TABLE `article_img`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -62,10 +55,10 @@ ALTER TABLE `course_tag`
 --
 
 --
--- 使用資料表自動遞增(AUTO_INCREMENT) `course_tag`
+-- 使用資料表自動遞增(AUTO_INCREMENT) `article_img`
 --
-ALTER TABLE `course_tag`
-  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+ALTER TABLE `article_img`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

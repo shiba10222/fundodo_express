@@ -39,8 +39,16 @@ CREATE TABLE IF NOT EXISTS `coupon` (
 ALTER TABLE `coupon` CHANGE `id` `id` mediumint(5) UNSIGNED NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`id`); 
 
 
-INSERT INTO `coupon` (`name`, `desc`, `desc_ps`, `scope_to`, `scope_from`, `discount`, `min_spent`, `max_discount`, `start_date`, `end_date`, `get_code`, `time_span`, `created_at`) VALUES
-  ('會員專屬 200 元折價券','會員專屬 200 元折價券，全站皆可使用','200 元折價券，全站無條件使用，長期彈性發放。',NULL,NULL,200.00,0,NULL,NULL,'2022-04-10 00:00:00',NULL,14,'2022-04-09 15:35:47'),
+INSERT INTO `coupon`
+(`name`, `desc`, `desc_ps`, `scope_to`, `scope_from`, `discount`, `min_spent`, `max_discount`, `get_code`, `start_date`, `end_date`, `time_span`, `created_at`) VALUES
+  ('會員專屬 200 元折價券',
+  '會員專屬 200 元折價券，全站皆可使用',
+  '200 元折價券，全站無條件使用，長期彈性發放。',
+  NULL,NULL,
+  200.00,0,
+  NULL,NULL,
+  '2022-04-10 00:00:00',
+  NULL,14,'2022-04-09 15:35:47'),
 	('翻肚肚商城 100 元折價券','商城全品項皆可使用（不包含旅館與課程）','200 元折價券，全商城無條件使用，長期彈性發放。','PD',NULL,200.00,0,NULL,NULL,'2022-04-10 00:00:00',NULL,7,'2022-04-09 15:36:34'),
 	('翻肚肚免運券','翻肚肚商城免運券（不適用於旅館與課程）','免運券，全商城無條件使用，長期彈性發放。','運費',NULL,200.00,0,NULL,NULL,'2022-04-10 00:00:00',NULL,7,'2022-04-09 15:37:41'),
 	('新朋友專屬 200 元購物金','新會員的註冊禮，全站皆可使用','200 元折價券，全站無條件使用，註冊成功時發放',NULL,NULL,200.00,0,NULL,NULL,'2022-04-10 00:00:00',NULL,7,'2022-04-09 15:38:39'),

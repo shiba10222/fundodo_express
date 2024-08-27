@@ -1,5 +1,6 @@
 import { Router } from "express";
 import conn from '../db.js';
+import authenticateToken from './member/auth/authToken.js';
 
 const router = Router();
 
@@ -162,7 +163,7 @@ router.get("/recommended", async (req, res) => {
           prod_price_stock.prod_id = product.id
         ) AS price,
         (SELECT 
-          pic_name
+          name
         FROM 
           prod_picture
         WHERE 
@@ -205,6 +206,7 @@ router.get("/recommended", async (req, res) => {
     res.status(500).json({ status: "error", message: '獲取推薦產品錯誤', error: error.message });
   }
 });
+
 // 獲取篩選選項的路由
 router.get("/filter-options", async (req, res) => {
   try {
@@ -266,6 +268,32 @@ router.get("/filter-options", async (req, res) => {
     // 錯誤處理
     console.error('資料庫查詢錯誤：', error);
     res.status(500).json({ status: "error", message: '資料庫查詢錯誤', error: error.message });
+  }
+});
+
+router.get('/favorites', authenticateToken, async (req, res) => {
+  const userId = req.user.userId;
+
+  console.log('Fetching favorites for user:', userId);
+
+  try {
+    const [rows] = await conn.execute(
+      `SELECT id, product_id, product_name, product_price, product_image 
+       FROM favorites 
+       WHERE user_id = ?`,
+      [userId]
+    );
+
+    console.log('Favorites found:', rows.length);
+
+    if (rows.length === 0) {
+      return res.status(200).json({ status: "success", message: "用戶沒有收藏的商品", favorites: [] });
+    }
+
+    res.status(200).json({ status: "success", message: "成功獲取收藏商品", favorites: rows });
+  } catch (error) {
+    console.error('獲取收藏商品失敗:', error);
+    res.status(500).json({ status: "error", message: '獲取收藏商品失敗', details: error.message });
   }
 });
 
@@ -384,41 +412,74 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.post("/cart", async (req, res) => {
+router.get('/check/:productId', authenticateToken, async (req, res) => {
+  const { productId } = req.params;
+  const userId = req.user.userId;
+
+  console.log('Checking favorite for user:', userId, 'product:', productId);
+
+  if (!userId) {
+    return res.status(401).json({ error: '未授權的請求' });
+  }
+
   try {
-    const {
-      user_id,
-      buy_sort,
-      buy_id,
-      quantity
-    } = req.body;
-
-    if (!user_id || !buy_sort || !buy_id || !quantity) {
-      return res.status(400).json({
-        status: "error",
-        message: "缺少必要欄位"
-      });
-    }
-
-    const [result] = await conn.query(
-      `INSERT INTO cart (user_id, buy_sort, buy_id, quantity)
-     VALUES (?, ?, ?, ?)`,
-      [user_id, buy_sort, buy_id, quantity]
+    const [rows] = await conn.execute(
+      'SELECT * FROM favorites WHERE user_id = ? AND product_id = ?',
+      [userId, productId]
     );
 
-    res.status(201).json({
-      status: "success",
-      message: "成功添加到購物車",
-      data: { id: result.insertId }
-    });
+    console.log('Query result:', rows);
+
+    res.json({ isFavorite: rows.length > 0 });
   } catch (error) {
-    console.error("添加到購物車時出錯", error);
-    res.status(500).json({
-      status: "error",
-      message: "伺服器錯誤",
-      error: error.message
-    });
+    console.error('檢查收藏狀態失敗:', error);
+    res.status(500).json({ error: '檢查收藏狀態失敗', details: error.message });
   }
-})
+});
+
+
+
+// 添加收藏
+router.post('/', authenticateToken, async (req, res) => {
+  const { productId, productData } = req.body;
+  const userId = req.user.userId; // 確保這裡使用正確的 userId
+
+  console.log('Adding favorite for user:', userId, 'product:', productId);
+
+  try {
+    await conn.execute(
+      'INSERT INTO favorites (user_id, product_id, product_name, product_price, product_image) VALUES (?, ?, ?, ?, ?)',
+      [userId, productId, productData.name, productData.price, productData.image]
+    );
+
+    res.status(201).json({ message: '成功加入收藏' });
+  } catch (error) {
+    console.error('加入收藏失敗:', error);
+    res.status(500).json({ error: '加入收藏失敗', details: error.message });
+  }
+});
+
+// 移除收藏
+router.delete('/', authenticateToken, async (req, res) => {
+  const { productId } = req.body;
+  const userId = req.user.userId; // 確保這裡使用正確的 userId
+
+  console.log('Removing favorite for user:', userId, 'product:', productId);
+
+  try {
+    await conn.execute(
+      'DELETE FROM favorites WHERE user_id = ? AND product_id = ?',
+      [userId, productId]
+    );
+
+    res.json({ message: '成功移除收藏' });
+  } catch (error) {
+    console.error('移除收藏失敗:', error);
+    res.status(500).json({ error: '移除收藏失敗', details: error.message });
+  }
+});
+
+
 // 導出路由器
 export default router;
+

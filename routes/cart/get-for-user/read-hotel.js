@@ -77,6 +77,7 @@ export default async function (cartData) {
 
         return ({
           cart_id: cartItem.id,
+          buy_id: cartItem.buy_id,/* 結帳環節串接用 */
           prod_name: hotelObj.name,
           pic_name: hotelObj.main_img_path,
           dog_name: dogName,

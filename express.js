@@ -4,6 +4,7 @@ import logger from 'morgan';
 import { readdir } from 'fs/promises';
 import { dirname, resolve } from 'path';
 import { fileURLToPath, pathToFileURL } from 'url';
+import path from 'path';
 import dotenv from 'dotenv';
 //================== 初始化 =======================//
 const app = express();
@@ -25,6 +26,9 @@ app.use('/upload', express.static(resolve(__dirname, 'public/upload')));
 // console.log('Static files directory:', resolve(__dirname, 'public/upload_dog'));
 // console.log('Public upload directory path:', resolve(__dirname, 'public/upload_dog'));
 app.use('/upload_dog', express.static(resolve(__dirname, 'public/upload_dog')));
+app.use('/videos', express.static(path.join(__dirname, 'public/upload/crs_videos')));
+app.use('/images', express.static(path.join(__dirname, 'public/upload/crs_images')));
+
 
 //=== CORS ===
 const whitelist = ["http://127.0.0.1", "http://localhost:5500", "http://localhost:3000", "https://emap.pcsc.com.tw", "https://emap.pcsc.com.tw/ecmap/default.aspx", undefined];

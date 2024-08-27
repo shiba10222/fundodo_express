@@ -8,6 +8,7 @@ import { resolve } from "path";
 import conn from '../../db.js';
 import authenticateToken from './auth/authToken.js';
 import mailRouter from './mail.js';
+import user_order_info from './user_order_info.js';
 
 
 // 參數
@@ -20,7 +21,7 @@ const router = Router();
 //const upload = multer();
 
 router.use('/email', mailRouter);
-
+router.use('/order', user_order_info);
 //特定路由區要修改 upload = multer();
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {

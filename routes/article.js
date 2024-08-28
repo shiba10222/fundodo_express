@@ -43,11 +43,17 @@ router.get("/", (req, res) => {
 router.get("/articles", async (req, res) => {
   const sort = req.query.sort;
   const search = req.query.search;
+  const tag = req.query.tag;
 
   let query = `
-    SELECT a.*, u.nickname as author_nickname
+    SELECT a.*, u.nickname as author_nickname,
+           s.sort as sort_name,
+           GROUP_CONCAT(DISTINCT at.tag) as tags,
+           (SELECT COUNT(*) FROM reply r WHERE r.article_id = a.id AND r.reply_delete = 0) as reply_count
     FROM article a
     LEFT JOIN users u ON a.userid = u.id
+    LEFT JOIN article_sort s ON a.sort = s.id
+    LEFT JOIN article_tags at ON a.id = at.article_id
     WHERE a.article_delete = 0
   `
   let params = [];
@@ -61,6 +67,20 @@ router.get("/articles", async (req, res) => {
     query += " AND LOWER(title) LIKE LOWER(?)";
     params.push(`%${search}%`);
   }
+  if (tag) {
+    query += " AND at.tag = ?";
+    params.push(tag);
+  }
+  query += " GROUP BY a.id";
+
+  // 如果按標籤過濾，我們需要一個子查詢來確保只返回包含該標籤的文章
+  if (tag) {
+    query = `
+      SELECT * FROM (${query}) AS filtered
+      WHERE filtered.tags LIKE ? OR filtered.tags IS NULL
+    `;
+    params.push(`%${tag}%`);
+  }
 
   query += " ORDER BY `create_at` DESC";
 
@@ -69,7 +89,12 @@ router.get("/articles", async (req, res) => {
     res.status(200).json({
       status: "success",
       message: "文章列表",
-      articles,
+      articles: articles.map(article => ({
+        ...article,
+        tags: article.tags ? article.tags.split(',') : [],
+        sort: article.sort_name,
+        reply_count: parseInt(article.reply_count, 10)
+      }))
     });
   } catch (err) {
     console.error(err);
@@ -102,13 +127,23 @@ router.get("/articleContent/:id", async (req, res) => {
   try {
     const [content] = await connect.execute(
       `
-      SELECT a.*, u.nickname as author_nickname
+       SELECT a.*, u.nickname as author_nickname, 
+             s.sort as sort_name,
+             GROUP_CONCAT(at.tag) as tags
       FROM article a
       LEFT JOIN users u ON a.userid = u.id
+      LEFT JOIN article_sort s ON a.sort = s.id
+      LEFT JOIN article_tags at ON a.id = at.article_id
       WHERE a.id = ? AND a.article_delete = 0
+      GROUP BY a.id
     `,
       [id]
     )
+
+    if (content.length > 0) {
+      content[0].tags = content[0].tags ? content[0].tags.split(',') : []
+      content[0].sort = content[0].sort_name
+    }
 
     res.status(200).json({
       status: "success",
@@ -179,7 +214,7 @@ router.get("/images/:id", async (req, res) => {
 });
 
 router.post("/createArticle", async (req, res) => {
-  const { title, content, sort,userId } = req.body;
+  const { title, content, sort,userId,tags } = req.body;
 
   try {
     const [result] = await connect.execute(
@@ -204,6 +239,18 @@ router.post("/createArticle", async (req, res) => {
       )
     );
 
+    if (tags && tags.length > 0) {
+      for (const tag of tags) {
+        if (tag.trim() !== '') {  // 確保標籤不是空字串
+          await connect.execute(
+            "INSERT INTO article_tags (tag, article_id) VALUES (?, ?)",
+            [tag.trim(), articleId]
+          );
+        }
+      }
+    }
+
+
     res.status(201).json({
       status: "success",
       message: "文章保存成功",
@@ -219,8 +266,9 @@ router.post("/createArticle", async (req, res) => {
   }
 });
 
+
 router.put("/editArticle/:id", async (req, res) => {
-  const { title, content, sort, imageIds } = req.body;
+  const { title, content, sort, imageIds,tags } = req.body;
   const articleId = req.params.id;
 
   console.log('收到請求:', { articleId, title, sort, imageIds });
@@ -260,6 +308,25 @@ router.put("/editArticle/:id", async (req, res) => {
     `;
 
     const [deleteResult] = await connect.query(deleteQuery, [imageIds]);
+
+    // 處理標籤
+    // 首先，刪除文章的所有現有標籤
+    await connect.execute(
+      "DELETE FROM article_tags WHERE article_id = ?",
+      [articleId]
+    );
+
+    // 然後，添加新的標籤
+    if (tags && tags.length > 0) {
+      for (const tag of tags) {
+        if (tag.trim() !== '') {
+          await connect.execute(
+            "INSERT INTO article_tags (tag, article_id) VALUES (?, ?)",
+            [tag.trim(), articleId]
+          );
+        }
+      }
+    }
 
     res.status(200).json({
       status: "success",

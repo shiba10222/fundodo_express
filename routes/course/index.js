@@ -3,12 +3,9 @@ import conn from "../../db.js";
 import multer from 'multer';
 import path from 'path';
 import moment from 'moment';
-import fs from 'fs'
 import authenticateToken from "../member/auth/authToken.js";
 
 const router = express.Router();
-
-
 
 // 圖片影片上傳配置
 const storage = multer.diskStorage({
@@ -20,11 +17,7 @@ const storage = multer.diskStorage({
     }
   },
   filename: function (req, file, cb) {
-    const prefix = file.fieldname === "img_path" ? "img" : "video";
-    const timeStamp = Date.now().toString(36);
-    const randomStr = Math.random().toString(36).substring(2, 5)
-    const extension = path.extname(file.originalname);
-    cb(null, `${prefix}${timeStamp}${randomStr}${extension}`);
+    cb(null, Date.now() + path.extname(file.originalname))
   }
 });
 
@@ -54,10 +47,12 @@ router.get("/", async (req, res) => {
   try {
     const search = req.query.search || '';
     const page = parseInt(req.query.page) || 1;
-    const coursesPerPage = parseInt(req.query.perPage) || 15;
+    const coursesPerPage = parseInt(req.query.perPage, 10) || 9;
+    const category = req.query.category || '全部分類';
+    const sort = req.query.sort || 'newest';
     const offset = (page - 1) * coursesPerPage;
 
-    const query = `
+    let query = `
       SELECT c.*, 
         GROUP_CONCAT(DISTINCT ct.name) AS tags,
         GROUP_CONCAT(DISTINCT ci.path) AS image_paths
@@ -66,11 +61,37 @@ router.get("/", async (req, res) => {
       LEFT JOIN course_tag ct ON cta.tag_id = ct.id
       LEFT JOIN course_imgs ci ON c.id = ci.course_id
       WHERE c.status = "1" AND c.title LIKE ?
-      GROUP BY c.id
-      LIMIT ? OFFSET ?
     `;
 
-    const [coursesResult] = await conn.query(query, [`%${search}%`, coursesPerPage, offset]);
+    const queryParams = [`%${search}%`];
+
+    if (category !== '全部分類') {
+      query += ' AND ct.name = ?';
+      queryParams.push(category);
+    }
+
+    query += ' GROUP BY c.id';
+
+    // 添加排序邏輯
+    switch (sort) {
+      case 'newest':
+        query += ' ORDER BY c.created_at DESC';
+        break;
+      case 'mostViewed':
+        query += ' ORDER BY c.viewed_count DESC';
+        break;
+      case 'priceLowToHigh':
+        query += ' ORDER BY c.sale_price ASC';
+        break;
+      case 'priceHighToLow':
+        query += ' ORDER BY c.sale_price DESC';
+        break;
+    }
+
+    query += ' LIMIT ? OFFSET ?';
+    queryParams.push(coursesPerPage, offset);
+
+    const [coursesResult] = await conn.query(query, queryParams);
     const [totalResult] = await conn.query("SELECT COUNT(*) as total FROM courses WHERE status = '1' AND title LIKE ?", [`%${search}%`]);
     const totalCourses = totalResult[0].total;
 
@@ -87,6 +108,7 @@ router.get("/", async (req, res) => {
       currentPage: page,
       totalCourses: totalCourses,
       coursesPerPage: coursesPerPage,
+      totalPages: Math.ceil(totalCourses / coursesPerPage)
     });
   } catch (error) {
     res.status(500).json({
@@ -143,7 +165,7 @@ router.get("/:id", async (req, res) => {
         .filter(lesson => lesson.chapter_id === chapter.id)
         .map(lesson => ({
           ...lesson,
-          video_path: lesson.video_path ? `/videos/${lesson.video_path}` : null
+          video_path: lesson.video_path ? `/upload/crs_videos/${lesson.video_path}` : null
         }))
     }));
 
@@ -263,9 +285,20 @@ router.post("/", (req, res, next) => {
 });
 
 // PATCH: 更新特定課程
-router.patch("/:id", upload, async (req, res, next) => {
+// 在 PATCH 路由中處理更新課程
+router.patch("/:id", (req, res, next) => {
+  upload(req, res, function (err) {
+    if (err) {
+      console.error("File upload error:", err);
+      return res.status(400).json({ status: "error", message: err.message });
+    }
+    console.log('Files received:', JSON.stringify(req.files, null, 2));
+    console.log('Request body:', JSON.stringify(req.body, null, 2));
+    next();
+  });
+}, async (req, res) => {
   const courseId = req.params.id;
-  
+
   try {
     // 檢查課程是否存在
     const [courseCheck] = await conn.query("SELECT * FROM courses WHERE id = ? AND status = '1'", [courseId]);
@@ -318,27 +351,20 @@ router.patch("/:id", upload, async (req, res, next) => {
 
       for (let lessonIndex = 0; lessonIndex < chapter.lessons.length; lessonIndex++) {
         const lesson = chapter.lessons[lessonIndex];
-        const videoFieldName = `video_${chapterIndex}_${lessonIndex}`;
-        const videoFile = req.files[videoFieldName] ? req.files[videoFieldName][0] : null;
-
-        let videoPath = lesson.video_path;
+        const videoFile = req.files[`video_path`]; // 確保這裡是正確的字段
+      
+        let videoFileName = lesson.video_path;
+      
         if (videoFile) {
-          const newFileName = generateFileName('video', videoFile);
-          fs.renameSync(videoFile.path, path.join(videoFile.destination, newFileName));
-          videoPath = videoFile.filename;
-        } else if (videoPath) {
-          const oldPath = path.join('public/upload/crs_videos', videoPath);
-          const newFileName = generateFileName('video', { name: videoPath });
-          const newPath = path.join('public/upload/crs_videos', newFileName);
-          fs.renameSync(oldPath, newPath);
-          videoPath = newFileName;
+          videoFileName = videoFile[0].filename; // 使用新的文件名
         }
-
+      
         await conn.query(
           "INSERT INTO course_lessons (chapter_id, name, duration, video_path) VALUES (?, ?, ?, ?)",
-          [chapterId, lesson.name, lesson.duration, videoPath]
+          [chapterId, lesson.name, lesson.duration, videoFileName] // 保存新的文件名到資料庫
         );
       }
+      
     }
 
     res.status(200).json({
@@ -356,12 +382,7 @@ router.patch("/:id", upload, async (req, res, next) => {
   }
 });
 
-function generateFileName(prefix, file) {
-  const timestamp = Date.now().toString(36);
-  const randomStr = Math.random().toString(36).substring(2, 5);
-  const extension = path.extname(file.name);
-  return `${prefix}${timestamp}${randomStr}${extension}`;
-}
+
 
 // DELETE: 軟刪除特定課程
 router.patch("/delete/:id", async (req, res) => {

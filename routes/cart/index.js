@@ -107,7 +107,7 @@ router.get('/:uid', async (req, res) => {
   res.status(200).json({ status: "success", message: "查詢成功", result });
 });
 
-//======== 新增資料 ==========//
+//======== POST 區：新增資料 ==========//
 router.post('/', upload.none(), async (req, res) => {
   if (Object.prototype.hasOwnProperty.call(req.body, 'user_id')
     && Object.prototype.hasOwnProperty.call(req.body, 'buy_sort')
@@ -188,7 +188,7 @@ router.post('/', upload.none(), async (req, res) => {
   res.json({ status: "success", message: "新增成功", result });
 });
 
-//======== PATCH 區 ==========//
+//======== PATCH 區：部份更新 ==========//
 // 目前提供軟刪除及其回復，和更改商品數量
 // 其他則不予供應
 

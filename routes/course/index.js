@@ -92,7 +92,13 @@ router.get("/", async (req, res) => {
     queryParams.push(coursesPerPage, offset);
 
     const [coursesResult] = await conn.query(query, queryParams);
-    const [totalResult] = await conn.query("SELECT COUNT(*) as total FROM courses WHERE status = '1' AND title LIKE ?", [`%${search}%`]);
+    const [totalResult] = await conn.query(`
+      SELECT COUNT(DISTINCT c.id) as total 
+      FROM courses c
+      LEFT JOIN course_tags cta ON c.id = cta.course_id
+      LEFT JOIN course_tag ct ON cta.tag_id = ct.id
+      WHERE c.status = "1" AND c.title LIKE ? ${category !== '全部分類' ? 'AND ct.name = ?' : ''}
+    `, queryParams.slice(0, category !== '全部分類' ? 2 : 1)); // 注意這裡的 queryParams.slice 確保正確參數傳遞
     const totalCourses = totalResult[0].total;
 
     const coursesWithTags = coursesResult.map(course => ({
@@ -285,7 +291,6 @@ router.post("/", (req, res, next) => {
 });
 
 // PATCH: 更新特定課程
-// 在 PATCH 路由中處理更新課程
 router.patch("/:id", (req, res, next) => {
   upload(req, res, function (err) {
     if (err) {
@@ -313,7 +318,6 @@ router.patch("/:id", (req, res, next) => {
     const img_path = req.files['img_path'] ? req.files['img_path'][0].filename : null;
     const updated_at = moment().format('YYYY-MM-DD HH:mm:ss');
 
-    // 更新課程基本信息
     let updateQuery = "UPDATE courses SET title = ?, summary = ?, description = ?, original_price = ?, sale_price = ?, updated_at = ?";
     let updateParams = [title, summary, description, original_price, sale_price, updated_at];
 
@@ -351,20 +355,20 @@ router.patch("/:id", (req, res, next) => {
 
       for (let lessonIndex = 0; lessonIndex < chapter.lessons.length; lessonIndex++) {
         const lesson = chapter.lessons[lessonIndex];
-        const videoFile = req.files[`video_path`]; // 確保這裡是正確的字段
-      
+        const videoFile = req.files[`video_path`];
+
         let videoFileName = lesson.video_path;
-      
+
         if (videoFile) {
           videoFileName = videoFile[0].filename; // 使用新的文件名
         }
-      
+
         await conn.query(
           "INSERT INTO course_lessons (chapter_id, name, duration, video_path) VALUES (?, ?, ?, ?)",
           [chapterId, lesson.name, lesson.duration, videoFileName] // 保存新的文件名到資料庫
         );
       }
-      
+
     }
 
     res.status(200).json({

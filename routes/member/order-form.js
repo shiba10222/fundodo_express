@@ -83,7 +83,6 @@ router.post('/', upload.none(), async (req, res) => {
     `INSERT INTO user_order_info (${colNames.join(', ')}) VALUES (${markStr});`,
     [user_id, name, email, tel, city_id, zipcode, order_address, ps]
   ).then(([results]) => {
-    console.log(results);
     res.status(200).json({
       status: 'success',
       message: `已成功存進資料庫，其 ID 為 ${results.insertId}`,

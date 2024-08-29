@@ -22,8 +22,6 @@ const HASHIV = "EkRm7iFT261dpevs";
 let isStage = true // 測試環境： true；正式環境：false
 
 //二、輸入參數
-//todo for test
-const TotalAmount = 1850
 //* 接受購物車資料
 const TradeDesc = '商店線上付款'
 const ItemName = '翻肚肚商城購買訂單一筆'
@@ -90,7 +88,8 @@ function CheckMacValueGen(parameters, algorithm, digest) {
 }
 
 //====================== 路由本體 ========================//
-router.get('/', upload.none(), function (req, res, next) {
+router.get('/', function (req, res, next) {
+  
   //* 生成這筆交易的 ID
   const MerchantTradeDate = new Date().toLocaleString('zh-TW', {
     year: 'numeric',
@@ -111,7 +110,7 @@ router.get('/', upload.none(), function (req, res, next) {
     MerchantTradeDate: MerchantTradeDate,
     PaymentType: 'aio',
     EncryptType: 1,
-    TotalAmount: TotalAmount,
+    TotalAmount: 1860,
     TradeDesc: TradeDesc,
     ItemName: ItemName,
     ReturnURL: ReturnURL,
@@ -126,11 +125,22 @@ router.get('/', upload.none(), function (req, res, next) {
 
   //* 將所有的參數製作成 payload
   const AllParams = { ...ParamsBeforeCMV, CheckMacValue }
-  console.log(AllParams);
   const inputs = Object.entries(AllParams).map((param) => {
-    console.log(param);
+    // console.log(param);
     return `<input name=${param[0]} value="${param[1].toString()}"><br/>`
   }).join('')
+  // const inputArr = Object.entries(AllParams).map((param) => {
+  //   return `<input name=${param[0]} value="${param[1].toString()}"><br/>`
+  // });
+
+  // res.status(200).json({
+  //   status: 'OK',
+  //   message: '處理完成',
+  //   package: {
+  //     apiURL: APIURL,
+  //     inputArr,
+  //   },
+  // });
 
   //* 自動送出表單給綠界
   res.send(`
@@ -151,7 +161,6 @@ router.get('/', upload.none(), function (req, res, next) {
     </html>
   `)
 });
-
 
 //================== 匯出
 export default router;

@@ -50,7 +50,7 @@
     "prefix": "rr-express",
     "body": [
       "router.${1:get}('/${2:login}', (req, res) => {",
-      "\tres.json({ status: \"${3:success}\", message: \"${4:成功}\"});",
+      "\tres.status(200).json({ status: \"${3:success}\", message: \"${4:成功}\"});",
       "});",
     ],
     "description": "Express 用的基本路由規則架構"

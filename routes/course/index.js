@@ -48,7 +48,7 @@ router.get("/", async (req, res) => {
     const search = req.query.search || '';
     const page = parseInt(req.query.page) || 1;
     const coursesPerPage = parseInt(req.query.perPage, 10) || 9;
-    const category = req.query.category || '全部分類';
+    const tag = req.query.tag || '全部分類';
     const sort = req.query.sort || 'newest';
     const offset = (page - 1) * coursesPerPage;
 
@@ -65,14 +65,13 @@ router.get("/", async (req, res) => {
 
     const queryParams = [`%${search}%`];
 
-    if (category !== '全部分類') {
+    if (tag !== '全部分類') {
       query += ' AND ct.name = ?';
-      queryParams.push(category);
+      queryParams.push(tag);
     }
 
     query += ' GROUP BY c.id';
 
-    // 添加排序邏輯
     switch (sort) {
       case 'newest':
         query += ' ORDER BY c.created_at DESC';
@@ -97,8 +96,8 @@ router.get("/", async (req, res) => {
       FROM courses c
       LEFT JOIN course_tags cta ON c.id = cta.course_id
       LEFT JOIN course_tag ct ON cta.tag_id = ct.id
-      WHERE c.status = "1" AND c.title LIKE ? ${category !== '全部分類' ? 'AND ct.name = ?' : ''}
-    `, queryParams.slice(0, category !== '全部分類' ? 2 : 1)); // 注意這裡的 queryParams.slice 確保正確參數傳遞
+      WHERE c.status = "1" AND c.title LIKE ? ${tag !== '全部分類' ? 'AND ct.name = ?' : ''}
+    `, queryParams.slice(0, tag !== '全部分類' ? 2 : 1)); // 注意這裡的 queryParams.slice 確保正確參數傳遞
     const totalCourses = totalResult[0].total;
 
     const coursesWithTags = coursesResult.map(course => ({
@@ -202,6 +201,7 @@ router.get("/:id", async (req, res) => {
     });
   }
 });
+
 
 // POST: 新增課程
 router.post("/", (req, res, next) => {
@@ -385,8 +385,6 @@ router.patch("/:id", (req, res, next) => {
     });
   }
 });
-
-
 
 // DELETE: 軟刪除特定課程
 router.patch("/delete/:id", async (req, res) => {

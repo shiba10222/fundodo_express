@@ -48,7 +48,7 @@
         // 用戶已經存在
         const user = rows[0];
         returnUser = {
-          id: user.id,
+          userId: user.id,
           name: user.name || '',
           nickname: user.nickname || '',
           google_uid: user.google_uid,
@@ -64,7 +64,7 @@
         const [result] = await conn.execute(sql, values);
 
         returnUser = {
-          id: result.insertId,
+          userId: result.insertId,
           name: displayName || '',
           nickname: '',
           google_uid,

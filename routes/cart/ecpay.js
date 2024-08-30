@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import crypto from 'crypto'
 import dotenv from 'dotenv';
 import multer from 'multer';
+import { getTradeNo, CheckMacValueGen } from './pay-lib/ecpay-lib.js';
 
 // 綠界提供的 SDK
 // import ecpay_payment from 'ecpay_aio_nodejs';
@@ -12,10 +12,7 @@ const upload = multer();
 dotenv.config();
 
 // 參數
-// const { MERCHANTID, HASHKEY, HASHIV } = process.env;
-const MERCHANTID = "3002607";
-const HASHKEY = "pwFHCqoQZGmho4w6";
-const HASHIV = "EkRm7iFT261dpevs";
+const { EC_MERCHANTID } = process.env;
 
 //======================改以下參數即可========================
 //一、選擇帳號，是否為測試環境
@@ -34,62 +31,10 @@ const stage = isStage ? '-stage' : ''
 const APIURL = `https://payment${stage}.ecpay.com.tw//Cashier/AioCheckOut/V5`
 
 //===函數
-/**
- * 生成 20 碼的交易識別用編號
- * @description fundodo 加上函數執行時間而成的字串
- * 請用 toLocaleString('zh-TW')
- * @param {string} 
- * @returns {string} 
- */
-const getTradeNo = (timeStr) => {
-  const strArr = timeStr.split(' ');
-  return 'fdd' + strArr[0].replaceAll('/', '') + strArr[1].replaceAll(':', '');
-}
-
-function CheckMacValueGen(parameters, algorithm, digest) {
-  /**
-   * 
-   * @param {string} string 
-   * @returns 
-   */
-  function DotNETURLEncode(string) {
-    const list = {
-      '%2D': '-',
-      '%5F': '_',
-      '%2E': '.',
-      '%21': '!',
-      '%2A': '*',
-      '%28': '(',
-      '%29': ')',
-      '%20': '+',
-    }
-    Object.entries(list).forEach(([encoded, decoded]) => {
-      const regex = new RegExp(encoded, 'g')
-      string = string.replace(regex, decoded)
-    })
-    return string
-  }
-  const Step0 = Object.entries(parameters)
-    .map(([key, value]) => `${key}=${value}`)
-
-  const Step1 = Step0
-    .sort((a, b) => {
-      const keyA = a.split('=')[0]
-      const keyB = b.split('=')[0]
-      return keyA.localeCompare(keyB)
-    })
-    .join('&')
-  const Step2 = `HashKey=${HASHKEY}&${Step1}&HashIV=${HASHIV}`
-  const Step3 = DotNETURLEncode(encodeURIComponent(Step2))
-  const Step4 = Step3.toLowerCase()
-  const Step5 = crypto.createHash(algorithm).update(Step4).digest(digest)
-  const Step6 = Step5.toUpperCase()
-  return Step6
-}
 
 //====================== 路由本體 ========================//
-router.get('/', function (req, res, next) {
-  
+router.get('/', function (_, res) {
+
   //* 生成這筆交易的 ID
   const MerchantTradeDate = new Date().toLocaleString('zh-TW', {
     year: 'numeric',
@@ -105,7 +50,7 @@ router.get('/', function (req, res, next) {
 
   //* 計算 CheckMacValue 的前置作業
   let ParamsBeforeCMV = {
-    MerchantID: MERCHANTID,
+    MerchantID: EC_MERCHANTID,
     MerchantTradeNo: MerchantTradeNo,
     MerchantTradeDate: MerchantTradeDate,
     PaymentType: 'aio',
@@ -122,11 +67,9 @@ router.get('/', function (req, res, next) {
   const algorithm = 'sha256'
   const digest = 'hex'
   const CheckMacValue = CheckMacValueGen(ParamsBeforeCMV, algorithm, digest)
-
   //* 將所有的參數製作成 payload
-  const AllParams = { ...ParamsBeforeCMV, CheckMacValue }
+  const AllParams = { ...ParamsBeforeCMV, CheckMacValue };
   const inputs = Object.entries(AllParams).map((param) => {
-    // console.log(param);
     return `<input name=${param[0]} value="${param[1].toString()}"><br/>`
   }).join('')
   // const inputArr = Object.entries(AllParams).map((param) => {

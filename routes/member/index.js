@@ -8,8 +8,8 @@ import { resolve } from "path";
 import conn from '../../db.js';
 import authenticateToken from './auth/authToken.js';
 import mailRouter from './mail.js';
-import user_order_info from './user_order_info.js';
-
+import orderFormRouter from './order-form.js';
+import google_login from './google_login.js';
 
 // 參數
 const secretKey = process.argv[2];
@@ -20,8 +20,11 @@ const blackList = [];
 const router = Router();
 //const upload = multer();
 
+//其他路由檔
 router.use('/email', mailRouter);
-router.use('/order', user_order_info);
+router.use('/order-form', orderFormRouter);
+router.use('/google_login', google_login);
+
 //特定路由區要修改 upload = multer();
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -32,6 +35,7 @@ const storage = multer.diskStorage({
     cb(null, `${uuid}.png`); // 文件名稱
   }
 });
+
 
 const upload = multer({ storage });
 
@@ -741,9 +745,9 @@ router.delete('/deleteDog/:id', async (req, res) => {
 
 //======== handle 404
 
-router.all("*", (req, res) => {
-  res.send('Send Tree Pay: 404');
-})
+router.all("*", (req, res) =>
+  res.status(404).json({ status: 'NOT FOUND', message: '你走錯路了。' })
+);
 
 //================== 匯出
 export default router;

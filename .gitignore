@@ -44,3 +44,4 @@ data/test_sql
 package-lock.json
 
 public/upload/crs_videos
+*.mp4

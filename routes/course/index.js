@@ -3,7 +3,6 @@ import conn from "../../db.js";
 import multer from 'multer';
 import path from 'path';
 import moment from 'moment';
-import authenticateToken from "../member/auth/authToken.js";
 
 const router = express.Router();
 
@@ -144,6 +143,62 @@ router.get("/tags", async (req, res) => {
   }
 });
 
+router.get("/permission", async (req, res) => {
+  const { courseId, userId } = req.query;
+
+  console.log(`Received courseId: ${courseId}, userId: ${userId}`);
+
+  if (!courseId) {
+    return res.status(400).json({
+      status: "error",
+      message: "缺少必要的查詢參數"
+    });
+  }
+
+  try {
+    console.log(`Checking permission for user ${userId} and course ${courseId}`);
+
+    const [result] = await conn.execute(`
+      SELECT c.id as course_id, c.title, cp.start_date, cp.end_date
+      FROM courses c
+      LEFT JOIN crs_perm cp ON c.id = cp.crs_id AND cp.user_id = ?
+      WHERE c.id = ? AND c.status = 1
+    `, [userId, courseId]);
+
+    console.log('Query result:', result);
+
+    if (result.length === 0) {
+      return res.status(404).json({
+        status: "error",
+        message: "找不到指定課程或已被刪除"
+      });
+    }
+
+    const course = result[0];
+    
+    if (course.start_date) {
+      res.status(200).json({
+        status: "success",
+        hasPurchased: true,
+        startDate: course.start_date,
+        endDate: course.end_date
+      });
+    } else {
+      res.status(200).json({
+        status: "success",
+        hasPurchased: false
+      });
+    }
+  } catch (error) {
+    console.error('檢查課程時發生錯誤:', error);
+    res.status(500).json({
+      status: "error",
+      message: "檢查課程權限時發生錯誤",
+      error: error.message
+    });
+  }
+});
+
 // GET: 獲取特定課程
 router.get("/:id", async (req, res) => {
   const id = req.params.id;
@@ -278,122 +333,41 @@ router.post("/", upload.fields([
 
 
 // PATCH: 更新特定課程
-router.patch("/:id", upload.fields([
-  { name: 'img_path', maxCount: 1 },
-  { name: 'video_path', maxCount: 50 }
-]), async (req, res) => {
+router.patch('/:id', upload.fields([{ name: 'img_path', maxCount: 1 }, { name: 'video_path', maxCount: 10 }]), async (req, res) => {
   const courseId = req.params.id;
-
-  console.log('Request received for course ID:', courseId);
-  console.log('Received files after Multer:', JSON.stringify(req.files, null, 2));
-  console.log('Received body after Multer:', JSON.stringify(req.body, null, 2));
+  const { title, summary, description, tag_ids, original_price, sale_price, chapters } = req.body;
 
   try {
-    // 檢查課程是否存在
-    const [courseCheck] = await conn.query("SELECT * FROM courses WHERE id = ? AND status = '1'", [courseId]);
-    if (courseCheck.length === 0) {
-      console.log('Course not found or deleted:', courseId);
-      return res.status(404).json({
-        status: "error",
-        message: "找不到指定課程或課程已被刪除"
-      });
+    const imgPath = req.files['img_path'] ? req.files['img_path'][0].filename : null;
+    const videoPaths = req.files['video_path'] ? req.files['video_path'].map(file => file.filename) : [];
+
+    // 更新課程資料
+    await conn.query('UPDATE courses SET title = ?, summary = ?, description = ?, img_path = ?, original_price = ?, sale_price = ? WHERE id = ?', [title, summary, description, imgPath, original_price, sale_price, courseId]);
+
+    // 更新標籤
+    await conn.query('DELETE FROM course_tags WHERE course_id = ?', [courseId]);
+    if (tag_ids.length > 0) {
+      const tagValues = tag_ids.map(tagId => [courseId, tagId]);
+      await conn.query('INSERT INTO course_tags (course_id, tag_id) VALUES ?', [tagValues]);
     }
 
-    console.log('Course found, proceeding with update');
-
-    const { title, summary, description, original_price, sale_price, tag_ids, chapters } = req.body;
-    const img_path = req.files['img_path'] ? req.files['img_path'][0].filename : null;
-    const updated_at = moment().format('YYYY-MM-DD HH:mm:ss');
-
-    console.log('Parsed data:', { title, summary, description, original_price, sale_price, img_path, updated_at });
-
-    // 更新課程基本信息
-    let updateQuery = "UPDATE courses SET title = ?, summary = ?, description = ?, original_price = ?, sale_price = ?, updated_at = ?";
-    let updateParams = [title, summary, description, original_price, sale_price, updated_at];
-
-    if (img_path) {
-      updateQuery += ", img_path = ?";
-      updateParams.push(img_path);
-    }
-
-    updateQuery += " WHERE id = ? AND status = '1'";
-    updateParams.push(courseId);
-
-    console.log('Executing update query:', updateQuery);
-    console.log('Update parameters:', updateParams);
-
-    await conn.query(updateQuery, updateParams);
-    console.log('Basic course info updated successfully');
-
-    // 更新課程分類
-    if (tag_ids) {
-      console.log('Updating course tags');
-      await conn.query("DELETE FROM course_tags WHERE course_id = ?", [courseId]);
-      const parsedTagIds = JSON.parse(tag_ids);
-      if (parsedTagIds && parsedTagIds.length > 0) {
-        const tagValues = parsedTagIds.map(tagId => [courseId, tagId]);
-        await conn.query("INSERT INTO course_tags (course_id, tag_id) VALUES ?", [tagValues]);
-        console.log('Course tags updated:', parsedTagIds);
+    // 更新章節和單元
+    await conn.query('DELETE FROM chapters WHERE course_id = ?', [courseId]);
+    await conn.query('DELETE FROM lessons WHERE chapter_id IN (SELECT id FROM chapters WHERE course_id = ?)', [courseId]);
+    
+    for (const chapter of chapters) {
+      const [chapterResult] = await conn.query('INSERT INTO chapters (course_id, name) VALUES (?, ?)', [courseId, chapter.name]);
+      const chapterId = chapterResult.insertId;
+      
+      for (const lesson of chapter.lessons) {
+        await conn.query('INSERT INTO lessons (chapter_id, name, duration, video_path) VALUES (?, ?, ?, ?)', [chapterId, lesson.name, lesson.duration, videoPaths[lesson.video_path_index] || null]);
       }
     }
 
-    // 更新章節和課程
-    if (chapters) {
-      console.log('Updating chapters and lessons');
-      await conn.query("DELETE FROM course_chapters WHERE course_id = ?", [courseId]);
-      await conn.query("DELETE FROM course_lessons WHERE chapter_id IN (SELECT id FROM course_chapters WHERE course_id = ?)", [courseId]);
-
-      const parsedChapters = JSON.parse(chapters);
-      const videoFiles = req.files['video_path'] || [];
-      let videoIndex = 0;
-
-      console.log('Parsed chapters:', JSON.stringify(parsedChapters, null, 2));
-      console.log('Video files:', videoFiles.map(f => f.filename));
-
-      for (let chapterIndex = 0; chapterIndex < parsedChapters.length; chapterIndex++) {
-        const chapter = parsedChapters[chapterIndex];
-        const [chapterResult] = await conn.query(
-          "INSERT INTO course_chapters (course_id, name) VALUES (?, ?)",
-          [courseId, chapter.name]
-        );
-
-        const chapterId = chapterResult.insertId;
-        console.log(`Inserted chapter: ${chapter.name}, ID: ${chapterId}`);
-
-        for (let lessonIndex = 0; lessonIndex < chapter.lessons.length; lessonIndex++) {
-          const lesson = chapter.lessons[lessonIndex];
-          let videoPath = lesson.video_path;
-
-          if (videoIndex < videoFiles.length) {
-            videoPath = videoFiles[videoIndex].filename;
-            videoIndex++;
-            console.log(`Using new video file for lesson: ${lesson.name}, File: ${videoPath}`);
-          } else {
-            console.log(`Using existing video path for lesson: ${lesson.name}, Path: ${videoPath}`);
-          }
-
-          await conn.query(
-            "INSERT INTO course_lessons (chapter_id, name, duration, video_path) VALUES (?, ?, ?, ?)",
-            [chapterId, lesson.name, lesson.duration, videoPath]
-          );
-          console.log(`Inserted lesson: ${lesson.name}, Chapter ID: ${chapterId}, Video: ${videoPath}`);
-        }
-      }
-    }
-
-    console.log('Course update completed successfully');
-    res.status(200).json({
-      status: "success",
-      message: "課程更新成功",
-      data: { courseId }
-    });
+    res.status(200).json({ message: '課程更新成功' });
   } catch (error) {
-    console.error("更新課程時發生錯誤:", error);
-    res.status(500).json({
-      status: "error",
-      message: "課程更新失敗",
-      error: error.message
-    });
+    console.error('課程更新錯誤:', error);
+    res.status(500).json({ message: '更新課程失敗' });
   }
 });
 
@@ -427,91 +401,8 @@ router.patch("/delete/:id", async (req, res) => {
   }
 });
 
-router.post("/cart", authenticateToken, async (req, res) => {
-  const { buy_sort, buy_id } = req.body;
-  const user_id = req.user.id;
-
-  if (!buy_sort || !buy_id) {
-    return res.status(400).json({
-      status: "error",
-      message: "缺少必要欄位"
-    });
-  }
-
-  try {
-    // 檢查商品是否已存在於購物車中
-    const [existingItem] = await conn.query(
-      "SELECT * FROM cart WHERE user_id = ? AND buy_sort = ? AND buy_id = ?",
-      [user_id, buy_sort, buy_id]
-    );
-
-    if (existingItem.length > 0) {
-      return res.status(400).json({
-        status: "error",
-        message: "此項目已在購物車中"
-      });
-    }
-
-    // 插入資料到購物車表
-    const [result] = await conn.query(
-      `INSERT INTO cart (user_id, buy_sort, buy_id, quantity)
-       VALUES (?, ?, ?, 1)`,
-      [user_id, buy_sort, buy_id]
-    );
-
-    res.status(201).json({
-      status: "success",
-      message: "成功添加到購物車",
-      data: { id: result.insertId }
-    });
-  } catch (error) {
-    console.error("添加到購物車時出錯", error);
-    res.status(500).json({
-      status: "error",
-      message: "伺服器錯誤",
-      error: error.message
-    });
-  }
-});
 
 
-router.get("/permission", authenticateToken, async (req, res) => {
-  const { courseId } = req.query;
-  const userId = req.user.id; // 從已驗證的 token 中獲取 user_id
 
-  if (!courseId) {
-    return res.status(400).json({
-      status: "error",
-      message: "缺少必要的查詢參數"
-    });
-  }
-
-
-  try {
-    const [result] = await conn.query(
-      "SELECT * FROM crs_perm WHERE user_id = ? AND crs_id = ?",
-      [userId, courseId]
-    );
-
-    if (result.length > 0) {
-      res.status(200).json({
-        status: "success",
-        hasPurchased: true,
-        startDate: result[0].start_date
-      });
-    } else {
-      res.status(200).json({
-        status: "success",
-        hasPurchased: false
-      });
-    }
-  } catch (error) {
-    res.status(500).json({
-      status: "error",
-      message: "檢查課程權限時發生錯誤",
-      error: error.message
-    });
-  }
-});
 
 export default router;

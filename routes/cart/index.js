@@ -18,7 +18,7 @@ const upload = multer();
 //=================== 函數
 const getCoursePrice = id => new Promise(async (resolve, reject) => {
   const [rows] = await conn.query(
-    "SELECT price, price_sp FROM courses WHERE id = ?",
+    "SELECT original_price, sale_price FROM courses WHERE id = ?",
     [id]
   );
   if (rows.length === 0) {
@@ -30,7 +30,7 @@ const getCoursePrice = id => new Promise(async (resolve, reject) => {
   }
 
   const course = rows[0];
-  const price = course.price_sp || course.price;
+  const price = course.price_sp || course.price || course.sale_price;
   resolve(price);
 });
 

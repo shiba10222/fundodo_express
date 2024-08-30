@@ -71,16 +71,16 @@ router.post('/', upload.none(), function (req, res) {
   const CheckMacValue = CheckMacValueGen(ParamsBeforeCMV, algorithm, digest)
   //* 將所有的參數製作成 payload
   const AllParams = { ...ParamsBeforeCMV, CheckMacValue };
-  const inputArr = Object.entries(AllParams).map((param) => {
-    return `<input name=${param[0]} value="${param[1].toString()}"><br/>`
-  });
+  // const inputArr = Object.entries(AllParams).map((param) => {
+  //   return `<input name="${param[0]}" value="${param[1].toString()}"><br/>`
+  // });
 
   res.status(200).json({
     status: 'OK',
     message: '處理完成',
     package: {
       apiURL: API_URL,
-      inputArr,
+      inputArr: Object.entries(AllParams),
     },
   });
 

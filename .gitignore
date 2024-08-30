@@ -42,3 +42,6 @@ data/test_sql
 *.ini
 
 package-lock.json
+
+public/upload/crs_videos
+*.mp4

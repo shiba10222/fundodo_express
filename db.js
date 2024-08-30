@@ -1,14 +1,14 @@
+import 'dotenv/config.js'
 import mysql from "mysql2/promise";
 
-//!重要：請將所使用的資料庫按以下設定
-//資料庫名稱: fundodo
-//使用者帳號: fundodo
-//使用者密碼: fdd12345
-const conn = await mysql.createConnection({
-    host: "localhost",
-    user: "admin",
-    password: "12345",
-    database: "fundodo"
+//! === 公告 ===
+//請在自己的電腦以 .env 檔設定以下五項資訊
+const conn =  mysql.createPool({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    port: process.env.DB_PORT,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE,
 });
 
 export default conn;

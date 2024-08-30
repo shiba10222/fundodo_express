@@ -11,17 +11,59 @@ const upload = multer();
 //================== 設置路由架構 ====================
 //==================================================
 //================== 路由之根
-router.get('/', (req, res) => {
+router.get('/', (_, res) => {
   res.status(400).json({
     status: "Bad Request",
-    message: "尼豪，歡迎乃到本區域。要使用服務請輸入更完整的路由網址"
+    message: "尼豪，歡迎乃到 order 區域。要使用服務請輸入更完整的路由網址"
+  });
+});
+
+//======== 讀取指定 ==========//
+//【核心功能】查詢使用者的購物車內容
+router.get('/:uid', async (req, res) => {
+  const uid = Number(req.params.uid);
+
+  /**
+   * 查詢一筆或是全部
+   * @description 1 | 全部 ; 0 | 僅最新一筆
+   */
+  const code = Object.prototype.hasOwnProperty.call(req.query, 'all')
+    ? Number(req.query.all)
+    : 1;
+  const showAll = !!code;
+
+  //== 1 ==== 查詢 cart_PD
+  const [rows] = await conn.query(
+    `SELECT * FROM orders WHERE user_id = ?
+    ORDER BY orders.created_at DESC`,
+    [uid]
+  );
+
+  if (rows.length === 0) {
+    res.status(200).json({
+      status: "success",
+      message: "查詢成功，此帳號沒有歷史訂單紀錄",
+      results: []
+    });
+    return;
+  }
+
+  const orderList = rows.map(pkg => {
+    const {id, user_id, deleted_at, ...others} = pkg;
+    return others;
+  })
+  
+  res.status(200).json({
+    status: "success",
+    message: "查詢成功",
+    results: showAll ? orderList : orderList[0]
   });
 });
 
 //================== 輸入資料表 orders
 router.post('/', upload.none(), async (req, res) => {
   //驗證資料是否完整
-  const colArr = ['user_id', 'amount', 'pay_thru', 'ship_thru', 'ship_zipcode', 'ship_address'];
+  const colArr = ['user_id', 'amount', 'addressee', 'tel', 'email', 'pay_thru', 'ship_thru', 'ship_zipcode', 'ship_address', 'ship_ps'];
   if (colArr.some(keyword => {
     if (Object.prototype.hasOwnProperty.call(req.body, keyword) === false) {
       res.status(400).json({ status: "failed", message: `格式錯誤，請求缺少 ${keyword} 參數` });
@@ -34,6 +76,7 @@ router.post('/', upload.none(), async (req, res) => {
   //handle the sql query
   const colStr = colArr.join(', ') + ', created_at';
   const valueArr = colArr.map(key => req.body[key]);
+  console.log(valueArr);
   valueArr.push(getTimeStr_DB(new Date()));
   const markStr = Array(valueArr.length).fill('?').join(', ');
   const sql = `INSERT INTO orders (${colStr}) VALUES (${markStr})`;
@@ -104,7 +147,7 @@ router.post('/items', upload.none(), async (req, res) => {
             }
           } else return 'L';
         }
-        
+
         return item[key];
       });
       valueArr.push(order_id);
@@ -132,7 +175,7 @@ router.post('/items', upload.none(), async (req, res) => {
 router.all('*', (req, res) => {
   res.status(404).json({
     status: "success",
-    message: "喔不！迷有諸葛網紫。請修正尼要使用的路由網紫"
+    message: "喔不！order 這裡迷有諸葛網紫。請修正尼要使用的路由網紫"
   });
 });
 

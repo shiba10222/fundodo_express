@@ -63,25 +63,25 @@ router.post('/', upload.none(), async (req, res) => {
     city_id = null,
     zipcode = null,
     order_address = null,
-    ps = null
+    ship_ps = null
   } = req.body;
 
-  [user_id, name, email, tel, city_id, zipcode, order_address, ps]
+  [user_id, name, email, tel, city_id, zipcode, order_address, ship_ps]
     .forEach((v, i) => {
       if (v === null) {
         const keyword = ['user_id', 'name',
           'email', 'tel', 'city_id', 'zipcode',
-          'order_address', 'ps'][i];
+          'order_address', 'ship_ps'][i];
         return res.status(400)
           .json({ status: 'rejected', message: `缺少必要資訊: ${keyword}` });
       }
     })
 
-  const colNames = [`user_id`, `name`, `email`, `tel`, `city_id`, `zipcode`, `order_address`, `ps`];
+  const colNames = [`user_id`, `name`, `email`, `tel`, `city_id`, `zipcode`, `order_address`, `ship_ps`];
   const markStr = Array(colNames.length).fill('?').join(', ');
   await conn.execute(
     `INSERT INTO user_order_info (${colNames.join(', ')}) VALUES (${markStr});`,
-    [user_id, name, email, tel, city_id, zipcode, order_address, ps]
+    [user_id, name, email, tel, city_id, zipcode, order_address, ship_ps]
   ).then(([results]) => {
     res.status(200).json({
       status: 'success',

@@ -35,7 +35,11 @@ router.get('/:uid', async (req, res) => {
     return res.status(200).json({
       status: "success",
       message: "優惠券一張都沒有",
-      result: []
+      result: {
+        usableArr: [],
+        usedArr: [],
+        overdueArr: []
+      }
     });
   }
 
@@ -62,6 +66,8 @@ router.get('/:uid', async (req, res) => {
         return { ...cp, ...rows_info[0] }
       })
     );
+  } else {
+    usableArr = [];
   }
 
   res.status(200).json({

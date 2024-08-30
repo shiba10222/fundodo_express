@@ -175,7 +175,7 @@ router.get("/permission", async (req, res) => {
     }
 
     const course = result[0];
-    
+
     if (course.start_date) {
       res.status(200).json({
         status: "success",
@@ -308,7 +308,7 @@ router.post("/", upload.fields([
           videoPath = videoFiles[videoIndex].filename;
           videoIndex++;
         }
-        
+
         await conn.query(
           "INSERT INTO course_lessons (chapter_id, name, duration, video_path) VALUES (?, ?, ?, ?)",
           [chapterId, lesson.name, lesson.duration, videoPath]
@@ -333,34 +333,74 @@ router.post("/", upload.fields([
 
 
 // PATCH: 更新特定課程
-router.patch('/:id', upload.fields([{ name: 'img_path', maxCount: 1 }, { name: 'video_path', maxCount: 10 }]), async (req, res) => {
+router.patch('/:id', upload.fields([{ name: 'img_path', maxCount: 1 }, { name: 'videos', maxCount: 10 }]), async (req, res) => {
   const courseId = req.params.id;
-  const { title, summary, description, tag_ids, original_price, sale_price, chapters } = req.body;
+  const { title, summary, description, tags, original_price, sale_price, chapters } = req.body;
+  const updated_at = moment().format('YYYY-MM-DD HH:mm:ss');
 
   try {
-    const imgPath = req.files['img_path'] ? req.files['img_path'][0].filename : null;
-    const videoPaths = req.files['video_path'] ? req.files['video_path'].map(file => file.filename) : [];
+    const img_path = req.files['img_path'] ? req.files['img_path'][0].filename : null;
+    const [course] = await conn.query(
+      "SELECT * FROM courses WHERE id = ?", [courseId]
+    );
 
-    // 更新課程資料
-    await conn.query('UPDATE courses SET title = ?, summary = ?, description = ?, img_path = ?, original_price = ?, sale_price = ? WHERE id = ?', [title, summary, description, imgPath, original_price, sale_price, courseId]);
-
-    // 更新標籤
-    await conn.query('DELETE FROM course_tags WHERE course_id = ?', [courseId]);
-    if (tag_ids.length > 0) {
-      const tagValues = tag_ids.map(tagId => [courseId, tagId]);
-      await conn.query('INSERT INTO course_tags (course_id, tag_id) VALUES ?', [tagValues]);
+    if (!course.length) {
+      return res.status(404).json({
+        status: "error",
+        message: "課程不存在"
+      });
     }
 
+    // 更新課程資料
+    await conn.query('UPDATE courses SET title = ?, summary = ?, description = ?, img_path = COALESCE(?, img_path), original_price = ?, sale_price = ?, updated_at = ? WHERE id = ?', [title, summary, description, img_path, original_price, sale_price, updated_at, courseId]);
+
+
+    // 如果 tags 不為空或 null，更新標籤，否則保留原有標籤
+    if (tags) {
+      const tagArray = JSON.parse(tags);
+      if (tagArray.length > 0) {
+        // 刪除舊標籤
+        await conn.query("DELETE FROM course_tags WHERE course_id = ?", [courseId]);
+
+        // 插入新標籤
+        const tagValues = tagArray.map(tagId => [courseId, tagId]);
+        await conn.query("INSERT INTO course_tags (course_id, tag_id) VALUES ?", [tagValues]);
+      }
+    }
+
+
     // 更新章節和單元
-    await conn.query('DELETE FROM chapters WHERE course_id = ?', [courseId]);
-    await conn.query('DELETE FROM lessons WHERE chapter_id IN (SELECT id FROM chapters WHERE course_id = ?)', [courseId]);
-    
-    for (const chapter of chapters) {
-      const [chapterResult] = await conn.query('INSERT INTO chapters (course_id, name) VALUES (?, ?)', [courseId, chapter.name]);
+    await conn.query('DELETE FROM course_chapters WHERE course_id = ?', [courseId]);
+    await conn.query('DELETE FROM course_lessons WHERE chapter_id IN (SELECT id FROM course_chapters WHERE course_id = ?)', [courseId]);
+
+    const chaptersData = JSON.parse(chapters);
+    const videoFiles = req.files['videos'] || [];
+    let videoIndex = 0;
+
+    for (let chapterIndex = 0; chapterIndex < chaptersData.length; chapterIndex++) {
+      const chapter = chaptersData[chapterIndex];
+      const [chapterResult] = await conn.query(
+        "INSERT INTO course_chapters (course_id, name) VALUES (?, ?)",
+        [courseId, chapter.name]
+      );
+
       const chapterId = chapterResult.insertId;
-      
-      for (const lesson of chapter.lessons) {
-        await conn.query('INSERT INTO lessons (chapter_id, name, duration, video_path) VALUES (?, ?, ?, ?)', [chapterId, lesson.name, lesson.duration, videoPaths[lesson.video_path_index] || null]);
+      for (let lessonIndex = 0; lessonIndex < chapter.lessons.length; lessonIndex++) {
+        const lesson = chapter.lessons[lessonIndex];
+
+        let videoPath = null;
+        if (videoIndex < videoFiles.length) {
+          videoPath = videoFiles[videoIndex].filename;
+          videoIndex++;
+        } else {
+          // 保留原有影片路徑
+          videoPath = lesson.video_path || null;
+        }
+
+        await conn.query(
+          "INSERT INTO course_lessons (chapter_id, name, duration, video_path) VALUES (?, ?, ?, COALESCE(?, video_path))",
+          [chapterId, lesson.name, lesson.duration, videoPath]
+        );
       }
     }
 

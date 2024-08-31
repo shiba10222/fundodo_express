@@ -9,7 +9,7 @@ const router = express.Router();
 // 圖片影片上傳配置
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    if (file.fieldname === 'img_path') {
+    if (file.fieldname === 'img_path' || file.fieldname === 'outline_images') {
       cb(null, 'public/upload/crs_images');
     } else if (file.fieldname === 'videos') {
       cb(null, 'public/upload/crs_videos');
@@ -263,14 +263,34 @@ router.get("/:id", async (req, res) => {
 // POST: 新增課程
 router.post("/", upload.fields([
   { name: 'img_path', maxCount: 1 },
-  { name: 'videos', maxCount: 50 } // 假設最多 50 個視頻
+  { name: 'videos', maxCount: 50 },
+  { name: 'outline_images', maxCount: 10 }
 ]), async (req, res) => {
-
   try {
     const { title, summary, description, original_price, sale_price, tags, chapters } = req.body;
+    
+    // 檢查並解析 tags
+    let parsedTags;
+    try {
+      parsedTags = JSON.parse(tags);
+    } catch (error) {
+      console.error('解析 tags 時出錯:', error);
+      return res.status(400).json({ status: "error", message: "無效的 tags 格式" });
+    }
+
+    // 檢查並解析 chapters
+    let parsedChapters;
+    try {
+      parsedChapters = JSON.parse(chapters);
+    } catch (error) {
+      console.error('解析 chapters 時出錯:', error);
+      return res.status(400).json({ status: "error", message: "無效的 chapters 格式" });
+    }
+
     const img_path = req.files['img_path'] ? req.files['img_path'][0].filename : null;
     const created_at = moment().format('YYYY-MM-DD HH:mm:ss');
 
+    // 插入課程基本信息
     const [result] = await conn.query(
       "INSERT INTO courses (title, summary, description, img_path, original_price, sale_price, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)",
       [title, summary, description, img_path, original_price, sale_price, created_at]
@@ -279,21 +299,13 @@ router.post("/", upload.fields([
     const courseId = result.insertId;
 
     // 處理標籤
-    if (tags) {
-      const tagArray = JSON.parse(tags);
-      if (tagArray.length > 0) {
-        const tagValues = tagArray.map(tagId => [courseId, tagId]);
-        await conn.query("INSERT INTO course_tags (course_id, tag_id) VALUES ?", [tagValues]);
-      }
+    if (parsedTags && parsedTags.length > 0) {
+      const tagValues = parsedTags.map(tagId => [courseId, tagId]);
+      await conn.query("INSERT INTO course_tags (course_id, tag_id) VALUES ?", [tagValues]);
     }
 
     // 處理章節和課程
-    const chaptersData = JSON.parse(chapters);
-    const videoFiles = req.files['videos'] || [];
-    let videoIndex = 0;
-
-    for (let chapterIndex = 0; chapterIndex < chaptersData.length; chapterIndex++) {
-      const chapter = chaptersData[chapterIndex];
+    for (let chapter of parsedChapters) {
       const [chapterResult] = await conn.query(
         "INSERT INTO course_chapters (course_id, name) VALUES (?, ?)",
         [courseId, chapter.name]
@@ -301,17 +313,26 @@ router.post("/", upload.fields([
 
       const chapterId = chapterResult.insertId;
 
-      for (let lessonIndex = 0; lessonIndex < chapter.lessons.length; lessonIndex++) {
-        const lesson = chapter.lessons[lessonIndex];
+      for (let lesson of chapter.lessons) {
         let videoPath = null;
-        if (videoIndex < videoFiles.length) {
-          videoPath = videoFiles[videoIndex].filename;
-          videoIndex++;
+        if (req.files['videos'] && req.files['videos'].length > 0) {
+          videoPath = req.files['videos'].shift().filename;
         }
 
         await conn.query(
           "INSERT INTO course_lessons (chapter_id, name, duration, video_path) VALUES (?, ?, ?, ?)",
           [chapterId, lesson.name, lesson.duration, videoPath]
+        );
+      }
+    }
+
+    // 處理課程大綱圖片
+    if (req.files['outline_images']) {
+      const outlineImages = req.files['outline_images'];
+      for (let image of outlineImages) {
+        await conn.query(
+          "INSERT INTO course_imgs (course_id, path) VALUES (?, ?)",
+          [courseId, image.filename]
         );
       }
     }
@@ -331,9 +352,8 @@ router.post("/", upload.fields([
   }
 });
 
-
 // PATCH: 更新特定課程
-router.patch('/:id', upload.fields([{ name: 'img_path', maxCount: 1 }, { name: 'videos', maxCount: 10 }]), async (req, res) => {
+router.patch('/:id', upload.fields([{ name: 'img_path', maxCount: 1 }, { name: 'outline_images', maxCount: 10 }, { name: 'videos', maxCount: 10 }]), async (req, res) => {
   const courseId = req.params.id;
   const { title, summary, description, tags, original_price, sale_price, chapters } = req.body;
   const updated_at = moment().format('YYYY-MM-DD HH:mm:ss');
@@ -365,6 +385,16 @@ router.patch('/:id', upload.fields([{ name: 'img_path', maxCount: 1 }, { name: '
         // 插入新標籤
         const tagValues = tagArray.map(tagId => [courseId, tagId]);
         await conn.query("INSERT INTO course_tags (course_id, tag_id) VALUES ?", [tagValues]);
+      }
+    }
+
+    // 處理大綱圖片
+    const parsedExistingImages = JSON.parse(existing_outline_images);
+    await conn.query("DELETE FROM course_imgs WHERE course_id = ? AND path NOT IN (?)", [courseId, parsedExistingImages]);
+
+    if (req.files['outline_images']) {
+      for (let file of req.files['outline_images']) {
+        await conn.query("INSERT INTO course_imgs (course_id, path) VALUES (?, ?)", [courseId, file.filename]);
       }
     }
 
@@ -440,9 +470,6 @@ router.patch("/delete/:id", async (req, res) => {
     });
   }
 });
-
-
-
 
 
 export default router;

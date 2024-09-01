@@ -134,7 +134,7 @@ router.post('/send-otp', upload.none(), async (req, res) => {
     from: `"support" <${process.env.SMTP_TO_EMAIL}>`,
     to: email,
     subject: 'Fundodo臨時密碼郵件',
-    text: `您好，\r\n請點擊以下鏈接以使用臨時登陸: ${OTPLink}\r\n\r\n敬上\r\n開發團隊`,
+    text: `您好，\r\n請點擊以下鏈接以使用臨時登入: ${OTPLink}\r\n\r\n敬上\r\n開發團隊`,
   };
 
   console.log('動態郵件選項:', dynamicMailOptions);

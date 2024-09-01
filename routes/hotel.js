@@ -154,7 +154,10 @@ router.post("/", async (req, res) => {
     });
   } catch (error) {
     console.error('發生錯誤:', error);
-    res.status(500).json({ error: '發生內部服務器錯誤' });
+    res.status(500).json({ 
+      status: "error",
+      message: error.message || '發生內部服務器錯誤' 
+    });
   }
 });
 
@@ -162,7 +165,7 @@ router.post("/", async (req, res) => {
 
 
 
-//更新圖片 可更換一張圖片
+//更新圖片 測試
 
 const uploadMultiple = upload.array('images', 3);
 router.put("/:id/update-images", uploadMultiple, async (req, res) => {
@@ -170,19 +173,45 @@ const { id } = req.params;
 if (!req.files || req.files.length === 0) {
 return res.status(400).json({ status: 'error', message: '沒有檔案被上傳' });
  }
-// 更新 hotel 表中的 main_img_path，使用第一張圖片
-const mainImagePath = req.files[0].filename;
-await conn.query(
-"UPDATE hotel SET main_img_path = ? WHERE id = ?",
- [mainImagePath, id]
- );
 
-res.json({
-status: 'success',
-message: '圖片已成功更新',
-mainImage: mainImagePath,
-additionalImages: req.files.slice(1).map(file => file.filename)
- });
+ try {
+    // 獲取當前的 main_img_path
+    const [currentImages] = await conn.query(
+      "SELECT main_img_path FROM hotel WHERE id = ?",
+      [id]
+    );
+
+    let currentImageArray = currentImages[0].main_img_path ? currentImages[0].main_img_path.split(',') : [];
+
+    // 更新圖片數組
+    req.files.forEach((file, index) => {
+      if (index < 3) { // 確保只處理最多3張圖片
+        if (currentImageArray[index]) {
+          currentImageArray[index] = file.filename; // 替換現有圖片
+        } else {
+          currentImageArray.push(file.filename); // 添加新圖片
+        }
+      }
+    });
+
+    // 將數組轉換為逗號分隔的字符串
+    const updatedMainImagePath = currentImageArray.join(',');
+
+    // 更新數據庫
+    await conn.query(
+      "UPDATE hotel SET main_img_path = ? WHERE id = ?",
+      [updatedMainImagePath, id]
+    );
+
+    res.json({
+      status: 'success',
+      message: '圖片已成功更新',
+      updatedImages: currentImageArray
+    });
+  } catch (error) {
+    console.error('Error updating images:', error);
+    res.status(500).json({ status: 'error', message: '更新圖片時發生錯誤' });
+  }
 });
 
 

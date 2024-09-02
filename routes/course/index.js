@@ -37,7 +37,6 @@ const fileFilter = function (req, file, cb) {
 const upload = multer({
   storage: storage,
   fileFilter: fileFilter,
-  limits: { fileSize: 100 * 1024 * 1024 } // 100MB
 });
 
 
@@ -355,7 +354,7 @@ router.post("/", upload.fields([
 // PATCH: 更新特定課程
 router.patch('/:id', upload.fields([{ name: 'img_path', maxCount: 1 }, { name: 'outline_images', maxCount: 10 }, { name: 'videos', maxCount: 10 }]), async (req, res) => {
   const courseId = req.params.id;
-  const { title, summary, description, tags, original_price, sale_price, chapters } = req.body;
+  const { title, summary, description, tag_ids, original_price, sale_price, chapters,existing_outline_images } = req.body;
   const updated_at = moment().format('YYYY-MM-DD HH:mm:ss');
 
   try {
@@ -376,8 +375,8 @@ router.patch('/:id', upload.fields([{ name: 'img_path', maxCount: 1 }, { name: '
 
 
     // 如果 tags 不為空或 null，更新標籤，否則保留原有標籤
-    if (tags) {
-      const tagArray = JSON.parse(tags);
+    if (tag_ids) {
+      const tagArray = JSON.parse(tag_ids);
       if (tagArray.length > 0) {
         // 刪除舊標籤
         await conn.query("DELETE FROM course_tags WHERE course_id = ?", [courseId]);

@@ -206,6 +206,11 @@ router.patch('/:id', upload.none(), async (req, res) => {
   const [attribute, value] = Object.entries(req.body)[0];
   const cartID = Number(req.params.id);
 
+  if (isNaN(cartID)) {
+    res.status(400).json({ status: "failure", message: `ID(${cartID}) 有問題` });
+    return;
+  }
+
   if (attribute !== 'quantity' && attribute !== 'deleted_at') {
     res.status(400).json({ status: "failure", message: "本路由只提供更新數量與軟刪除之服務" });
     return;
@@ -217,6 +222,48 @@ router.patch('/:id', upload.none(), async (req, res) => {
   //====== 服務二 ==== 軟刪除與還原購物車的項目
   if (attribute === 'deleted_at') softDelete(res, conn, cartID, value);
 
+});
+//======== DELETE 區：結帳完清空購物車 ==========//
+// 目前提供軟刪除及其回復，和更改商品數量
+// 其他則不予供應
+
+router.delete('/', upload.none(), async (req, res) => {
+  //驗證資料格式
+  if (['user_id', 'cart_ids'].some(keyword => {
+    if (Object.prototype.hasOwnProperty.call(req.body, keyword) === false) {
+      res.status(400).json({ status: "rejected", message: `格式錯誤，請求缺少了 ${keyword} 參數` });
+      return true;
+    }
+    return false;
+  })
+  ) return;
+
+  const uID = Number(req.body.user_id);
+  const cartIDs = req.body.cart_ids.map(Number);
+
+  if (isNaN(uID)) {
+    res.status(400).json({ status: "failure", message: `ID(${uID}) 有問題` });
+    return;
+  }
+
+  let counter = 0;
+
+  await Promise.all(
+    cartIDs.map(async id => {
+      await conn.execute('DELETE FROM cart WHERE `id` = ?', [id])
+        .then(([results]) => {
+          if (results.affectedRows < 1) throw new Error(`刪除購物車項目失敗`);
+
+          counter++;
+        }).catch(err => {
+          console.error(err.message);
+        });
+    })
+  );
+  res.status(200).json({
+    status: "success",
+    message: `成功從資料表 cart 刪除 ${counter} 筆項目`
+  });
 });
 
 //======== handle 404

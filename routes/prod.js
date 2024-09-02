@@ -163,7 +163,7 @@ router.get("/recommended", async (req, res) => {
           prod_price_stock.prod_id = product.id
         ) AS price,
         (SELECT 
-          name
+          pic_name
         FROM 
           prod_picture
         WHERE 

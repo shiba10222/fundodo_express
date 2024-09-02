@@ -44,6 +44,7 @@ router.get("/articles", async (req, res) => {
   const sort = req.query.sort;
   const search = req.query.search;
   const tag = req.query.tag;
+  const orderBy = req.query.orderBy;
 
   let query = `
     SELECT a.*, u.nickname as author_nickname,
@@ -58,10 +59,15 @@ router.get("/articles", async (req, res) => {
   `
   let params = [];
 
+  // if (sort) {
+  //   query += " AND sort = ?";
+  //   params.push(sort);
+  // }
   if (sort) {
-    query += " AND sort = ?";
+    query += " AND a.sort = ?";
     params.push(sort);
   }
+
 
   if (search) {
     query += " AND LOWER(title) LIKE LOWER(?)";
@@ -81,8 +87,16 @@ router.get("/articles", async (req, res) => {
     `;
     params.push(`%${tag}%`);
   }
-
-  query += " ORDER BY `create_at` DESC";
+  
+  switch (orderBy) {
+    case '2':
+      query += " ORDER BY reply_count DESC, create_at DESC";
+      break;
+    case '1':
+    default:
+      query += " ORDER BY create_at DESC";
+  }
+  // query += " ORDER BY `create_at` DESC";
 
   try {
     const [articles] = await connect.execute(query, params);

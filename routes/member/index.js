@@ -285,7 +285,7 @@ router.post('/login', upload.none(), async (req, res) => {
 
     // 登入成功，創建 JWT token
     const token = jwt.sign(
-      { userId: user.id, email: user.email, uuid: user.uuid, nickname: user.nickname, user_level : user.user_level,avatar_file: user.avatar_file },
+      { userId: user.id, email: user.email, uuid: user.uuid, nickname: user.nickname, user_level: user.user_level, avatar_file: user.avatar_file },
       process.env.JWT_SECRET,
       { expiresIn: '1h' }
     );
@@ -301,7 +301,7 @@ router.post('/login', upload.none(), async (req, res) => {
         name: user.name,
         nickname: user.nickname,
         gender: user.gender,
-        user_level : user.user_level,
+        user_level: user.user_level,
         dob: user.dob,
         tel: user.tel,
         email: user.email,
@@ -378,12 +378,12 @@ router.post('/register', upload.none(), async (req, res, next) => {
 
 router.post('/addDog/:id', upload.none(), async (req, res, next) => {
   console.log('Received request body:', req.body); // 記錄接收到的請求體
-  
+
 
   const { name, vaccinations, neutering, introduce, behavior } = req.body;
   const id = req.params.id;
 
-  
+
   if (!name) {
     return res.status(400).json({ status: "error", message: "資料傳遞錯誤", receivedData: req.body });
   }
@@ -510,7 +510,7 @@ router.put('/ForumMemberInfo/:uuid', upload.none(), async (req, res) => {
     // 重新生成 token
     const user = users[0];
     const token = jwt.sign(
-      { userId: user.id, email: user.email, uuid: user.uuid, nickname: user.nickname, user_level : user.user_level,avatar_file: user.avatar_file, email_verified: user.email_verified },
+      { userId: user.id, email: user.email, uuid: user.uuid, nickname: user.nickname, user_level: user.user_level, avatar_file: user.avatar_file, email_verified: user.email_verified },
       process.env.JWT_SECRET,
       { expiresIn: '1h' }
     );
@@ -560,7 +560,7 @@ router.post('/uploadAvatar/:uuid', uploadAvatar.single('avatar'), async (req, re
 });
 
 router.put('/dogInfo/:id', upload.none(), async (req, res) => {
-  const { name, gender, dob, weight, introduce, behavior, vaccinations, neutering } = req.body ;
+  const { name, gender, dob, weight, introduce, behavior, vaccinations, neutering } = req.body;
   const id = req.params.id;
 
   try {
@@ -636,6 +636,71 @@ router.post('/uploadAvatar_dog/:id', uploadAvatar2.single('avatar'), async (req,
   }
 });
 
+//------ 一般修改密碼需要舊密碼
+router.post('/UpdatePassword/:uuid', upload.none(), async (req, res, next) => {
+  console.log('Received request body:', req.body); // 記錄接收到的請求體
+
+  const { old_password, password } = req.body;
+  const uuid = req.params.uuid;
+
+  if (!old_password || !password) {
+    return res.status(400).json({ status: "error", message: "必填欄位缺失", receivedData: req.body });
+  }
+
+  try {
+    // 檢查郵件是否已經註冊過
+    const [existingUser] = await conn.execute('SELECT * FROM users WHERE uuid = ?', [uuid]);
+    if (existingUser.length === 0) {
+      return res.status(404).json({ status: "error", message: "用戶不存在" });
+    }
+
+    const user = existingUser[0];
+
+    const isMatch = await bcrypt.compare(old_password, user.password_hash);
+    if (!isMatch) {
+      return res.status(400).json({ status: "error", message: "舊密碼不正確" });
+    }
+
+    // 密碼加密
+    const saltRounds = 10;
+    const password_hash = await bcrypt.hash(password, saltRounds);
+
+
+    const sql = 'UPDATE users SET password_hash = ? WHERE uuid = ?';
+    const values = [password_hash, uuid];
+
+    console.log('Executing SQL:', sql);
+    console.log('With values:', values);
+
+    const [result] = await conn.execute(sql, values);
+
+
+
+    console.log('Update result:', result);
+
+    if (result.affectedRows > 0) {
+      // 成功更新
+      res.status(200).json({
+        status: "success",
+        message: "修改成功",
+      });
+    } else {
+        res.status(500).json({
+        status: "error",
+        message: "修改失敗：未能更新數據"
+      });
+    }
+  } catch (error) {
+    console.error('資料庫操作錯誤:', error);
+    res.status(500).json({
+      status: "error",
+      message: '修改失敗，請聯絡系統管理員',
+      error: error.message
+    });
+  }
+});
+
+//----------   otp 使用修改密碼
 router.post('/ChangePassword/:uuid', upload.none(), async (req, res, next) => {
   console.log('Received request body:', req.body); // 記錄接收到的請求體
 

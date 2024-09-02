@@ -305,23 +305,55 @@ router.put("/editArticle/:id", async (req, res) => {
     );
 
     // 步驟 3：更新應該保留的圖片關聯
-    const updateQuery = `
-      UPDATE article_img 
-      SET article_id = ?
-      WHERE SUBSTRING_INDEX(SUBSTRING_INDEX(img_path, '-', -2), '-', 1) IN (?)
-      AND (article_id = 0 OR article_id IS NULL)
-    `;
+    // if (imageIds && imageIds.length > 0) {
+    //   const updateQuery = `
+    //     UPDATE article_img 
+    //     SET article_id = ?
+    //     WHERE SUBSTRING_INDEX(SUBSTRING_INDEX(img_path, '-', -2), '-', 1) IN (?)
+    //     AND (article_id = 0 OR article_id IS NULL)
+    //   `;
 
-    await connect.query(updateQuery, [articleId, imageIds]);
+    //   await connect.query(updateQuery, [articleId, imageIds]);
+    // }
+    let updatedImageCount = 0;
+    let deletedImageCount = 0;
+    if (imageIds && imageIds.length > 0) {
+      // 更新保留的圖片
+      const updateQuery = `
+        UPDATE article_img 
+        SET article_id = ?
+        WHERE SUBSTRING_INDEX(SUBSTRING_INDEX(img_path, '-', -2), '-', 1) IN (?)
+        AND (article_id = 0 OR article_id IS NULL)
+      `;
+      const [updateResult] = await connect.query(updateQuery, [articleId, imageIds]);
+      updatedImageCount = updateResult.affectedRows;
+
+      // 刪除不再使用的圖片
+      const deleteQuery = `
+        DELETE FROM article_img 
+        WHERE article_id = 0
+        AND SUBSTRING_INDEX(SUBSTRING_INDEX(img_path, '-', -2), '-', 1) NOT IN (?)
+      `;
+      const [deleteResult] = await connect.query(deleteQuery, [imageIds]);
+      deletedImageCount = deleteResult.affectedRows;
+    } else {
+      // 如果沒有圖片，刪除所有未關聯的圖片
+      const deleteQuery = `
+        DELETE FROM article_img 
+        WHERE article_id = 0
+      `;
+      const [deleteResult] = await connect.execute(deleteQuery);
+      deletedImageCount = deleteResult.affectedRows;
+    }
 
     // 步驟 4：刪除不再使用的圖片
-    const deleteQuery = `
-      DELETE FROM article_img 
-      WHERE article_id = 0
-      AND SUBSTRING_INDEX(SUBSTRING_INDEX(img_path, '-', -2), '-', 1) NOT IN (?)
-    `;
+    // const deleteQuery = `
+    //   DELETE FROM article_img 
+    //   WHERE article_id = 0
+    //   AND SUBSTRING_INDEX(SUBSTRING_INDEX(img_path, '-', -2), '-', 1) NOT IN (?)
+    // `;
 
-    const [deleteResult] = await connect.query(deleteQuery, [imageIds]);
+    // const [deleteResult] = await connect.query(deleteQuery, [imageIds]);
 
     // 處理標籤
     // 首先，刪除文章的所有現有標籤
@@ -346,8 +378,10 @@ router.put("/editArticle/:id", async (req, res) => {
       status: "success",
       message: "文章更新成功，包括圖片更新",
       articleId: articleId,
-      updatedImageCount: result.affectedRows,
-      deletedImageCount: deleteResult.affectedRows
+      // updatedImageCount: result.affectedRows,
+      // deletedImageCount: deleteResult.affectedRows
+      updatedImageCount: updatedImageCount,
+      deletedImageCount: deletedImageCount
     });
   } catch (err) {
     console.error('更新文章時發生錯誤:', err);

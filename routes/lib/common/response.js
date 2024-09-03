@@ -13,6 +13,7 @@ const res200Json = (res, message, result = undefined) => {
   console.info('┌─→ ' + message);
 }
 
+/** 拒絕請求 */
 const res400Json = (res, message, result = undefined) => {
   if (result === undefined)
     res.status(400).json({

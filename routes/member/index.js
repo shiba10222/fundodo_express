@@ -319,6 +319,79 @@ router.post('/login', upload.none(), async (req, res) => {
 
 });
 
+router.post('/login_BackEnd', upload.none(), async (req, res) => {
+  const { email, password } = req.body;
+  const loginUser = req.body
+
+  console.log('Email:', email);
+  console.log('Password:', password);
+  // 檢查從前端來的資料哪些為必要
+  // if (!loginUser.email || !loginUser.password) {
+  //   return res.json({ status: 'fail', data: null })
+  // }
+
+  try {
+
+    // 查詢資料庫中的用戶
+    const [users] = await conn.execute('SELECT * FROM users WHERE email = ?', [email]);
+    console.log('Users:', users);
+
+    if (users.length === 0) {
+      // 用戶不存在
+      return res.status(401).json({ status: 'fail', message: '電子郵件或密碼錯誤' });
+    }
+
+    const user = users[0];
+
+    // 驗證密碼
+    const isPasswordValid = await bcrypt.compare(password, user.password_hash);
+
+    if (!isPasswordValid) {
+      // 密碼錯誤
+      return res.status(401).json({ status: 'fail', message: '電子郵件或密碼錯誤' });
+    }
+
+    if (user.user_level !== 20) {
+      // 權限不足
+      return res.status(403).json({ status: 'fail', message: '權限不足' });
+    }
+    
+    // 登入成功，創建 JWT token
+    const token = jwt.sign(
+      { userId: user.id, email: user.email, uuid: user.uuid, nickname: user.nickname, user_level: user.user_level, avatar_file: user.avatar_file },
+      process.env.JWT_SECRET,
+      { expiresIn: '1h' }
+    );
+
+    // 返回成功訊息和 token
+    res.status(200).json({
+      status: 'success',
+      message: '登入成功',
+      token: token,
+      user: {
+        id: user.id,
+        uuid: user.uuid,
+        name: user.name,
+        nickname: user.nickname,
+        gender: user.gender,
+        user_level: user.user_level,
+        dob: user.dob,
+        tel: user.tel,
+        email: user.email,
+        avatar_file: user.avatar_file,
+        address: user.address,
+      }
+    });
+
+  }
+
+  catch (error) {
+    console.error('Server Error:', error);
+    res.status(500).json({ status: 'fail', message: '服務器錯誤' });
+  }
+
+});
+
 //======== 新增 (會員完工)==========//
 router.post('/register', upload.none(), async (req, res, next) => {
   console.log('Received request body:', req.body); // 記錄接收到的請求體

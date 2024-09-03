@@ -3,6 +3,7 @@ import multer from 'multer';
 import conn from '../../db.js';
 import { getTimeStr_DB } from '../lib/common/time.js';
 import { res200Json, res400Json } from '../lib/common/response.js';
+import { v4 as uuid4 } from 'uuid';
 
 //================== 初始化
 const router = Router();
@@ -36,7 +37,7 @@ router.get('/:uid', async (req, res) => {
   //== 1 ==== 查詢 cart_PD
   const [rows] = await conn.query(
     `SELECT * FROM orders WHERE user_id = ?
-    ORDER BY orders.created_at DESC`,
+    ORDER BY orders.id DESC`,
     [uid]
   );
 
@@ -50,10 +51,10 @@ router.get('/:uid', async (req, res) => {
   }
 
   const orderList = rows.map(pkg => {
-    const {id, user_id, deleted_at, ...others} = pkg;
+    const { id, user_id, deleted_at, ...others } = pkg;
     return others;
   })
-  
+
   res.status(200).json({
     status: "success",
     message: "查詢成功",
@@ -74,11 +75,17 @@ router.post('/', upload.none(), async (req, res) => {
   })
   ) return;
 
+  //生成 uuid
+  const timeStr = getTimeStr_DB(new Date()).split(' ')[0].replaceAll('-', '');
+  const orderSeries = timeStr + uuid4().slice(-10);
+
   //handle the sql query
-  const colStr = colArr.join(', ') + ', created_at';
+  
   const valueArr = colArr.map(key => req.body[key]);
-  console.log(valueArr);
-  valueArr.push(getTimeStr_DB(new Date()));
+  colArr.push('created_at', 'uuid');
+  const colStr = colArr.join(', ');
+  valueArr.push(timeStr, orderSeries);
+  
   const markStr = Array(valueArr.length).fill('?').join(', ');
   const sql = `INSERT INTO orders (${colStr}) VALUES (${markStr})`;
 
@@ -87,14 +94,9 @@ router.post('/', upload.none(), async (req, res) => {
       if (results.affectedRows < 1) throw new Error(`寫入 orders 資料表失敗`);
 
       res200Json(res,
-        `成功匯入 ${results.affectedRows} 筆訂單`, 
-        {order_id: results.insertId}
+        `成功於 orders 資料表匯入 ${results.affectedRows} 筆訂單`,
+        { order_id: results.insertId }
       );
-      // res.status(200).json({
-      //   status: "success",
-      //   message: `成功匯入 ${results.affectedRows} 筆`,
-      //   order_id: results.insertId
-      // });
     }).catch(err => {
       console.error(err.message);
     })

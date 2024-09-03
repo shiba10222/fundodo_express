@@ -1,7 +1,8 @@
 import { Router } from 'express';
 import multer from 'multer';
 import conn from '../../db.js';
-import { getTimeStr_DB } from '../../data/test/lib-time.js';
+import { getTimeStr_DB } from '../lib/common/time.js';
+import { res200Json, res400Json } from '../lib/common/response.js';
 
 //================== 初始化
 const router = Router();
@@ -66,7 +67,7 @@ router.post('/', upload.none(), async (req, res) => {
   const colArr = ['user_id', 'amount', 'addressee', 'tel', 'email', 'pay_thru', 'ship_thru', 'ship_zipcode', 'ship_address', 'ship_ps'];
   if (colArr.some(keyword => {
     if (Object.prototype.hasOwnProperty.call(req.body, keyword) === false) {
-      res.status(400).json({ status: "failed", message: `格式錯誤，請求缺少 ${keyword} 參數` });
+      res400Json(res, `訂單格式錯誤，請求缺少 ${keyword} 參數`);
       return true;
     }
     return false;
@@ -85,11 +86,15 @@ router.post('/', upload.none(), async (req, res) => {
     .then(([results]) => {
       if (results.affectedRows < 1) throw new Error(`寫入 orders 資料表失敗`);
 
-      res.status(200).json({
-        status: "success",
-        message: `成功匯入 ${results.affectedRows} 筆`,
-        order_id: results.insertId
-      });
+      res200Json(res,
+        `成功匯入 ${results.affectedRows} 筆訂單`, 
+        {order_id: results.insertId}
+      );
+      // res.status(200).json({
+      //   status: "success",
+      //   message: `成功匯入 ${results.affectedRows} 筆`,
+      //   order_id: results.insertId
+      // });
     }).catch(err => {
       console.error(err.message);
     })

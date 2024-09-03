@@ -45,19 +45,31 @@ router.get('/:uid', async (req, res, next) => {
       }
     );
 
-  /** 精簡優惠券物件內的資料 */
-  const coupons = rows.map(row => {
-    const { id, cp_id, code } = row;
+    //todo----------------------------------------------------------------
+    /** 重新打包優惠券物件內的資料，
+     * 即使是不能用的優惠券，也需要附上
+     */
+  const coupons = await Promise.all(
+    rows.map(async coupon => {
+      const { id, cp_id, code } = coupon;
 
-    return {
-      id,
-      cp_id,
-      code,
-      created_at: row.created_at ? getTimeStr(row.created_at) : null,
-      applied_at: row.applied_at ? getTimeStr(row.applied_at) : null,
-      expired_at: row.expired_at ? getTimeStr(row.expired_at) : null,
-    };
-  });
+      const [rows_info] = await conn.execute(
+        'SELECT name, `desc`, scope_from, scope_to, discount, min_spent, max_discount FROM coupon WHERE id = ?',
+        [coupon.cp_id]
+      );
+      //! desc 因為是保留的關鍵字，必須使用反引號的字串型態，一般引號會變輸出純字串
+      return {
+        id,
+        cp_id,
+        code,
+        created_at: coupon.created_at ? getTimeStr(coupon.created_at) : null, 
+        applied_at: coupon.applied_at ? getTimeStr(coupon.applied_at) : null,
+        expired_at: coupon.expired_at ? getTimeStr(coupon.expired_at) : null,
+        ...rows_info[0]
+      }
+    })
+  ).catch(err => console.error(err));
+  //todo END ------------------------------------------------------------
 
   let usableArr = coupons.filter(cp => !(cp.used_at || isOverDue(cp.expired_at)));
   const usedArr = coupons.filter(cp => cp.used_at);
@@ -67,9 +79,7 @@ router.get('/:uid', async (req, res, next) => {
     usableArr = await Promise.all(
       usableArr.map(async cp => {
         const [rows_info] = await conn.execute(
-          `SELECT name, 'desc', desc_ps, scope_from,
-          scope_to, discount, min_spent, max_discount
-          FROM coupon WHERE id = ?`,
+          'SELECT name, `desc`, desc_ps, scope_from, scope_to, discount, min_spent, max_discount FROM coupon WHERE id = ?',
           [cp.cp_id]
         );
         //! desc 因為是保留的關鍵字，必須使用字串型態

@@ -45,10 +45,9 @@ router.get('/:uid', async (req, res, next) => {
       }
     );
 
-    //todo----------------------------------------------------------------
-    /** 重新打包優惠券物件內的資料，
-     * 即使是不能用的優惠券，也需要附上
-     */
+  /** 重新打包優惠券物件內的資料，
+   * 即使是不能用的優惠券，也需要附上
+   */
   const coupons = await Promise.all(
     rows.map(async coupon => {
       const { id, cp_id, code } = coupon;
@@ -62,33 +61,18 @@ router.get('/:uid', async (req, res, next) => {
         id,
         cp_id,
         code,
-        created_at: coupon.created_at ? getTimeStr(coupon.created_at) : null, 
+        created_at: coupon.created_at ? getTimeStr(coupon.created_at) : null,
         applied_at: coupon.applied_at ? getTimeStr(coupon.applied_at) : null,
         expired_at: coupon.expired_at ? getTimeStr(coupon.expired_at) : null,
         ...rows_info[0]
       }
     })
   ).catch(err => console.error(err));
-  //todo END ------------------------------------------------------------
 
   let usableArr = coupons.filter(cp => !(cp.used_at || isOverDue(cp.expired_at)));
   const usedArr = coupons.filter(cp => cp.used_at);
   const overdueArr = coupons.filter(cp => isOverDue(cp.expired_at));
 
-  if (usableArr.length > 0) {
-    usableArr = await Promise.all(
-      usableArr.map(async cp => {
-        const [rows_info] = await conn.execute(
-          'SELECT name, `desc`, desc_ps, scope_from, scope_to, discount, min_spent, max_discount FROM coupon WHERE id = ?',
-          [cp.cp_id]
-        );
-        //! desc 因為是保留的關鍵字，必須使用字串型態
-        return { ...cp, ...rows_info[0] }
-      })
-    ).catch(err => console.error(err));
-  } else {
-    usableArr = [];
-  }
 
   res200Json(res,
     `查詢完成，共有 ${coupons.length} 張優惠券，其中共 ${usableArr.length} 張可用`,
@@ -198,6 +182,64 @@ router.post('/checkout', upload.none(), async (req, res, next) => {
   );
 });
 
+//================== 新增：會員領取的發放
+router.post('/claim', upload.none(), async (req, res, next) => {
+  const colArr = ['user_id', 'cp_code'];
+
+  //=================== 格式驗證
+  colArr.forEach(key => {
+    if (Object.prototype.hasOwnProperty.call(req.body, key) === false)
+      return res400Json(res, `資料不完整，資料必須包含 ${key}`);
+  })
+
+  const { user_id, cp_code } = req.body;
+
+
+  //=================== 查詢領取碼對應的優惠券
+
+  const [rows] = await conn.execute(
+    "SELECT id, time_span, end_date FROM coupon WHERE get_code = ?",
+    [cp_code]
+  );
+
+  if (rows.length === 0)
+    return res200Json(res, `查無此張優惠券`, null);
+
+  const coupon = rows[0];
+
+  //=================== 查詢使用者是否領取過該優惠券
+  const [rows_history] = await conn.execute(
+    "SELECT id FROM coupon_user WHERE user_id = ? AND cp_id = ?",
+    [user_id, coupon.id]
+  );
+
+  if (rows_history.length > 0)
+    return res400Json(res, `已領取過該優惠券`, null);
+
+  //=================== 發放優惠券
+  const now = new Date().getTime();
+  const t_create = getTimeStr_DB(now);
+  const t_expired = (coupon.time_span > 0)
+    ? getTimeStr_DB(nDaysAfter(now, coupon.time_span))
+    : getTimeStr_DB(coupon.end_date);
+
+  await conn.execute(
+    `INSERT coupon_user (code, user_id, cp_id, created_at, expired_at) VALUE (?, ?, ?, ?, ?)`,
+    [geneCode(), user_id, coupon.id, t_create, t_expired]
+  ).then(() => {
+
+    res200Json(res, `優惠券領取成功，恭喜您獲得 1 張優惠券`, 1);
+
+  }).catch(err => {
+    res.status(500).json({
+      status: "error",
+      message: "新增優惠券時出現了意外的錯誤而提早中止",
+      error: err
+    });
+    next(err);// let express handle the error
+  });
+});
+
 //======== handle 404
 router.post('*', (_, res) =>
   res.status(404).json({
@@ -212,13 +254,17 @@ router.patch('/', upload.none(), async (req, res) => {
   //驗證資料格式
   if (['user_id', 'ucids'].some(keyword => {
     const isOK = Object.prototype.hasOwnProperty.call(req.body, keyword);
-    isOK || res400Json(res, `格式錯誤，請求缺少了 ${keyword} 參數`);
-    return isOK;
+
+    if(isOK) return false;
+    
+    res400Json(res, `格式錯誤，請求缺少了 ${keyword} 參數`);
+    return true;
   })) return;
 
   //提取資料
   const uID = Number(req.body.user_id);
   const couponIDs = req.body.ucids.map(Number);
+
 
   //加碼驗證資料格式
   if (isNaN(uID)) {

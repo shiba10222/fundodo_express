@@ -481,4 +481,101 @@ router.get("/replys/:aid", async (req, res) => {
   }
 });
 
+router.get("/replyContent/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    const [content] = await connect.execute(
+      `SELECT r.*, u.nickname as author_nickname
+       FROM reply r
+       LEFT JOIN users u ON r.userid = u.id
+       WHERE r.id = ? AND r.reply_delete = 0`,
+      [id]
+    );
+
+    if (content.length === 0) {
+      return res.status(404).json({
+        status: "error",
+        message: "回覆不存在",
+      });
+    }
+
+    res.status(200).json({
+      status: "success",
+      message: "回覆內容",
+      content: content[0],
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({
+      status: "error",
+      message: "獲取回覆內容失敗",
+    });
+  }
+});
+
+// 編輯回覆
+router.put("/editReply/:id", async (req, res) => {
+  const { content } = req.body;
+  const replyId = req.params.id;
+
+  try {
+    const [result] = await connect.execute(
+      "UPDATE `reply` SET content = ? WHERE id = ?",
+      [content, replyId]
+    );
+
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ status: "error", message: "回覆不存在" });
+    }
+
+    // 獲取文章ID，以便前端重定向
+    const [replyInfo] = await connect.execute(
+      "SELECT article_id FROM `reply` WHERE id = ?",
+      [replyId]
+    );
+
+    res.status(200).json({
+      status: "success",
+      message: "回覆更新成功",
+      replyId: replyId,
+      articleId: replyInfo[0].article_id
+    });
+  } catch (err) {
+    console.error('更新回覆時發生錯誤:', err);
+    res.status(500).json({ status: "error", message: "更新回覆失敗", error: err.message });
+  }
+});
+
+// 刪除回覆
+router.delete("/deleteReply/:id", async (req, res) => {
+  const replyId = req.params.id;
+
+  try {
+    // 先獲取文章ID，以便返回給前端
+    const [replyInfo] = await connect.execute(
+      "SELECT article_id FROM `reply` WHERE id = ?",
+      [replyId]
+    );
+
+    const [result] = await connect.execute(
+      "UPDATE `reply` SET reply_delete = 1 WHERE id = ?",
+      [replyId]
+    );
+
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ status: "error", message: "回覆不存在" });
+    }
+
+    res.status(200).json({
+      status: "success",
+      message: "回覆已成功標記為刪除",
+      replyId: replyId,
+      articleId: replyInfo[0].article_id
+    });
+  } catch (err) {
+    console.error('刪除回覆時發生錯誤:', err);
+    res.status(500).json({ status: "error", message: "刪除回覆失敗", error: err.message });
+  }
+});
+
 export default router;

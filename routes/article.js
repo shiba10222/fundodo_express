@@ -466,7 +466,7 @@ router.get("/replys/:aid", async (req, res) => {
       `SELECT r.*, u.nickname as author_nickname
        FROM reply r
        LEFT JOIN users u ON r.userid = u.id
-       WHERE r.article_id = ?
+       WHERE r.article_id = ? AND r.reply_delete = 0
        `,
       [articleId]
     );
@@ -478,6 +478,214 @@ router.get("/replys/:aid", async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).json({ status: "error", message: "獲取回覆失敗" });
+  }
+});
+
+router.get("/replyContent/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    const [content] = await connect.execute(
+      `SELECT r.*, u.nickname as author_nickname
+       FROM reply r
+       LEFT JOIN users u ON r.userid = u.id
+       WHERE r.id = ? AND r.reply_delete = 0`,
+      [id]
+    );
+
+    if (content.length === 0) {
+      return res.status(404).json({
+        status: "error",
+        message: "回覆不存在",
+      });
+    }
+
+    res.status(200).json({
+      status: "success",
+      message: "回覆內容",
+      content: content[0],
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({
+      status: "error",
+      message: "獲取回覆內容失敗",
+    });
+  }
+});
+
+// 編輯回覆
+router.put("/editReply/:id", async (req, res) => {
+  const { content } = req.body;
+  const replyId = req.params.id;
+
+  try {
+    const [result] = await connect.execute(
+      "UPDATE `reply` SET content = ? WHERE id = ?",
+      [content, replyId]
+    );
+
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ status: "error", message: "回覆不存在" });
+    }
+
+    // 獲取文章ID，以便前端重定向
+    const [replyInfo] = await connect.execute(
+      "SELECT article_id FROM `reply` WHERE id = ?",
+      [replyId]
+    );
+
+    res.status(200).json({
+      status: "success",
+      message: "回覆更新成功",
+      replyId: replyId,
+      articleId: replyInfo[0].article_id
+    });
+  } catch (err) {
+    console.error('更新回覆時發生錯誤:', err);
+    res.status(500).json({ status: "error", message: "更新回覆失敗", error: err.message });
+  }
+});
+
+// 刪除回覆
+router.delete("/deleteReply/:id", async (req, res) => {
+  const replyId = req.params.id;
+
+  try {
+    // 先獲取文章ID，以便返回給前端
+    const [replyInfo] = await connect.execute(
+      "SELECT article_id FROM `reply` WHERE id = ?",
+      [replyId]
+    );
+
+    const [result] = await connect.execute(
+      "UPDATE `reply` SET reply_delete = 1 WHERE id = ?",
+      [replyId]
+    );
+
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ status: "error", message: "回覆不存在" });
+    }
+
+    res.status(200).json({
+      status: "success",
+      message: "回覆已成功標記為刪除",
+      replyId: replyId,
+      articleId: replyInfo[0].article_id
+    });
+  } catch (err) {
+    console.error('刪除回覆時發生錯誤:', err);
+    res.status(500).json({ status: "error", message: "刪除回覆失敗", error: err.message });
+  }
+});
+
+router.get("/userRating/:articleId/:userId", async (req, res) => {
+  const { articleId, userId } = req.params;
+
+  try {
+    const [rating] = await connect.execute(
+      "SELECT is_like FROM article_ratings WHERE article_id = ? AND user_id = ?",
+      [articleId, userId]
+    );
+
+    if (rating.length > 0) {
+      res.json({
+        status: "success",
+        rating: rating[0].is_like ? 'like' : 'dislike'
+      });
+    } else {
+      res.json({
+        status: "success",
+        rating: null
+      });
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({
+      status: "error",
+      message: "獲取評分狀態失敗"
+    });
+  }
+});
+
+// 處理用戶評分
+router.post("/rate/:articleId", async (req, res) => {
+  const { articleId } = req.params;
+  const { userId, isLike } = req.body;
+
+  if (!userId) {
+    return res.status(400).json({
+      status: "error",
+      message: "需要用戶ID"
+    });
+  }
+
+  try {
+    // 檢查用戶是否已經評分過
+    const [existingRating] = await connect.execute(
+      "SELECT id, is_like FROM article_ratings WHERE article_id = ? AND user_id = ?",
+      [articleId, userId]
+    );
+
+    if (existingRating.length > 0) {
+      // 用戶已經評分過，更新評分
+      if (existingRating[0].is_like !== isLike) {
+        await connect.execute(
+          "UPDATE article_ratings SET is_like = ? WHERE id = ?",
+          [isLike, existingRating[0].id]
+        );
+
+        // 更新文章的評分計數
+        if (isLike) {
+          await connect.execute(
+            "UPDATE article SET likes = likes + 1, dislikes = dislikes - 1 WHERE id = ?",
+            [articleId]
+          );
+        } else {
+          await connect.execute(
+            "UPDATE article SET likes = likes - 1, dislikes = dislikes + 1 WHERE id = ?",
+            [articleId]
+          );
+        }
+      }
+    } else {
+      // 新的評分
+      await connect.execute(
+        "INSERT INTO article_ratings (article_id, user_id, is_like) VALUES (?, ?, ?)",
+        [articleId, userId, isLike]
+      );
+
+      // 更新文章的評分計數
+      if (isLike) {
+        await connect.execute(
+          "UPDATE article SET likes = likes + 1 WHERE id = ?",
+          [articleId]
+        );
+      } else {
+        await connect.execute(
+          "UPDATE article SET dislikes = dislikes + 1 WHERE id = ?",
+          [articleId]
+        );
+      }
+    }
+
+    // 獲取更新後的點讚和倒讚數
+    const [updatedCounts] = await connect.execute(
+      "SELECT likes, dislikes FROM article WHERE id = ?",
+      [articleId]
+    );
+
+    res.json({
+      status: "success",
+      message: "評分成功",
+      likes: updatedCounts[0].likes,
+      dislikes: updatedCounts[0].dislikes
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({
+      status: "error",
+      message: "評分失敗"
+    });
   }
 });
 

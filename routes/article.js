@@ -87,7 +87,7 @@ router.get("/articles", async (req, res) => {
     `;
     params.push(`%${tag}%`);
   }
-  
+
   switch (orderBy) {
     case '2':
       query += " ORDER BY reply_count DESC, create_at DESC";
@@ -135,10 +135,33 @@ router.get("/sort", async (req, res) => {
     });
   }
 });
-
+const VIEW_TIMEOUT = 300000; // 5分鐘，可以根據需求調整
+const viewCache = new Map();
 router.get("/articleContent/:id", async (req, res) => {
+
   const id = req.params.id;
+  const clientIp = req.ip;
   try {
+    const cacheKey = `${id}-${clientIp}`;
+    const lastViewTime = viewCache.get(cacheKey);
+    const now = Date.now();
+
+    if (!lastViewTime || now - lastViewTime > VIEW_TIMEOUT) {
+      await connect.execute(
+        'UPDATE article SET view_count = view_count + 1 WHERE id = ?',
+        [id]
+      );
+      viewCache.set(cacheKey, now);
+
+      // 清理過期的緩存項
+      if (viewCache.size > 10000) { // 設置一個合理的上限
+        for (const [key, time] of viewCache.entries()) {
+          if (now - time > VIEW_TIMEOUT) {
+            viewCache.delete(key);
+          }
+        }
+      }
+    }
     const [content] = await connect.execute(
       `
        SELECT a.*, u.nickname as author_nickname, 
@@ -228,12 +251,12 @@ router.get("/images/:id", async (req, res) => {
 });
 
 router.post("/createArticle", async (req, res) => {
-  const { title, content, sort,userId,tags } = req.body;
+  const { title, content, sort, userId, tags } = req.body;
 
   try {
     const [result] = await connect.execute(
       "INSERT INTO `article` (title, content, sort, userid, create_at) VALUES (?, ?, ?, ?, NOW())",
-      [title, content, sort,userId]
+      [title, content, sort, userId]
     );
 
     const articleId = result.insertId;
@@ -282,7 +305,7 @@ router.post("/createArticle", async (req, res) => {
 
 
 router.put("/editArticle/:id", async (req, res) => {
-  const { title, content, sort, imageIds,tags } = req.body;
+  const { title, content, sort, imageIds, tags } = req.body;
   const articleId = req.params.id;
 
   console.log('收到請求:', { articleId, title, sort, imageIds });
@@ -416,7 +439,7 @@ router.delete("/deleteArticle/:id", async (req, res) => {
 });
 
 router.post("/createReply/:aid", async (req, res) => {
-  const { content,userid } = req.body;
+  const { content, userid } = req.body;
   const articleId = req.params.aid;
 
   try {

@@ -1,17 +1,15 @@
-import express from 'express'
-const router = express.Router()
+import {Router} from 'express'
+const router = Router();
 
-// 存取`.env`設定檔案使用
-import 'dotenv/config.js'
 
-const callback_url = process.env.SHIP_711_STORE_CALLBACK_URL
+const callback_URL = 'http://localhost:3000/buy/back-from-711';
 
 // 註: 本路由與資料庫無關，單純轉向使用
 
 // POST
-router.post('/711', function (req, res, next) {
+router.post('/', function (req, res, next) {
   //console.log(req.body)
-  res.redirect(callback_url + '?' + new URLSearchParams(req.body).toString())
+  res.redirect(callback_URL + '?' + new URLSearchParams(req.body).toString())
 })
 
 // 測試路由用

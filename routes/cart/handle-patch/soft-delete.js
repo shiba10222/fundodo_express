@@ -1,4 +1,4 @@
-import { getTimeStr_DB } from '../../../data/test/lib-time.js';
+import { getTimeStr_DB } from '../../lib/common/time.js';
 
 // 統一格式
 // {'deleted_at': 1} <- truly

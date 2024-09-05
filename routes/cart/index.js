@@ -4,7 +4,7 @@ import conn from "../../db.js";
 import readPD from './get-for-user/read-prod.js'
 import readCR from './get-for-user/read-crs.js';
 import readHT from './get-for-user/read-hotel.js';
-import { getTimeStr_DB } from '../../data/test/lib-time.js';
+import { getTimeStr_DB } from '../lib/common/time.js';
 import updateQuantity from './handle-patch/update-quantity.js';
 import softDelete from './handle-patch/soft-delete.js';
 

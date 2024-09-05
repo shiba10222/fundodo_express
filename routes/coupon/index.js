@@ -15,6 +15,11 @@ const router = Router();
 const upload = multer();
 
 //================== 待命函數
+/**
+ * 根據此函數執行的當下時間判斷給定的時間在
+ * @param {*} time Date object 可以接受的時間格式
+ * @returns true | 已經過期了 ; false | 還在期限內
+ */
 const isOverDue = time => {
   const now = new Date().getTime();
   const then = getTimeNum(time);
@@ -183,6 +188,9 @@ router.post('/checkout', upload.none(), async (req, res, next) => {
 });
 
 //================== 新增：會員領取的發放
+// 此路由只要查詢過程正常，回覆碼皆為 200
+// 因為無須回覆結果值，result 用來區分新增結果的成功
+// 1 | 有成功新增優惠券 ; 0 | 沒有獲得優惠券
 router.post('/claim', upload.none(), async (req, res, next) => {
   const colArr = ['user_id', 'cp_code'];
 
@@ -200,21 +208,39 @@ router.post('/claim', upload.none(), async (req, res, next) => {
   const [rows] = await conn.execute(
     "SELECT id, time_span, end_date FROM coupon WHERE get_code = ?",
     [cp_code]
-  );
+  ).catch(err => {
+    res.status(500).json({
+      status: "error",
+      message: "新增優惠券前的查詢環節出現了意外的錯誤而提早中止",
+      error: err
+    });
+    next(err);// let express handle the error
+  });
 
   if (rows.length === 0)
-    return res200Json(res, `查無此張優惠券`, null);
+    return res200Json(res, `查無此張優惠券`, false);
 
   const coupon = rows[0];
+
+  //=================== 查詢該優惠券是否有效
+  if (isOverDue(coupon.end_date))
+    return res200Json(res, `該優惠券活動檔期已結束，感謝支持`, false);
 
   //=================== 查詢使用者是否領取過該優惠券
   const [rows_history] = await conn.execute(
     "SELECT id FROM coupon_user WHERE user_id = ? AND cp_id = ?",
     [user_id, coupon.id]
-  );
+  ).catch(err => {
+    res.status(500).json({
+      status: "error",
+      message: "新增優惠券前的查詢環節出現了意外的錯誤而提早中止",
+      error: err
+    });
+    next(err);// let express handle the error
+  });
 
   if (rows_history.length > 0)
-    return res400Json(res, `已領取過該優惠券`, null);
+    return res200Json(res, `已領取過該優惠券`, false);
 
   //=================== 發放優惠券
   const now = new Date().getTime();
@@ -228,7 +254,7 @@ router.post('/claim', upload.none(), async (req, res, next) => {
     [geneCode(), user_id, coupon.id, t_create, t_expired]
   ).then(() => {
 
-    res200Json(res, `優惠券領取成功，恭喜您獲得 1 張優惠券`, 1);
+    res200Json(res, `優惠券領取成功，恭喜您獲得 1 張優惠券`, true);
 
   }).catch(err => {
     res.status(500).json({
@@ -255,8 +281,8 @@ router.patch('/', upload.none(), async (req, res) => {
   if (['user_id', 'ucids'].some(keyword => {
     const isOK = Object.prototype.hasOwnProperty.call(req.body, keyword);
 
-    if(isOK) return false;
-    
+    if (isOK) return false;
+
     res400Json(res, `格式錯誤，請求缺少了 ${keyword} 參數`);
     return true;
   })) return;

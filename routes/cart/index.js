@@ -7,9 +7,7 @@ import readHT from './get-for-user/read-hotel.js';
 import { getTimeStr_DB } from '../lib/common/time.js';
 import updateQuantity from './handle-patch/update-quantity.js';
 import softDelete from './handle-patch/soft-delete.js';
-
-// 參數
-const envMode = process.argv[2];//dev or dist
+import { res200Json, res400Json } from '../lib/common/response.js';
 
 // 模組物件
 const router = Router();
@@ -61,7 +59,7 @@ const insert = data => new Promise(async (resolve, reject) => {
 //==================================================
 
 router.get('/', (req, res) => {
-  res.status(400).send({ status: "Bad Request", message: '欲使用後台的購物車系統，請輸入正確的路由' });
+  res.status(400).json({ status: "Bad Request", message: '欲使用後台的購物車系統，請輸入正確的路由' });
 });
 
 //======== 讀取指定 ==========//
@@ -75,18 +73,14 @@ router.get('/:uid', async (req, res) => {
     [uid]
   );
 
-  if (rows_cart.length === 0) {
-    res.status(200).json({
-      status: "success",
-      message: "查詢成功",
-      result: {
+  if (rows_cart.length === 0)
+    return res200Json(res,
+      `成功查詢 ID ${uid} 之會員的購物車，其為空空如也`,
+      {
         PD: null,
         CR: null,
         HT: null,
-      }
-    });
-    return;
-  }
+      });
   //== 2 ==== 打包三種資料
   //! await 被 ts(80007) 說沒必要，但是經測試有非同步的效果與需要
   const pkgPD = rows_cart.filter(d => d.buy_sort === 'PD');
@@ -104,7 +98,7 @@ router.get('/:uid', async (req, res) => {
     CR: rows_CR,
     HT: rows_HT,
   };
-  res.status(200).json({ status: "success", message: "查詢成功", result });
+  return res200Json(res, `成功查詢 ID ${uid} 之會員的購物車`, result);
 });
 
 //======== POST 區：新增資料 ==========//
@@ -145,8 +139,8 @@ router.post('/', upload.none(), async (req, res) => {
     ['dog_id', 'amount', 'room_type', 'check_in_date', 'check_out_date'].forEach(property => {
       if (Object.prototype.hasOwnProperty.call(req.body, property) === false) {
         (property === 'dog_id')
-          ? res.status(400).json({ status: "failure", message: "格式錯誤，旅館類即使沒有綁定狗勾，也必須寫 dog_id: null" })
-          : res.status(400).json({ status: "failure", message: `格式錯誤，旅館類必須包含 ${property} 參數` });
+          ? res400Json(res, "格式錯誤，旅館類即使沒有綁定狗勾，也必須寫 dog_id: null")
+          : res400Json(res, `格式錯誤，旅館類必須包含 ${property} 參數`);
         isNotOK = true;
         return;
       }
@@ -167,7 +161,8 @@ router.post('/', upload.none(), async (req, res) => {
       deleted_at: null
     };
   } else if (buy_sort === 'CR') {
-    const amount = await getCoursePrice(buy_id);
+    const amount = await getCoursePrice(buy_id)
+      .catch(err => res400Json(res, err.message));
 
     valuePkg = {
       user_id,
@@ -184,8 +179,10 @@ router.post('/', upload.none(), async (req, res) => {
     };
   } else { /*//TODO  */ }
 
-  const result = await insert(valuePkg);
-  res.json({ status: "success", message: "新增成功", result });
+  const result = await insert(valuePkg)
+    .catch(err => res400Json(res, err.message));
+
+  res200Json(res, "成功加入購物車", result);
 });
 
 //======== PATCH 區：部份更新 ==========//
@@ -195,57 +192,54 @@ router.post('/', upload.none(), async (req, res) => {
 router.patch('/:id', upload.none(), async (req, res) => {
   const reqCount = Object.keys(req.body).length;
   if (reqCount === 0) {
-    res.status(400).json({ status: "failure", message: "沒有資料的請求算什麼請求" });
+    res400Json(res, "沒有資料的請求算什麼請求");
     return;
   }
   if (reqCount !== 1) {
-    res.status(400).json({ status: "failure", message: "要求太多，拒絕受理" });
+    res400Json(res, "要求太多，拒絕受理");
     return;
   }
 
+  //* attribute: quantity | 更新數量 ; deleted_at | 軟刪除與還原
   const [attribute, value] = Object.entries(req.body)[0];
   const cartID = Number(req.params.id);
 
   if (isNaN(cartID)) {
-    res.status(400).json({ status: "failure", message: `ID(${cartID}) 有問題` });
+    res400Json(res, `ID(${cartID}) 有問題`);
     return;
   }
 
   if (attribute !== 'quantity' && attribute !== 'deleted_at') {
-    res.status(400).json({ status: "failure", message: "本路由只提供更新數量與軟刪除之服務" });
+    res400Json(res, "本路由只提供更新數量與軟刪除之服務");
     return;
   }
 
   //====== 服務一 ==== 更新購物車中的商品數量
-  if (attribute === 'quantity') updateQuantity(res, conn, cartID, value);
+  if (attribute === 'quantity') updateQuantity(res, cartID, value);
 
   //====== 服務二 ==== 軟刪除與還原購物車的項目
-  if (attribute === 'deleted_at') softDelete(res, conn, cartID, value);
+  if (attribute === 'deleted_at') softDelete(res, cartID, value);
 
 });
 //======== DELETE 區：結帳完清空購物車 ==========//
-// 目前提供軟刪除及其回復，和更改商品數量
-// 其他則不予供應
 
 router.delete('/', upload.none(), async (req, res) => {
   //驗證資料格式
   if (['user_id', 'cart_ids'].some(keyword => {
     if (Object.prototype.hasOwnProperty.call(req.body, keyword) === false) {
-      res.status(400).json({ status: "rejected", message: `格式錯誤，請求缺少了 ${keyword} 參數` });
+      res400Json(res, `格式錯誤，請求缺少了 ${keyword} 參數`);
       return true;
     }
     return false;
-  })
-  ) return;
+  })) return;
 
   const uID = Number(req.body.user_id);
   const cartIDs = req.body.cart_ids.map(Number);
 
-  if (isNaN(uID)) {
-    res.status(400).json({ status: "failure", message: `ID(${uID}) 有問題` });
-    return;
-  }
+  if (isNaN(uID))
+    return res400Json(res, `ID(${uID}) 有問題`);
 
+  //刪除
   let counter = 0;
 
   await Promise.all(
@@ -256,14 +250,16 @@ router.delete('/', upload.none(), async (req, res) => {
 
           counter++;
         }).catch(err => {
-          console.error(err.message);
+          res.status(500).json({
+            status: "error",
+            message: "刪除購物車項目時出現了意外的錯誤",
+            error: err
+          });
+          next(err);// let express handle the error
         });
     })
   );
-  res.status(200).json({
-    status: "success",
-    message: `成功從資料表 cart 刪除 ${counter} 筆項目`
-  });
+  res200Json(res, `成功從資料表 cart 刪除 ${counter} 筆項目`);
 });
 
 //======== handle 404

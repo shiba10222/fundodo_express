@@ -1,4 +1,6 @@
-/** 請求已成功執行 */
+/** 請求已成功執行
+ * @description status 設定為 success
+ */
 const res200Json = (res, message, result = undefined) => {
   if (result === undefined)
     res.status(200).json({
@@ -14,7 +16,9 @@ const res200Json = (res, message, result = undefined) => {
   console.info('┌─→ ' + message);
 }
 
-/** 拒絕請求 */
+/** 拒絕請求
+ * @description status 設定為 rejected
+ */
 const res400Json = (res, message, result = undefined) => {
   if (result === undefined)
     res.status(400).json({

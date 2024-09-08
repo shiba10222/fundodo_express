@@ -13,53 +13,39 @@ import { res200Json, res400Json } from '../lib/common/response.js';
 const router = Router();
 const upload = multer();
 
-//=================== 函數
-const getCoursePrice = id => new Promise(async (resolve, reject) => {
-  const [rows] = await conn.query(
-    "SELECT original_price, sale_price FROM courses WHERE id = ?",
-    [id]
-  );
-  if (rows.length === 0) {
-    reject(new Error(`發生了未預期的結果：找不到 courses id: ${id} 的品項`));
-    return;
-  } else if (rows.length > 1) {
-    reject(new Error(`courses id: ${id} 非唯一`));
-    return;
-  }
-
-  const course = rows[0];
-  const price = course.price_sp || course.price || course.sale_price;
-  resolve(price);
-});
-
-const insert = data => new Promise(async (resolve, reject) => {
-  const colArr = [];
-  const valueArr = [];
-  for (const [key, value] of Object.entries(data)) {
-    colArr.push(key);
-    valueArr.push(value);
-  }
-
-  const colStr = '(' + colArr.join(', ') + ')';
-  const valueStr = '(' + Array(valueArr.length).fill('?').join(', ') + ')';
-  const sql = `INSERT INTO cart ${colStr} VALUES ${valueStr}`;
-
-  const [results] = await conn.query(sql, valueArr);
-
-  if (results.affectedRows < 1) {
-    reject(new Error(`寫入 cart 資料表失敗`));
-  }
-  console.log(`成功匯入 ${results.affectedRows} 筆，其 ID 為 ${results.insertId}`);
-  resolve(results);
-});
-
-
 //==================================================
 //================== 設置路由架構 ====================
 //==================================================
 
 router.get('/', (req, res) => {
   res.status(400).json({ status: "Bad Request", message: '欲使用後台的購物車系統，請輸入正確的路由' });
+});
+
+//======== 讀取課程是否已在購物車 ==========//
+router.get('/check-crs', upload.none(), async (req, res) => {
+  //驗證資料格式
+  if (['uid', 'cid'].some(keyword => {
+    if (Object.prototype.hasOwnProperty.call(req.query, keyword)) {
+      return false;
+    }
+    res400Json(res, `格式錯誤，請求缺少了 ${keyword} 參數`);
+    return true;
+  })) return;
+
+  const { uid, cid } = req.query;
+
+  //查詢是否存在
+  const [rows] = await conn.execute(
+    `SELECT id FROM cart WHERE user_id = ? AND buy_sort = 'CR' AND buy_id = ?`,
+    [uid, cid]
+  ).catch(err => {
+    res.status(500).json({ status: "failure", message: "查詢購物車中是否有指定課程時出了意外" });
+    next(err);
+  });
+
+  const doesExist = rows.length > 0 && rows[0].deleted_at;
+
+  res200Json(res, `查詢購物車中指定課程成功，${doesExist ? '有' : '不'}在購物車中`, doesExist);
 });
 
 //======== 讀取指定 ==========//
@@ -102,7 +88,7 @@ router.get('/:uid', async (req, res) => {
 });
 
 //======== POST 區：新增資料 ==========//
-router.post('/', upload.none(), async (req, res) => {
+router.post('/', upload.none(), async (req, res, next) => {
   if (Object.prototype.hasOwnProperty.call(req.body, 'user_id')
     && Object.prototype.hasOwnProperty.call(req.body, 'buy_sort')
     && Object.prototype.hasOwnProperty.call(req.body, 'buy_id') === false) {
@@ -111,6 +97,32 @@ router.post('/', upload.none(), async (req, res) => {
   }
   const { user_id, buy_sort, buy_id } = req.body;
 
+  //====== 檢驗是否已經存在購物車中
+  if (buy_sort !== 'HT') {
+    const [rows] = await conn.execute(
+      `SELECT id, deleted_at FROM cart WHERE user_id = ? AND buy_sort = ? AND buy_id = ?`,
+      [user_id, buy_sort, buy_id]
+    ).catch(err => {
+      res.status(500).json({ status: "failure", message: "新增購物車項目在查詢環節出了意外的差錯" });
+      next(err);
+    });
+
+    if (rows.length > 1) console.error('救命啊，購物車裡有重複的東西');
+    if (rows.length > 0) {
+      console.log(rows[0]);
+      if (rows[0].deleted_at === null) {
+        //有已存在的項目
+        console.log('在這嗎？');
+        return res200Json(res, "此商品已在購物車中", false);
+      } else {
+        console.log('還是這裡？');
+        //已有的項目是已被軟刪除的
+        await conn.execute(`DELETE FROM cart WHERE id = ?`, [rows[0].id]);
+      }
+    }
+  }
+
+  //====== 蒐集資料
   const timeObj = new Date().getTime();
   const time_now = getTimeStr_DB(timeObj);
   let valuePkg;
@@ -147,9 +159,11 @@ router.post('/', upload.none(), async (req, res) => {
     });
     if (isNotOK) return;
 
+    const dog_id = req.body.dog_id ? Number(req.body.dog_id) : null;
+
     valuePkg = {
       user_id,
-      dog_id: req.body.dog_id,
+      dog_id,
       buy_sort,
       buy_id,
       quantity: 1,
@@ -161,28 +175,47 @@ router.post('/', upload.none(), async (req, res) => {
       deleted_at: null
     };
   } else if (buy_sort === 'CR') {
-    const amount = await getCoursePrice(buy_id)
-      .catch(err => res400Json(res, err.message));
-
     valuePkg = {
       user_id,
       dog_id: null,
       buy_sort,
       buy_id,
       quantity: 1,
-      amount,
+      amount: null,
       room_type: null,
       check_in_date: null,
       check_out_date: null,
       created_at: time_now,
       deleted_at: null
     };
-  } else { /*//TODO  */ }
+  } else {
+    res400Json(res, "查無此種 buy_sort：", buy_sort);
+  }
 
-  const result = await insert(valuePkg)
-    .catch(err => res400Json(res, err.message));
+  //====== 打包資料
+  const colArr = [];
+  const valueArr = [];
+  for (const [key, value] of Object.entries(valuePkg)) {
+    colArr.push(key);
+    valueArr.push(value);
+  }
 
-  res200Json(res, "成功加入購物車", result);
+  const colStr = '(' + colArr.join(', ') + ')';
+  const valueStr = '(' + Array(valueArr.length).fill('?').join(', ') + ')';
+  const sql = `INSERT INTO cart ${colStr} VALUES ${valueStr}`;
+
+  //====== 新增進資料庫中
+  const [results] = await conn.execute(sql, valueArr)
+    .catch(err => {
+      res.status(500).json({ status: "failure", message: "新增購物車項目在寫入環節出了意外的差錯" });
+      next(err);
+    });
+
+  if (results.affectedRows < 1)
+    return res.status(500).json({ status: "failure", message: "新增購物車項目在寫入環節出了意外的差錯" });
+
+  res200Json(res,
+    `成功匯入 ${results.affectedRows} 筆，其 ID 為 ${results.insertId}`, true);
 });
 
 //======== PATCH 區：部份更新 ==========//
@@ -226,11 +259,11 @@ router.patch('/:id', upload.none(), async (req, res) => {
 router.delete('/', upload.none(), async (req, res) => {
   //驗證資料格式
   if (['user_id', 'cart_ids'].some(keyword => {
-    if (Object.prototype.hasOwnProperty.call(req.body, keyword) === false) {
-      res400Json(res, `格式錯誤，請求缺少了 ${keyword} 參數`);
-      return true;
+    if (Object.prototype.hasOwnProperty.call(req.body, keyword)) {
+      return false;
     }
-    return false;
+    res400Json(res, `格式錯誤，請求缺少了 ${keyword} 參數`);
+    return true;
   })) return;
 
   const uID = Number(req.body.user_id);

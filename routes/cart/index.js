@@ -36,14 +36,13 @@ router.get('/check-crs', upload.none(), async (req, res) => {
 
   //查詢是否存在
   const [rows] = await conn.execute(
-    `SELECT id FROM cart WHERE user_id = ? AND buy_sort = 'CR' AND buy_id = ?`,
+    `SELECT id, deleted_at FROM cart WHERE user_id = ? AND buy_sort = 'CR' AND buy_id = ?`,
     [uid, cid]
   ).catch(err => {
     res.status(500).json({ status: "failure", message: "查詢購物車中是否有指定課程時出了意外" });
     next(err);
   });
-
-  const doesExist = rows.length > 0 && rows[0].deleted_at;
+  const doesExist = rows.length > 0 && rows[0].deleted_at === null;
 
   res200Json(res, `查詢購物車中指定課程成功，${doesExist ? '有' : '不'}在購物車中`, doesExist);
 });
@@ -112,10 +111,8 @@ router.post('/', upload.none(), async (req, res, next) => {
       console.log(rows[0]);
       if (rows[0].deleted_at === null) {
         //有已存在的項目
-        console.log('在這嗎？');
         return res200Json(res, "此商品已在購物車中", false);
       } else {
-        console.log('還是這裡？');
         //已有的項目是已被軟刪除的
         await conn.execute(`DELETE FROM cart WHERE id = ?`, [rows[0].id]);
       }

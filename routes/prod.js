@@ -5,7 +5,7 @@ import multer from 'multer';
 import path from 'path';
 
 const router = Router();
-// 設置 multer 存儲
+
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'public/upload/reviews')
@@ -20,7 +20,7 @@ const upload = multer({ storage: storage });
 // 獲取產品列表的路由，支持多種篩選條件
 router.get("/", async (req, res) => {
   try {
-    const { category, subcategory, brand, minPrice, maxPrice, sortBy, tag, page = 1, limit = 12, search } = req.query;
+    const { category, subcategory, brand, minPrice, maxPrice, sortBy, tag, page = 1, limit = 12, search, age } = req.query;
     const offset = (parseInt(page) - 1) * parseInt(limit);
 
     let query = `
@@ -50,7 +50,14 @@ router.get("/", async (req, res) => {
           prod_tag
         WHERE 
           prod_tag.prod_id = product.id
-        ) AS tagArr
+        ) AS tagArr,
+         (SELECT 
+          GROUP_CONCAT(DISTINCT prod_age.age ORDER BY prod_age.id)
+        FROM 
+          prod_age
+        WHERE 
+          prod_age.prod_id = product.id
+        ) AS ageArr
       FROM
         product
       WHERE 1=1
@@ -90,6 +97,10 @@ router.get("/", async (req, res) => {
       query += ` AND EXISTS (SELECT 1 FROM prod_tag pt WHERE pt.prod_id = product.id AND pt.tag = ?)`;
       params.push(tag);
     }
+    if (age) {
+      query += ` AND EXISTS (SELECT 1 FROM prod_age WHERE prod_age.prod_id = product.id AND prod_age.age = ?)`;
+      params.push(age);
+    }
 
     // 添加分組
     query += ` GROUP BY product.id`;
@@ -113,9 +124,6 @@ router.get("/", async (req, res) => {
     query += ` LIMIT ? OFFSET ?`;
     params.push(parseInt(limit), offset);
 
-    console.log('Executing query:', query); // 添加日誌
-    console.log('Query params:', params); // 添加日誌
-
     // 執行 SQL 查詢
     const [rows] = await conn.execute(query, params);
 
@@ -128,7 +136,8 @@ router.get("/", async (req, res) => {
       subcategory: row.subcategory,
       priceArr: row.priceArr ? row.priceArr.split(',').map(Number) : [],
       picNameArr: row.picNameArr ? row.picNameArr.split(',') : [],
-      tagArr: row.tagArr ? row.tagArr.split(',') : []
+      tagArr: row.tagArr ? row.tagArr.split(',') : [],
+      ageArr: row.ageArr ? row.ageArr.split(',') : []
     }));
 
     // 計算總頁數

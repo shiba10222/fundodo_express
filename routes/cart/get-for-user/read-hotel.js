@@ -1,5 +1,5 @@
 import conn from "../../../db.js";
-import { getTimeNum } from '../../../data/test/lib-time.js';
+import { getTimeNum } from '../../lib/common/time.js';
 
 const bodytypeOf = {
   'S': "小型犬",

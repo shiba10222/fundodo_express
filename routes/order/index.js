@@ -55,13 +55,18 @@ router.get('/:uid', async (req, res) => {
     return others;
   })
 
-  res.status(200).json({
-    status: "success",
-    message: "查詢成功",
-    results: showAll ? orderList : orderList[0]
-  });
+  res200Json(res,
+    "訂單查詢成功",
+    showAll ? orderList : orderList[0]
+  )
+  // res.status(200).json({
+  //   status: "success",
+  //   message: "查詢成功",
+  //   results: showAll ? orderList : orderList[0]
+  // });
 });
 
+//======== 新增資料 ==========//
 //================== 輸入資料表 orders
 router.post('/', upload.none(), async (req, res) => {
   //驗證資料是否完整

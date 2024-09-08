@@ -1,8 +1,21 @@
 import { Router } from "express";
 import conn from '../db.js';
 import authenticateToken from './member/auth/authToken.js';
+import multer from 'multer';
+import path from 'path';
 
 const router = Router();
+// 設置 multer 存儲
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'public/upload/reviews')
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + path.extname(file.originalname))
+  }
+});
+
+const upload = multer({ storage: storage });
 
 // 獲取產品列表的路由，支持多種篩選條件
 router.get("/", async (req, res) => {
@@ -137,6 +150,23 @@ router.get("/", async (req, res) => {
   } catch (error) {
     console.error('資料庫查詢錯誤：', error);
     res.status(500).json({ status: "error", message: '資料庫查詢錯誤', error: error.message });
+  }
+});
+
+// 獲取待審核的評論（用於後台）
+router.get("/reviews/pending", async (req, res) => {
+  try {
+    const [rows] = await conn.execute(
+      `SELECT * FROM product_reviews`
+    );
+
+    res.json({
+      status: "success",
+      pendingReviews: rows
+    });
+  } catch (error) {
+    console.error('獲取待審核評論失敗:', error);
+    res.status(500).json({ status: "error", message: '獲取待審核評論失敗', error: error.message });
   }
 });
 
@@ -438,7 +468,6 @@ router.get('/check/:productId', authenticateToken, async (req, res) => {
 });
 
 
-
 // 添加收藏
 router.post('/', authenticateToken, async (req, res) => {
   const { productId, productData } = req.body;
@@ -479,6 +508,75 @@ router.delete('/', authenticateToken, async (req, res) => {
   }
 });
 
+// POST 路由用於創建新評論
+router.post('/reviews', upload.single('image'), async (req, res) => {
+  try {
+    const { rating, review_text, productId, userId, userName } = req.body;
+    let image_url = null;
+
+    if (req.file) {
+      // 如果上傳了圖片，設置 image_url
+      image_url = `/upload/reviews/${req.file.filename}`;
+    }
+
+    // 將評論數據插入數據庫
+    const [result] = await conn.execute(
+      'INSERT INTO product_reviews (product_id, user_id, username, rating, review_text, image_url, status) VALUES (?, ?, ?, ?, ?, ?, ?)',
+      [productId, userId, userName, rating, review_text, image_url, 'pending']
+    );
+
+    res.status(201).json({ success: true, message: '評論已提交，等待審核' });
+  } catch (error) {
+    console.error('提交評論時發生錯誤:', error);
+    res.status(500).json({ success: false, message: '提交評論失敗' });
+  }
+});
+
+// 更新評論狀態（用於後台）
+router.patch("/reviews/:reviewId/status", async (req, res) => {
+  try {
+    const { reviewId } = req.params;
+    const { status } = req.body;
+
+    if (!['pending', 'approved', 'rejected'].includes(status)) {
+      return res.status(400).json({ status: "error", message: "無效的狀態" });
+    }
+
+    await conn.execute(
+      `UPDATE product_reviews SET status = ? WHERE id = ?`,
+      [status, reviewId]
+    );
+
+    res.json({
+      status: "success",
+      message: "評論狀態已更新"
+    });
+  } catch (error) {
+    console.error('更新評論狀態失敗:', error);
+    res.status(500).json({ status: "error", message: '更新評論狀態失敗', error: error.message });
+  }
+});
+
+// 獲取產品評論
+router.get("/reviews/:productId", async (req, res) => {
+  try {
+    const { productId } = req.params;
+    const [rows] = await conn.execute(
+      `SELECT * FROM product_reviews 
+       WHERE product_id = ? AND status = 'approved'
+       ORDER BY created_at DESC`,
+      [productId]
+    );
+
+    res.json({
+      status: "success",
+      reviews: rows,
+    });
+  } catch (error) {
+    console.error('獲取評論失敗:', error);
+    res.status(500).json({ status: "error", message: '獲取評論失敗', error: error.message });
+  }
+});
 
 // 導出路由器
 export default router;

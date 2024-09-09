@@ -47,7 +47,7 @@ router.get("/articles", async (req, res) => {
   const orderBy = req.query.orderBy;
 
   let query = `
-    SELECT a.*, u.nickname as author_nickname,
+    SELECT a.*, u.nickname as author_nickname,u.avatar_file,
            s.sort as sort_name,
            GROUP_CONCAT(DISTINCT at.tag) as tags,
            (SELECT COUNT(*) FROM reply r WHERE r.article_id = a.id AND r.reply_delete = 0) as reply_count
@@ -107,7 +107,8 @@ router.get("/articles", async (req, res) => {
         ...article,
         tags: article.tags ? article.tags.split(',') : [],
         sort: article.sort_name,
-        reply_count: parseInt(article.reply_count, 10)
+        reply_count: parseInt(article.reply_count, 10),
+        avatar_file: article.avatar_file ? `http://localhost:3005/upload/${article.avatar_file}` : null
       }))
     });
   } catch (err) {
@@ -164,7 +165,7 @@ router.get("/articleContent/:id", async (req, res) => {
     }
     const [content] = await connect.execute(
       `
-       SELECT a.*, u.nickname as author_nickname, 
+       SELECT a.*, u.nickname as author_nickname, u.avatar_file,
              s.sort as sort_name,
              GROUP_CONCAT(at.tag) as tags
       FROM article a

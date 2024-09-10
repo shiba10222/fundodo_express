@@ -74,8 +74,8 @@ router.get('/:uid', async (req, res, next) => {
     })
   ).catch(err => console.error(err));
 
-  let usableArr = coupons.filter(cp => !(cp.used_at || isOverDue(cp.expired_at)));
-  const usedArr = coupons.filter(cp => cp.used_at);
+  let usableArr = coupons.filter(cp => !(cp.applied_at || isOverDue(cp.expired_at)));
+  const usedArr = coupons.filter(cp => cp.applied_at);
   const overdueArr = coupons.filter(cp => isOverDue(cp.expired_at));
 
 

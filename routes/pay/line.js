@@ -8,6 +8,10 @@ import { v4 as uuid4 } from 'uuid'
 const router = Router();
 const upload = multer();
 
+const idDev = true;
+/** LINEPAY API URL 的前半段 */
+const LINE_API_URL = `https://${idDev ? "sandbox" : ""}-api-pay.line.me/v3`;
+
 // 定義安全的私鑰字串
 const linePayClient = createLinePayClient({
   channelId: process.env.LINE_PAY_CHANNEL_ID,
@@ -15,13 +19,18 @@ const linePayClient = createLinePayClient({
   env: process.env.NODE_ENV,
 });
 
+// 從前台接收訂單內容
+// 訂單總金額、訂單商品細節
+// 參考 https://pay.line.me/jp/developers/apis/onlineApis?locale=zh_TW
+// 當中 Request API 的格式說明
+// 以打包出 requset body
 router.post('/', upload.none(), (req, res) => {
   //todo uid
 
   //產生 orderId與packageId
   const orderId = uuid4()
   const packageId = uuid4()
-  
+
   const order = {
     orderId: orderId,
     currency: 'TWD',
@@ -35,7 +44,7 @@ router.post('/', upload.none(), (req, res) => {
     ],
     options: { display: { locale: 'zh_TW' } },
   }
-  
+
   const dbOrder = {
     id: orderId,
     user_id: userId,
@@ -43,7 +52,7 @@ router.post('/', upload.none(), (req, res) => {
     status: 'pending', // 'pending' | 'paid' | 'cancel' | 'fail' | 'error'
     order_info: JSON.stringify(order), // 要傳送給line pay的訂單資訊
   }
-  
+
   //todo 儲存 dbOrder 到資料庫
 
   res200Json(res, 'OK', order);
@@ -61,8 +70,8 @@ router.get('/reserve', async (req, res) => {
 
   // 設定重新導向與失敗導向的網址
   const redirectUrls = {
-    confirmUrl: process.env.REACT_REDIRECT_CONFIRM_URL,
-    cancelUrl: process.env.REACT_REDIRECT_CANCEL_URL,
+    confirmUrl: process.env.LINEPAY_RETURN_CONFIRM_URL,
+    cancelUrl: process.env.LINEPAY_RETURN_CANCEL_URL,
   }
 
   // 從資料庫取得訂單資料

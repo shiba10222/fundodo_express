@@ -31,7 +31,14 @@ app.use('/images', express.static(path.join(__dirname, 'public/upload/crs_images
 
 
 //=== CORS ===
-const whitelist = ["http://127.0.0.1", "http://localhost:5500", "http://localhost:3000", "https://emap.pcsc.com.tw", "https://emap.pcsc.com.tw/ecmap/default.aspx", undefined];
+const whitelist = [
+  "http://127.0.0.1",
+  "http://localhost:5500",
+  "http://localhost:3000",
+  "https://147.92.159.21",
+  "https://147.92.159.68",
+  "https://emap.pcsc.com.tw/ecmap/default.aspx",
+  undefined];
 const corsOptions = {
   credentials: true,
   origin(origin, callback) {

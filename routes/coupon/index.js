@@ -190,7 +190,7 @@ router.post('/checkout', upload.none(), async (req, res, next) => {
 //================== 新增：會員領取的發放
 // 此路由只要查詢過程正常，回覆碼皆為 200
 // 因為無須回覆結果值，result 用來區分新增結果的成功
-// 1 | 有成功新增優惠券 ; 0 | 沒有獲得優惠券
+// true | 有成功新增優惠券 ; false | 沒有獲得優惠券
 router.post('/claim', upload.none(), async (req, res, next) => {
   const colArr = ['user_id', 'cp_code'];
 

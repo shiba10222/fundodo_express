@@ -70,7 +70,7 @@ router.get('/:uid', async (req, res) => {
 //================== 輸入資料表 orders
 router.post('/', upload.none(), async (req, res) => {
   //驗證資料是否完整
-  const colArr = ['user_id', 'amount', 'addressee', 'tel', 'email', 'pay_thru', 'ship_thru', 'ship_zipcode', 'ship_address', 'ship_ps'];
+  const colArr = ['user_id', 'amount', 'addressee', 'tel', 'email', 'pay_thru', 'ship_thru', 'ship_zipcode', 'ship_shop', 'ship_address', 'ship_ps'];
   if (colArr.some(keyword => {
     if (Object.prototype.hasOwnProperty.call(req.body, keyword) === false) {
       res400Json(res, `訂單格式錯誤，請求缺少 ${keyword} 參數`);

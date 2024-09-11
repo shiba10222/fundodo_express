@@ -272,23 +272,37 @@ router.delete('/', upload.none(), async (req, res) => {
   //刪除
   let counter = 0;
 
-  await Promise.all(
-    cartIDs.map(async id => {
-      await conn.execute('DELETE FROM cart WHERE `id` = ?', [id])
-        .then(([results]) => {
-          if (results.affectedRows < 1) throw new Error(`刪除購物車項目失敗`);
+  await conn.execute('DELETE FROM cart WHERE `user_id` = ?', [uID])
+    .then(([results]) => {
+      if (results.affectedRows < 1) throw new Error(`刪除購物車項目失敗`);
 
-          counter++;
-        }).catch(err => {
-          res.status(500).json({
-            status: "error",
-            message: "刪除購物車項目時出現了意外的錯誤",
-            error: err
-          });
-          next(err);// let express handle the error
-        });
-    })
-  );
+      counter++;
+    }).catch(err => {
+      res.status(500).json({
+        status: "error",
+        message: "刪除購物車項目時出現了意外的錯誤",
+        error: err
+      });
+      next(err);// let express handle the error
+    });
+
+  // await Promise.all(
+  //   cartIDs.map(async id => {
+  //     await conn.execute('DELETE FROM cart WHERE `id` = ?', [id])
+  //       .then(([results]) => {
+  //         if (results.affectedRows < 1) throw new Error(`刪除購物車項目失敗`);
+
+  //         counter++;
+  //       }).catch(err => {
+  //         res.status(500).json({
+  //           status: "error",
+  //           message: "刪除購物車項目時出現了意外的錯誤",
+  //           error: err
+  //         });
+  //         next(err);// let express handle the error
+  //       });
+  //   })
+  // );
   res200Json(res, `成功從資料表 cart 刪除 ${counter} 筆項目`);
 });
 
